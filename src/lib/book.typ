@@ -188,9 +188,17 @@
     v(6pt, weak: true)
     line(length: 34%, stroke: 1.6pt + COLOR.primary)
   })
+  // أجزاءٌ نبدؤها أعلى صفحةٍ جديدة في الفهرس (تفاديًا لتيتّم عنوانها أسفل الصفحة).
+  // الترتيب: ٤ = الصدفة والأتمتة، ٨ = الأمن السيبراني.
+  let toc-newpage = (4, 8)
+  let pidx = counter("z2r-toc-part")
   // أسطر الأجزاء بارزة وقابلة للنقر (رابط إلى موضع العنوان).
   show outline.entry.where(level: 1): it => {
-    v(9pt, weak: true)
+    pidx.step()
+    context {
+      let i = pidx.get().first()
+      if toc-newpage.contains(i) { pagebreak(weak: true) } else { v(9pt, weak: true) }
+    }
     link(it.element.location(), text(
       font: FONT.displayAr, weight: 700, fill: COLOR.primaryDeep, size: 11pt,
     )[#it.element.body])
