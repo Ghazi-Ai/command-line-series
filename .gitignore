@@ -1,0 +1,17 @@
+# مخرجات البناء
+/build/
+
+# ملفّات النظام
+.DS_Store
+Thumbs.db
+
+# محرّرات
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# بايثون
+__pycache__/
+*.pyc
