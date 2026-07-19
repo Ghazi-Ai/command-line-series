@@ -26,9 +26,9 @@
     above: 1.1em, below: 1.1em,
     [
       #text(font: FONT.bodyAr, weight: 700, fill: fg, size: SIZE.small)[#label]
-      #v(3pt, weak: true)
+      #v(4pt, weak: true)
       #set text(size: SIZE.small, fill: COLOR.ink)
-      #set par(leading: 0.8em)
+      #set par(leading: 1.0em)
       #body
     ],
   )
@@ -56,8 +56,9 @@
       #text(font: FONT.bodyAr, weight: 700, fill: COLOR.primaryDeep, size: SIZE.small)[
         #STRINGS.at(l).at("define") · #term
       ]
-      #v(3pt, weak: true)
+      #v(4pt, weak: true)
       #set text(size: SIZE.small, fill: COLOR.ink)
+      #set par(leading: 1.0em)
       #body
     ],
   )
@@ -75,8 +76,9 @@
         text(font: FONT.displayAr, weight: 700, fill: white, size: SIZE.small)[
           #STRINGS.at(l).at("challenge")
         ])
-      #block(inset: (x: 12pt, y: 10pt), {
+      #block(inset: (x: 12pt, y: 11pt), {
         set text(size: SIZE.small, fill: COLOR.ink)
+        set par(leading: 1.0em)
         body
       })
     ],
@@ -94,9 +96,9 @@
       #text(font: FONT.bodyAr, weight: 700, fill: COLOR.primaryDeep, size: SIZE.small)[
         #STRINGS.at(l).at("objectives")
       ]
-      #v(5pt, weak: true)
+      #v(6pt, weak: true)
       #set text(size: SIZE.small, fill: COLOR.ink)
-      #set par(leading: 0.7em)
+      #set par(leading: 0.95em)
       #for it in items [
         #box(baseline: -0.5pt, text(fill: COLOR.accent, weight: 700)[◂]) #h(4pt) #it #linebreak()
       ]

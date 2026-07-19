@@ -10,13 +10,13 @@
     مِن الصِّفر\
     إلى الجَذر
   ]
-  v(20pt, weak: true)
+  v(28pt, weak: true)
   line(length: 28%, stroke: 1.5pt + COLOR.accent)
-  v(16pt, weak: true)
+  v(24pt, weak: true)
   text(font: FONT.bodyAr, size: 13.5pt, fill: COLOR.ink, weight: 600)[
     الدليل الشامل إلى سطر الأوامر ولِينُكس
   ]
-  v(6pt, weak: true)
+  v(13pt, weak: true)
   text(font: FONT.bodyAr, size: 10.5pt, fill: COLOR.muted)[
     من أوّل أمرٍ إلى احتراف النظام
   ]
@@ -24,7 +24,7 @@
   text(font: FONT.bodyAr, size: 12.5pt, fill: COLOR.ink, weight: 700)[
     المهندس غازي السيف
   ]
-  v(3pt, weak: true)
+  v(9pt, weak: true)
   text(font: FONT.bodyAr, size: 10pt, fill: COLOR.muted)[أبو هيثم]
   v(1.2fr)
   text(font: FONT.bodyAr, size: 9pt, fill: COLOR.muted)[

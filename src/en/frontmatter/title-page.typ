@@ -10,13 +10,13 @@
     From Zero\
     to Root
   ]
-  v(20pt, weak: true)
+  v(28pt, weak: true)
   line(length: 28%, stroke: 1.5pt + COLOR.accent)
-  v(16pt, weak: true)
+  v(24pt, weak: true)
   text(font: FONT.bodyLatin, size: 13.5pt, fill: COLOR.ink, weight: 600)[
     The Complete Guide to the Command Line & Linux
   ]
-  v(6pt, weak: true)
+  v(13pt, weak: true)
   text(font: FONT.bodyLatin, size: 10.5pt, fill: COLOR.muted)[
     From your first command to mastering the system
   ]
@@ -24,7 +24,7 @@
   text(font: FONT.bodyLatin, size: 12.5pt, fill: COLOR.ink, weight: 700)[
     Eng. Ghazi Alsaif
   ]
-  v(3pt, weak: true)
+  v(9pt, weak: true)
   text(font: FONT.bodyLatin, size: 10pt, fill: COLOR.muted)[Abu Haitham]
   v(1.2fr)
   text(font: FONT.bodyLatin, size: 9pt, fill: COLOR.muted)[
