@@ -137,15 +137,17 @@
     }
   }
 
-  show heading.where(level: 3): it => block(above: 1.4em, below: 0.7em, {
+  show heading.where(level: 3): it => block(above: 1.5em, below: 0.92em, {
     set text(font: FONT.bodyAr, size: SIZE.h2, fill: COLOR.primaryDeep, weight: 700)
+    set par(leading: 0.75em)
     grid(columns: (auto, 1fr), gutter: 7pt,
       align(horizon)[#box(width: 4pt, height: 0.85em, fill: COLOR.accent, radius: 1pt)],
       it.body)
   })
 
-  show heading.where(level: 4): it => block(above: 1.1em, below: 0.5em, {
+  show heading.where(level: 4): it => block(above: 1.2em, below: 0.7em, {
     set text(font: FONT.bodyAr, size: SIZE.h3, fill: COLOR.ink, weight: 700)
+    set par(leading: 0.7em)
     it.body
   })
 
