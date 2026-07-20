@@ -72,3 +72,4 @@
 #include "appendices/appD-practice-lab.typ"
 #include "appendices/appE-glossary.typ"
 #include "appendices/appF-resources.typ"
+#include "appendices/appG-references.typ"
