@@ -110,7 +110,7 @@
   columns: (auto, auto, 1fr),
   align: (x, y) => if x <= 1 { center + horizon } else { right + horizon },
   table.header([الأمر الموحّد], [المستعارات], [الوظيفة]),
-  [`Invoke-WebRequest`],  [`iwr`], [اجلب صفحةً أو ملفًّا من الوِب مع ترويسه الكاملة ومحتواه.],
+  [`Invoke-WebRequest`],  [`iwr`], [اجلب صفحةً أو ملفًّا من الوِب مع ترويستها الكاملة ومحتواها.],
   [`Invoke-RestMethod`],  [`irm`], [خاطب واجهةً برمجيّة (API) وحوِّل ردّها (JSON) إلى كائناتٍ مباشرة.],
   [`Test-Connection`],    [`—`],   [اختبر الوصول إلى مضيفٍ (نظير `ping`) ويعيد كائنات.],
   [`Test-NetConnection`], [`tnc`], [افحص الوصول إلى منفذٍ أو مضيفٍ بتفصيلٍ أوفى — ويندوز.],

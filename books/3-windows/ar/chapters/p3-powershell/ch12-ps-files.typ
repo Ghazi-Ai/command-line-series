@@ -186,7 +186,7 @@ Rename-Item notes.txt -NewName todo.txt   # غيّر اسمه في مكانه
 
 إلى الآن كنّا في قرص `C:` نتنقّل بين ملفّاته. لكن ها هي المفاجأة التي وعدناك بها. جرّب أن تسأل PowerShell: ما «الأقراص» المتاحة عندي؟ بأمر `Get-PSDrive`:
 
-#session("Get-PSDrive", prompt: "PS>", output: "Name  Used(GB) Free(GB) Provider    Root\n----  -------- -------- --------    ----\nAlias                   Alias       \nC        112.5    353.2 FileSystem  C:\\\nEnv                     Environment\nFunction                Function    \nHKCU                    Registry    HKEY_CURRENT_USER\nHKLM                    Registry    HKEY_LOCAL_MACHINE\nVariable                Variable")
+#session("Get-PSDrive", prompt: "PS>", output: "Name  Used (GB) Free (GB) Provider    Root\n----  --------- --------- --------    ----\nAlias                     Alias       \nC         112.5     353.2 FileSystem  C:\\\nEnv                       Environment\nFunction                  Function    \nHKCU                      Registry    HKEY_CURRENT_USER\nHKLM                      Registry    HKEY_LOCAL_MACHINE\nVariable                  Variable")
 
 انظر جيّدًا: `C` قرصُ ملفّاتك المعتاد (مزوّده `FileSystem`)، لكنّ الأسطر الأخرى «أقراصٌ» من نوعٍ آخر. `Env` قرصٌ فيه *متغيّرات البيئة*، و`HKCU` و`HKLM` قرصان فيهما *ريجستري ويندوز* — أي قاعدة إعداداته كلِّها. عمود `Provider` يكشف السرّ: لكلّ قرصٍ *مزوّدٌ* يعرف كيف يقرأ نوع محتواه ويعرضه بالشكل نفسه.
 
