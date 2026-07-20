@@ -34,7 +34,7 @@ set
 
 يسرد لك ويندوز كلَّ متغيّرٍ في بيئتك الحاليّة، سطرًا لكلِّ واحد، على هيئة `الاسم=القيمة`، مرتّبةً أبجديًّا:
 
-#session("set", output: "ALLUSERSPROFILE=C:\\ProgramData\nAPPDATA=C:\\Users\\Ahmad\\AppData\\Roaming\nCOMPUTERNAME=DESKTOP-7GQ2\nHOMEPATH=\\Users\\Ahmad\nOS=Windows_NT\nPATH=C:\\Windows\\system32;C:\\Windows\nTEMP=C:\\Users\\Ahmad\\AppData\\Local\\Temp\nUSERNAME=Ahmad\nUSERPROFILE=C:\\Users\\Ahmad\n...")
+#session("set", output: "ALLUSERSPROFILE=C:\\ProgramData\nAPPDATA=C:\\Users\\Ahmad\\AppData\\Roaming\nCOMPUTERNAME=DESKTOP-7H2K9Q\nHOMEPATH=\\Users\\Ahmad\nOS=Windows_NT\nPATH=C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Program Files\\Git\\cmd\nTEMP=C:\\Users\\Ahmad\\AppData\\Local\\Temp\nUSERNAME=Ahmad\nUSERPROFILE=C:\\Users\\Ahmad\n...")
 
 القائمة أطولُ من هذا بكثير، لكنّها بهذا الشكل نفسِه. وحين تريد قيمةَ متغيّرٍ واحدٍ بعينه لا القائمة كلَّها، فأمامك طريقان. الأوّل: اطبع قيمته بـ`echo` محيطًا اسمَه بعلامتَي `%`:
 
@@ -50,7 +50,7 @@ echo %USERNAME%
 set USER
 ```
 
-#session("set USER", output: "USERDOMAIN=DESKTOP-7GQ2\nUSERNAME=Ahmad\nUSERPROFILE=C:\\Users\\Ahmad")
+#session("set USER", output: "USERDOMAIN=DESKTOP-7H2K9Q\nUSERNAME=Ahmad\nUSERPROFILE=C:\\Users\\Ahmad")
 
 #warn[
   انتبه إلى الفرق الدقيق: `set USER` (بلا علامة يساوٍ) يعني «اعرض كلَّ متغيّرٍ يبدأ اسمه بـUSER». أمّا `set USER=` (بعلامة يساوٍ ولا شيء بعدها) فمعناه مختلفٌ تمامًا: «احذف المتغيّر USER». علامةُ اليساوي وحدها تقلب المعنى من عرضٍ آمنٍ إلى حذف. سنعود إلى هذا بعد قليل.
@@ -194,7 +194,6 @@ setx PATH "%PATH%;C:\Tools\myapp"
 
 #danger[
   الخطأ الذي يدمّر نظامك في لحظة: أن تكتب `setx PATH "C:\Tools\myapp"` *ناسيًا* الجزء `%PATH%;` في أوّلها. هذا لا يضيف مجلّدًا، بل *يمحو المسار كلَّه* ويستبدله بمجلّدٍ واحد! عندها يعجز ويندوز عن العثور على مئات الأوامر التي كانت تعمل. ولأنّ `setx` يبتر ما تجاوز ١٠٢٤ حرفًا (كما حذّرناك)، فحتى الصيغةُ الصحيحة قد تبتر `PATH` طويلًا. لهذا كلِّه، الطريقةُ الأسلمُ للمبتدئ ليست الأمر أصلًا، بل النافذةُ الرسوميّة.]
-)
 
 #tip[
   أأمنُ طريقٍ لتحرير `PATH`: افتح «إعدادات النظام المتقدّمة» ثمّ «متغيّرات البيئة» (Environment Variables)، وستجد `PATH` في قائمةٍ يمكنك أن تضيف إليها سطرًا واحدًا بضغطة «جديد»، دون أن تلمس بقيّة السطور، ودون خطر البتر. للوصول السريع: اضغط #kbd("Win") واكتب «environment» فيقودك ويندوز إليها. هذه النافذةُ تحفظ التغيير دائمًا كـ`setx`، لكنّها تريك ما تفعل وتحميك من الطمس.

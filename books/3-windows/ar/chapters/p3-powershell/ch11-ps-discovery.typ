@@ -38,14 +38,13 @@ Cmdlet      Get-Date 7.0.0.0 Microsoft.PowerShell.Utility")
 
 لكنّ قوّته الحقيقيّة تظهر حين لا تعرف الاسم الكامل. لنقل إنّك تريد أمرًا يتعامل مع «العمليّات» (Processes) لكنك لا تذكر اسمه. ابحث بالاسم عبر الراية `-Noun`:
 
-#session("Get-Command -Noun Process", prompt: "PS>", output: "CommandType Name           Version   Source
------------ ----           -------   ------
-Cmdlet      Debug-Process  7.0.0.0   Microsoft.PowerShell.Management
-Cmdlet      Get-Process    7.0.0.0   Microsoft.PowerShell.Management
-Cmdlet      Start-Process  7.0.0.0   Microsoft.PowerShell.Management
-Cmdlet      Stop-Process   7.0.0.0   Microsoft.PowerShell.Management
-Cmdlet      Switch-Process 7.6.0.500 Microsoft.PowerShell.Core
-Cmdlet      Wait-Process   7.0.0.0   Microsoft.PowerShell.Management")
+#session("Get-Command -Noun Process", prompt: "PS>", output: "CommandType Name          Version Source
+----------- ----          ------- ------
+Cmdlet      Debug-Process 7.0.0.0 Microsoft.PowerShell.Management
+Cmdlet      Get-Process   7.0.0.0 Microsoft.PowerShell.Management
+Cmdlet      Start-Process 7.0.0.0 Microsoft.PowerShell.Management
+Cmdlet      Stop-Process  7.0.0.0 Microsoft.PowerShell.Management
+Cmdlet      Wait-Process  7.0.0.0 Microsoft.PowerShell.Management")
 
 في لمحةٍ عرفتَ كلّ ما يمكن فعله بالعمليّات: عرضُها (`Get`)، وبدؤها (`Start`)، وإيقافها (`Stop`)، والانتظارُ عليها (`Wait`). وبالمثل تبحث بالفعل عبر `-Verb Get` لترى كلّ ما يمكن «جلبه» في نظامك. وإن لم تذكر إلّا جزءًا من الكلمة، فاستعن بالنجمة `*` التي تعني «أيُّ شيءٍ هنا»:
 

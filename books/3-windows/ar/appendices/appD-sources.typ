@@ -10,7 +10,7 @@
 - مرجع أوامر ويندوز — Windows Commands، `learn.microsoft.com/windows-server/administration/windows-commands`.
 - توثيق موجّه الأوامر (Command shell) وملفّات الدُّفعات (Batch)، `learn.microsoft.com`.
 - توثيق نظام الملفّات NTFS وإدارة التخزين والأقراص، `learn.microsoft.com`.
-- توثيق أمن ويندوز وحسابات المستخدمين والتحكّم في وصول المستخدم (UAC)، `learn.microsoft.com`.
+- توثيق أمن ويندوز وإدارة حسابات المستخدمين والتحكّم بها (UAC)، `learn.microsoft.com`.
 
 #section[توثيق PowerShell الرسميّ]
 
@@ -36,7 +36,7 @@
 
 - توثيق Windows Terminal الرسميّ، `learn.microsoft.com/windows/terminal`.
 - توثيق مدير الحزم winget (Windows Package Manager)، `learn.microsoft.com/windows/package-manager`.
-- دليل Git الرسميّ وكتاب Pro Git (سكوت شاكون، مفتوح المجّان)، `git-scm.com`.
+- دليل Git الرسميّ وكتاب Pro Git (سكوت شاكون، متاح مجّانًا)، `git-scm.com`.
 - توثيق Visual Studio Code، `code.visualstudio.com/docs`.
 
 #note[
