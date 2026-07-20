@@ -8,12 +8,16 @@
 
 // لغة الكتاب الحالية (يضبطها قالب book). الصناديق تقرؤها لتعرف تسمياتها.
 #let doc-lang = state("z2r-lang", "ar")
+// محثّ الطرفية لهذا الكتاب: «$» للِينُكس/BSD، «%» لماك، «>» لويندوز. يضبطه قالب book.
+#let doc-prompt = state("z2r-prompt", "$")
+// تسمية بديلة لصندوق «على توزيعات أخرى» (مثلًا «على أنظمةٍ أخرى» في كتاب ماك). none = الافتراض.
+#let doc-others = state("z2r-others", none)
 
 // ── الصندوق العام ─────────────────────────────────────────────────────────
 // شريط لونيّ جانبيّ (يمين في العربية، يسار في الإنجليزية) + عنوان + متن.
-#let callout(key, fg, bg, body, strong: false) = context {
+#let callout(key, fg, bg, body, strong: false, label-override: none) = context {
   let l = doc-lang.get()
-  let label = STRINGS.at(l).at(key)
+  let label = if label-override != none { label-override } else { STRINGS.at(l).at(key) }
   let bar = if l == "ar" { (right: (if strong { 3pt } else { 2.2pt }) + fg) }
             else { (left: (if strong { 3pt } else { 2.2pt }) + fg) }
   block(
@@ -39,7 +43,7 @@
 #let tip(body)    = callout("tip",     COLOR.primary,COLOR.primaryTint,body)
 #let warn(body)   = callout("warning", COLOR.warn,   COLOR.warnTint,   body)
 #let danger(body) = callout("danger",  COLOR.danger, COLOR.dangerTint, body)
-#let distro(body) = callout("distro",  COLOR.info,   COLOR.infoTint,   body)
+#let distro(body) = context { callout("distro", COLOR.info, COLOR.infoTint, body, label-override: doc-others.get()) }
 #let ethics(body) = callout("ethics",  COLOR.danger, COLOR.dangerTint, body, strong: true)
 #let deep(body)   = callout("deep",    COLOR.muted,  luma(244),        body)
 
@@ -123,7 +127,7 @@
     set text(font: FONT.mono, size: SIZE.code, dir: ltr)
     set par(justify: false, leading: 0.65em)
     align(left)[
-      #text(fill: COLOR.primary, weight: 700)[\$ ] #text(fill: COLOR.ink)[#cmd] \
+      #context text(fill: COLOR.primary, weight: 700)[#doc-prompt.get() ] #text(fill: COLOR.ink)[#cmd] \
       #if output != none {
         text(fill: COLOR.muted)[#output]
       }
