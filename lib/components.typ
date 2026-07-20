@@ -119,7 +119,7 @@
 
 // ── جلسة طرفية: أمر + ناتج ─────────────────────────────────────────────────
 // يعرض الأمر بمحثّ $ ثم ناتجه بلون خافت. المحتوى دائمًا يساريّ LTR.
-#let session(cmd, output: none) = block(
+#let session(cmd, output: none, prompt: none) = block(
   width: 100%, fill: COLOR.codeBg, radius: 4pt,
   stroke: (left: 2.2pt + COLOR.primary),
   inset: (x: 11pt, y: 9pt), above: 1em, below: 1em, breakable: true,
@@ -127,7 +127,7 @@
     set text(font: FONT.mono, size: SIZE.code, dir: ltr)
     set par(justify: false, leading: 0.65em)
     align(left)[
-      #context text(fill: COLOR.primary, weight: 700)[#doc-prompt.get() ] #text(fill: COLOR.ink)[#cmd] \
+      #context text(fill: COLOR.primary, weight: 700)[#(if prompt != none { prompt } else { doc-prompt.get() }) ] #text(fill: COLOR.ink)[#cmd] \
       #if output != none {
         text(fill: COLOR.muted)[#output]
       }
