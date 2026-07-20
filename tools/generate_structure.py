@@ -10,7 +10,7 @@
 import os, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-AR = ROOT / "src" / "ar"
+AR = ROOT / "books" / "1-linux" / "ar"
 
 # البنية: (ترتيب الجزء العربي، عنوان الجزء، مجلّد الجزء، [ (رقم, slug, عنوان, وصف) ... ])
 PARTS = [
@@ -145,8 +145,8 @@ APPENDICES = [
 ]
 
 CH_STUB = '''\
-#import "/src/lib/book.typ": chapter, section
-#import "/src/lib/components.typ": objectives, note
+#import "/lib/book.typ": chapter, section
+#import "/lib/components.typ": objectives, note
 
 #chapter[{title}]
 
@@ -159,8 +159,8 @@ CH_STUB = '''\
 '''
 
 APP_STUB = '''\
-#import "/src/lib/book.typ": appendix, section
-#import "/src/lib/components.typ": note
+#import "/lib/book.typ": appendix, section
+#import "/lib/components.typ": note
 
 #appendix("{letter}", "{title}")
 
@@ -196,7 +196,7 @@ for letter, slug, title, desc in APPENDICES:
         created += 1
 
 # 2) ملفّ المحتوى (_contents.typ)
-lines = ['#import "/src/lib/book.typ": part, appendix', '']
+lines = ['#import "/lib/book.typ": part, appendix', '']
 for _ord, ptitle, pdir, chapters in PARTS:
     lines.append(f'#part("{_ord}", "{ptitle}")')
     for num, slug, title, desc in chapters:

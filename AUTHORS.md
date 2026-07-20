@@ -4,7 +4,7 @@
 Eng. Ghazi Alsaif
 
 - البريد · Email: `eng.ghazi@icloud.com`
-- المستودع · Repository: `github.com/Ghazi-Ai/zero-to-root`
+- المستودع · Repository: `github.com/Ghazi-Ai/command-line-series`
 
 مهندسٌ شغِف بلِينُكس والتقنية هوايةً، كتب هذا الكتاب الذي تمنّى وجوده يوم بدأ.
 
