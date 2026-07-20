@@ -55,7 +55,8 @@ Documents/photos/")
 
 #session("tar -tvf documents.tar", output: "drwxr-xr-x ghazi/ghazi   0  Documents/
 -rw-r--r-- ghazi/ghazi 812  Documents/notes.txt
--rw-r--r-- ghazi/ghazi 45120  Documents/report.pdf")
+-rw-r--r-- ghazi/ghazi 45120  Documents/report.pdf
+drwxr-xr-x ghazi/ghazi   0  Documents/photos/")
 
 لاحظ أنّ الأرشيف حفظ الأذونات والملكيّة والأحجام — لا مجرّد الأسماء. هذا ما يجعل `tar` أداةَ النسخ الأمينة: يعيد بناء كلّ شيءٍ كما كان.
 
@@ -195,7 +196,7 @@ total size is 4,810,772  speedup is 1.00")
 #session("rsync -av ~/Documents/ /mnt/backup/Documents/", output: "sending incremental file list
 
 sent 1,204 bytes  received 18 bytes  2,444.00 bytes/sec
-total size is 4,810,772  speedup is 3,937.62")
+total size is 4,810,772  speedup is 3,936.80")
 
 لم يُنقل شيء! أدرك `rsync` أنّ الوجهة مطابقةٌ للمصدر، فاكتفى بفحصٍ سريعٍ ولم يُتعب القرص. هذا هو جوهر قوّته: أنت تشغّله كلّ يومٍ بأمان، وهو لا يعمل إلّا بقدر ما تغيّر.
 
@@ -245,7 +246,7 @@ total size is 4,810,772  speedup is 1.00")
 deleting old-draft.txt
 
 sent 1,402 bytes  received 44 bytes  2,892.00 bytes/sec
-total size is 4,806,701  speedup is 3,324.34")
+total size is 4,806,701  speedup is 3,324.14")
 
 الآن صارت الوجهة *مرآةً* دقيقة للمصدر: كلُّ ما حُذف هنا يُحذف هناك.
 

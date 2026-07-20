@@ -43,7 +43,7 @@ git config --global user.email "abu.haytham@example.com"
 
 #section[أوّل مستودع: git init]
 
-لِنصنع مشروعًا صغيرًا من الصفر: قائمة مهامٍّ بسيطة. أنشئ مجلّدًا وادخله، ثم حوّله إلى *مستودع* Git:
+لِنصنع مشروعًا صغيرًا من الصفر: قائمة مهامّ بسيطة. أنشئ مجلّدًا وادخله، ثم حوّله إلى *مستودع* Git:
 
 ```bash
 mkdir todo
@@ -326,7 +326,7 @@ git clone https://github.com/octocat/Spoon-Knife.git
 ```
 Cloning into 'Spoon-Knife'...
 remote: Enumerating objects: 16, done.
-remote: Counting objects: 100% (12/12), done.
+remote: Counting objects: 100% (16/16), done.
 remote: Compressing objects: 100% (8/8), done.
 remote: Total 16 (delta 3), reused 6 (delta 1), pack-reused 4
 Receiving objects: 100% (16/16), 2.44 KiB | 2.44 MiB/s, done.
