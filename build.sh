@@ -14,14 +14,14 @@ fi
 
 build_ar() {
   echo "» بناء النسخة العربية..."
-  typst compile src/ar/main.typ build/zero-to-root-ar.pdf --root .
+  typst compile books/1-linux/ar/main.typ build/zero-to-root-ar.pdf --root .
   echo "  ✓ build/zero-to-root-ar.pdf"
 }
 
 build_en() {
-  if [ -f src/en/main.typ ]; then
+  if [ -f books/1-linux/en/main.typ ]; then
     echo "» بناء النسخة الإنجليزية..."
-    typst compile src/en/main.typ build/zero-to-root-en.pdf --root .
+    typst compile books/1-linux/en/main.typ build/zero-to-root-en.pdf --root .
     echo "  ✓ build/zero-to-root-en.pdf"
   fi
 }

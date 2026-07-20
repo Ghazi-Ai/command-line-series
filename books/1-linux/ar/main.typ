@@ -1,0 +1,25 @@
+// ═══════════════════════════════════════════════════════════════════════════
+//  «مِن الصِّفر إلى الجَذر» — النسخة العربية
+//  الملفّ الرئيس: يجمع القالب والمقدّمات والمحتوى.
+//  البناء:  typst compile src/ar/main.typ build/zero-to-root-ar.pdf --root .
+// ═══════════════════════════════════════════════════════════════════════════
+
+#import "/lib/book.typ": book, book-outline
+
+#show: book.with(lang: "ar", title: "مِن الصِّفر إلى الجَذر")
+
+// ── المقدّمات (بلا ترقيم صفحات) ──
+#include "frontmatter/title-page.typ"
+#include "frontmatter/colophon.typ"
+
+// يبدأ ترقيم الصفحات من هنا
+#counter(page).update(1)
+
+#include "frontmatter/preface.typ"
+#include "frontmatter/how-to-read.typ"
+
+// ── الفهرس ──
+#book-outline()
+
+// ── الأجزاء والفصول والملاحق (مولّد آليًّا) ──
+#include "_contents.typ"

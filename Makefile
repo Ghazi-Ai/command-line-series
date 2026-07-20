@@ -7,21 +7,21 @@ all: ar en
 
 ar:
 	@mkdir -p build
-	typst compile src/ar/main.typ build/zero-to-root-ar.pdf --root .
+	typst compile books/1-linux/ar/main.typ build/zero-to-root-ar.pdf --root .
 
 en:
 	@mkdir -p build
-	@if [ -f src/en/main.typ ]; then \
-		typst compile src/en/main.typ build/zero-to-root-en.pdf --root . ; \
+	@if [ -f books/1-linux/en/main.typ ]; then \
+		typst compile books/1-linux/en/main.typ build/zero-to-root-en.pdf --root . ; \
 	fi
 
 watch-ar:
 	@mkdir -p build
-	typst watch src/ar/main.typ build/zero-to-root-ar.pdf --root .
+	typst watch books/1-linux/ar/main.typ build/zero-to-root-ar.pdf --root .
 
 watch-en:
 	@mkdir -p build
-	typst watch src/en/main.typ build/zero-to-root-en.pdf --root .
+	typst watch books/1-linux/en/main.typ build/zero-to-root-en.pdf --root .
 
 # يعيد توليد ملفّات الهيكل والفهرس بعد تعديل المنهج في المولّد
 structure:
