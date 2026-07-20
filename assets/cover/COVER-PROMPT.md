@@ -1,41 +1,80 @@
-# برومبت تصميم الغلاف · Cover Design Prompt
+# برومبت تصميم الغلاف (أماميّ + خلفيّ) · Cover Design Prompt
 
-> **مرحلةٌ لاحقة — لا استعجال.** هذا الملفّ جاهزٌ لك متى أردت توليد الغلاف بمولّد صور (مثل ChatGPT/DALL·E أو Midjourney).
+> جاهزٌ للّصق في مولّد صور (ChatGPT / DALL·E / Midjourney). الكتاب **٥٩١ صفحة A5**، فالتجليد **غِراء (perfect binding)** لا تدبيس.
 
-## نصيحة مهمّة قبل التوليد
+## قاعدة ذهبيّة قبل التوليد
 
-مولّدات الصور تُفسد النصّ العربيّ غالبًا. لذلك **ولّد الخلفية والعناصر البصريّة بلا نصّ**، ثم أضِف عنوان الكتاب لاحقًا بخطٍّ عربيّ نظيف (Noto Kufi Arabic أو Amiri) في محرّرٍ مثل Figma أو Inkscape أو حتى Typst. هكذا تضمن جمال الحروف ودقّتها.
+مولّدات الصور تُفسد النصّ العربيّ. لذلك **ولّد الفنّ بلا أيّ نصّ**، ثم أضِف العنوان والنبذة لاحقًا بخطٍّ عربيّ نظيف (Noto Kufi Arabic / Amiri) في Figma أو Inkscape أو Affinity. هكذا تضمن دقّة الحروف.
 
-## لوحة ألوان الكتاب (التزم بها)
+## لوحة الألوان (التزم بها في الوجهين)
 
-- أخضر صنوبريّ عميق `#1F6F5C` / `#164A3E` (اللون الأساس)
+- أخضر صنوبريّ عميق `#1F6F5C` / `#164A3E` (الأساس)
 - طوبيّ دافئ `#C0592B` (لمسة/تمييز)
 - ورقٌ دافئ فاتح `#FCFBF9` (الخلفية)
 - حبرٌ داكن `#26242E` (النصّ)
 
-## البرومبت (إنجليزيّ — للمولّد)
+---
+
+## ١) الغلاف الأماميّ — برومبت الفنّ (إنجليزيّ)
 
 ```
-A refined, minimalist book cover illustration for a technical book, A5 portrait.
-Central motif: a stylized terminal / command-line prompt cursor blinking in a calm
-dark space, rendered as elegant geometric line art — a single glowing cursor and a
-subtle "$" prompt, suggesting a doorway or a key. Deep pine-green (#1F6F5C, #164A3E)
-and warm terracotta (#C0592B) accents on a warm off-white paper background (#FCFBF9).
-Clean, sophisticated, lots of negative space, editorial / Apple-like restraint.
-Subtle motif of roots growing downward from the cursor (a visual pun on "root"),
-drawn as fine elegant lines. No text, no letters, no words anywhere in the image.
-Flat vector aesthetic, high craft, timeless, not busy. Soft paper texture.
+A refined, minimalist book-cover illustration, A5 portrait, print quality.
+Central motif: a single elegant terminal command-line cursor (a small block) glowing
+softly in a calm dark-green space, with a subtle "$" prompt beside it. From the cursor,
+fine delicate ROOTS grow downward as thin elegant line-art — a visual pun on "root".
+Deep pine-green (#1F6F5C, #164A3E) with warm terracotta (#C0592B) accents on a warm
+off-white paper background (#FCFBF9). Lots of negative space, editorial Apple-like
+restraint, timeless, high craft, flat vector aesthetic, soft paper texture.
+Absolutely NO text, NO letters, NO words anywhere in the image.
 ```
 
-## نسخة عربيّة من الفكرة (للتوجيه)
+**النصّ يُضاف فوقه لاحقًا:** العنوان **مِن الصِّفر إلى الجَذر** (Noto Kufi، `#164A3E`)، تحته خطٌّ طوبيّ قصير `#C0592B`، ثم العنوان الفرعيّ *الدليل الشامل إلى سطر الأوامر ولِينُكس* (IBM Plex Sans Arabic)، وأسفل الغلاف **المهندس غازي السيف**.
 
-غلافٌ مينيمال أنيق لكتابٍ تقنيّ مقاس A5: في القلب مؤشّر طرفيةٍ يومض في فضاءٍ هادئ، مرسومٌ بخطوطٍ هندسيّة راقية كأنّه **بابٌ أو مفتاح**. تتدلّى من المؤشّر **جذورٌ** دقيقة نازلة (تورية بصريّة على «الجَذر/root»). أخضر صنوبريّ عميق وطوبيّ دافئ على ورقٍ فاتح. مساحاتٌ فارغة كثيرة، انضباطٌ بصريّ آبِليّ، بلا أيّ نصٍّ في الصورة.
+---
 
-## بعد التوليد: إضافة العنوان
+## ٢) الغلاف الخلفيّ — برومبت الفنّ (إنجليزيّ)
 
-- العنوان: **مِن الصِّفر إلى الجَذر** — بخطّ Noto Kufi Arabic، لونه `#164A3E`.
-- تحته العنوان الفرعيّ: *الدليل الشامل إلى سطر الأوامر ولِينُكس* — بخطّ IBM Plex Sans Arabic.
-- أسفل الغلاف: **المهندس غازي السيف**.
-- خطّ فاصل قصير بلون الطوبيّ `#C0592B` بين العنوان والعنوان الفرعيّ (كما في صفحة العنوان الداخليّة).
+```
+Back cover for the same A5 book, matching style: the SAME warm off-white paper
+background (#FCFBF9) with a very subtle continuation of the thin root-lines motif
+rising faintly from the bottom edge in deep pine-green, kept light so text stays
+readable over it. Minimal, calm, lots of empty space in the upper two-thirds for a
+text block. A thin terracotta (#C0592B) horizontal rule near the top. Flat vector,
+print quality. NO text, NO letters anywhere in the image.
+```
 
-احفظ الملفّ النهائيّ هنا: `assets/cover/cover.png` (و`cover.pdf` للطباعة).
+**النصّ الذي يُضاف على الغلاف الخلفيّ** (انسخه كما هو):
+
+> **مِن الصِّفر إلى الجَذر**
+>
+> شاشةٌ سوداء ومؤشّرٌ يومض… من هنا يبدأ كلّ محترف. هذا الكتاب يأخذ بيدك من الصِّفر المطلق — لا يفترض معرفةً سابقة سوى أن تعرف القراءة والكتابة — حتى تُتقن سطر الأوامر ولِينُكس وتصير سيّدَ الآلة لا مستخدمَها.
+>
+> رحلةٌ في تسعة أجزاء وسبعةٍ وأربعين فصلًا: من أوّل أمرٍ تكتبه، إلى النظام والصلاحيات، ومعالجة النصوص، والأتمتة، وإدارة الأنظمة، والشبكات، والبرمجة، والأمن السيبرانيّ، وعوالم BSD وماك — بأسلوب: **مفهوم ← جرّب بنفسك ← تحدٍّ**.
+>
+> وفي زمن الذكاء الاصطناعيّ، لم يعُد فهم هذا الأساس ترفًا: فمن يملك ناصية الطرفية يقود أدواته، ومن يجهلها يبقى أسيرَ الاعتماد.
+>
+> *«العين تقرأ قبل العقل» — كتابٌ عربيٌّ صُمِّم ليكون جميلًا بقدر ما هو دقيق.*
+>
+> ——
+> **المؤلف:** المهندس غازي السيف (أبو هيثم)
+> مهندسٌ شغِف بلِينُكس والتقنية هوايةً، فكتب الكتاب الذي تمنّى وجوده يوم بدأ.
+>
+> مفتوح المصدر · رخصة CC BY‑ND 4.0 · github.com/Ghazi-Ai/zero-to-root
+
+**عناصر الغلاف الخلفيّ:** النبذة أعلى، ثم سطر المؤلف، وأسفل اليسار مربّعٌ فارغ للباركود/ISBN (إن سُجّل)، وشعار «مفتوح المصدر» صغير.
+
+---
+
+## ٣) الغلاف الكامل الملفوف (Full Wrap) للطباعة
+
+للطباعة النهائيّة، صمّم لوحةً واحدة: **[الغلاف الخلفيّ] — [الكعب/Spine] — [الغلاف الأماميّ]** (يمينًا إلى يسارًا للكتاب العربيّ، فالتجليد على اليمين).
+
+- **المقاس:** كلّ وجهٍ A5 (148×210mm) + **هامش قصّ (bleed) 3mm** على الأطراف الخارجية.
+- **الكعب (Spine):** الكتاب ٥٩١ صفحة؛ عرض الكعب يعتمد على وزن الورق (اسأل المطبعة، وغالبًا ~٣٠mm لورقٍ ٨٠غم). ضع عليه: **مِن الصِّفر إلى الجَذر · المهندس غازي السيف** بخطٍّ عموديّ أخضر.
+- **التجليد:** غِراء (perfect binding) لأنّ الكتاب سميك.
+
+## بعد التوليد
+
+احفظ الملفّات هنا:
+`assets/cover/cover-front.png` · `assets/cover/cover-back.png` · `assets/cover/cover-wrap.pdf`
+وأرسلها لي لأدمجها في المشروع وأربطها ببناء النسخة المطبوعة.

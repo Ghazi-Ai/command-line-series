@@ -80,7 +80,7 @@ ghazi:x:1000:1000:Abu Haitham,,,:/home/ghazi:/bin/bash
   [7], [`/bin/bash`],      [الصدفة التي تعمل عند دخوله.],
 )
 
-#define("‏`/etc/passwd`‏", [
+#define("‏/etc/passwd‏", [
   الملفّ النصيّ الذي يسرد كلَّ حسابات النظام وحقولها السبعة. مقروءٌ للجميع، لكنّ تعديله محصورٌ في الجذر.
 ])
 
@@ -121,7 +121,7 @@ developers:x:1002:ghazi
   [4], [`ghazi,layla`],   [أعضاء المجموعة *الإضافيّون*، تفصلهم الفواصل.],
 )
 
-#define("المجموعة (Group) و ‏`GID`‏", [
+#define("المجموعة (Group) و ‏GID‏", [
   المجموعةُ اسمٌ يضمّ مستخدمين تحت صلاحيةٍ واحدة، ولها معرّفٌ رقميٌّ فريد يسمّى `GID` (Group IDentifier)، تمامًا كـ `UID` للمستخدم.
 ])
 
@@ -154,7 +154,7 @@ Adding user `layla' ...
 Creating home directory `/home/layla' ...
 New password:
 Retype new password:
-Full name []: Layla
+Full Name []: Layla
 Is the information correct? [Y/n] y
 ```
 
@@ -162,7 +162,7 @@ Is the information correct? [Y/n] y
 
 #session("id layla", output: "uid=1001(layla) gid=1001(layla) groups=1001(layla)")
 
-#define("‏`adduser`‏", [
+#define("‏adduser‏", [
   أمرٌ تفاعليٌّ عالي المستوى في دبيان وأوبونتو، يبني المستخدمَ ببيته وكلمة مروره في خطوةٍ واحدة. هو في جوهره غلافٌ مريحٌ حول أمرٍ أدنى منه اسمه `useradd`.
 ])
 
@@ -202,7 +202,7 @@ sudo usermod -aG developers layla
 
 اقرأ الخيارين: `-G` يعني «المجموعات الإضافيّة»، و `-a` يعني «أضِف» (append). وجودُهما معًا شرطٌ لا يُكسر، كما سنرى في التحذير التالي. تحقّق من نجاح الضمّ:
 
-#session("groups layla", output: "layla developers")
+#session("groups layla", output: "layla : layla developers")
 
 #tip[
   ثمّة أمرٌ متخصّصٌ لإدارة عضويّات مجموعةٍ واحدة اسمه `gpasswd`: فـ `sudo gpasswd -a layla developers` يضيف، و `sudo gpasswd -d layla developers` يحذف العضويّة. كثيرون يفضّلونه لوضوح نيّته.
@@ -269,7 +269,7 @@ sudo groupdel designers
 su - layla
 ```
 
-اقرأ الشرطة `-`: هي التي تجعلها *جلسة دخولٍ كاملة*، فتنتقل إلى بيت ليلى، وتُقرأ إعداداتُها البيئيّة كأنّها دخلت بنفسها. أهملُ الشرطةَ يبقيك في بيتك ببيئتك، وهو مصدرُ التباسٍ شائع؛ فاعتد الشرطةَ. سيطلب منك النظامُ كلمةَ مرور *ليلى*، وعند نجاحها يتغيّر المحثّ لتصير هي:
+اقرأ الشرطة `-`: هي التي تجعلها *جلسة دخولٍ كاملة*، فتنتقل إلى بيت ليلى، وتُقرأ إعداداتُها البيئيّة كأنّها دخلت بنفسها. إهمالُ الشرطةِ يبقيك في بيتك ببيئتك، وهو مصدرُ التباسٍ شائع؛ فاعتد الشرطةَ. سيطلب منك النظامُ كلمةَ مرور *ليلى*، وعند نجاحها يتغيّر المحثّ لتصير هي:
 
 #session("whoami", output: "layla")
 
