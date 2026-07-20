@@ -5,7 +5,7 @@
 
 #import "/lib/book.typ": book, book-outline
 
-#show: book.with(lang: "ar", title: "ماك من الطرفية")
+#show: book.with(lang: "ar", title: "ماك من الطرفية", prompt: "%", others: "على أنظمةٍ أخرى")
 
 #include "frontmatter/title-page.typ"
 #include "frontmatter/colophon.typ"

@@ -6,7 +6,7 @@
 
 #import "theme.typ": COLOR, FONT, SIZE, LEADING, PAR_SPACING, PAGE_MARGIN
 #import "i18n.typ": STRINGS
-#import "components.typ": doc-lang
+#import "components.typ": doc-lang, doc-prompt, doc-others
 
 // ── العدّادات والحالات ─────────────────────────────────────────────────────
 #let chapnum   = counter("z2r-chap")
@@ -60,11 +60,15 @@
 #let book(
   lang: "ar",
   title: "",
+  prompt: "$",
+  others: none,
   body,
 ) = {
   let is-rtl = lang == "ar"
 
   doc-lang.update(lang)
+  doc-prompt.update(prompt)
+  doc-others.update(others)
   set document(title: title)
 
   // ── الصفحة ──
