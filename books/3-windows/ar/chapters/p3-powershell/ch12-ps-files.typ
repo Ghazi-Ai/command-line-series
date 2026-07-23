@@ -60,7 +60,7 @@ cd -                         # ارجع إلى المجلّد السابق (Powe
 
 #session("Get-ChildItem", prompt: "PS>", output: "    Directory: C:\\Users\\Ghazi\n\nMode    LastWriteTime         Length Name\n----    -------------         ------ ----\nd----   7/20/2026  11:38 AM          reports\n-a---   7/20/2026  11:38 AM      17  notes.txt")
 
-اقرأ الجدول عمودًا عمودًا. `Name` هو اسم العنصر. و`Length` حجمه بالبايت (يبقى فارغًا للمجلّدات). و`LastWriteTime` وقت آخر تعديل. أمّا `Mode` فحقلٌ من رموزٍ يصف نوع العنصر وصفاته؛ أهمّها الحرف الأوّل: `d` يعني *مجلّدًا* (Directory)، والشَّرطة مكانه تعني *ملفًّا*. فالسطر الأوّل مجلّدٌ اسمه `reports`، والثاني ملفٌّ اسمه `notes.txt` حجمه ١٧ بايت.
+اقرأ الجدول عمودًا عمودًا. `Name` هو اسم العنصر. و`Length` حجمه بالبايت (يبقى فارغًا للمجلّدات). و`LastWriteTime` وقت آخر تعديل. أمّا `Mode` فحقلٌ من رموزٍ يصف نوع العنصر وصفاته؛ أهمّها الحرف الأوّل: `d` يعني *مجلّدًا* (Directory)، والشَّرطة مكانه تعني *ملفًّا*. فالسطر الأوّل مجلّدٌ اسمه `reports`، والثاني ملفٌّ اسمه `notes.txt` حجمه 17 بايت.
 
 #define("العنصر (Item)", [
   الاسم الموحّد الذي يطلقه PowerShell على أيّ شيءٍ يعيش في «قرص»: ملفٌّ عنصر، ومجلّدٌ عنصر. ولهذا جاءت أسماء أوامر هذا الفصل كلُّها على وزن `...-Item`: `New-Item` لإنشاء عنصر، و`Copy-Item` لنسخه، و`Remove-Item` لحذفه. المصطلح واحدٌ سواء أكان العنصر ملفًّا أم مجلّدًا أم — كما سترى — إعدادًا في نظام ويندوز.
@@ -133,7 +133,7 @@ Get-ChildItem -Recurse              # انزل في كلّ المجلّدات ا
 
 #session("New-Item -ItemType File -Name hello.txt -Value \"Hello, PowerShell\"", prompt: "PS>", output: "    Directory: C:\\Users\\Ghazi\n\nMode    LastWriteTime         Length Name\n----    -------------         ------ ----\n-a---   7/20/2026  11:39 AM      17  hello.txt")
 
-ولد الملفّ وفيه نصُّه، فصار حجمه ١٧ بايت. تأكّد بقراءته: `Get-Content hello.txt` يعيد `Hello, PowerShell`.
+ولد الملفّ وفيه نصُّه، فصار حجمه 17 بايت. تأكّد بقراءته: `Get-Content hello.txt` يعيد `Hello, PowerShell`.
 
 #define("New-Item", [
   الأمر الذي ينشئ عنصرًا جديدًا — ملفًّا أو مجلّدًا — على حسب الراية `-ItemType` (`File` أو `Directory`). الراية `-Name` تسمّيه، و`-Value` تملؤه بمحتوًى أوّليّ. لإنشاء مجلّدٍ فقط يكفيك اختصارٌ ألطف: `mkdir reports`، وهو أمرٌ مضمَّنٌ في PowerShell يستدعي `New-Item` نفسه — لا اسمٌ مختصرٌ له، ولذلك لا يكشفه `Get-Alias`.
