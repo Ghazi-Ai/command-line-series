@@ -1,4 +1,4 @@
-// الفصل السابع: البيئة وتخصيص zsh
+// الفصل العشرون: البيئة وتخصيص zsh
 #import "/lib/book.typ": chapter, section, subsection
 #import "/lib/components.typ": note, tip, warn, danger, distro, try-it, define, challenge, objectives, kbd, session
 
