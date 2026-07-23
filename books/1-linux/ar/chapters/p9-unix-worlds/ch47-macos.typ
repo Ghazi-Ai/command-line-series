@@ -155,7 +155,7 @@ sed -i '' 's/قديم/جديد/' ملف.txt
 مثالٌ عمليّ: لنثبّت أداة `wget` ونتحقّق:
 
 #session("brew install wget", output: "==> Pouring wget--1.24.5.arm64.bottle.tar.gz
-🍺  /opt/homebrew/Cellar/wget/1.24.5: 92 files, 4.5MB")
+==> /opt/homebrew/Cellar/wget/1.24.5: 92 files, 4.5MB")
 
 #subsection[نوعان: الوصفات والبراميل]
 
