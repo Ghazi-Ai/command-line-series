@@ -76,13 +76,13 @@
     paper: "a5",
     margin: PAGE_MARGIN,
     fill: COLOR.paper,
-    numbering: "١",
+    numbering: "1",
     number-align: center,
     footer: context {
       let p = counter(page).get().first()
       set align(center)
       set text(size: SIZE.tiny, fill: COLOR.muted, font: FONT.bodyAr)
-      counter(page).display(if is-rtl { "١" } else { "1" })
+      counter(page).display("1")
     },
     header: context {
       // رأس جارٍ: عنوان الفصل الحالي — يُخفى في صفحات بداية الفصل/الجزء.
@@ -129,7 +129,7 @@
     pagebreak(weak: true)
     context {
       let l = doc-lang.get()
-      let digit = if l == "ar" { "١" } else { "1" }
+      let digit = "1"  // أرقامٌ عربيّةٌ غباريّة في اللغتين
       let eyebrow = if _fmmode.get() {
         none
       } else if _apmode.get() {

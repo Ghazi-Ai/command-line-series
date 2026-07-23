@@ -245,7 +245,7 @@ goto :eof
 
 ```bat
 @echo off
-:: نسخة احتياطية لملفّات ‎.txt‎ إلى مجلّد Backup
+:: نسخة احتياطية لملفّات .txt إلى مجلّد Backup
 if not exist Backup (
   echo Creating Backup folder...
   md Backup

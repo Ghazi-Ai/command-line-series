@@ -106,7 +106,7 @@ daemon
 bin
 ghazi")
 
-ولنأخذ حقلين معًا — الاسم (١) والصدفة (٧) — نفصل أرقامهما بفاصلة:
+ولنأخذ حقلين معًا — الاسم (1) والصدفة (7) — نفصل أرقامهما بفاصلة:
 
 #session("cut -d: -f1,7 /etc/passwd", output: "root:/bin/bash
 daemon:/usr/sbin/nologin
