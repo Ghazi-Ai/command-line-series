@@ -1,4 +1,4 @@
-// الفصل الثالث: عرض الملفات وقراءتها
+// الفصل الرابع: عرض الملفات وقراءتها
 #import "/lib/book.typ": chapter, section, subsection
 #import "/lib/components.typ": note, tip, warn, danger, distro, try-it, define, challenge, objectives, kbd, session
 
