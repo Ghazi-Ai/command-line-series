@@ -139,7 +139,7 @@ ssh-keygen -lv -f ~/.ssh/known_hosts
 ```
 
 ```text
-256 SHA256:ho9/qDRm2... server.example.com (ED25519)
+256 SHA256:9U6NBgaeZh... server.example.com (ED25519)
 +--[ED25519 256]--+
 |           o     |
 |          o .    |
@@ -164,9 +164,9 @@ ssh-keygen -lv -f ~/.ssh/known_hosts
 في يومٍ ما قد تجد هذه اللافتة العريضة تسدّ الشاشة:
 
 ```text
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @  WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
 Someone could be eavesdropping on you right now
 (man-in-the-middle attack)!
@@ -228,7 +228,7 @@ Your identification has been saved in
 Your public key has been saved in
   /Users/ghazi/.ssh/id_ed25519.pub
 The key fingerprint is:
-SHA256:9U6NBgaeZh9uNyRUXfAc7Mkr4hZHKWzvoL9yqAekIvA
+SHA256:7n33BBByUE8iqIZrEEJDz5bVPJO6N5WD4jHRGavuOfY
 The key's randomart image is:
 ```
 
@@ -292,9 +292,9 @@ cat ~/.ssh/id_ed25519.pub | ssh abu-haitham@server \
 أشهر شكوى في الدنيا: «نسختُ المفتاح ولا يزال يطلب كلمة المرور!». والسبب في تسعٍ من كلّ عشرٍ هو الصلاحيّات. فـSSH — عميلًا وخادمًا — يرفض أن يعمل بملفّاتٍ يستطيع غيرُك قراءتها أو الكتابة فيها، ويرفض بصمتٍ في ناحية الخادم حتى لا يفشي سببًا لمهاجم. فعلى *جهازك* أنت، إن كان مفتاحك الخاصّ مكشوفًا للآخرين رأيت هذه اللافتة، وتجاهَل SSH المفتاحَ كلَّه:
 
 ```text
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @      WARNING: UNPROTECTED PRIVATE KEY FILE!       @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 Permissions 0644 for '/Users/ghazi/.ssh/id_ed25519'
 are too open.
 This private key will be ignored.
