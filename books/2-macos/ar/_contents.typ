@@ -41,23 +41,29 @@
 #part("السادس", "الشبكات")
 #include "chapters/p6-network/ch29-networking-basics.typ"
 #include "chapters/p6-network/ch30-transfer-download.typ"
-#include "chapters/p6-network/ch31-ssh.typ"
-#include "chapters/p6-network/ch32-firewall-diagnostics.typ"
+#include "chapters/p6-network/ch31-ssh-basics.typ"
+#include "chapters/p6-network/ch32-ssh-advanced.typ"
+#include "chapters/p6-network/ch33-firewall-diagnostics.typ"
 
 #part("السابع", "مسار المطوّر")
-#include "chapters/p7-dev/ch33-git.typ"
-#include "chapters/p7-dev/ch34-environments-containers.typ"
-#include "chapters/p7-dev/ch35-mac-native.typ"
-#include "chapters/p7-dev/ch36-terminal-env.typ"
+#include "chapters/p7-dev/ch34-git.typ"
+#include "chapters/p7-dev/ch35-dev-environments.typ"
+#include "chapters/p7-dev/ch36-containers.typ"
+#include "chapters/p7-dev/ch37-mac-native.typ"
+#include "chapters/p7-dev/ch38-terminal-env.typ"
 
 #part("الثامن", "الأمن")
-#include "chapters/p8-security/ch37-security-principles.typ"
-#include "chapters/p8-security/ch38-mac-builtin-security.typ"
-#include "chapters/p8-security/ch39-encryption-keychain.typ"
-#include "chapters/p8-security/ch40-hardening-logs.typ"
+#include "chapters/p8-security/ch39-security-principles.typ"
+#include "chapters/p8-security/ch40-security-ethics-law.typ"
+#include "chapters/p8-security/ch41-app-protection.typ"
+#include "chapters/p8-security/ch42-system-data-protection.typ"
+#include "chapters/p8-security/ch43-storage-encryption.typ"
+#include "chapters/p8-security/ch44-encryption-passwords.typ"
+#include "chapters/p8-security/ch45-system-hardening.typ"
+#include "chapters/p8-security/ch46-logs-forensics.typ"
 
 #part("التاسع", "الجسر إلى عوالم يونِكس")
-#include "chapters/p9-bridge/ch41-linux-bsd-bridge.typ"
+#include "chapters/p9-bridge/ch47-linux-bsd-bridge.typ"
 
 #part("", "الملاحق")
 #include "appendices/appA-mac-linux-bsd.typ"

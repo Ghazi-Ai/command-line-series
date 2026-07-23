@@ -1,4 +1,4 @@
-// الفصل الثاني والثلاثون: الجدار الناريّ وتشخيص الشبكات
+// الفصل الثالث والثلاثون: الجدار الناريّ وتشخيص الشبكات
 #import "/lib/book.typ": chapter, section, subsection
 #import "/lib/components.typ": note, tip, warn, danger, distro, try-it, define, challenge, objectives, kbd, session, ethics, deep
 
