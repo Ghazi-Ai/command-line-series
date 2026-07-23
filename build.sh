@@ -21,7 +21,7 @@ mkdir -p build
 # لأنّ الخطوط مثبَّتةٌ والبناء معزول. (0 = كتابٌ لم يكتمل بعدُ فلا مرجع له)
 BOOKS=(
   "1-linux:zero-to-root-ar:599"
-  "2-macos:mac-ar:637"
+  "2-macos:mac-ar:650"
   "3-windows:windows-ar:306"
   "4-bsd:bsd-ar:0"
 )

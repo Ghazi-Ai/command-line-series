@@ -1,4 +1,4 @@
-// الفصل الثالث والثلاثون: Git وأدوات التطوير
+// الفصل الرابع والثلاثون: Git وأدوات التطوير
 #import "/lib/book.typ": chapter, section, subsection
 #import "/lib/components.typ": note, tip, warn, danger, distro, try-it, define, challenge, objectives, kbd, session
 

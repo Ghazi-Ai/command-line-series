@@ -1,4 +1,4 @@
-// الفصل الخامس والثلاثون: أدوات ماك الأصيلة
+// الفصل السابع والثلاثون: أدوات ماك الأصيلة
 #import "/lib/book.typ": chapter, section, subsection
 #import "/lib/components.typ": note, tip, warn, danger, distro, try-it, define, challenge, objectives, kbd, session
 

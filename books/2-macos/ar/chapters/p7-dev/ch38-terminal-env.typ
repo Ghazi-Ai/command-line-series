@@ -1,4 +1,4 @@
-// الفصل السادس والثلاثون: الطرفية بيئةَ عملٍ متكاملة
+// الفصل الثامن والثلاثون: الطرفية بيئةَ عملٍ متكاملة
 #import "/lib/book.typ": chapter, section, subsection
 #import "/lib/components.typ": note, tip, warn, danger, distro, try-it, deep, define, challenge, objectives, kbd, session
 
