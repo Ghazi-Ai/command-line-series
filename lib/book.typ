@@ -168,9 +168,11 @@
     },
   )
   // الكود المضمّن في السطر.
+  // `dir: ltr` ضرورةٌ لا زينة: بدونها يرث الكودُ اتّجاهَ الفقرة العربيّة
+  // فينقلب في الطباعة — `cd ..` تُطبع `.. cd`، و`>` تنقلب مرآةً إلى `<`.
   show raw.where(block: false): it => box(
     fill: luma(244), inset: (x: 3.5pt, y: 1pt), radius: 3pt, baseline: 1.5pt,
-    text(font: FONT.mono, size: SIZE.code, fill: COLOR.codeInline)[#it],
+    text(font: FONT.mono, size: SIZE.code, fill: COLOR.codeInline, dir: ltr)[#it],
   )
   set raw(tab-size: 2)
 

@@ -7,37 +7,38 @@
 
 #section[توثيق مايكروسوفت الرسميّ (Microsoft Learn)]
 
-- مرجع أوامر ويندوز — Windows Commands، `learn.microsoft.com/windows-server/administration/windows-commands`.
-- توثيق موجّه الأوامر (Command shell) وملفّات الدُّفعات (Batch)، `learn.microsoft.com`.
-- توثيق نظام الملفّات NTFS وإدارة التخزين والأقراص، `learn.microsoft.com`.
-- توثيق أمن ويندوز وإدارة حسابات المستخدمين والتحكّم بها (UAC)، `learn.microsoft.com`.
+- مرجع أوامر ويندوز — Windows Commands، `learn.microsoft.com/windows-server/administration/windows-commands/windows-commands`.
+- توثيق موجّه الأوامر (Command Prompt) وملفّات الباتش (Batch files)، `learn.microsoft.com`.
+- توثيق نظام الملفّات NTFS (نظام ملفّات ويندوز القياسيّ) وإدارة التخزين والأقراص، `learn.microsoft.com`.
+- توثيق أمن ويندوز وإدارة المستخدمين والتحكّم بحسابات المستخدمين (UAC)، `learn.microsoft.com`.
 
 #section[توثيق PowerShell الرسميّ]
 
 - توثيق PowerShell على Microsoft Learn، `learn.microsoft.com/powershell`.
-- مرجع الوحدات والأوامر (Cmdlets) — PowerShell Module Reference.
-- دليل PowerShell للبرمجة النصّيّة والدوال (Scripting).
+- مرجع الوحدات والأوامر الموحّدة (cmdlets) — PowerShell Module Reference.
+- دليل PowerShell لكتابة السكربتات والدوالّ (Scripting).
 - مستودع PowerShell مفتوح المصدر، `github.com/PowerShell/PowerShell`.
 
 #section[نظام ويندوز الفرعيّ للِينُكس (WSL)]
 
 - توثيق WSL الرسميّ — Windows Subsystem for Linux، `learn.microsoft.com/windows/wsl`.
-- دليل تثبيت WSL وإعداد التوزيعات والتشغيل التفاعليّ مع ويندوز.
-- مستودع WSL على غِتهَب، `github.com/microsoft/WSL`.
+- دليل تثبيت WSL وإعداد التوزيعات والتكامل بين لِينُكس وويندوز.
+- مستودع WSL على GitHub، `github.com/microsoft/WSL`.
+- ولأوامر لِينُكس التي تعمل داخل WSL اعتمدنا مشروع صفحات دليل لِينُكس (Linux man-pages)، `man7.org/linux/man-pages`، ودليل مرجع صدفة GNU Bash، `gnu.org/software/bash/manual`.
 
 #section[أدوات النظام والإدارة]
 
 - توثيق الخدمات (Services) وعارض الأحداث (Event Viewer)، `learn.microsoft.com`.
 - توثيق سِجلّ ويندوز (Windows Registry) ومحرّره، `learn.microsoft.com`.
-- حزمة أدوات Sysinternals ودليلها الرسميّ، `learn.microsoft.com/sysinternals`.
-- توثيق مجدول المهامّ (Task Scheduler)، `learn.microsoft.com`.
+- حزمة أدوات Sysinternals ودليلها الرسميّ (أدوات تشخيصٍ مجّانيّةٍ متقدّمة من مايكروسوفت لفحص العمليّات والملفّات والشبكة)، `learn.microsoft.com/sysinternals`.
+- توثيق مُجدوِل المهامّ (Task Scheduler)، `learn.microsoft.com`.
 
 #section[أدوات متخصّصة]
 
 - توثيق Windows Terminal الرسميّ، `learn.microsoft.com/windows/terminal`.
 - توثيق مدير الحزم winget (Windows Package Manager)، `learn.microsoft.com/windows/package-manager`.
-- دليل Git الرسميّ وكتاب Pro Git (سكوت شاكون، متاح مجّانًا)، `git-scm.com`.
-- توثيق Visual Studio Code، `code.visualstudio.com/docs`.
+- دليل Git الرسميّ وكتاب Pro Git (سكوت شاكون وبن سترواب، متاح مجّانًا)، `git-scm.com`.
+- توثيق محرّر الشيفرة Visual Studio Code، `code.visualstudio.com/docs`.
 
 #note[
   المراجع أعلاه للتحقّق والعزو؛ أمّا مقترحات مواصلة التعلّم (مواقع وكتب)
