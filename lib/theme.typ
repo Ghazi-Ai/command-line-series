@@ -39,12 +39,15 @@
 // displayAr: عناوين الأجزاء والفصول — Noto Kufi Arabic: هندسيّ، مميّز، فخم.
 // classicAr: بديل كلاسيكي (Amiri) — بدّل bodyAr إليه إن أردت طابعًا كتابيًا.
 // mono:      الأكواد — JetBrains Mono: أوضح خط برمجيّ (صفر منقّط، I l 1 مميّزة).
+//            وهو خالٍ من العربية، والتعليقات داخل الأكواد عربيّة؛ فيُتبَع صراحةً
+//            بـIBM Plex Sans Arabic ليكون احتياطيَّها. لولا هذا التصريح لاختار
+//            Typst بديلًا من تلقائه فيختلف التصفيف بين جهازٍ وآخر.
 // bodyLatin: النص اللاتيني ونسخة الإنجليزية — IBM Plex Sans (نفس عائلة المتن).
 #let FONT = (
   bodyAr:    "IBM Plex Sans Arabic",
   displayAr: "Noto Kufi Arabic",
   classicAr: "Amiri",
-  mono:      "JetBrains Mono",
+  mono:      ("JetBrains Mono", "IBM Plex Sans Arabic"),
   bodyLatin: "IBM Plex Sans",
   serifLatin: "IBM Plex Serif",
 )

@@ -20,8 +20,8 @@ mkdir -p build
 # الصفحات المرجعيّة: أيّ اختلافٍ عنها يعني تغيّرًا في المحتوى — لا في البيئة،
 # لأنّ الخطوط مثبَّتةٌ والبناء معزول. (0 = كتابٌ لم يكتمل بعدُ فلا مرجع له)
 BOOKS=(
-  "1-linux:zero-to-root-ar:594"
-  "2-macos:mac-ar:229"
+  "1-linux:zero-to-root-ar:590"
+  "2-macos:mac-ar:227"
   "3-windows:windows-ar:306"
   "4-bsd:bsd-ar:0"
 )
