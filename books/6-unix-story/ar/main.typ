@@ -19,3 +19,5 @@
 #book-outline()
 
 #include "_contents.typ"
+
+#include "frontmatter/cover-back.typ"
