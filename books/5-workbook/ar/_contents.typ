@@ -13,10 +13,7 @@
 #include "parts/p6-network.typ"
 #include "parts/p7-dev.typ"
 #include "parts/p8-security.typ"
-
-// ── المتبقّي (يُكتب ويُفكُّ تعليقُه فصلًا فصلًا) ──
-// #include "parts/p9-bridges.typ"    // التاسع · الجسور
-//   محاوره: مهامُّ تُبرز أوجهَ الشبه والخلاف بين العائلات الأربع
+#include "parts/p9-bridges.typ"
 
 // ── ملاحقُ مخطّطة (بعد اكتمال المحتوى) ──
 // #appendix("أ", "الحلول الكاملة المشروحة")   — لِما يستحقّ من التمارين
