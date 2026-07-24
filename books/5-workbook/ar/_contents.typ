@@ -11,10 +11,9 @@
 #include "parts/p4-shell.typ"
 #include "parts/p5-sysadmin.typ"
 #include "parts/p6-network.typ"
+#include "parts/p7-dev.typ"
 
 // ── المتبقّي (يُكتب ويُفكُّ تعليقُه فصلًا فصلًا) ──
-// #include "parts/p7-dev.typ"        // السابع · مسار المطوّر
-//   محاوره: Git · بيئات اللغات · أدوات الإنتاجية في الطرفية
 // #include "parts/p8-security.typ"   // الثامن · الأمن
 //   محاوره: الصلاحيات المتقدّمة · التعمية · تقوية النظام · السجلّات
 // #include "parts/p9-bridges.typ"    // التاسع · الجسور
