@@ -15,7 +15,7 @@
 #include "parts/p8-security.typ"
 #include "parts/p9-bridges.typ"
 
-// ── ملاحقُ مخطّطة (بعد اكتمال المحتوى) ──
-// #appendix("أ", "الحلول الكاملة المشروحة")   — لِما يستحقّ من التمارين
-// #appendix("ب", "بطاقةُ الغشّ: جدولُ التقابل الموحّد")  — يقتطعها القارئ
-// #appendix("ج", "المصادر والمراجع")           — إلزاميّ (شرطُ الخطّة §9)
+// ── الملاحق ──
+// («الحلول المشروحة» غيرُ لازمٍ: بطاقةُ كلّ تمرينٍ تعرض حلَّها أصلًا.)
+#include "appendices/appA-cheatsheet.typ"
+#include "appendices/appB-sources.typ"
