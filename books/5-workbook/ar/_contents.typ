@@ -10,10 +10,9 @@
 #include "parts/p3-text.typ"
 #include "parts/p4-shell.typ"
 #include "parts/p5-sysadmin.typ"
+#include "parts/p6-network.typ"
 
 // ── المتبقّي (يُكتب ويُفكُّ تعليقُه فصلًا فصلًا) ──
-// #include "parts/p6-network.typ"    // السادس · الشبكات
-//   محاوره: الاتّصال والتشخيص · النقل · SSH · الجدار الناريّ
 // #include "parts/p7-dev.typ"        // السابع · مسار المطوّر
 //   محاوره: Git · بيئات اللغات · أدوات الإنتاجية في الطرفية
 // #include "parts/p8-security.typ"   // الثامن · الأمن
