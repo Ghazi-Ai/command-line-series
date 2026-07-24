@@ -24,6 +24,7 @@ BOOKS=(
   "2-macos:mac-ar:650"
   "3-windows:windows-ar:648"
   "4-bsd:bsd-ar:0"
+  "5-workbook:workbook-ar:0"
   "6-unix-story:unix-story-ar:0"
 )
 
