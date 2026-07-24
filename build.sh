@@ -22,7 +22,7 @@ mkdir -p build
 BOOKS=(
   "1-linux:zero-to-root-ar:599"
   "2-macos:mac-ar:650"
-  "3-windows:windows-ar:306"
+  "3-windows:windows-ar:648"
   "4-bsd:bsd-ar:0"
 )
 
