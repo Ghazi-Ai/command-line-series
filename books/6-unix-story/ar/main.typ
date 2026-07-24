@@ -8,6 +8,7 @@
 
 #show: book.with(lang: "ar", title: "رُوحٌ في الآلة — حكايةُ يونِكس")
 
+#include "frontmatter/cover.typ"
 #include "frontmatter/title-page.typ"
 #include "frontmatter/colophon.typ"
 
