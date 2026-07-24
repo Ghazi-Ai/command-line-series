@@ -23,7 +23,7 @@ BOOKS=(
   "1-linux:zero-to-root-ar:599"
   "2-macos:mac-ar:650"
   "3-windows:windows-ar:306"
-  "4-bsd:bsd-ar:0"
+  "4-bsd:bsd-ar:643"
   "6-unix-story:unix-story-ar:0"
 )
 
