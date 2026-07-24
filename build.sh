@@ -24,6 +24,7 @@ BOOKS=(
   "2-macos:mac-ar:650"
   "3-windows:windows-ar:306"
   "4-bsd:bsd-ar:0"
+  "6-unix-story:unix-story-ar:0"
 )
 
 pages() { python3 -c "
