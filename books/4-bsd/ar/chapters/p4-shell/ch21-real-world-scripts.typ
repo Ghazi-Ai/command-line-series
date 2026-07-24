@@ -235,7 +235,7 @@ row "Avail" "$3"
 
   LOAD & UPTIME
   ----------------------
-  Uptime   19:47
+  Uptime   2:03
   Load     2.64 2.43 2.20
 
   ROOT DISK
