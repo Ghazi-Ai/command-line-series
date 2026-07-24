@@ -119,14 +119,15 @@ def xhtml_page(title, body):
 
 CSS = """@namespace epub "http://www.idpf.org/2007/ops";
 html { direction: rtl; }
-body { direction: rtl; text-align: right; font-family: serif;
+body { direction: rtl; text-align: justify; font-family: serif;
        line-height: 1.9; margin: 1.2em; }
 h1 { font-size: 1.7em; color: #164A3E; text-align: center;
      margin: 1.6em 0 0.9em; line-height: 1.4; }
 h2 { font-size: 1.3em; color: #1F6F5C; margin: 1.4em 0 0.6em;
      border-right: 3px solid #C0592B; padding-right: 0.5em; }
 h3 { font-size: 1.1em; color: #26242E; margin: 1.1em 0 0.5em; }
-p  { margin: 0 0 0.9em; text-align: justify; }
+p  { margin: 0 0 0.9em; text-align: justify !important;
+     text-align-last: start; -webkit-hyphens: none; hyphens: none; }
 aside.note { background: #F2F6F4; border-right: 3px solid #1F6F5C;
      padding: 0.7em 1em; margin: 1.1em 0; border-radius: 4px;
      font-size: 0.95em; color: #33313B; }
