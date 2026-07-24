@@ -9,10 +9,9 @@
 #include "parts/p2-system.typ"
 #include "parts/p3-text.typ"
 #include "parts/p4-shell.typ"
-// #include "parts/p4-shell.typ"      // الرابع · الصدفة والأتمتة
-//   محاوره: المتغيّرات والبيئة · السكربتات · التحكّم (شرط/تكرار) · الدوال
-// #include "parts/p5-sysadmin.typ"   // الخامس · إدارة النظام
-//   محاوره: الخدمات · الجدولة · الأقراص والتخزين · المراقبة · الأرشفة والنسخ
+#include "parts/p5-sysadmin.typ"
+
+// ── المتبقّي (يُكتب ويُفكُّ تعليقُه فصلًا فصلًا) ──
 // #include "parts/p6-network.typ"    // السادس · الشبكات
 //   محاوره: الاتّصال والتشخيص · النقل · SSH · الجدار الناريّ
 // #include "parts/p7-dev.typ"        // السابع · مسار المطوّر
