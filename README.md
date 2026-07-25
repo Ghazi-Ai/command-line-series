@@ -11,31 +11,22 @@
 
 </div>
 
-<div align="center" dir="rtl">
-  <img src="assets/icons/1-linux.png" width="64" alt="أيقونة كتاب لينكس">
-  <img src="assets/icons/2-macos.png" width="64" alt="أيقونة كتاب ماك">
-  <img src="assets/icons/3-windows.png" width="64" alt="أيقونة كتاب ويندوز">
-  <img src="assets/icons/4-bsd.png" width="64" alt="أيقونة كتاب BSD">
-  <img src="assets/icons/5-workbook.png" width="64" alt="أيقونة دفتر التمارين">
-  <img src="assets/icons/6-unix-story.png" width="64" alt="أيقونة قصة يونكس">
-</div>
-
 ---
 
 <div dir="rtl" align="justify">
 
-## كتب السلسلة
+## 📚 كتب السلسلة
 
 <div dir="rtl" style="overflow-x:auto">
 <table width="100%">
 <thead><tr><th>#</th><th>الكتاب</th><th>الموضوع</th><th>الحالة</th></tr></thead>
 <tbody>
-<tr><td>1</td><td><strong>مِن الصِّفر إلى الجَذر</strong></td><td>لِينُكس وسطر الأوامر</td><td>مكتمل — 48 فصلًا + 7 ملاحق · 601 ص</td></tr>
-<tr><td>2</td><td><strong>ماك من الطرفية</strong></td><td>macOS من الطرفية</td><td>مكتمل — 47 فصلًا + 5 ملاحق · 652 ص</td></tr>
-<tr><td>3</td><td><strong>مِن الصِّفر إلى المسؤول</strong></td><td>ويندوز: CMD وPowerShell وWSL</td><td>مكتمل — 42 فصلًا + 5 ملاحق · 650 ص</td></tr>
-<tr><td>4</td><td><strong>مِن الصِّفر إلى العِفريت</strong></td><td>FreeBSD وعالم BSD</td><td>مكتمل — 40 فصلًا + 5 ملاحق · 664 ص</td></tr>
-<tr><td>5</td><td><strong>الطرفيّةُ بالممارسة</strong></td><td>تمارين على الأنظمة الأربعة جنبًا إلى جنب</td><td>مكتمل — 9 أجزاء + ملحقان · 109 ص</td></tr>
-<tr><td>6</td><td><strong>رُوحٌ في الآلة</strong></td><td>حكاية يونِكس — كتابٌ أدبيّ للعامّة</td><td>مكتمل — 13 فصلًا · 117 ص</td></tr>
+<tr><td>1</td><td><strong>مِن الصِّفر إلى الجَذر</strong></td><td>لِينُكس وسطر الأوامر</td><td>✅ مكتمل — 48 فصلًا + 7 ملاحق · 601 ص</td></tr>
+<tr><td>2</td><td><strong>ماك من الطرفية</strong></td><td>macOS من الطرفية</td><td>✅ مكتمل — 47 فصلًا + 5 ملاحق · 652 ص</td></tr>
+<tr><td>3</td><td><strong>مِن الصِّفر إلى المسؤول</strong></td><td>ويندوز: CMD وPowerShell وWSL</td><td>✅ مكتمل — 42 فصلًا + 5 ملاحق · 650 ص</td></tr>
+<tr><td>4</td><td><strong>مِن الصِّفر إلى العِفريت</strong></td><td>FreeBSD وعالم BSD</td><td>✅ مكتمل — 40 فصلًا + 5 ملاحق · 664 ص</td></tr>
+<tr><td>5</td><td><strong>الطرفيّةُ بالممارسة</strong></td><td>تمارين على الأنظمة الأربعة جنبًا إلى جنب</td><td>✅ مكتمل — 9 أجزاء + ملحقان · 109 ص</td></tr>
+<tr><td>6</td><td><strong>رُوحٌ في الآلة</strong></td><td>حكاية يونِكس — كتابٌ أدبيّ للعامّة</td><td>✅ مكتمل — 13 فصلًا · 117 ص</td></tr>
 </tbody>
 </table>
 </div>
@@ -53,7 +44,7 @@
   <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf"><img src="docs/readme-covers/6-unix-story.png" width="188" alt="تحميل PDF كتاب قصة يونكس"></a>
 </div>
 
-## التنزيلات · Downloads
+## ⬇️ التنزيلات · Downloads
 
 الملفات النهائية منشورة كمرفقات في أحدث إصدار من GitHub. الروابط أدناه ثابتة،
 وتشير دائمًا إلى آخر إصدار منشور.
@@ -74,11 +65,11 @@
 
 > الإصدار الحالي: [`v1.0.0`](https://github.com/Ghazi-Ai/command-line-series/releases/tag/v1.0.0)
 
-## الفكرة
+## 🎯 الفكرة
 
 موضوعٌ واحد، أربع نوافذ (لِينُكس · ماك · ويندوز · BSD)، وقصّةٌ تجمعها. كلّ كتابٍ يبدأ من الصفر المطلق، ويبني بأسلوب **مفهوم ← جرّب بنفسك ← تحدٍّ**، ويجسِّر إلى شقيقاته. «العين تقرأ قبل العقل» — فالجمال أولويّة لا ترف.
 
-## بنية المستودع
+## 🗂️ بنية المستودع
 
 <div dir="ltr" align="left">
 
@@ -101,7 +92,7 @@ command-line-series/
 
 </div>
 
-## البناء
+## 🛠️ البناء
 
 يعتمد على [Typst](https://typst.app)، والخطوطُ الحرّة مثبَّتةٌ داخل `fonts/` (IBM Plex Sans Arabic، Noto Kufi Arabic، JetBrains Mono) فيخرج البناءُ متطابقًا على أيّ جهاز.
 
@@ -116,15 +107,15 @@ command-line-series/
 python3 tools/make_epub.py books/1-linux/ar build/1-linux-ar.epub
 ```
 
-## الهويّة البصريّة
+## 🎨 الهويّة البصريّة
 
 تصميمٌ داخليٌّ واحدٌ يجمع السلسلة (أخضرٌ صنوبريٌّ على ورقٍ دافئ)، ولكلّ كتابٍ لونُ غلافه. التفاصيل كلُّها — الألوان والخطوط وهندسة الصفحة وبرومبت توليد الأغلفة — في [`docs/دليل-الهوية-البصرية.md`](docs/دليل-الهوية-البصرية.md).
 
-## الرخصة
+## 📜 الرخصة
 
 منشورةٌ برخصة **[CC BY‑ND 4.0](LICENSE)** (النَّسْب — بلا اشتقاق): تُقرأ وتُشارك وتُعاد نشرًا كاملةً وحرفيًّا مع النَّسْب، ولا تُنشر معدّلةً إلا بإذن المؤلف.
 
-## المؤلف
+## ✍️ المؤلف
 
 **المهندس غازي السيف** (أبو هيثم) — `eng.ghazi@icloud.com`
 
