@@ -1,4 +1,4 @@
-# المؤلف · Author
+# إعداد المشروع · Project preparation
 
 **المهندس غازي السيف** (أبو هيثم)
 Eng. Ghazi Alsaif
