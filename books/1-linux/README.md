@@ -39,7 +39,7 @@ sudo apt install fonts-hosny-amiri fonts-jetbrains-mono fonts-ibm-plex fonts-not
 # ابنِ النسخة العربية
 ./build.sh
 # أو:
-typst compile src/ar/main.typ build/zero-to-root-ar.pdf --root .
+typst compile src/ar/main.typ build/1-linux-ar.pdf --root .
 ```
 
 الناتج في مجلّد `build/`. لمعاينةٍ حيّة أثناء الكتابة: `make watch-ar`.

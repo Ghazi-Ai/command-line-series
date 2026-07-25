@@ -61,7 +61,7 @@ command-line-series/
 توليدُ EPUB (اختياريّ، للقراءة على الجوّال):
 
 ```bash
-python3 tools/make_epub.py books/1-linux/ar build/zero-to-root-ar.epub
+python3 tools/make_epub.py books/1-linux/ar build/1-linux-ar.epub
 ```
 
 ## 🎨 الهويّة البصريّة
