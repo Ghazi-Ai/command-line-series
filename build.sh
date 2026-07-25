@@ -20,11 +20,11 @@ mkdir -p build
 # الصفحات المرجعيّة: أيّ اختلافٍ عنها يعني تغيّرًا في المحتوى — لا في البيئة،
 # لأنّ الخطوط مثبَّتةٌ والبناء معزول. (0 = كتابٌ لم يكتمل بعدُ فلا مرجع له)
 BOOKS=(
-  "1-linux:zero-to-root-ar:599"
-  "2-macos:mac-ar:650"
-  "3-windows:windows-ar:648"
-  "4-bsd:bsd-ar:662"
-  "5-workbook:workbook-ar:107"
+  "1-linux:zero-to-root-ar:601"
+  "2-macos:mac-ar:652"
+  "3-windows:windows-ar:650"
+  "4-bsd:bsd-ar:664"
+  "5-workbook:workbook-ar:109"
   "6-unix-story:unix-story-ar:117"
 )
 

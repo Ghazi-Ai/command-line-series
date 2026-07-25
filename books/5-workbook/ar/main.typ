@@ -8,6 +8,9 @@
 
 #show: book.with(lang: "ar", title: "الطرفية بالممارسة", prompt: "$", others: "على أربعة أنظمة")
 
+// ── الغلاف الأماميّ (الفنّ + العنوان) ──
+#include "frontmatter/cover.typ"
+
 #include "frontmatter/title-page.typ"
 #include "frontmatter/colophon.typ"
 
@@ -19,3 +22,6 @@
 #book-outline()
 
 #include "_contents.typ"
+
+// ── الغلاف الخلفيّ (الفنّ + النبذة) ──
+#include "frontmatter/cover-back.typ"

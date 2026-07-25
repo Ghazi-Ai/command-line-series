@@ -8,6 +8,9 @@
 
 #show: book.with(lang: "ar", title: "مِن الصِّفر إلى الجَذر")
 
+// ── الغلاف الأماميّ (الفنّ + العنوان) ──
+#include "frontmatter/cover.typ"
+
 // ── المقدّمات (بلا ترقيم صفحات) ──
 #include "frontmatter/title-page.typ"
 #include "frontmatter/colophon.typ"
@@ -23,3 +26,6 @@
 
 // ── الأجزاء والفصول والملاحق (مولّد آليًّا) ──
 #include "_contents.typ"
+
+// ── الغلاف الخلفيّ (الفنّ + النبذة) ──
+#include "frontmatter/cover-back.typ"

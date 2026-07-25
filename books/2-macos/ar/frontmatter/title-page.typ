@@ -3,11 +3,13 @@
 
 #page(header: none, footer: none, numbering: none, {
   set align(center)
+  set par(justify: false)
   v(1.4fr)
   text(dir: ltr, font: FONT.mono, size: 11pt, fill: COLOR.primary, weight: 600)[ghazi\@mac \~ %]
   v(2.4fr)
-  text(font: FONT.displayAr, size: 46pt, weight: 800, fill: COLOR.primaryDeep)[
-    ماك من الطرفية
+  text(font: FONT.displayAr, size: 44pt, weight: 800, fill: COLOR.primaryDeep)[
+    ماك \
+    من الطرفية
   ]
   v(28pt, weak: true)
   line(length: 28%, stroke: 1.5pt + COLOR.accent)
