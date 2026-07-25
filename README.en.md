@@ -26,8 +26,9 @@ For the complete current project overview, see the [Arabic README](README.md).
 
 ## Author and AI assistance
 
-This project is authored and overseen by Ghazi. AI tools were used as research
-and editorial assistants during parts of the work, including review,
-proofreading, consistency checks, and improvement suggestions. The author
-reviewed and approved or revised the outputs and retains final responsibility
-for the content, accuracy, and wording.
+This project was prepared, overseen, and reviewed by Ghazi. AI tools were used
+as research and editorial assistants during parts of the work, including
+reading, review, proofreading, consistency checks, and improvement suggestions.
+The tools included Claude Opus 4.8 and ChatGPT 5.6 in Luna and Sol modes. The
+author used the outputs to help organize and develop the project and retains
+responsibility for the final review and any original human contributions.
