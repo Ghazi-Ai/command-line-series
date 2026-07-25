@@ -12,12 +12,12 @@
 </div>
 
 <div align="center" dir="rtl">
-  <img src="assets/icons/1-linux.png" width="64" alt="أيقونة كتاب لينكس">
-  <img src="assets/icons/2-macos.png" width="64" alt="أيقونة كتاب ماك">
-  <img src="assets/icons/3-windows.png" width="64" alt="أيقونة كتاب ويندوز">
-  <img src="assets/icons/4-bsd.png" width="64" alt="أيقونة كتاب BSD">
-  <img src="assets/icons/5-workbook.png" width="64" alt="أيقونة دفتر التمارين">
-  <img src="assets/icons/6-unix-story.png" width="64" alt="أيقونة قصة يونكس">
+  <img src="assets/icons/1-linux.png" style="width:clamp(40px,8vw,64px);height:auto" alt="أيقونة كتاب لينكس">
+  <img src="assets/icons/2-macos.png" style="width:clamp(40px,8vw,64px);height:auto" alt="أيقونة كتاب ماك">
+  <img src="assets/icons/3-windows.png" style="width:clamp(40px,8vw,64px);height:auto" alt="أيقونة كتاب ويندوز">
+  <img src="assets/icons/4-bsd.png" style="width:clamp(40px,8vw,64px);height:auto" alt="أيقونة كتاب BSD">
+  <img src="assets/icons/5-workbook.png" style="width:clamp(40px,8vw,64px);height:auto" alt="أيقونة دفتر التمارين">
+  <img src="assets/icons/6-unix-story.png" style="width:clamp(40px,8vw,64px);height:auto" alt="أيقونة قصة يونكس">
 </div>
 
 ---
@@ -40,12 +40,12 @@
 ### أغلفة السلسلة
 
 <div align="center" dir="rtl">
-  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf"><img src="docs/readme-covers/1-linux.png" width="188" alt="تحميل PDF كتاب لينكس"></a>
-  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf"><img src="docs/readme-covers/2-macos.png" width="188" alt="تحميل PDF كتاب ماك"></a>
-  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf"><img src="docs/readme-covers/3-windows.png" width="188" alt="تحميل PDF كتاب ويندوز"></a>
-  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf"><img src="docs/readme-covers/4-bsd.png" width="188" alt="تحميل PDF كتاب BSD"></a>
-  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf"><img src="docs/readme-covers/5-workbook.png" width="188" alt="تحميل PDF دفتر التمارين"></a>
-  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf"><img src="docs/readme-covers/6-unix-story.png" width="188" alt="تحميل PDF كتاب قصة يونكس"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf"><img src="docs/readme-covers/1-linux.png" style="width:min(30vw,188px);max-width:100%;height:auto" alt="تحميل PDF كتاب لينكس"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf"><img src="docs/readme-covers/2-macos.png" style="width:min(30vw,188px);max-width:100%;height:auto" alt="تحميل PDF كتاب ماك"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf"><img src="docs/readme-covers/3-windows.png" style="width:min(30vw,188px);max-width:100%;height:auto" alt="تحميل PDF كتاب ويندوز"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf"><img src="docs/readme-covers/4-bsd.png" style="width:min(30vw,188px);max-width:100%;height:auto" alt="تحميل PDF كتاب BSD"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf"><img src="docs/readme-covers/5-workbook.png" style="width:min(30vw,188px);max-width:100%;height:auto" alt="تحميل PDF دفتر التمارين"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf"><img src="docs/readme-covers/6-unix-story.png" style="width:min(30vw,188px);max-width:100%;height:auto" alt="تحميل PDF كتاب قصة يونكس"></a>
 </div>
 
 ## التنزيلات · Downloads
