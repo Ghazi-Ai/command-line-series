@@ -508,7 +508,13 @@ def main():
         elif os.path.exists(val):
             add_page(open(val, encoding='utf-8').read())
 
-    cover_img = os.path.join(book_dir, 'assets/cover-front.png')
+    # فضّلِ الغلافَ المعنون (النصوصُ مخبوزةٌ فيه) — يطابق غلافَ الـPDF.
+    # وإلّا فالفنُّ الخام. ولّدِ المعنونَ هكذا:
+    #   typst compile --root . books/<b>/ar/frontmatter/cover.typ \
+    #       books/<b>/ar/assets/cover-front-titled.png --font-path fonts --ppi 200
+    cover_img = os.path.join(book_dir, 'assets/cover-front-titled.png')
+    if not os.path.exists(cover_img):
+        cover_img = os.path.join(book_dir, 'assets/cover-front.png')
     has_cover = os.path.exists(cover_img)
     uid = 'urn:uuid:' + hashlib.md5((title + author).encode()).hexdigest()
     today = datetime.date.today().isoformat()
