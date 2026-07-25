@@ -13,6 +13,8 @@
 
 ---
 
+<div dir="rtl" align="justify">
+
 ## كتب السلسلة
 
 | # | الكتاب | الموضوع | الحالة |
@@ -30,16 +32,16 @@
 
 <table>
   <tr>
-    <td align="center" width="50%"><img src="covers/front/1-linux.png" width="300" alt="الغلاف الأمامي لكتاب لينكس"><br>مِن الصِّفر إلى الجَذر</td>
-    <td align="center" width="50%"><img src="covers/front/2-macos.png" width="300" alt="الغلاف الأمامي لكتاب ماك"><br>ماك من الطرفية</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/1-linux.png" width="250" alt="الغلاف الأمامي لكتاب لينكس"><br>مِن الصِّفر إلى الجَذر</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/2-macos.png" width="250" alt="الغلاف الأمامي لكتاب ماك"><br>ماك من الطرفية</td>
   </tr>
   <tr>
-    <td align="center" width="50%"><img src="covers/front/3-windows.png" width="300" alt="الغلاف الأمامي لكتاب ويندوز"><br>مِن الصِّفر إلى المسؤول</td>
-    <td align="center" width="50%"><img src="covers/front/4-bsd.png" width="300" alt="الغلاف الأمامي لكتاب BSD"><br>مِن الصِّفر إلى العِفريت</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/3-windows.png" width="250" alt="الغلاف الأمامي لكتاب ويندوز"><br>مِن الصِّفر إلى المسؤول</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/4-bsd.png" width="250" alt="الغلاف الأمامي لكتاب BSD"><br>مِن الصِّفر إلى العِفريت</td>
   </tr>
   <tr>
-    <td align="center" width="50%"><img src="covers/front/5-workbook.png" width="300" alt="الغلاف الأمامي لدفتر التمارين"><br>الطرفيّةُ بالممارسة</td>
-    <td align="center" width="50%"><img src="covers/front/6-unix-story.png" width="300" alt="الغلاف الأمامي لكتاب قصة يونكس"><br>رُوحٌ في الآلة</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/5-workbook.png" width="250" alt="الغلاف الأمامي لدفتر التمارين"><br>الطرفيّةُ بالممارسة</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/6-unix-story.png" width="250" alt="الغلاف الأمامي لكتاب قصة يونكس"><br>رُوحٌ في الآلة</td>
   </tr>
 </table>
 
@@ -111,4 +113,6 @@ python3 tools/make_epub.py books/1-linux/ar build/1-linux-ar.epub
 
 <div align="center">
 <sub>صُنعت بشغف، وبأداة Typst · Made with passion, typeset with Typst</sub>
+</div>
+
 </div>
