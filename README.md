@@ -39,20 +39,14 @@
 
 ### أغلفة السلسلة
 
-<table>
-  <tr>
-    <td align="center" width="50%"><img src="docs/readme-covers/1-linux.png" width="188" alt="الغلاف الأمامي لكتاب لينكس"><br>مِن الصِّفر إلى الجَذر</td>
-    <td align="center" width="50%"><img src="docs/readme-covers/2-macos.png" width="188" alt="الغلاف الأمامي لكتاب ماك"><br>ماك من الطرفية</td>
-  </tr>
-  <tr>
-    <td align="center" width="50%"><img src="docs/readme-covers/3-windows.png" width="188" alt="الغلاف الأمامي لكتاب ويندوز"><br>مِن الصِّفر إلى المسؤول</td>
-    <td align="center" width="50%"><img src="docs/readme-covers/4-bsd.png" width="188" alt="الغلاف الأمامي لكتاب BSD"><br>مِن الصِّفر إلى العِفريت</td>
-  </tr>
-  <tr>
-    <td align="center" width="50%"><img src="docs/readme-covers/5-workbook.png" width="188" alt="الغلاف الأمامي لدفتر التمارين"><br>الطرفيّةُ بالممارسة</td>
-    <td align="center" width="50%"><img src="docs/readme-covers/6-unix-story.png" width="188" alt="الغلاف الأمامي لكتاب قصة يونكس"><br>رُوحٌ في الآلة</td>
-  </tr>
-</table>
+<div align="center" dir="ltr">
+  <img src="docs/readme-covers/1-linux.png" width="188" alt="الغلاف الأمامي لكتاب لينكس">
+  <img src="docs/readme-covers/2-macos.png" width="188" alt="الغلاف الأمامي لكتاب ماك">
+  <img src="docs/readme-covers/3-windows.png" width="188" alt="الغلاف الأمامي لكتاب ويندوز">
+  <img src="docs/readme-covers/4-bsd.png" width="188" alt="الغلاف الأمامي لكتاب BSD">
+  <img src="docs/readme-covers/5-workbook.png" width="188" alt="الغلاف الأمامي لدفتر التمارين">
+  <img src="docs/readme-covers/6-unix-story.png" width="188" alt="الغلاف الأمامي لكتاب قصة يونكس">
+</div>
 
 ## التنزيلات · Downloads
 
