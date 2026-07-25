@@ -45,17 +45,14 @@
 الملفات النهائية منشورة كمرفقات في أحدث إصدار من GitHub. الروابط أدناه ثابتة،
 وتشير دائمًا إلى آخر إصدار منشور.
 
-<table width="100%">
-<thead><tr><th width="6%">#</th><th width="44%">الكتاب</th><th width="25%">PDF</th><th width="25%">EPUB</th></tr></thead>
-<tbody>
-<tr><td>1</td><td>🟠 <strong>مِن الصِّفر إلى الجَذر</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
-<tr><td>2</td><td>🔵 <strong>ماك من الطرفية</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
-<tr><td>3</td><td>🟡 <strong>مِن الصِّفر إلى المسؤول</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
-<tr><td>4</td><td>🔴 <strong>مِن الصِّفر إلى العِفريت</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
-<tr><td>5</td><td>🟣 <strong>الطرفيّةُ بالممارسة</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
-<tr><td>6</td><td>🔷 <strong>رُوحٌ في الآلة</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf">تحميل PDF</a></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub">تحميل EPUB</a></td></tr>
-</tbody>
-</table>
+| # | الكتاب | PDF | EPUB |
+|---|--------|-----|-------|
+| 1 | 🟠 **مِن الصِّفر إلى الجَذر** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf) | `X` |
+| 2 | 🔵 **ماك من الطرفية** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf) | `X` |
+| 3 | 🟡 **مِن الصِّفر إلى المسؤول** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf) | `X` |
+| 4 | 🔴 **مِن الصِّفر إلى العِفريت** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf) | `X` |
+| 5 | 🟣 **الطرفيّةُ بالممارسة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf) | `X` |
+| 6 | 🔷 **رُوحٌ في الآلة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub) |
 
 > الإصدار الحالي: [`v1.0.0`](https://github.com/Ghazi-Ai/command-line-series/releases/tag/v1.0.0)
 
