@@ -3,6 +3,7 @@
 # سلسلة سطر الأوامر · The Command Line Series
 
 **سلسلةٌ عربيّة تأخذك من الصِّفر المطلق إلى إتقان سطر الأوامر عبر الأنظمة كلّها.**
+
 *One craft, every system — an Arabic-first series on the command line.*
 
 المتطلّب الوحيد: أن تعرف القراءة والكتابة.
