@@ -7,6 +7,9 @@
 
 #show: book.with(lang: "ar", title: "مِن الصِّفر إلى المسؤول", prompt: "C:\\>", others: "على أنظمةٍ أخرى")
 
+// ── الغلاف الأماميّ (الفنّ + العنوان) ──
+#include "frontmatter/cover.typ"
+
 #include "frontmatter/title-page.typ"
 #include "frontmatter/colophon.typ"
 
@@ -18,3 +21,6 @@
 #book-outline()
 
 #include "_contents.typ"
+
+// ── الغلاف الخلفيّ (الفنّ + النبذة) ──
+#include "frontmatter/cover-back.typ"
