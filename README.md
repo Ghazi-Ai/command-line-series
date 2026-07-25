@@ -70,6 +70,8 @@
 
 ## بنية المستودع
 
+<div dir="ltr" align="left">
+
 ```
 command-line-series/
 ├── lib/              ← نظام التصميم المشترك (Typst): ألوان، خطوط، قالب، صناديق
@@ -86,6 +88,8 @@ command-line-series/
 ├── tools/            ← مولّد EPUB والهيكل
 └── build.sh          ← يبني الكتب الستّة (PDF) إلى build/
 ```
+
+</div>
 
 ## البناء
 
