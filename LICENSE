@@ -1,9 +1,26 @@
-"مِن الصِّفر إلى الجَذر" (From Zero to Root)
+# سلسلة سطر الأوامر (The Command Line Series)
 © 2026 المهندس غازي السيف (Eng. Ghazi Alsaif — أبو هيثم). All rights reserved
-under the terms of the license below.
+هذا المستودع، بما فيه الكتب والمواد المرافقة، مرخّصٌ بموجب الأحكام الواردة أدناه.
+This repository, including its books and supporting materials, is licensed under
+the terms below.
 
-This work is licensed under the
-Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0).
+## الملخّص العربي | Arabic summary
+
+هذا العمل منشور بموجب رخصة المشاع الإبداعي: النَّسْب — منع الاشتقاق 4.0 دولي
+(CC BY-ND 4.0). يحقّ لك نسخ العمل وإعادة توزيعه بأي وسيط أو صيغة، ولأي غرض
+بما في ذلك الأغراض التجارية، بشرط:
+
+- **النَّسب:** ذكر المؤلف، ووضع رابط الرخصة، وبيان ما إذا أُجريت أي تغييرات.
+- **منع الاشتقاق:** لا يجوز توزيع مادة مشتقة من العمل، مثل النسخ المعدّلة أو
+  المترجمة، إلا بإذن كتابي مسبق من المؤلف.
+
+النص العربي القانوني الرسمي من Creative Commons:
+https://creativecommons.org/licenses/by-nd/4.0/legalcode.ar
+
+## English summary
+
+This work is licensed under the Creative Commons Attribution-NoDerivatives 4.0
+International License (CC BY-ND 4.0).
 
 You are free to copy and redistribute the material in any medium or format for
 any purpose, even commercially, under the following terms:
@@ -13,7 +30,8 @@ any purpose, even commercially, under the following terms:
     not distribute the modified material. Modified/derivative versions may only
     be published with the prior written permission of the author.
 
-Full human-readable summary: https://creativecommons.org/licenses/by-nd/4.0/
+Full human-readable summary (English): https://creativecommons.org/licenses/by-nd/4.0/
+Official Arabic legal code: https://creativecommons.org/licenses/by-nd/4.0/legalcode.ar
 To contact the author for permissions: eng.ghazi@icloud.com
 
 ═══════════════════════════════════════════════════════════════════════════════
