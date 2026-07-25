@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════════════════
 //  «مِن الصِّفر إلى المسؤول» — سلسلة سطر الأوامر، الكتاب الثالث (ويندوز)
-//  البناء:  typst compile books/3-windows/ar/main.typ build/windows-ar.pdf --root .
+//  البناء:  typst compile books/3-windows/ar/main.typ build/3-windows-ar.pdf --root .
 // ═══════════════════════════════════════════════════════════════════════════
 
 #import "/lib/book.typ": book, book-outline

@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════════════════
 //  «مِن الصِّفر إلى العِفريت» — سلسلة سطر الأوامر، الكتاب الرابع (BSD)
-//  البناء:  typst compile books/4-bsd/ar/main.typ build/bsd-ar.pdf --root .
+//  البناء:  typst compile books/4-bsd/ar/main.typ build/4-bsd-ar.pdf --root .
 // ═══════════════════════════════════════════════════════════════════════════
 
 #import "/lib/book.typ": book, book-outline
