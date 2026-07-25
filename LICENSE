@@ -1,8 +1,23 @@
 # سلسلة سطر الأوامر (The Command Line Series)
-© 2026 المهندس غازي السيف (Eng. Ghazi Alsaif — أبو هيثم). All rights reserved
+© 2026 المهندس غازي السيف (Eng. Ghazi Alsaif — أبو هيثم).
+Rights reserved to the extent held by the author under applicable law.
 هذا المستودع، بما فيه الكتب والمواد المرافقة، مرخّصٌ بموجب الأحكام الواردة أدناه.
 This repository, including its books and supporting materials, is licensed under
 the terms below.
+
+## ملاحظةٌ في نطاق الحقوق | Scope note
+
+تنطبق هذه الرخصةُ وإشعارُ الحقوق على ما يملكه صاحبُ المشروع فعلًا من حقوقٍ في هذا
+العمل فقط، ولا يُقصَد بهما إنشاءُ حقوقٍ حصريّةٍ أو ادّعاؤها في موادَّ لا يملكها
+صاحبُ المشروع أو لا تكون مشمولةً بحماية حقّ المؤلف. وقد أُعِدّ هذا العمل بمساعدة
+أدواتِ ذكاءٍ اصطناعيّ (انظر [`AUTHORS.md`](AUTHORS.md))، وليس في هذا النصّ استشارةٌ
+قانونيّة.
+
+This license and copyright notice apply only to the rights the project owner
+actually holds in this work. They are not intended to create, extend, or assert
+exclusive rights in any material the owner does not own or that is not eligible
+for copyright protection. This work was prepared with the assistance of AI tools
+(see AUTHORS.md). Nothing here constitutes legal advice.
 
 ## الملخّص العربي | Arabic summary
 
