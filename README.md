@@ -2,6 +2,8 @@
 
 # سلسلة سطر الأوامر · The Command Line Series
 
+<a href="README.md">العربية</a> · <a href="README.en.md">English</a>
+
 **سلسلةٌ عربيّة تأخذك من الصِّفر المطلق إلى إتقان سطر الأوامر عبر الأنظمة كلّها.**
 
 *One craft, every system — an Arabic-first series on the command line.*
