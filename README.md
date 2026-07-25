@@ -40,12 +40,12 @@
 ### أغلفة السلسلة
 
 <div align="center" dir="ltr">
-  <img src="docs/readme-covers/1-linux.png" width="188" alt="الغلاف الأمامي لكتاب لينكس">
-  <img src="docs/readme-covers/2-macos.png" width="188" alt="الغلاف الأمامي لكتاب ماك">
-  <img src="docs/readme-covers/3-windows.png" width="188" alt="الغلاف الأمامي لكتاب ويندوز">
-  <img src="docs/readme-covers/4-bsd.png" width="188" alt="الغلاف الأمامي لكتاب BSD">
-  <img src="docs/readme-covers/5-workbook.png" width="188" alt="الغلاف الأمامي لدفتر التمارين">
-  <img src="docs/readme-covers/6-unix-story.png" width="188" alt="الغلاف الأمامي لكتاب قصة يونكس">
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf"><img src="docs/readme-covers/1-linux.png" width="188" alt="تحميل PDF كتاب لينكس"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf"><img src="docs/readme-covers/2-macos.png" width="188" alt="تحميل PDF كتاب ماك"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf"><img src="docs/readme-covers/3-windows.png" width="188" alt="تحميل PDF كتاب ويندوز"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf"><img src="docs/readme-covers/4-bsd.png" width="188" alt="تحميل PDF كتاب BSD"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf"><img src="docs/readme-covers/5-workbook.png" width="188" alt="تحميل PDF دفتر التمارين"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf"><img src="docs/readme-covers/6-unix-story.png" width="188" alt="تحميل PDF كتاب قصة يونكس"></a>
 </div>
 
 ## التنزيلات · Downloads
