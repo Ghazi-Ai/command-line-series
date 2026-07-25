@@ -26,14 +26,19 @@
 
 ## كتب السلسلة
 
-| # | الكتاب | الموضوع | الحالة |
-|---|--------|---------|-------|
-| 1 | **مِن الصِّفر إلى الجَذر** | لِينُكس وسطر الأوامر | مكتمل — 48 فصلًا + 7 ملاحق · 601 ص |
-| 2 | **ماك من الطرفية** | macOS من الطرفية | مكتمل — 47 فصلًا + 5 ملاحق · 652 ص |
-| 3 | **مِن الصِّفر إلى المسؤول** | ويندوز: CMD وPowerShell وWSL | مكتمل — 42 فصلًا + 5 ملاحق · 650 ص |
-| 4 | **مِن الصِّفر إلى العِفريت** | FreeBSD وعالم BSD | مكتمل — 40 فصلًا + 5 ملاحق · 664 ص |
-| 5 | **الطرفيّةُ بالممارسة** | تمارين على الأنظمة الأربعة جنبًا إلى جنب | مكتمل — 9 أجزاء + ملحقان · 109 ص |
-| 6 | **رُوحٌ في الآلة** | حكاية يونِكس — كتابٌ أدبيّ للعامّة | مكتمل — 13 فصلًا · 117 ص |
+<div dir="rtl" style="overflow-x:auto">
+<table width="100%">
+<thead><tr><th>#</th><th>الكتاب</th><th>الموضوع</th><th>الحالة</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>مِن الصِّفر إلى الجَذر</strong></td><td>لِينُكس وسطر الأوامر</td><td>مكتمل — 48 فصلًا + 7 ملاحق · 601 ص</td></tr>
+<tr><td>2</td><td><strong>ماك من الطرفية</strong></td><td>macOS من الطرفية</td><td>مكتمل — 47 فصلًا + 5 ملاحق · 652 ص</td></tr>
+<tr><td>3</td><td><strong>مِن الصِّفر إلى المسؤول</strong></td><td>ويندوز: CMD وPowerShell وWSL</td><td>مكتمل — 42 فصلًا + 5 ملاحق · 650 ص</td></tr>
+<tr><td>4</td><td><strong>مِن الصِّفر إلى العِفريت</strong></td><td>FreeBSD وعالم BSD</td><td>مكتمل — 40 فصلًا + 5 ملاحق · 664 ص</td></tr>
+<tr><td>5</td><td><strong>الطرفيّةُ بالممارسة</strong></td><td>تمارين على الأنظمة الأربعة جنبًا إلى جنب</td><td>مكتمل — 9 أجزاء + ملحقان · 109 ص</td></tr>
+<tr><td>6</td><td><strong>رُوحٌ في الآلة</strong></td><td>حكاية يونِكس — كتابٌ أدبيّ للعامّة</td><td>مكتمل — 13 فصلًا · 117 ص</td></tr>
+</tbody>
+</table>
+</div>
 
 > كلُّ كتابٍ يُبنى PDF كاملًا بغلافيه الأمامي والخلفي مدموجَين. المجموع نحو 2,793 صفحة.
 
@@ -53,14 +58,19 @@
 الملفات النهائية منشورة كمرفقات في أحدث إصدار من GitHub. الروابط أدناه ثابتة،
 وتشير دائمًا إلى آخر إصدار منشور.
 
-| # | الكتاب | PDF | EPUB |
-|---|--------|-----|-------|
-| 1 | **مِن الصِّفر إلى الجَذر** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf) | `X` |
-| 2 | **ماك من الطرفية** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf) | `X` |
-| 3 | **مِن الصِّفر إلى المسؤول** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf) | `X` |
-| 4 | **مِن الصِّفر إلى العِفريت** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf) | `X` |
-| 5 | **الطرفيّةُ بالممارسة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf) | `X` |
-| 6 | **رُوحٌ في الآلة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub) |
+<div dir="rtl" style="overflow-x:auto">
+<table width="100%">
+<thead><tr><th>#</th><th>الكتاب</th><th>PDF</th><th>EPUB</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>مِن الصِّفر إلى الجَذر</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
+<tr><td>2</td><td><strong>ماك من الطرفية</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
+<tr><td>3</td><td><strong>مِن الصِّفر إلى المسؤول</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
+<tr><td>4</td><td><strong>مِن الصِّفر إلى العِفريت</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
+<tr><td>5</td><td><strong>الطرفيّةُ بالممارسة</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
+<tr><td>6</td><td><strong>رُوحٌ في الآلة</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf">تحميل PDF</a></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub">تحميل EPUB</a></td></tr>
+</tbody>
+</table>
+</div>
 
 > الإصدار الحالي: [`v1.0.0`](https://github.com/Ghazi-Ai/command-line-series/releases/tag/v1.0.0)
 
