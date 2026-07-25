@@ -53,12 +53,12 @@
 <table width="100%">
 <thead><tr><th>#</th><th>الكتاب</th><th>PDF</th><th>EPUB</th></tr></thead>
 <tbody>
-<tr><td>1</td><td><strong>مِن الصِّفر إلى الجَذر</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
-<tr><td>2</td><td><strong>ماك من الطرفية</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
-<tr><td>3</td><td><strong>مِن الصِّفر إلى المسؤول</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
-<tr><td>4</td><td><strong>مِن الصِّفر إلى العِفريت</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
-<tr><td>5</td><td><strong>الطرفيّةُ بالممارسة</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
-<tr><td>6</td><td><strong>رُوحٌ في الآلة</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf">تحميل PDF</a></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub">تحميل EPUB</a></td></tr>
+<tr><td>1</td><td>🟠 <strong>مِن الصِّفر إلى الجَذر</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
+<tr><td>2</td><td>🔵 <strong>ماك من الطرفية</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
+<tr><td>3</td><td>🟡 <strong>مِن الصِّفر إلى المسؤول</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
+<tr><td>4</td><td>🔴 <strong>مِن الصِّفر إلى العِفريت</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
+<tr><td>5</td><td>🟣 <strong>الطرفيّةُ بالممارسة</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
+<tr><td>6</td><td>🔷 <strong>رُوحٌ في الآلة</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf">تحميل PDF</a></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub">تحميل EPUB</a></td></tr>
 </tbody>
 </table>
 </div>
