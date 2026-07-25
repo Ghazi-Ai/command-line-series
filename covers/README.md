@@ -70,5 +70,7 @@ soft studio light. NO readable text on the covers.
 
 ## بعد التوليد
 - أضِف العنوان بخطّ **Noto Kufi Arabic** بلون `#164A3E`، وتحته خطٌّ قصيرٌ بلون تمييز الكتاب، ثم العنوان الفرعيّ، وأسفل الغلاف **المهندس غازي السيف**.
-- احفظ: `shared/covers/book-N-front.png` و`book-N-back.png`.
-- أرسِلها لي لأدمجها وأربطها بالنسخ المطبوعة.
+- احفظ النسخ الأصلية في `covers/front/` و`covers/back/`، ثم انسخها إلى مجلد
+  `books/<book>/ar/assets/` عند اعتمادها داخل ملفات الكتاب.
+- نسخ العرض الصغيرة الخاصة بـREADME تحفظ في `docs/readme-covers/` ولا تستبدل
+  الأصول الأصلية.
