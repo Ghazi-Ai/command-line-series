@@ -31,4 +31,5 @@ as research and editorial assistants during parts of the work, including
 reading, review, proofreading, consistency checks, and improvement suggestions.
 The tools included Claude Opus 4.8 and ChatGPT 5.6 in Luna and Sol modes. The
 author used the outputs to help organize and develop the project and retains
-responsibility for the final review and any original human contributions.
+responsibility for the final review and any original human contributions. The
+AI tools are not credited as authors or co-authors.
