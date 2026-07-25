@@ -11,20 +11,29 @@
 
 </div>
 
+<div align="center" dir="ltr">
+  <img src="assets/icons/1-linux.png" width="64" alt="أيقونة كتاب لينكس">
+  <img src="assets/icons/2-macos.png" width="64" alt="أيقونة كتاب ماك">
+  <img src="assets/icons/3-windows.png" width="64" alt="أيقونة كتاب ويندوز">
+  <img src="assets/icons/4-bsd.png" width="64" alt="أيقونة كتاب BSD">
+  <img src="assets/icons/5-workbook.png" width="64" alt="أيقونة دفتر التمارين">
+  <img src="assets/icons/6-unix-story.png" width="64" alt="أيقونة قصة يونكس">
+</div>
+
 ---
 
 <div dir="rtl" align="justify">
 
 ## كتب السلسلة
 
-| # | الكتاب | الموضوع | الحالة |
-|---|--------|---------|--------|
-| 1 | **مِن الصِّفر إلى الجَذر** | لِينُكس وسطر الأوامر | مكتمل — 48 فصلًا + 7 ملاحق · 601 ص |
-| 2 | **ماك من الطرفية** | macOS من الطرفية | مكتمل — 47 فصلًا + 5 ملاحق · 652 ص |
-| 3 | **مِن الصِّفر إلى المسؤول** | ويندوز: CMD وPowerShell وWSL | مكتمل — 42 فصلًا + 5 ملاحق · 650 ص |
-| 4 | **مِن الصِّفر إلى العِفريت** | FreeBSD وعالم BSD | مكتمل — 40 فصلًا + 5 ملاحق · 664 ص |
-| 5 | **الطرفيّةُ بالممارسة** | تمارين على الأنظمة الأربعة جنبًا إلى جنب | مكتمل — 9 أجزاء + ملحقان · 109 ص |
-| 6 | **رُوحٌ في الآلة** | حكاية يونِكس — كتابٌ أدبيّ للعامّة | مكتمل — 13 فصلًا · 117 ص |
+| الرمز | # | الكتاب | الموضوع | الحالة |
+|:-----:|---|--------|---------|-------|
+| <img src="assets/icons/1-linux.png" width="64" alt="أيقونة لينكس"> | 1 | **مِن الصِّفر إلى الجَذر** | لِينُكس وسطر الأوامر | مكتمل — 48 فصلًا + 7 ملاحق · 601 ص |
+| <img src="assets/icons/2-macos.png" width="64" alt="أيقونة ماك"> | 2 | **ماك من الطرفية** | macOS من الطرفية | مكتمل — 47 فصلًا + 5 ملاحق · 652 ص |
+| <img src="assets/icons/3-windows.png" width="64" alt="أيقونة ويندوز"> | 3 | **مِن الصِّفر إلى المسؤول** | ويندوز: CMD وPowerShell وWSL | مكتمل — 42 فصلًا + 5 ملاحق · 650 ص |
+| <img src="assets/icons/4-bsd.png" width="64" alt="أيقونة BSD"> | 4 | **مِن الصِّفر إلى العِفريت** | FreeBSD وعالم BSD | مكتمل — 40 فصلًا + 5 ملاحق · 664 ص |
+| <img src="assets/icons/5-workbook.png" width="64" alt="أيقونة دفتر التمارين"> | 5 | **الطرفيّةُ بالممارسة** | تمارين على الأنظمة الأربعة جنبًا إلى جنب | مكتمل — 9 أجزاء + ملحقان · 109 ص |
+| <img src="assets/icons/6-unix-story.png" width="64" alt="أيقونة قصة يونكس"> | 6 | **رُوحٌ في الآلة** | حكاية يونِكس — كتابٌ أدبيّ للعامّة | مكتمل — 13 فصلًا · 117 ص |
 
 > كلُّ كتابٍ يُبنى PDF كاملًا بغلافيه الأمامي والخلفي مدموجَين. المجموع نحو 2,793 صفحة.
 
@@ -32,23 +41,23 @@
 
 <table>
   <tr>
-    <td align="center" width="50%"><img src="docs/readme-covers/1-linux.png" width="250" alt="الغلاف الأمامي لكتاب لينكس"><br>مِن الصِّفر إلى الجَذر</td>
-    <td align="center" width="50%"><img src="docs/readme-covers/2-macos.png" width="250" alt="الغلاف الأمامي لكتاب ماك"><br>ماك من الطرفية</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/1-linux.png" width="188" alt="الغلاف الأمامي لكتاب لينكس"><br>مِن الصِّفر إلى الجَذر</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/2-macos.png" width="188" alt="الغلاف الأمامي لكتاب ماك"><br>ماك من الطرفية</td>
   </tr>
   <tr>
-    <td align="center" width="50%"><img src="docs/readme-covers/3-windows.png" width="250" alt="الغلاف الأمامي لكتاب ويندوز"><br>مِن الصِّفر إلى المسؤول</td>
-    <td align="center" width="50%"><img src="docs/readme-covers/4-bsd.png" width="250" alt="الغلاف الأمامي لكتاب BSD"><br>مِن الصِّفر إلى العِفريت</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/3-windows.png" width="188" alt="الغلاف الأمامي لكتاب ويندوز"><br>مِن الصِّفر إلى المسؤول</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/4-bsd.png" width="188" alt="الغلاف الأمامي لكتاب BSD"><br>مِن الصِّفر إلى العِفريت</td>
   </tr>
   <tr>
-    <td align="center" width="50%"><img src="docs/readme-covers/5-workbook.png" width="250" alt="الغلاف الأمامي لدفتر التمارين"><br>الطرفيّةُ بالممارسة</td>
-    <td align="center" width="50%"><img src="docs/readme-covers/6-unix-story.png" width="250" alt="الغلاف الأمامي لكتاب قصة يونكس"><br>رُوحٌ في الآلة</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/5-workbook.png" width="188" alt="الغلاف الأمامي لدفتر التمارين"><br>الطرفيّةُ بالممارسة</td>
+    <td align="center" width="50%"><img src="docs/readme-covers/6-unix-story.png" width="188" alt="الغلاف الأمامي لكتاب قصة يونكس"><br>رُوحٌ في الآلة</td>
   </tr>
 </table>
 
 ## التنزيلات · Downloads
 
-ستُنشر الملفات النهائية كمرفقات في أحدث إصدار من GitHub. الروابط أدناه ثابتة؛
-وتعمل بعد رفع الملفات إلى الإصدار الأخير بالأسماء نفسها.
+الملفات النهائية منشورة كمرفقات في أحدث إصدار من GitHub. الروابط أدناه ثابتة،
+وتشير دائمًا إلى آخر إصدار منشور.
 
 | # | الكتاب | PDF | EPUB |
 |---|--------|-----|-------|
