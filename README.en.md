@@ -24,7 +24,7 @@ versions require the author's prior written permission before distribution.
 
 For the complete current project overview, see the [Arabic README](README.md).
 
-## Author and AI assistance
+## Project preparation, oversight, and review
 
 This project was prepared, overseen, and reviewed by Ghazi. AI tools were used
 as research and editorial assistants during parts of the work, including
