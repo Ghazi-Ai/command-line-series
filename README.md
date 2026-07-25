@@ -30,14 +30,16 @@
 
 <table>
   <tr>
-    <td align="center"><img src="covers/front/1-linux.png" width="180" alt="غلاف كتاب لينكس"><br>مِن الصِّفر إلى الجَذر</td>
-    <td align="center"><img src="covers/front/2-macos.png" width="180" alt="غلاف كتاب ماك"><br>ماك من الطرفية</td>
-    <td align="center"><img src="covers/front/3-windows.png" width="180" alt="غلاف كتاب ويندوز"><br>مِن الصِّفر إلى المسؤول</td>
+    <td align="center" width="50%"><img src="covers/front/1-linux.png" width="300" alt="الغلاف الأمامي لكتاب لينكس"><br>مِن الصِّفر إلى الجَذر</td>
+    <td align="center" width="50%"><img src="covers/front/2-macos.png" width="300" alt="الغلاف الأمامي لكتاب ماك"><br>ماك من الطرفية</td>
   </tr>
   <tr>
-    <td align="center"><img src="covers/front/4-bsd.png" width="180" alt="غلاف كتاب BSD"><br>مِن الصِّفر إلى العِفريت</td>
-    <td align="center"><img src="covers/front/5-workbook.png" width="180" alt="غلاف دفتر التمارين"><br>الطرفيّةُ بالممارسة</td>
-    <td align="center"><img src="covers/front/6-unix-story.png" width="180" alt="غلاف كتاب قصة يونكس"><br>رُوحٌ في الآلة</td>
+    <td align="center" width="50%"><img src="covers/front/3-windows.png" width="300" alt="الغلاف الأمامي لكتاب ويندوز"><br>مِن الصِّفر إلى المسؤول</td>
+    <td align="center" width="50%"><img src="covers/front/4-bsd.png" width="300" alt="الغلاف الأمامي لكتاب BSD"><br>مِن الصِّفر إلى العِفريت</td>
+  </tr>
+  <tr>
+    <td align="center" width="50%"><img src="covers/front/5-workbook.png" width="300" alt="الغلاف الأمامي لدفتر التمارين"><br>الطرفيّةُ بالممارسة</td>
+    <td align="center" width="50%"><img src="covers/front/6-unix-story.png" width="300" alt="الغلاف الأمامي لكتاب قصة يونكس"><br>رُوحٌ في الآلة</td>
   </tr>
 </table>
 
