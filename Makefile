@@ -1,31 +1,33 @@
-# Makefile — «مِن الصِّفر إلى الجَذر»
+# Makefile — سلسلة سطر الأوامر
 # يتطلّب: typst, python3
 
-.PHONY: all ar en watch-ar watch-en structure clean
+.PHONY: all pdf book1 book2 book3 book4 book5 book6 epub clean
 
-all: ar en
+all: pdf
 
-ar:
-	@mkdir -p build
-	typst compile books/1-linux/ar/main.typ build/1-linux-ar.pdf --root .
+pdf:
+	./build.sh
 
-en:
-	@mkdir -p build
-	@if [ -f books/1-linux/en/main.typ ]; then \
-		typst compile books/1-linux/en/main.typ build/1-linux-en.pdf --root . ; \
-	fi
+book1:
+	./build.sh 1-linux
 
-watch-ar:
-	@mkdir -p build
-	typst watch books/1-linux/ar/main.typ build/1-linux-ar.pdf --root .
+book2:
+	./build.sh 2-macos
 
-watch-en:
-	@mkdir -p build
-	typst watch books/1-linux/en/main.typ build/1-linux-en.pdf --root .
+book3:
+	./build.sh 3-windows
 
-# يعيد توليد ملفّات الهيكل والفهرس بعد تعديل المنهج في المولّد
-structure:
-	python3 tools/generate_structure.py
+book4:
+	./build.sh 4-bsd
+
+book5:
+	./build.sh 5-workbook
+
+book6:
+	./build.sh 6-unix-story
+
+epub:
+	python3 tools/make_epub.py books/6-unix-story/ar build/6-unix-story-ar.epub
 
 clean:
 	rm -rf build

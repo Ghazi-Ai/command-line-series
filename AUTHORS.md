@@ -6,7 +6,7 @@ Eng. Ghazi Alsaif
 - البريد · Email: `https://github.com/Ghazi-Ai/command-line-series/issues`
 - المستودع · Repository: `github.com/Ghazi-Ai/command-line-series`
 
-مهندسٌ شغِف بلِينُكس والتقنية هوايةً، كتب هذا الكتاب الذي تمنّى وجوده يوم بدأ.
+مهندسٌ شغوف بلِينُكس والتقنية، ومؤلف سلسلة سطر الأوامر العربية وكتبها الستة.
 
 ---
 
