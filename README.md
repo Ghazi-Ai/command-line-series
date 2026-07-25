@@ -18,8 +18,8 @@
 
 ## 📚 كتب السلسلة
 
-<div dir="rtl" style="overflow-x:auto">
-<table width="100%">
+<div dir="rtl" style="width:100%;overflow-x:auto">
+<table style="width:100%;min-width:100%">
 <thead><tr><th>#</th><th>الكتاب</th><th>الموضوع</th><th>الحالة</th></tr></thead>
 <tbody>
 <tr><td>1</td><td>🟠 <strong>مِن الصِّفر إلى الجَذر</strong></td><td>لِينُكس وسطر الأوامر</td><td>✅ مكتمل — 48 فصلًا + 7 ملاحق · 601 ص</td></tr>
@@ -50,8 +50,8 @@
 الملفات النهائية منشورة كمرفقات في أحدث إصدار من GitHub. الروابط أدناه ثابتة،
 وتشير دائمًا إلى آخر إصدار منشور.
 
-<div dir="rtl" style="overflow-x:auto">
-<table width="100%">
+<div dir="rtl" style="width:100%;overflow-x:auto">
+<table style="width:100%;min-width:100%">
 <thead><tr><th>#</th><th>الكتاب</th><th>PDF</th><th>EPUB</th></tr></thead>
 <tbody>
 <tr><td>1</td><td>🟠 <strong>مِن الصِّفر إلى الجَذر</strong></td><td><a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf">تحميل PDF</a></td><td><code>X</code></td></tr>
