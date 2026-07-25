@@ -11,7 +11,7 @@
 
 </div>
 
-<div align="center" dir="ltr">
+<div align="center" dir="rtl">
   <img src="assets/icons/1-linux.png" width="64" alt="أيقونة كتاب لينكس">
   <img src="assets/icons/2-macos.png" width="64" alt="أيقونة كتاب ماك">
   <img src="assets/icons/3-windows.png" width="64" alt="أيقونة كتاب ويندوز">
@@ -39,7 +39,7 @@
 
 ### أغلفة السلسلة
 
-<div align="center" dir="ltr">
+<div align="center" dir="rtl">
   <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf"><img src="docs/readme-covers/1-linux.png" width="188" alt="تحميل PDF كتاب لينكس"></a>
   <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf"><img src="docs/readme-covers/2-macos.png" width="188" alt="تحميل PDF كتاب ماك"></a>
   <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf"><img src="docs/readme-covers/3-windows.png" width="188" alt="تحميل PDF كتاب ويندوز"></a>
