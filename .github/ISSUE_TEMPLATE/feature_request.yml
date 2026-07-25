@@ -1,0 +1,24 @@
+name: اقتراح تحسين · Feature request
+description: اقترح تحسينًا مفيدًا للمشروع أو التوثيق
+title: "[اقتراح] "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        اشرح الاقتراح بالعربية أو الإنجليزية.
+        Describe the proposal in Arabic or English.
+  - type: textarea
+    id: proposal
+    attributes:
+      label: الاقتراح · Proposal
+      description: ما التحسين الذي تقترحه؟
+    validations:
+      required: true
+  - type: textarea
+    id: benefit
+    attributes:
+      label: الفائدة · Benefit
+      description: من المستفيد؟ وكيف سيحسن المشروع؟
+    validations:
+      required: true

@@ -1,0 +1,31 @@
+name: بلاغ عن مشكلة · Bug report
+description: أبلغ عن خطأ في التوثيق أو الروابط أو ملفات المشروع
+title: "[مشكلة] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        شكرًا لإبلاغك. اكتب التفاصيل بالعربية أو الإنجليزية.
+        Thank you for reporting an issue. Arabic or English is welcome.
+  - type: textarea
+    id: problem
+    attributes:
+      label: وصف المشكلة · Problem description
+      description: ما الذي حدث؟ وما السلوك المتوقع؟
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: الملف أو الرابط · File or link
+      placeholder: README.md أو رابط الإصدار
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: خطوات إعادة المشكلة · Reproduction steps
+      description: أضف الخطوات أو البيئة عند الحاجة.
+    validations:
+      required: false

@@ -1,0 +1,69 @@
+name: Validate repository
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate documentation and release references
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate required files and README references
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_files=(
+            README.md
+            README.en.md
+            LICENSE
+            CONTRIBUTING.md
+            CONTRIBUTING.en.md
+            SECURITY.md
+            CODE_OF_CONDUCT.md
+          )
+
+          for file in "${required_files[@]}"; do
+            test -s "$file"
+          done
+
+          for cover in 1-linux 2-macos 3-windows 4-bsd 5-workbook 6-unix-story; do
+            test -s "docs/readme-covers/$cover.png"
+          done
+
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          readme = Path("README.md").read_text(encoding="utf-8")
+          expected = [
+              "1-linux-ar.pdf",
+              "2-macos-ar.pdf",
+              "3-windows-ar.pdf",
+              "4-bsd-ar.pdf",
+              "5-workbook-ar.pdf",
+              "6-unix-story-ar.pdf",
+              "6-unix-story-ar.epub",
+          ]
+
+          for asset in expected:
+              if asset not in readme:
+                  raise SystemExit(f"Missing release asset reference: {asset}")
+
+          for target in re.findall(r"\]\(([^)]+)\)", readme):
+              if target.startswith(("http://", "https://", "#", "mailto:")):
+                  continue
+              path = target.split("#", 1)[0].split("?", 1)[0]
+              if path and not Path(path).exists():
+                  raise SystemExit(f"Missing local README target: {path}")
+          PY
