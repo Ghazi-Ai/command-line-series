@@ -85,13 +85,20 @@ async function openBook(source, title) {
   ui.total.textContent = "—";
   document.body.classList.add("reader-open");
   ui.dialog.showModal();
+  const saved = Number(localStorage.getItem(progressKey()));
+  state.page = Number.isInteger(saved) && saved > 0 ? saved : 1;
+  renderPage();
 
   try {
     state.document = await pdfjsLib.getDocument({ url: source }).promise;
     if (token !== state.openToken) return;
-    const saved = Number(localStorage.getItem(progressKey()));
-    state.page = Number.isInteger(saved) ? clamp(saved, 1, state.document.numPages) : 1;
-    renderPage();
+    const validPage = clamp(state.page, 1, state.document.numPages);
+    if (validPage !== state.page) {
+      state.page = validPage;
+      renderPage();
+    } else {
+      updateControls();
+    }
   } catch (error) {
     if (token !== state.openToken) return;
     ui.loading.innerHTML = "<strong>تعذّر فتح الكتاب</strong><small>يمكنك تنزيله من الزر العلوي.</small>";
