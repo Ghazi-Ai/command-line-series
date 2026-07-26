@@ -40,13 +40,28 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p _site/assets/covers _site/assets/fonts
-          cp site/index.html site/styles.css site/script.js _site/
+          mkdir -p _site/assets/covers _site/assets/fonts _site/vendor
+          cp site/index.html site/styles.css site/script.js site/reader.js _site/
           cp docs/readme-covers/*.png _site/assets/covers/
           cp fonts/IBMPlexSansArabic-Regular.ttf _site/assets/fonts/
           cp fonts/IBMPlexSansArabic-SemiBold.ttf _site/assets/fonts/
           cp fonts/NotoKufiArabic-Bold.ttf _site/assets/fonts/
           cp fonts/JetBrainsMono-Regular.ttf _site/assets/fonts/
+          curl --fail --location --retry 3 \
+            "https://cdn.jsdelivr.net/npm/pdfjs-dist@6.1.200/build/pdf.mjs" \
+            --output "_site/vendor/pdf.mjs"
+          curl --fail --location --retry 3 \
+            "https://cdn.jsdelivr.net/npm/pdfjs-dist@6.1.200/build/pdf.worker.mjs" \
+            --output "_site/vendor/pdf.worker.mjs"
+          curl --fail --location --retry 3 \
+            "https://cdn.jsdelivr.net/npm/pdfjs-dist@6.1.200/LICENSE" \
+            --output "_site/vendor/PDFJS-LICENSE"
+          (
+            cd _site/vendor
+            echo "d7f44e075a8fa47ac165362d404de2dabf61f64f3d98c9180162c5f71f54980a  pdf.mjs" | sha256sum --check
+            echo "f9ed6a050771ad74c228a1cbfc8edb3271249f2e2efa29ed4692468ecb001733  pdf.worker.mjs" | sha256sum --check
+            echo "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594  PDFJS-LICENSE" | sha256sum --check
+          )
           mkdir -p _site/books
           for asset in \
             1-linux-ar.pdf \

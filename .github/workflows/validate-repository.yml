@@ -36,6 +36,7 @@ jobs:
             site/index.html
             site/styles.css
             site/script.js
+            site/reader.js
           )
 
           for file in "${required_files[@]}"; do
