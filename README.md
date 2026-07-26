@@ -2,7 +2,8 @@
 
 # سلسلة سطر الأوامر · The Command Line Series
 
-<a href="README.md">العربية</a> · <a href="README.en.md">English</a>
+<a href="README.md">العربية</a> · <a href="README.en.md">English</a> ·
+<a href="https://ghazi-ai.github.io/command-line-series/">الموقع</a>
 
 **سلسلةٌ عربيّة تأخذك من الصِّفر المطلق إلى إتقان سطر الأوامر عبر الأنظمة كلّها.**
 
