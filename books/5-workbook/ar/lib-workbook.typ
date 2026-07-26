@@ -18,13 +18,15 @@
   stroke: (right: 3pt + sys.color), inset: (x: 9pt, y: 6pt), below: 5pt, breakable: false,
   {
     text(font: FONT.displayAr, size: 8.5pt, weight: 700, fill: sys.color)[#sys.name]
-    v(2pt, weak: true)
+    // مسافة ثابتة بين اسم النظام وبطاقة الأمر؛ weak تنهار أمام block.
+    v(5pt)
     block(fill: white, radius: 3pt, inset: (x: 7pt, y: 5pt), width: 100%, {
       set text(font: FONT.mono, size: 8.5pt, fill: COLOR.ink, dir: ltr)
       set par(justify: false, leading: 0.55em)
       align(left)[#text(fill: sys.color, weight: 700)[#sys.prompt]#h(5pt)#cmd]
       if output != none {
-        v(2.5pt, weak: true)
+        // افصل الناتج عن سطر الأمر بوضوح.
+        v(3pt)
         align(left)[#text(fill: COLOR.muted)[#output]]
       }
     })
@@ -56,7 +58,8 @@
   stroke: (right: 3pt + rgb("#B07A1E")), inset: (x: 10pt, y: 7pt), above: 6pt, below: 9pt, breakable: false,
   {
     text(font: FONT.displayAr, size: 8.5pt, weight: 700, fill: rgb("#8A5A12"))[لاحظِ الفرق]
-    v(2pt, weak: true)
+    // مسافة ثابتة كي لا يلتصق العنوان بأول نص أو كود.
+    v(5pt)
     body
   }
 )
@@ -67,7 +70,8 @@
   stroke: (right: 3pt + COLOR.accent), inset: (x: 10pt, y: 7pt), above: 6pt, below: 9pt, breakable: false,
   {
     text(font: FONT.displayAr, size: 8.5pt, weight: 700, fill: COLOR.accent)[تحدٍّ]
-    v(2pt, weak: true)
+    // مسافة ثابتة كي لا يلتصق العنوان بأول نص أو كود.
+    v(5pt)
     body
   }
 )

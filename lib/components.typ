@@ -30,7 +30,8 @@
     above: 1.1em, below: 1.1em,
     [
       #text(font: FONT.bodyAr, weight: 700, fill: fg, size: SIZE.small)[#label]
-      #v(4pt, weak: true)
+      // مسافة ثابتة: المسافة الضعيفة تنهار إذا بدأ المتن بكتلة كود أو جلسة طرفية.
+      #v(6pt)
       #set text(size: SIZE.small, fill: COLOR.ink)
       #set par(leading: 1.0em)
       #body
@@ -60,7 +61,8 @@
       #text(font: FONT.bodyAr, weight: 700, fill: COLOR.primaryDeep, size: SIZE.small)[
         #STRINGS.at(l).at("define") · #term
       ]
-      #v(4pt, weak: true)
+      // أبقِ عنوان المصطلح منفصلًا حتى حين يبدأ الشرح بكودٍ كتلي.
+      #v(6pt)
       #set text(size: SIZE.small, fill: COLOR.ink)
       #set par(leading: 1.0em)
       #body
@@ -100,7 +102,8 @@
       #text(font: FONT.bodyAr, weight: 700, fill: COLOR.primaryDeep, size: SIZE.small)[
         #STRINGS.at(l).at("objectives")
       ]
-      #v(6pt, weak: true)
+      // لا تجعل أول هدف يلتصق بعنوان الصندوق.
+      #v(6pt)
       #set text(size: SIZE.small, fill: COLOR.ink)
       #set par(leading: 0.95em)
       #for it in items [

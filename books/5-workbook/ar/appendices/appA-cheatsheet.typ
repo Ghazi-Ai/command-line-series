@@ -54,7 +54,7 @@
 
 #cs(
   [أذونُ ملفّ], [`Get-Acl f`], [`ls -l f`],
-  [افتح للجميع], [`icacls f /grant Everyone:R`], [`chmod a+r f`],
+  [افتح للجميع], [`icacls f /grant *S-1-1-0:R`], [`chmod a+r f`],
   [أذونٌ بالأرقام], [`icacls` (ACL)], [`chmod 600 f`],
   [غيّر المالك], [`icacls f /setowner u`], [`chown u f`],
   [العمليّات العاملة], [`Get-Process`], [`ps aux`],

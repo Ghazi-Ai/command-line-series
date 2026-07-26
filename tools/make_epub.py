@@ -15,6 +15,9 @@ ex-challenge). العنوان/المؤلّف يُستنتجان من مجلّد 
 import sys, os, re, html, zipfile, datetime, hashlib
 
 AUTHOR = "المهندس غازي السيف"
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+VERSION_FILE = os.path.join(PROJECT_ROOT, "VERSION")
+PROJECT_VERSION = open(VERSION_FILE, encoding="utf-8").read().strip()
 BOOKMETA = {
     "1-linux":      ("مِن الصِّفر إلى الجَذر", "$", "على توزيعات أخرى"),
     "2-macos":      ("ماك من الطرفية", "%", "على أنظمةٍ أخرى"),
@@ -551,14 +554,17 @@ def main():
 
     meta_cover = '<meta name="cover" content="coverimg"/>' if has_cover else ''
     opf = ('<?xml version="1.0" encoding="utf-8"?>\n'
-        '<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bookid" xml:lang="ar">\n'
+        '<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bookid" '
+        'xml:lang="ar" prefix="schema: http://schema.org/">\n'
         '<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">\n'
         '<dc:identifier id="bookid">%s</dc:identifier>\n<dc:title>%s</dc:title>\n'
         '<dc:creator>%s</dc:creator>\n<dc:language>ar</dc:language>\n<dc:date>%s</dc:date>\n'
         '<dc:rights>CC BY-ND 4.0</dc:rights>\n'
+        '<meta property="schema:version">%s</meta>\n'
         '<meta property="dcterms:modified">%sT00:00:00Z</meta>\n%s\n</metadata>\n'
         '<manifest>%s</manifest>\n<spine page-progression-direction="rtl">%s</spine>\n</package>'
-        % (uid, esc(title), esc(author), today, today, meta_cover, "".join(manifest), "".join(spine)))
+        % (uid, esc(title), esc(author), today, esc(PROJECT_VERSION), today,
+           meta_cover, "".join(manifest), "".join(spine)))
     z.writestr('OEBPS/content.opf', opf)
     z.close()
     print('✔ %s  (%d صفحة، %d ملحوظة عنوان، %d كيلوبايت)'
