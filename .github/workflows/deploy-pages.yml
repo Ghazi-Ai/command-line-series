@@ -10,6 +10,7 @@ on:
       - "fonts/IBMPlexSansArabic-SemiBold.ttf"
       - "fonts/NotoKufiArabic-Bold.ttf"
       - "fonts/JetBrainsMono-Regular.ttf"
+      - "VERSION"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
@@ -41,7 +42,7 @@ jobs:
         uses: actions/cache@v6
         with:
           path: _reader-cache
-          key: reader-pages-v1.1-r130-q88
+          key: reader-pages-v1.2-r130-q88
 
       - name: Prepare static site
         shell: bash
@@ -70,6 +71,8 @@ jobs:
             echo "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594  PDFJS-LICENSE" | sha256sum --check
           )
           mkdir -p _site/books
+          release_version=$(tr -d '[:space:]' < VERSION)
+          release_base="https://github.com/Ghazi-Ai/command-line-series/releases/download/v$release_version"
           for asset in \
             1-linux-ar.pdf \
             2-macos-ar.pdf \
@@ -78,8 +81,8 @@ jobs:
             5-workbook-ar.pdf \
             6-unix-story-ar.pdf
           do
-            curl --fail --location --retry 3 \
-              "https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/$asset" \
+            curl --fail --location --retry 30 --retry-all-errors --retry-delay 10 \
+              "$release_base/$asset" \
               --output "_site/books/$asset"
           done
           if [ "${{ steps.reader-cache.outputs.cache-hit }}" != "true" ]; then
