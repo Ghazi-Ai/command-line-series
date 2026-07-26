@@ -132,7 +132,7 @@ Successfully processed 1 files; Failed processing 0 files")
   align: (center, right),
   table.header([الرمز], [معناه]),
   [`(I)`], [موروثٌ من المجلّد الأب — لم يُكتَب هنا],
-  [`(OI)`], [يرثه الملفّات (Object Inherit)],
+  [`(OI)`], [ترثه الملفّات (Object Inherit)],
   [`(CI)`], [ترثه المجلّدات الفرعيّة (Container Inherit)],
   [`(IO)`], [للوراثة فقط، لا ينطبق على المجلّد نفسِه (Inherit Only)],
   [`(NP)`], [لا يتعدّى الجيلَ الأوّل (No Propagate)],

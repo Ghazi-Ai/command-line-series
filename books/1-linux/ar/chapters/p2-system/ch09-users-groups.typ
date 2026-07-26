@@ -1,4 +1,4 @@
-// الفصل الثامن: المستخدمون والمجموعات
+// الفصل التاسع: المستخدمون والمجموعات
 #import "/lib/book.typ": chapter, section, subsection
 #import "/lib/components.typ": note, tip, warn, danger, distro, try-it, define, challenge, objectives, kbd, session
 
@@ -178,7 +178,7 @@ sudo passwd layla                     # اضبط كلمة المرور
 ```
 
 #warn[
-  إن نسيتَ `-m` مع `useradd`، أُنشئ الحسابُ بلا مجلّد بيت، فيدخل صاحبه إلى مكانٍ لا وجود له وتظهر مشكلاتٌ محيّرة. تذكّر `-m` دائمًا، أو استعمل `adduser` الذي يتكفّل بها.
+  إن نسيتَ `-m` مع `useradd`، أُنشئ الحسابُ بلا مجلّد بيت، فيدخل صاحبه إلى مكانٍ لا وجود له وتظهر مشكلاتٌ محيّرة. تذكّر `-m` دائمًا، أو استعمل `adduser` الذي يتكفّل بذلك.
 ]
 
 #try-it[

@@ -65,7 +65,7 @@
 | 5 | 🟣 **الطرفيّةُ بالممارسة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf) | `X` |
 | 6 | 🔷 **رُوحٌ في الآلة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub) |
 
-> الإصدار الحالي: **1.1** — يُنشر تحت الوسم `v1.1`.
+> الإصدار الحالي: **1.2** — يُنشر تحت الوسم `v1.2`.
 
 ## 🎯 الفكرة
 

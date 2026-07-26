@@ -322,7 +322,7 @@ Start-Process powershell -Verb RunAs   # نافذة Windows PowerShell 5.1 مر�
 Start-Process cmd -Verb RunAs          # نافذة موجّه أوامر مرتفعة
 ```
 
-ينفّذ السطرُ فيقفز إعلانُ UAC، فإذا أذنتَ فُتحت النافذةُ الجديدة المرتفعة، وفيها وحدها تعمل أوامرُ الإدارة: `New-LocalUser`، و`net user /add`، وإيقاف الخدمات. جرّب فيها `whoami /groups` من جديدٍ لترى الفرق بعينك: صارت `BUILTIN\Administrators` الآن `Enabled group`، ومستوى النزاهة `High`. استيقظ الرمزُ الكامل.
+يُنفَّذ السطرُ فيقفز إعلانُ UAC، فإذا أذنتَ فُتحت النافذةُ الجديدة المرتفعة، وفيها وحدها تعمل أوامرُ الإدارة: `New-LocalUser`، و`net user /add`، وإيقاف الخدمات. جرّب فيها `whoami /groups` من جديدٍ لترى الفرق بعينك: صارت `BUILTIN\Administrators` الآن `Enabled group`، ومستوى النزاهة `High`. استيقظ الرمزُ الكامل.
 
 #note[
   كيف تعرف *برمجيًّا* أموجّهُك مرتفعٌ أم لا؟ بسطرٍ يسأل النظامَ إن كان دورُك الحاليّ من المدراء. وهو من الوظائف التي تعمل *على ويندوز حصرًا*، إذ يستدعي واجهاتِ أمان ويندوز نفسها:
@@ -337,7 +337,7 @@ Start-Process cmd -Verb RunAs          # نافذة موجّه أوامر مرت
 ]
 
 #try-it[
-  في PowerShell عاديّ نفّذ `whoami /groups | findstr /i administrators` واقرأ حالةَ المجموعة: أهي `deny only`؟ الآن افتح نافذةً مرتفعةً بـ`Start-Process pwsh -Verb RunAs`، وأذَنْ لإعلان UAC. في النافذة الجديدة أعِد الأمرَ نفسه: كيف تغيّرت الحالة؟ ثمّ جرّب في كلتا النافذتين أمرًا إداريًّا بسيطًا كـ`New-LocalUser -Name test -NoPassword`: في أيّهما نجح، وفي أيّهما ردّ `Access denied`؟ (احذف التجريبيّ بعدها بـ`Remove-LocalUser test`.)
+  في PowerShell عاديّ نفّذ `whoami /groups | findstr /i administrators` واقرأ حالةَ المجموعة: أهي `deny only`؟ الآن افتح نافذةً مرتفعةً بـ`Start-Process pwsh -Verb RunAs`، وائذَنْ لإعلان UAC. في النافذة الجديدة أعِد الأمرَ نفسه: كيف تغيّرت الحالة؟ ثمّ جرّب في كلتا النافذتين أمرًا إداريًّا بسيطًا كـ`New-LocalUser -Name test -NoPassword`: في أيّهما نجح، وفي أيّهما ردّ `Access denied`؟ (احذف التجريبيّ بعدها بـ`Remove-LocalUser test`.)
 ]
 
 #section[لبسُ هويّةٍ أخرى: `runas`]

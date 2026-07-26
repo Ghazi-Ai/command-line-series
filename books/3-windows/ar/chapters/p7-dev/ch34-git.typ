@@ -274,7 +274,7 @@ Fast-forward
 CONFLICT (content): Merge conflict in config.txt
 Automatic merge failed; fix conflicts and then commit the result.", prompt: "PS C:\\>")
 
-لا تفزع؛ هذا سيرٌ طبيعيّ. يفتح Git الملفّ المتنازَع عليه ويضع فيه علامتين تُحيطان بالنسختين لتختار بينهما:
+لا تفزع؛ هذا سيرٌ طبيعيّ. يفتح Git الملفّ المتنازَع عليه ويضع فيه ثلاثَ علاماتٍ تفصل النسختين وتحيط بهما لتختار بينهما:
 
 ```text
 <<<<<<< HEAD
