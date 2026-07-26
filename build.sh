@@ -25,7 +25,7 @@ BOOKS=(
   "3-windows:3-windows-ar:650"
   "4-bsd:4-bsd-ar:664"
   "5-workbook:5-workbook-ar:109"
-  "6-unix-story:6-unix-story-ar:117"
+  "6-unix-story:6-unix-story-ar:118"
 )
 
 pages() { python3 -c "

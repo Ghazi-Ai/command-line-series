@@ -11,7 +11,7 @@
 #include "chapters/p2-spread/ch06-posix-standard.typ"
 
 #part("الثالث", "الثورة")
-#include "chapters/p3-revolution/ch07-the-prophet.typ"
+#include "chapters/p3-revolution/ch07-the-man-with-a-cause.typ"
 #include "chapters/p3-revolution/ch08-finnish-student.typ"
 #include "chapters/p3-revolution/ch09-cathedral-bazaar.typ"
 
