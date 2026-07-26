@@ -1,0 +1,72 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "docs/readme-covers/**"
+      - "fonts/IBMPlexSansArabic-Regular.ttf"
+      - "fonts/IBMPlexSansArabic-SemiBold.ttf"
+      - "fonts/NotoKufiArabic-Bold.ttf"
+      - "fonts/JetBrainsMono-Regular.ttf"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare static site
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _site/assets/covers _site/assets/fonts
+          cp site/index.html site/styles.css site/script.js _site/
+          cp docs/readme-covers/*.png _site/assets/covers/
+          cp fonts/IBMPlexSansArabic-Regular.ttf _site/assets/fonts/
+          cp fonts/IBMPlexSansArabic-SemiBold.ttf _site/assets/fonts/
+          cp fonts/NotoKufiArabic-Bold.ttf _site/assets/fonts/
+          cp fonts/JetBrainsMono-Regular.ttf _site/assets/fonts/
+          mkdir -p _site/books
+          for asset in \
+            1-linux-ar.pdf \
+            2-macos-ar.pdf \
+            3-windows-ar.pdf \
+            4-bsd-ar.pdf \
+            5-workbook-ar.pdf \
+            6-unix-story-ar.pdf
+          do
+            curl --fail --location --retry 3 \
+              "https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/$asset" \
+              --output "_site/books/$asset"
+          done
+          touch _site/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
