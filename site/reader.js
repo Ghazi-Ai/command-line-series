@@ -145,7 +145,12 @@ async function searchDocument(query) {
 }
 
 window.openSeriesReader = openBook;
-window.dispatchEvent(new CustomEvent("series-reader-ready"));
+for (const queued of window.seriesReaderQueue) {
+  queued.button.disabled = false;
+  queued.button.textContent = queued.button.dataset.readyLabel;
+  openBook(queued.source, queued.title);
+}
+window.seriesReaderQueue.length = 0;
 ui.image.addEventListener("load", () => {
   ui.loading.hidden = true;
   if (!state.fit) ui.image.style.width = `${Math.round(ui.image.naturalWidth * state.zoom / 100)}px`;
