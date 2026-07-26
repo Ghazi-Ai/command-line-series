@@ -44,3 +44,20 @@ document.querySelectorAll(".book-card").forEach((card) => {
     card.style.transform = "";
   });
 });
+
+document.querySelectorAll("[data-pdf]").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (window.openSeriesReader) {
+      window.openSeriesReader(button.dataset.pdf, button.dataset.title);
+      return;
+    }
+    const label = button.textContent;
+    button.disabled = true;
+    button.textContent = "جارٍ تجهيز القارئ…";
+    window.addEventListener("series-reader-ready", () => {
+      button.disabled = false;
+      button.textContent = label;
+      window.openSeriesReader(button.dataset.pdf, button.dataset.title);
+    }, { once: true });
+  });
+});
