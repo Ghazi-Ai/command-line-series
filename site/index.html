@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#164a3e">
+  <meta name="description" content="سلسلة عربية متكاملة لإتقان سطر الأوامر على لينكس وماك وويندوز وBSD، مع كتاب تمارين وحكاية يونكس.">
+  <meta property="og:title" content="سلسلة سطر الأوامر">
+  <meta property="og:description" content="ستة كتب عربية. حرفة واحدة، وكل الأنظمة.">
+  <meta property="og:image" content="assets/covers/6-unix-story.png">
+  <meta property="og:type" content="website">
+  <title>سلسلة سطر الأوامر — ستة كتب، حرفة واحدة</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23164a3e%22/><path d=%22M17 20l12 12-12 12M33 44h15%22 fill=%22none%22 stroke=%22%23fcfbf9%22 stroke-width=%226%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="العودة إلى البداية">
+      <span class="brand-mark" aria-hidden="true"><span>$_</span></span>
+      <span>
+        <strong>سطر الأوامر</strong>
+        <small>THE COMMAND LINE SERIES</small>
+      </span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu>
+      <span></span><span></span><span></span>
+      <span class="sr-only">فتح القائمة</span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="التنقل الرئيسي">
+      <a href="#books">الكتب</a>
+      <a href="#journey">الرحلة</a>
+      <a href="#why">لماذا كُتبت؟</a>
+      <a href="#craft">المنهج</a>
+      <a href="#about">عن السلسلة</a>
+      <a class="nav-download" href="https://github.com/Ghazi-Ai/command-line-series/releases/latest">نزّل الكتب</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span>الإصدار 1.1</span> · مشروع عربي مفتوح للقراءة</p>
+        <h1>حِرفةٌ واحدة.<br><em>كلُّ الأنظمة.</em></h1>
+        <p class="hero-lead">
+          من أول أمر تكتبه إلى فهم الروح التي تسكن الآلة.
+          ستة كتب عربية تأخذك عبر لينكس وماك وويندوز وBSD،
+          ثم تجمع المعرفة بالممارسة والحكاية.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#books">اكتشف السلسلة <span aria-hidden="true">←</span></a>
+          <a class="button button-quiet" href="https://github.com/Ghazi-Ai/command-line-series">تصفّح المصدر على GitHub</a>
+        </div>
+        <dl class="hero-stats" aria-label="إحصاءات السلسلة">
+          <div><dt>6</dt><dd>كتب مكتملة</dd></div>
+          <div><dt>2,931</dt><dd>صفحة عربية</dd></div>
+          <div><dt>1.1</dt><dd>الإصدار الحالي</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-visual reveal" aria-label="مجموعة أغلفة السلسلة">
+        <div class="orbit orbit-one" aria-hidden="true"></div>
+        <div class="orbit orbit-two" aria-hidden="true"></div>
+        <div class="book-stack">
+          <img class="stack-book stack-1" src="assets/covers/1-linux.png" alt="">
+          <img class="stack-book stack-2" src="assets/covers/2-macos.png" alt="">
+          <img class="stack-book stack-3" src="assets/covers/3-windows.png" alt="">
+          <img class="stack-book stack-4" src="assets/covers/4-bsd.png" alt="">
+          <img class="stack-book stack-5" src="assets/covers/5-workbook.png" alt="">
+          <img class="stack-book stack-6" src="assets/covers/6-unix-story.png" alt="غلاف كتاب روح في الآلة">
+        </div>
+        <div class="terminal-note" aria-hidden="true">
+          <div><i></i><i></i><i></i></div>
+          <code><b>$</b> whoami<br><span>قارئٌ على أول الطريق</span><br><b>$</b> <mark>█</mark></code>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#books"><span>مرّر للاكتشاف</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <section class="manifesto">
+      <p class="reveal">ليست الطرفية شاشةً سوداء.</p>
+      <h2 class="reveal">إنها أقصرُ طريقٍ بين <em>فكرتك</em> والآلة.</h2>
+      <div class="root-line" aria-hidden="true"></div>
+    </section>
+
+    <section class="books-section" id="books">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-kicker">مكتبةٌ كاملة</p>
+          <h2>اختر نافذتك إلى العالم</h2>
+        </div>
+        <p>ابدأ بنظامك، أو اقرأها بالترتيب. كل كتاب مستقل، وكل واحد يضيء جانبًا جديدًا من الحرفة نفسها.</p>
+      </div>
+
+      <div class="book-grid">
+        <article class="book-card linux reveal" data-book="01">
+          <div class="book-cover"><img src="assets/covers/1-linux.png" alt="غلاف من الصفر إلى الجذر" loading="lazy"></div>
+          <div class="book-info">
+            <p class="book-number">الكتاب 01 · لِينُكس</p>
+            <h3>مِن الصِّفر إلى الجَذر</h3>
+            <p>الدليل الشامل إلى سطر الأوامر ولينكس؛ من أول نافذة طرفية حتى إدارة النظام بثقة.</p>
+            <div class="book-meta"><span>48 فصلًا</span><span>628 صفحة</span></div>
+            <div class="book-links">
+              <button class="read-button" type="button" data-pdf="books/1-linux-ar.pdf" data-title="مِن الصِّفر إلى الجَذر">اقرأ الآن</button>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf">تحميل PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card mac reveal" data-book="02">
+          <div class="book-cover"><img src="assets/covers/2-macos.png" alt="غلاف ماك من الطرفية" loading="lazy"></div>
+          <div class="book-info">
+            <p class="book-number">الكتاب 02 · macOS</p>
+            <h3>ماك من الطرفية</h3>
+            <p>اكشف طبقة يونكس الكامنة تحت الواجهة الأنيقة، وحوّل ماك إلى بيئة عمل تفهمها وتتحكم بها.</p>
+            <div class="book-meta"><span>47 فصلًا</span><span>682 صفحة</span></div>
+            <div class="book-links">
+              <button class="read-button" type="button" data-pdf="books/2-macos-ar.pdf" data-title="ماك من الطرفية">اقرأ الآن</button>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf">تحميل PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card windows reveal" data-book="03">
+          <div class="book-cover"><img src="assets/covers/3-windows.png" alt="غلاف من الصفر إلى المسؤول" loading="lazy"></div>
+          <div class="book-info">
+            <p class="book-number">الكتاب 03 · ويندوز</p>
+            <h3>مِن الصِّفر إلى المسؤول</h3>
+            <p>رحلة عملية عبر CMD وPowerShell وWSL، تنقلك من استعمال الأوامر إلى إدارة ويندوز بوعي.</p>
+            <div class="book-meta"><span>42 فصلًا</span><span>671 صفحة</span></div>
+            <div class="book-links">
+              <button class="read-button" type="button" data-pdf="books/3-windows-ar.pdf" data-title="مِن الصِّفر إلى المسؤول">اقرأ الآن</button>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf">تحميل PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card bsd reveal" data-book="04">
+          <div class="book-cover"><img src="assets/covers/4-bsd.png" alt="غلاف من الصفر إلى العفريت" loading="lazy"></div>
+          <div class="book-info">
+            <p class="book-number">الكتاب 04 · BSD</p>
+            <h3>مِن الصِّفر إلى العِفريت</h3>
+            <p>ادخل عالم FreeBSD وعائلة BSD؛ نظام متكامل، هندسة واضحة، وإدارة لا تفصل الأداة عن أصلها.</p>
+            <div class="book-meta"><span>40 فصلًا</span><span>692 صفحة</span></div>
+            <div class="book-links">
+              <button class="read-button" type="button" data-pdf="books/4-bsd-ar.pdf" data-title="مِن الصِّفر إلى العِفريت">اقرأ الآن</button>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf">تحميل PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card workbook reveal" data-book="05">
+          <div class="book-cover"><img src="assets/covers/5-workbook.png" alt="غلاف الطرفية بالممارسة" loading="lazy"></div>
+          <div class="book-info">
+            <p class="book-number">الكتاب 05 · تمارين</p>
+            <h3>الطرفيّةُ بالممارسة</h3>
+            <p>المهمة نفسها على الأنظمة الأربعة، جنبًا إلى جنب. معرفة تتحول إلى عادة، وفروق تصبح واضحة.</p>
+            <div class="book-meta"><span>9 أجزاء</span><span>140 صفحة</span></div>
+            <div class="book-links">
+              <button class="read-button" type="button" data-pdf="books/5-workbook-ar.pdf" data-title="الطرفيّةُ بالممارسة">اقرأ الآن</button>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf">تحميل PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card story reveal" data-book="06">
+          <div class="book-cover"><img src="assets/covers/6-unix-story.png" alt="غلاف روح في الآلة" loading="lazy"></div>
+          <div class="book-info">
+            <p class="book-number">الكتاب 06 · الحكاية</p>
+            <h3>رُوحٌ في الآلة</h3>
+            <p>حكاية يونكس: البشر والأفكار والصدف التي صنعت الفكرة التي تحكم عالم الحوسبة من الظل.</p>
+            <div class="book-meta"><span>13 فصلًا</span><span>118 صفحة</span></div>
+            <div class="book-links">
+              <button class="read-button" type="button" data-pdf="books/6-unix-story-ar.pdf" data-title="رُوحٌ في الآلة">اقرأ الآن</button>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf">PDF</a>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub">EPUB</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="journey-section" id="journey">
+      <div class="journey-copy reveal">
+        <p class="section-kicker">منهج الرحلة</p>
+        <h2>لا تحفظ الأمر.<br>افهم لماذا يعمل.</h2>
+        <p>صُمّمت السلسلة كسُلّم: كل درجة تمنحك فكرةً، وتجربةً، ثم تحديًا. وحين تنتقل بين الأنظمة، لا تبدأ من جديد؛ ترى الفكرة نفسها بملابس مختلفة.</p>
+      </div>
+      <ol class="journey-steps">
+        <li class="reveal"><span>01</span><div><h3>افهم</h3><p>نبدأ بالصورة الذهنية، بلا افتراض خبرة سابقة.</p></div></li>
+        <li class="reveal"><span>02</span><div><h3>جرّب</h3><p>تكتب الأمر بيدك، وترى النتيجة وتفهم أجزاءها.</p></div></li>
+        <li class="reveal"><span>03</span><div><h3>تحدَّ نفسك</h3><p>مهمة صغيرة تثبّت الفكرة وتكشف ما لم يتضح.</p></div></li>
+        <li class="reveal"><span>04</span><div><h3>اعبر الأنظمة</h3><p>تتعرف إلى الثابت، وتفهم لماذا تختلف التفاصيل.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="why-section" id="why">
+      <div class="why-heading reveal">
+        <p class="section-kicker">لماذا هذه الكتب؟</p>
+        <h2>لأن المعرفة لا ينبغي أن تقف عند باب اللغة.</h2>
+      </div>
+      <div class="why-story">
+        <p class="why-lead reveal">
+          كُتبت هذه السلسلة للقارئ العربي الذي وقف يومًا أمام نافذة الطرفية،
+          فرأى سطرًا يومض ولم يجد من يبدأ معه من البداية حقًا؛ بلا استعراض،
+          وبلا قفز فوق الأسئلة الصغيرة التي تصنع الفهم الكبير.
+        </p>
+        <div class="why-columns">
+          <p class="reveal">
+            لم يكن المقصود جمع الأوامر في صفحات، فالأوامر تُنسى وتتغير.
+            المقصود أن ترى النظام كما يراه من بناه: ملفات وعمليات وتدفّقات،
+            أدوات صغيرة تتعاون، وفكرة تتحول أمامك إلى أثر.
+          </p>
+          <p class="reveal">
+            ولهذا امتدت الرحلة عبر أربعة أنظمة، ثم جاء دفتر الممارسة ليضعها
+            جنبًا إلى جنب، وجاءت حكاية يونكس لتعيد للأوامر أسماء أصحابها
+            وظروف ولادتها. التقنية هنا ليست معدنًا باردًا؛ إنها أثر بشري.
+          </p>
+        </div>
+        <aside class="why-note reveal">
+          <span>الغاية</span>
+          <p>أن تغلق آخر صفحة، ثم تفتح الطرفية فلا تبدو لك غريبةً مرة أخرى.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="craft-section" id="craft">
+      <div class="craft-panel reveal">
+        <div class="craft-terminal" aria-hidden="true">
+          <div class="terminal-bar"><span></span><span></span><span></span><b>reader@machine:~</b></div>
+          <pre><code><i># الفكرة أولًا</i>
+<b>$</b> printf "افهم"
+افهم
+
+<i># ثمّ التجربة</i>
+<b>$</b> man curiosity
+No manual entry for curiosity
+
+<i># لأن الفضول لا يُختصر</i>
+<b>$</b> <mark>█</mark></code></pre>
+        </div>
+        <div class="craft-copy">
+          <p class="section-kicker">صنعة الكتاب</p>
+          <h2>عربيٌّ في لغته.<br>دقيقٌ في تقنيته.</h2>
+          <ul>
+            <li><strong>صوتٌ عربي أصيل</strong><span>لغة واضحة ودافئة لا تبدو ترجمةً عن دليل أجنبي.</span></li>
+            <li><strong>تصميمٌ للقراءة الطويلة</strong><span>ورق دافئ، خط مريح، وصناديق تعليمية محسوبة.</span></li>
+            <li><strong>مصدرٌ قابل للبناء</strong><span>Typst وخطوط مضمّنة ونسخة بناء محددة لتخرج الصفحات كما صُممت.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section" id="about">
+      <div class="quote-mark" aria-hidden="true">“</div>
+      <blockquote class="reveal">
+        <p>العينُ تقرأ قبل العقل؛ فالجمالُ أولويّةٌ لا ترف.</p>
+        <footer>فلسفة سلسلة سطر الأوامر</footer>
+      </blockquote>
+    </section>
+
+    <section class="author-section">
+      <div class="author-card reveal">
+        <div class="author-monogram" aria-hidden="true">غ</div>
+        <div class="author-copy">
+          <p class="section-kicker">عن المشروع</p>
+          <h2>المهندس غازي السيف</h2>
+          <p class="author-role">أبو هيثم · إعداد وإشراف ومراجعة</p>
+          <p>
+            مشروع عربي بُني بعناية تحريرية وتقنية ليكون مدخلًا مستقلًا
+            ومحترمًا إلى عالم سطر الأوامر. استُخدمت أدوات الذكاء الاصطناعي
+            في البحث والمراجعة والتدقيق، وبقيت مسؤولية الاختيار والتحرير
+            والمراجعة النهائية للمؤلف.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:https://github.com/Ghazi-Ai/command-line-series/issues"><span>البريد</span>https://github.com/Ghazi-Ai/command-line-series/issues</a>
+            <a href="https://github.com/Ghazi-Ai"><span>GitHub</span>Ghazi-Ai</a>
+            <a href="https://github.com/Ghazi-Ai/command-line-series"><span>المصدر</span>command-line-series</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="final-glow" aria-hidden="true"></div>
+      <div class="reveal">
+        <p class="section-kicker">المتطلّب الوحيد</p>
+        <h2>أن تعرف القراءة والكتابة.</h2>
+        <p>أما كل ما عدا ذلك، فسنبدأه معًا من الصفر.</p>
+        <a class="button button-light" href="https://github.com/Ghazi-Ai/command-line-series/releases/latest">نزّل السلسلة الآن <span aria-hidden="true">←</span></a>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="reader-dialog" data-reader>
+    <div class="reader-header">
+      <div>
+        <small>القارئ الإلكتروني</small>
+        <strong data-reader-title>الكتاب</strong>
+      </div>
+      <div class="reader-actions">
+        <a data-reader-open href="#" target="_blank" rel="noopener">فتح في نافذة مستقلة</a>
+        <button type="button" data-reader-close aria-label="إغلاق القارئ">إغلاق</button>
+      </div>
+    </div>
+    <iframe data-reader-frame title="قارئ الكتاب" loading="lazy"></iframe>
+    <p class="reader-fallback">إذا لم يظهر الكتاب في متصفحك، استخدم «فتح في نافذة مستقلة».</p>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true"><span>$_</span></span>
+      <div><strong>سلسلة سطر الأوامر</strong><small>إعداد وإشراف ومراجعة المهندس غازي السيف</small></div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/Ghazi-Ai/command-line-series">GitHub</a>
+      <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest">التنزيلات</a>
+      <a href="https://github.com/Ghazi-Ai/command-line-series/blob/main/LICENSE">الرخصة</a>
+    </div>
+    <p>الإصدار 1.1 · صُفّت الكتب بأداة Typst · 2026</p>
+  </footer>
+</body>
+</html>
