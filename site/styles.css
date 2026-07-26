@@ -452,7 +452,6 @@ mark { color: #d9f1e9; background: transparent; animation: blink 1s steps(1) inf
 }
 .reader-message:empty { display: none; }
 .reader-message.error { background: var(--danger); }
-.reader-dialog:fullscreen { width: 100vw; height: 100vh; border-radius: 0; }
 
 .final-cta { position: relative; padding: 130px 24px; overflow: hidden; text-align: center; color: white; background: var(--pine-dark); }
 .final-cta > div:not(.final-glow) { position: relative; z-index: 2; }
@@ -554,7 +553,7 @@ mark { color: #d9f1e9; background: transparent; animation: blink 1s steps(1) inf
   .reader-header { height: 74px; }
   .reader-header strong { max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .reader-toolbar { height: auto; min-height: 58px; padding: 8px; flex-wrap: wrap; justify-content: center; }
-  .reader-toolbar .toolbar-separator, .reader-search, [data-reader-fullscreen], [data-reader-fit] { display: none; }
+  .reader-toolbar .toolbar-separator, .reader-search, [data-reader-fit] { display: none; }
   .toolbar-spacer { display: none; }
   .reader-body { height: calc(100% - 140px); }
   .reader-stage { padding: 0; }
