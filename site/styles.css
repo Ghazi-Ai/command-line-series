@@ -123,8 +123,12 @@ button { font: inherit; }
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
 }
 .hero-copy, .hero-visual { position: relative; z-index: 2; }
-.eyebrow, .section-kicker {
+.eyebrow {
   margin: 0 0 18px; color: #c3ddd5; font-size: 13px; font-weight: 600; letter-spacing: .4px;
+}
+.section-kicker {
+  margin: 0 0 18px; color: #c3ddd5;
+  font-size: clamp(17px, 1.35vw, 20px); font-weight: 600; letter-spacing: .25px;
 }
 .eyebrow span {
   display: inline-block; padding: 4px 11px; margin-left: 5px;
@@ -191,7 +195,7 @@ mark { color: #d9f1e9; background: transparent; animation: blink 1s steps(1) inf
 .scroll-cue i { display: block; width: 1px; height: 25px; background: linear-gradient(#aac9c0, transparent); }
 
 .manifesto { position: relative; padding: 150px 24px 180px; text-align: center; overflow: hidden; }
-.manifesto p { margin: 0; color: var(--clay); font-size: 15px; font-weight: 600; }
+.manifesto p { margin: 0; color: var(--clay); font-size: clamp(18px, 1.5vw, 22px); font-weight: 600; }
 .manifesto h2 {
   max-width: 900px; margin: 18px auto 0; font-family: "Kufi";
   font-size: clamp(35px, 5vw, 65px); line-height: 1.55; color: var(--pine-deep);
