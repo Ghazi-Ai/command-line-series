@@ -18,7 +18,8 @@ const ui = {
   fullscreen: document.querySelector("[data-reader-fullscreen]"),
   searchForm: document.querySelector("[data-reader-search-form]"),
   search: document.querySelector("[data-reader-search]"),
-  frame: document.querySelector("[data-reader-frame]"),
+  imageWrap: document.querySelector("[data-reader-image-wrap]"),
+  image: document.querySelector("[data-reader-image]"),
   loading: document.querySelector("[data-reader-loading]"),
   message: document.querySelector("[data-reader-message]"),
 };
@@ -56,9 +57,13 @@ function updateControls() {
 
 function renderPage() {
   if (!state.source) return;
-  const zoom = state.fit ? "page-width" : state.zoom;
   ui.loading.hidden = false;
-  ui.frame.src = `${state.source}#page=${state.page}&zoom=${zoom}&view=FitH`;
+  const book = state.source.split("/").pop().replace("-ar.pdf", "");
+  const page = String(state.page).padStart(3, "0");
+  ui.imageWrap.classList.toggle("fit", state.fit);
+  ui.image.style.width = state.fit ? "" : `${Math.round(ui.image.naturalWidth * state.zoom / 100)}px`;
+  ui.image.alt = `صفحة ${state.page} من ${state.document?.numPages || ""} — ${ui.title.textContent}`;
+  ui.image.src = `reader-pages/${book}/page-${page}.jpg`;
   localStorage.setItem(progressKey(), String(state.page));
   updateControls();
 }
@@ -76,7 +81,7 @@ async function openBook(source, title) {
   ui.download.href = source;
   ui.loading.innerHTML = "<span></span><strong>نفتح الكتاب…</strong><small>تُحمّل صفحاته عند الحاجة</small>";
   ui.loading.hidden = false;
-  ui.frame.removeAttribute("src");
+  ui.image.removeAttribute("src");
   ui.total.textContent = "—";
   document.body.classList.add("reader-open");
   ui.dialog.showModal();
@@ -99,7 +104,7 @@ function closeBook() {
   state.openToken += 1;
   state.document?.destroy();
   state.document = null;
-  ui.frame.removeAttribute("src");
+  ui.image.removeAttribute("src");
   ui.dialog.close();
   document.body.classList.remove("reader-open");
 }
@@ -142,8 +147,13 @@ async function searchDocument(query) {
 document.querySelectorAll("[data-pdf]").forEach((button) => {
   button.addEventListener("click", () => openBook(button.dataset.pdf, button.dataset.title));
 });
-ui.frame.addEventListener("load", () => {
-  if (ui.frame.src) ui.loading.hidden = true;
+ui.image.addEventListener("load", () => {
+  ui.loading.hidden = true;
+  if (!state.fit) ui.image.style.width = `${Math.round(ui.image.naturalWidth * state.zoom / 100)}px`;
+});
+ui.image.addEventListener("error", () => {
+  ui.loading.innerHTML = "<strong>تعذّر عرض الصفحة</strong><small>يمكنك تنزيل الكتاب من الزر العلوي.</small>";
+  ui.loading.hidden = false;
 });
 ui.close.addEventListener("click", closeBook);
 ui.dialog.addEventListener("cancel", (event) => {
