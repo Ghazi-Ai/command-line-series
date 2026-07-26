@@ -15,18 +15,40 @@ TYPST="${TYPST:-typst}"
 command -v "$TYPST" >/dev/null 2>&1 || {
   echo "لم أجد typst. حدّده هكذا:  TYPST=~/.local/bin/typst ./build.sh" >&2; exit 1; }
 
+required_typst=$(tr -d '[:space:]' < TYPST_VERSION)
+actual_typst=$("$TYPST" --version | awk '{print $2}')
+if [ "$actual_typst" != "$required_typst" ]; then
+  echo "يتطلب البناء Typst $required_typst؛ الموجود هو $actual_typst." >&2
+  exit 1
+fi
+
 mkdir -p build
 
 # الصفحات المرجعيّة: أيّ اختلافٍ عنها يعني تغيّرًا في المحتوى — لا في البيئة،
 # لأنّ الخطوط مثبَّتةٌ والبناء معزول. (0 = كتابٌ لم يكتمل بعدُ فلا مرجع له)
 BOOKS=(
-  "1-linux:1-linux-ar:601"
-  "2-macos:2-macos-ar:652"
-  "3-windows:3-windows-ar:650"
-  "4-bsd:4-bsd-ar:664"
-  "5-workbook:5-workbook-ar:109"
+  "1-linux:1-linux-ar:628"
+  "2-macos:2-macos-ar:682"
+  "3-windows:3-windows-ar:671"
+  "4-bsd:4-bsd-ar:692"
+  "5-workbook:5-workbook-ar:140"
   "6-unix-story:6-unix-story-ar:118"
 )
+
+if [ $# -gt 1 ]; then
+  echo "الاستعمال: ./build.sh [اسم-الكتاب]" >&2
+  exit 2
+fi
+if [ $# -eq 1 ]; then
+  found=0
+  for entry in "${BOOKS[@]}"; do
+    [ "${entry%%:*}" = "$1" ] && found=1
+  done
+  if [ "$found" -ne 1 ]; then
+    echo "كتاب غير معروف: $1" >&2
+    exit 2
+  fi
+fi
 
 pages() { python3 -c "
 import re, sys
@@ -41,7 +63,8 @@ for entry in "${BOOKS[@]}"; do
 
   printf '  %-11s ' "$dir"
   "$TYPST" compile "books/$dir/ar/main.typ" "build/$out.pdf" \
-      --root . --font-path fonts --ignore-system-fonts
+      --root . --font-path fonts --ignore-system-fonts \
+      --pdf-standard 1.5
   p=$(pages "build/$out.pdf")
 
   if [ "$expect" = "0" ]; then

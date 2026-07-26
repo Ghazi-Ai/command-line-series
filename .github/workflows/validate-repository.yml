@@ -31,6 +31,8 @@ jobs:
             CONTRIBUTING.en.md
             SECURITY.md
             CODE_OF_CONDUCT.md
+            VERSION
+            TYPST_VERSION
           )
 
           for file in "${required_files[@]}"; do
@@ -45,7 +47,16 @@ jobs:
           from pathlib import Path
           import re
 
+          version = Path("VERSION").read_text(encoding="utf-8").strip()
+          if not re.fullmatch(r"[0-9]+\.[0-9]+(?:\.[0-9]+)?", version):
+              raise SystemExit(f"Invalid project version: {version!r}")
+          typst_version = Path("TYPST_VERSION").read_text(encoding="utf-8").strip()
+          if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", typst_version):
+              raise SystemExit(f"Invalid Typst version: {typst_version!r}")
+
           readme = Path("README.md").read_text(encoding="utf-8")
+          if f"**{version}**" not in readme:
+              raise SystemExit("README does not show the project version")
           expected = [
               "1-linux-ar.pdf",
               "2-macos-ar.pdf",
