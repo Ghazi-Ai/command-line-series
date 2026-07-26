@@ -144,9 +144,8 @@ async function searchDocument(query) {
   }
 }
 
-document.querySelectorAll("[data-pdf]").forEach((button) => {
-  button.addEventListener("click", () => openBook(button.dataset.pdf, button.dataset.title));
-});
+window.openSeriesReader = openBook;
+window.dispatchEvent(new CustomEvent("series-reader-ready"));
 ui.image.addEventListener("load", () => {
   ui.loading.hidden = true;
   if (!state.fit) ui.image.style.width = `${Math.round(ui.image.naturalWidth * state.zoom / 100)}px`;
