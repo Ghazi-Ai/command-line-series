@@ -13,6 +13,14 @@
 
 **ستّةُ كتبٍ — اكتملت كلُّها**
 
+<br>
+
+<a href="https://ghazi-ai.github.io/command-line-series/">
+  <img src="docs/site-preview.png" width="100%" alt="واجهة الموقع الرسمي لسلسلة سطر الأوامر">
+</a>
+
+**[ادخل إلى الموقع، واستعرض الكتب في القارئ الإلكتروني](https://ghazi-ai.github.io/command-line-series/)**
+
 </div>
 
 ---
