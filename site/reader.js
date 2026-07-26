@@ -22,7 +22,6 @@ const ui = {
   zoomIn: document.querySelector("[data-reader-zoom-in]"),
   zoom: document.querySelector("[data-reader-zoom]"),
   fit: document.querySelector("[data-reader-fit]"),
-  fullscreen: document.querySelector("[data-reader-fullscreen]"),
   searchForm: document.querySelector("[data-reader-search-form]"),
   search: document.querySelector("[data-reader-search]"),
   imageWrap: document.querySelector("[data-reader-image-wrap]"),
@@ -117,11 +116,12 @@ async function openBook(source, title) {
 
 function closeBook() {
   state.openToken += 1;
-  state.document?.destroy();
-  state.document = null;
-  ui.image.removeAttribute("src");
-  ui.dialog.close();
+  if (ui.dialog.open) ui.dialog.close();
   document.body.classList.remove("reader-open");
+  ui.image.removeAttribute("src");
+  const currentDocument = state.document;
+  state.document = null;
+  currentDocument?.destroy();
 }
 
 function goToPage(pageNumber) {
@@ -160,6 +160,7 @@ async function searchDocument(query) {
 }
 
 window.openSeriesReader = openBook;
+window.closeSeriesReader = closeBook;
 for (const queued of window.seriesReaderQueue) {
   queued.button.disabled = false;
   queued.button.textContent = queued.button.dataset.readyLabel;
@@ -174,7 +175,6 @@ ui.image.addEventListener("error", () => {
   ui.loading.innerHTML = "<strong>تعذّر عرض الصفحة</strong><small>يمكنك تنزيل الكتاب من الزر العلوي.</small>";
   ui.loading.hidden = false;
 });
-ui.close.addEventListener("click", closeBook);
 ui.dialog.addEventListener("cancel", (event) => {
   event.preventDefault();
   closeBook();
@@ -187,10 +187,6 @@ ui.zoomIn.addEventListener("click", () => changeZoom(15));
 ui.fit.addEventListener("click", () => {
   state.fit = true;
   renderPage();
-});
-ui.fullscreen.addEventListener("click", async () => {
-  if (document.fullscreenElement) await document.exitFullscreen();
-  else await ui.dialog.requestFullscreen();
 });
 ui.searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
