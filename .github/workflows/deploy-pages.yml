@@ -36,6 +36,13 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v6
 
+      - name: Restore rendered reader pages
+        id: reader-cache
+        uses: actions/cache@v6
+        with:
+          path: _reader-cache
+          key: reader-pages-v1.1-r130-q88
+
       - name: Prepare static site
         shell: bash
         run: |
@@ -75,6 +82,20 @@ jobs:
               "https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/$asset" \
               --output "_site/books/$asset"
           done
+          if [ "${{ steps.reader-cache.outputs.cache-hit }}" != "true" ]; then
+            sudo apt-get update
+            sudo apt-get install --yes poppler-utils
+            mkdir -p _reader-cache
+            for pdf in _site/books/*.pdf
+            do
+              book=$(basename "$pdf" -ar.pdf)
+              mkdir -p "_reader-cache/$book"
+              pdftoppm -jpeg -r 130 -jpegopt quality=88,optimize=y,progressive=y \
+                "$pdf" "_reader-cache/$book/page"
+            done
+          fi
+          mkdir -p _site/reader-pages
+          cp -a _reader-cache/. _site/reader-pages/
           touch _site/.nojekyll
 
       - name: Upload Pages artifact
