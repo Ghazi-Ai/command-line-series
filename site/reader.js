@@ -1,6 +1,13 @@
-import * as pdfjsLib from "./vendor/pdf.mjs";
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = "./vendor/pdf.worker.mjs";
+let pdfjsPromise;
+function loadPdfJs() {
+  if (!pdfjsPromise) {
+    pdfjsPromise = import("./vendor/pdf.mjs").then((pdfjsLib) => {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "./vendor/pdf.worker.mjs";
+      return pdfjsLib;
+    });
+  }
+  return pdfjsPromise;
+}
 
 const ui = {
   dialog: document.querySelector("[data-reader]"),
@@ -90,6 +97,7 @@ async function openBook(source, title) {
   renderPage();
 
   try {
+    const pdfjsLib = await loadPdfJs();
     state.document = await pdfjsLib.getDocument({ url: source }).promise;
     if (token !== state.openToken) return;
     const validPage = clamp(state.page, 1, state.document.numPages);
