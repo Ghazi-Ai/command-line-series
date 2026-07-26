@@ -44,33 +44,3 @@ document.querySelectorAll(".book-card").forEach((card) => {
     card.style.transform = "";
   });
 });
-
-const reader = document.querySelector("[data-reader]");
-const readerFrame = document.querySelector("[data-reader-frame]");
-const readerTitle = document.querySelector("[data-reader-title]");
-const readerOpen = document.querySelector("[data-reader-open]");
-const closeReader = () => {
-  reader.close();
-  readerFrame.removeAttribute("src");
-  document.body.classList.remove("reader-open");
-};
-
-document.querySelectorAll("[data-pdf]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const source = button.dataset.pdf;
-    readerTitle.textContent = button.dataset.title;
-    readerFrame.src = `${source}#view=FitH`;
-    readerOpen.href = source;
-    reader.showModal();
-    document.body.classList.add("reader-open");
-  });
-});
-
-document.querySelector("[data-reader-close]").addEventListener("click", closeReader);
-reader.addEventListener("click", (event) => {
-  if (event.target === reader) closeReader();
-});
-reader.addEventListener("cancel", (event) => {
-  event.preventDefault();
-  closeReader();
-});
