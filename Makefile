@@ -34,6 +34,7 @@ release: pdf epub
 check:
 	bash -n build.sh
 	python3 -m py_compile tools/*.py
+	python3 tools/check_license_history.py
 	git diff --check
 
 clean:
