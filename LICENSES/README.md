@@ -97,6 +97,7 @@
 - `docs/SERIES-SPINE.md`
 - `docs/WORKBOOK-SPINE.md`
 - `docs/دليل-الهوية-البصرية.md`
+- `docs/تقرير-جاهزية-النشر-v1.3.md`
 - `covers/README.md`
 - `covers/reference/**`
 - `reports/**`
