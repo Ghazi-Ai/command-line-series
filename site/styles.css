@@ -350,6 +350,8 @@ mark { color: #d9f1e9; background: transparent; animation: blink 1s steps(1) inf
 .quote-section footer::before { content: ""; display: inline-block; vertical-align: middle; width: 35px; height: 1px; margin-left: 10px; background: var(--clay); }
 
 .author-section { padding: 0 24px 150px; }
+.policy-section { border-top: 1px solid var(--rule); }
+.policy-links { margin-top: 28px; }
 .author-card {
   width: min(1000px, 100%); margin: auto; padding: 65px;
   display: grid; grid-template-columns: 180px 1fr; gap: 60px; align-items: start;

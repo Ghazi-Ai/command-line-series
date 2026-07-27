@@ -12,9 +12,9 @@
 المفاتيح، وبطاقات دفتر التمارين (win/linux/mac/bsd, ex, goal, doit, diff,
 ex-challenge). العنوان/المؤلّف يُستنتجان من مجلّد الكتاب أو يُمرَّران وسيطين.
 """
-import sys, os, re, html, zipfile, datetime, hashlib
+import sys, os, re, html, zipfile, datetime, hashlib, subprocess
 
-AUTHOR = "المهندس غازي السيف"
+AUTHOR = "غازي السيف — صاحب الفكرة والمشروع، والإعداد والإشراف والمراجعة"
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERSION_FILE = os.path.join(PROJECT_ROOT, "VERSION")
 PROJECT_VERSION = open(VERSION_FILE, encoding="utf-8").read().strip()
@@ -47,6 +47,27 @@ BLOCK_FUNCS = (CALLOUTS | {
 
 def esc(s):
     return html.escape(s, quote=False)
+
+def source_datetime():
+    """تاريخ حتميّ للبناء: SOURCE_DATE_EPOCH ثم تاريخ آخر commit."""
+    raw = os.environ.get("SOURCE_DATE_EPOCH")
+    if raw is None:
+        try:
+            raw = subprocess.check_output(
+                ["git", "-C", PROJECT_ROOT, "log", "-1", "--format=%ct"],
+                text=True,
+            ).strip()
+        except (OSError, subprocess.CalledProcessError):
+            raw = "315532800"  # 1980-01-01، الحد الأدنى لـZIP
+    dt = datetime.datetime.fromtimestamp(int(raw), datetime.timezone.utc)
+    return dt
+
+def zip_write(zf, path, data, dt):
+    """اكتب عضو ZIP بطابع زمني ثابت."""
+    info = zipfile.ZipInfo(path, dt.timetuple()[:6])
+    info.compress_type = zipfile.ZIP_STORED if path == "mimetype" else zipfile.ZIP_DEFLATED
+    info.external_attr = 0o100644 << 16
+    zf.writestr(info, data)
 
 # ── قارئات متوازنة ─────────────────────────────────────────────────────────
 OPEN, CLOSE = "([{", ")]}"
@@ -501,6 +522,43 @@ def main():
         nav_title = ph[0][1] if ph else 'صفحة %d' % idx[0]
         pages.append(('p%d' % idx[0], fname, body))
 
+    add_page('#front-title("صفحة العنوان", outlined: true)\n\n'
+             '*%s*\n\nسلسلة سطر الأوامر · الإصدار %s\n\n'
+             'صاحب الفكرة والمشروع، والإعداد والإشراف والمراجعة:\n'
+             'المهندس غازي السيف — أبو هيثم' % (title, PROJECT_VERSION))
+    add_page('#front-title("الحقوق والرخصة", outlined: true)\n\n'
+             'المحتوى العام المحدد في خريطة تراخيص المستودع منشور، '
+             'ابتداءً من الإصدار 1.3، بموجب المشاع الإبداعي — '
+             'نَسْبُ الـمُصنَّف، الترخيص بالمثل 4.0 دولي (CC BY-SA 4.0).\n\n'
+             'تسمح الرخصة بالنسخ وإعادة التوزيع والطباعة والبيع والترجمة '
+             'والتعديل، مع النسب وبيان التغيير والمشاركة بالمثل. لا تشمل '
+             'الرخصة الملفات الداخلية أو مواد الأطراف الثالثة أو الأصول '
+             'المستثناة في LICENSES/README.md.\n\n'
+             'الرخصة: https://creativecommons.org/licenses/by-sa/4.0/\n\n'
+             'المصدر الرسمي: https://github.com/Ghazi-Ai/command-line-series\n\n'
+             'هذه نسخة رسمية من المصدر المعتمد. لا يعني النسب اعتماد أي '
+             'نسخة معدلة أو مترجمة مستقلة.')
+    add_page('#front-title("الإفصاح عن الذكاء الاصطناعي", outlined: true)\n\n'
+             'هذا المشروع من فكرة غازي السيف وتصميمه وإشرافه. استُخدمت '
+             'أدوات الذكاء الاصطناعي في توليد مسودات النصوص والمساهمة في '
+             'كتابة المحتوى الأساسي للكتب. وتولّى غازي توجيه العمل، وبناء '
+             'هيكله، وتنظيم مادته، ومراجعتها وتدقيقها، واختيار ما يُعتمد '
+             'منها، واعتماد النسخة المنشورة، ويتحمّل مسؤولية القرارات '
+             'التحريرية والمحتوى النهائي. لا تُنسب أدوات الذكاء الاصطناعي '
+             'بوصفها مؤلفًا أو مؤلفًا مشاركًا.\n\n'
+             'استُخدمت أدوات توليد الصور في إعداد الفن الأساسي للأغلفة، '
+             'ثم نُسّقت العناصر النصية والتصميمية بأداة Typst. صورة الغلاف '
+             'مستثناة من عرض الترخيص الجديد إلى أن يكتمل إثبات مصدرها '
+             'ونطاق حقوقها.')
+    add_page('#front-title("طريقة النسب", outlined: true)\n\n'
+             'العمل الأصلي: سلسلة سطر الأوامر\n\n'
+             'صاحب الفكرة والمشروع، والإعداد والإشراف والمراجعة: '
+             'المهندس غازي السيف — أبو هيثم\n\n'
+             'المصدر الرسمي: https://github.com/Ghazi-Ai/command-line-series\n\n'
+             'الرخصة: CC BY-SA 4.0\n\n'
+             'على النسخة المعدلة أو المترجمة أن تبيّن التعديل وألا توحي '
+             'بأن غازي السيف راجعها أو اعتمدها.')
+
     for fmname in ('preface.typ', 'how-to-read.typ'):
         p = os.path.join(book_dir, 'frontmatter', fmname)
         if os.path.exists(p):
@@ -520,37 +578,39 @@ def main():
         cover_img = os.path.join(book_dir, 'assets/cover-front.png')
     has_cover = os.path.exists(cover_img)
     uid = 'urn:uuid:' + hashlib.md5((title + author).encode()).hexdigest()
-    today = datetime.date.today().isoformat()
+    build_dt = source_datetime()
+    source_date = build_dt.date().isoformat()
+    modified = build_dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     os.makedirs(os.path.dirname(out_path) or '.', exist_ok=True)
     z = zipfile.ZipFile(out_path, 'w', zipfile.ZIP_DEFLATED)
-    z.writestr('mimetype', 'application/epub+zip', compress_type=zipfile.ZIP_STORED)
-    z.writestr('META-INF/container.xml',
+    zip_write(z, 'mimetype', 'application/epub+zip', build_dt)
+    zip_write(z, 'META-INF/container.xml',
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">\n'
         '<rootfiles><rootfile full-path="OEBPS/content.opf" '
-        'media-type="application/oebps-package+xml"/></rootfiles></container>')
-    z.writestr('OEBPS/style.css', CSS)
+        'media-type="application/oebps-package+xml"/></rootfiles></container>', build_dt)
+    zip_write(z, 'OEBPS/style.css', CSS, build_dt)
 
     manifest = ['<item id="css" href="style.css" media-type="text/css"/>',
                 '<item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>']
     spine = []
     if has_cover:
-        z.write(cover_img, 'OEBPS/images/cover.png')
+        zip_write(z, 'OEBPS/images/cover.png', open(cover_img, 'rb').read(), build_dt)
         manifest.append('<item id="coverimg" href="images/cover.png" media-type="image/png" properties="cover-image"/>')
-        z.writestr('OEBPS/cover.xhtml', xhtml_page(title,
-            '<div class="cover"><img src="images/cover.png" alt="الغلاف"/></div>'))
+        zip_write(z, 'OEBPS/cover.xhtml', xhtml_page(title,
+            '<div class="cover"><img src="images/cover.png" alt="الغلاف"/></div>'), build_dt)
         manifest.append('<item id="cover" href="cover.xhtml" media-type="application/xhtml+xml"/>')
         spine.append('<itemref idref="cover"/>')
 
     for pid, fname, body in pages:
-        z.writestr('OEBPS/' + fname, xhtml_page(title, body))
+        zip_write(z, 'OEBPS/' + fname, xhtml_page(title, body), build_dt)
         manifest.append('<item id="%s" href="%s" media-type="application/xhtml+xml"/>' % (pid, fname))
         spine.append('<itemref idref="%s"/>' % pid)
 
-    z.writestr('OEBPS/nav.xhtml', xhtml_page('الفهرس',
+    zip_write(z, 'OEBPS/nav.xhtml', xhtml_page('الفهرس',
         '<nav epub:type="toc" xmlns:epub="http://www.idpf.org/2007/ops" id="toc">'
-        '<h1>الفهرس</h1>%s</nav>' % build_nav(ctx["headings"])))
+        '<h1>الفهرس</h1>%s</nav>' % build_nav(ctx["headings"])), build_dt)
 
     meta_cover = '<meta name="cover" content="coverimg"/>' if has_cover else ''
     opf = ('<?xml version="1.0" encoding="utf-8"?>\n'
@@ -558,14 +618,18 @@ def main():
         'xml:lang="ar" prefix="schema: http://schema.org/">\n'
         '<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">\n'
         '<dc:identifier id="bookid">%s</dc:identifier>\n<dc:title>%s</dc:title>\n'
-        '<dc:creator>%s</dc:creator>\n<dc:language>ar</dc:language>\n<dc:date>%s</dc:date>\n'
-        '<dc:rights>CC BY-ND 4.0</dc:rights>\n'
+        '<dc:creator>%s</dc:creator>\n'
+        '<dc:contributor>أدوات ذكاء اصطناعي: توليد المسودات والمساهمة في المتن؛ ليست مؤلفًا</dc:contributor>\n'
+        '<dc:language>ar</dc:language>\n<dc:date>%s</dc:date>\n'
+        '<dc:description>كتاب عربي من سلسلة سطر الأوامر؛ النسخة الرسمية من المستودع المعتمد.</dc:description>\n'
+        '<dc:source>https://github.com/Ghazi-Ai/command-line-series</dc:source>\n'
+        '<dc:rights>CC BY-SA 4.0 للمحتوى العام المحدد؛ راجع LICENSES/README.md للاستثناءات.</dc:rights>\n'
         '<meta property="schema:version">%s</meta>\n'
-        '<meta property="dcterms:modified">%sT00:00:00Z</meta>\n%s\n</metadata>\n'
+        '<meta property="dcterms:modified">%s</meta>\n%s\n</metadata>\n'
         '<manifest>%s</manifest>\n<spine page-progression-direction="rtl">%s</spine>\n</package>'
-        % (uid, esc(title), esc(author), today, esc(PROJECT_VERSION), today,
+        % (uid, esc(title), esc(author), source_date, esc(PROJECT_VERSION), modified,
            meta_cover, "".join(manifest), "".join(spine)))
-    z.writestr('OEBPS/content.opf', opf)
+    zip_write(z, 'OEBPS/content.opf', opf, build_dt)
     z.close()
     print('✔ %s  (%d صفحة، %d ملحوظة عنوان، %d كيلوبايت)'
           % (out_path, len(pages), len(ctx["headings"]), os.path.getsize(out_path)//1024))

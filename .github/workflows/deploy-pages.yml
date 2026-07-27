@@ -42,7 +42,7 @@ jobs:
         uses: actions/cache@v6
         with:
           path: _reader-cache
-          key: reader-pages-v1.2-r130-q88
+          key: reader-pages-${{ hashFiles('VERSION') }}-r130-q88
 
       - name: Prepare static site
         shell: bash
