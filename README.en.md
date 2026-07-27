@@ -35,12 +35,12 @@ Project conception and ownership, preparation, direction, and review:
 **Eng. Ghazi Alsaif — Abu Haitham**.
 
 This project was conceived, structured, directed, reviewed, and approved by
-Ghazi Alsaif. AI tools were used to generate drafts and to contribute to the
-core prose of the books. Ghazi guided and organized the work, reviewed and
-edited the material, selected what was retained, approved the published
-edition, and assumes responsibility for the final editorial decisions and
-content. AI systems are not credited as authors or co-authors. Tool details are
-kept in [`AUTHORS.md`](AUTHORS.md).
+Ghazi Alsaif. All book drafts and core prose were generated using AI tools.
+Ghazi developed the project concept and structure, directed the writing
+process, organized the material, reviewed and edited it, selected what was
+retained, approved the published edition, and assumes responsibility for the
+final editorial decisions and content. AI systems are not credited as authors
+or co-authors. Tool details are kept in [`AUTHORS.md`](AUTHORS.md).
 
 The project files show that image-generation tools were used for the base cover
 art and that Typst was used for textual and layout composition. Because the
