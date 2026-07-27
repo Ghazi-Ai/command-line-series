@@ -1,5 +1,6 @@
 // صفحة العنوان — «مِن الصِّفر إلى المسؤول» (ويندوز)
 #import "/lib/theme.typ": COLOR, FONT
+#import "/lib/publication.typ": title-footer
 
 #page(header: none, footer: none, numbering: none, {
   set align(center)
@@ -28,7 +29,7 @@
   text(font: FONT.bodyAr, size: 10pt, fill: COLOR.muted)[أبو هيثم]
   v(1.2fr)
   text(font: FONT.bodyAr, size: 9pt, fill: COLOR.muted)[
-    سلسلة سطر الأوامر · الكتاب الثالث · النسخة العربية
+    #title-footer[الكتاب الثالث]
   ]
   v(0.7fr)
 })

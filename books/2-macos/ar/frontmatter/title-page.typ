@@ -1,5 +1,6 @@
 // صفحة العنوان — كتاب «ماك من الطرفية»
 #import "/lib/theme.typ": COLOR, FONT
+#import "/lib/publication.typ": title-footer
 
 #page(header: none, footer: none, numbering: none, {
   set align(center)
@@ -29,7 +30,7 @@
   text(font: FONT.bodyAr, size: 10pt, fill: COLOR.muted)[أبو هيثم]
   v(1.2fr)
   text(font: FONT.bodyAr, size: 9pt, fill: COLOR.muted)[
-    سلسلة سطر الأوامر · الكتاب الثاني · النسخة العربية
+    #title-footer[الكتاب الثاني]
   ]
   v(0.7fr)
 })

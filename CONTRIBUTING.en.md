@@ -15,16 +15,17 @@ Arabic books, their Typst sources, build tools, covers, and release files.
 
 ## License and modification limits
 
-The project is published under **CC BY-ND 4.0**. You may read, download, and
-share complete unmodified copies with proper attribution. You may not distribute
-modified, translated, or derivative versions of the books without the author's
-prior written permission.
+Public content explicitly listed in `LICENSES/README.md` is offered under
+**CC BY-SA 4.0** beginning with version 1.3. It may be copied, translated,
+adapted, printed, and sold with attribution, an indication of changes, and
+ShareAlike. Original code explicitly listed in the map is under MIT. Internal
+files, excluded assets, and third-party material are outside that offer.
 
 Therefore:
 
 - Report errors and suggestions through [Issues](https://github.com/Ghazi-Ai/command-line-series/issues).
-- Do not open a Pull Request changing book text or Typst files without the
-  author's prior approval.
+- Pull Requests may correct or translate book text when their scope and sources
+  are clear.
 - Documentation, tooling, and README improvements are welcome when they do not
   change the books or released files without prior coordination.
 
@@ -37,10 +38,11 @@ Therefore:
 
 ## Contributing to the English edition
 
-The current edition of the series is Arabic only. Contributions toward an
-English translation are welcome, but please open an Issue first to coordinate
-terminology and scope. Obtain the author's permission before distributing any
-translated version, as a translation is derivative material under CC BY-ND 4.0.
+The current edition of the series is Arabic only. Community translations do
+not require separate permission beyond the CC BY-SA conditions. An official
+translation must follow [`TRANSLATION-GUIDE.md`](TRANSLATION-GUIDE.md).
+Independent translations must be labeled unofficial and must not imply project
+approval.
 
 ## Build and verification
 

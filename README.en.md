@@ -14,22 +14,39 @@ available in English yet.
 
 ## English translation
 
-English translation work is welcome. If you would like to help prepare the
-English edition, please open an [Issue](https://github.com/Ghazi-Ai/command-line-series/issues)
-or contact the author before starting a substantial translation.
+English translation work is welcome. If you would like to help prepare an
+official English edition, please open an
+[Issue](https://github.com/Ghazi-Ai/command-line-series/issues) before
+starting substantial work.
 
-Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`LICENSE`](LICENSE) first.
-The books are published under CC BY-ND 4.0, so translated or derivative
-versions require the author's prior written permission before distribution.
+Please read [`TRANSLATION-GUIDE.md`](TRANSLATION-GUIDE.md),
+[`ATTRIBUTION.md`](ATTRIBUTION.md), and the exact
+[`license map`](LICENSES/README.md). Public content explicitly listed there is
+offered under CC BY-SA 4.0 beginning with version 1.3. It may be translated,
+adapted, printed, and sold with attribution, an indication of changes, and
+ShareAlike. Internal files, third-party materials, and excluded visual assets
+are not covered by that offer.
 
 For the complete current project overview, see the [Arabic README](README.md).
 
 ## Project preparation, oversight, and review
 
-This project was prepared, overseen, and reviewed by Ghazi. AI tools were used
-as research and editorial assistants during parts of the work, including
-reading, review, proofreading, consistency checks, and improvement suggestions.
-The tools included Claude Opus 4.8 and ChatGPT 5.6 in Luna and Sol modes. The
-author used the outputs to help organize and develop the project and retains
-responsibility for the final review and any original human contributions. The
-AI tools are not credited as authors or co-authors.
+Project conception and ownership, preparation, direction, and review:
+**Eng. Ghazi Alsaif — Abu Haitham**.
+
+This project was conceived, structured, directed, reviewed, and approved by
+Ghazi Alsaif. AI tools were used to generate drafts and to contribute to the
+core prose of the books. Ghazi guided and organized the work, reviewed and
+edited the material, selected what was retained, approved the published
+edition, and assumes responsibility for the final editorial decisions and
+content. AI systems are not credited as authors or co-authors. Tool details are
+kept in [`AUTHORS.md`](AUTHORS.md).
+
+The project files show that image-generation tools were used for the base cover
+art and that Typst was used for textual and layout composition. Because the
+specific tool and applicable terms are not documented for every asset, the
+cover images are excluded from the version 1.3 license offer pending provenance
+verification.
+
+Version 1.2 was previously published under CC BY-ND 4.0. Version 1.3 does not
+retroactively revoke rights already granted for earlier editions.

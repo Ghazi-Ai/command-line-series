@@ -1,5 +1,6 @@
 // الغلاف الخلفيّ — الفنّ الجاهز مع النبذة مطبوعةً فوقه
 #import "/lib/theme.typ": FONT
+#import "/lib/publication.typ": cover-license-line
 
 #page(width: 148mm, height: 210mm, margin: 0pt, header: none, footer: none, numbering: none, {
   set text(lang: "ar", dir: rtl)
@@ -28,6 +29,6 @@
     set align(center)
     text(font: FONT.bodyAr, size: 9.5pt, weight: 700, fill: rgb("#26242E"))[المهندس غازي السيف (أبو هيثم)]
     v(2.5mm)
-    text(font: FONT.bodyAr, size: 7.5pt, fill: rgb("#4A4857"))[مفتوحٌ · CC BY‑ND 4.0 · github.com/Ghazi-Ai/command-line-series]
+    text(font: FONT.bodyAr, size: 7.2pt, fill: rgb("#4A4857"))[#cover-license-line]
   }))
 })
