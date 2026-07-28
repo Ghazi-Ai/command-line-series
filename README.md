@@ -65,9 +65,8 @@
 | 5 | 🟣 **الطرفيّةُ بالممارسة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf) | `X` |
 | 6 | 🔷 **رُوحٌ في الآلة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub) |
 
-> إصدار المصادر الجاري إعداده: **1.3**. تبقى [تنزيلات الإصدار المنشور
-> الأخير](https://github.com/Ghazi-Ai/command-line-series/releases/latest)
-> كما هي إلى أن يعتمد صاحب المشروع الإصدار الجديد وينشره.
+> الإصدار المعتمد والمنشور حاليًا: **1.3**. تتوفر ملفاته من
+> [أحدث إصدار على GitHub](https://github.com/Ghazi-Ai/command-line-series/releases/latest).
 
 ## 🎯 الفكرة
 
