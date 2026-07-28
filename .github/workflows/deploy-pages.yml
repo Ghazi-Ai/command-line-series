@@ -37,12 +37,40 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v6
 
+      - name: Select published book assets
+        id: book-source
+        shell: bash
+        run: |
+          set -euo pipefail
+          requested_version=$(tr -d '[:space:]' < VERSION)
+          requested_base="https://github.com/Ghazi-Ai/command-line-series/releases/download/v$requested_version"
+          probe_asset="1-linux-ar.pdf"
+          if curl --fail --silent --show-error --location --head \
+            "$requested_base/$probe_asset" >/dev/null
+          then
+            echo "version=$requested_version" >> "$GITHUB_OUTPUT"
+            echo "base=$requested_base" >> "$GITHUB_OUTPUT"
+            echo "Using book assets from Release v$requested_version."
+          else
+            fallback_version="1.2"
+            fallback_base="https://github.com/Ghazi-Ai/command-line-series/releases/download/v$fallback_version"
+            if ! curl --fail --silent --show-error --location --head \
+              "$fallback_base/$probe_asset" >/dev/null
+            then
+              echo "::error::Neither Release v$requested_version nor fallback Release v$fallback_version has the required PDF assets."
+              exit 1
+            fi
+            echo "::warning::Release v$requested_version does not exist or lacks PDF assets; Pages will use published Release v$fallback_version books while deploying the current site."
+            echo "version=$fallback_version" >> "$GITHUB_OUTPUT"
+            echo "base=$fallback_base" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Restore rendered reader pages
         id: reader-cache
         uses: actions/cache@v6
         with:
           path: _reader-cache
-          key: reader-pages-${{ hashFiles('VERSION') }}-r130-q88
+          key: reader-pages-v${{ steps.book-source.outputs.version }}-r130-q88
 
       - name: Prepare static site
         shell: bash
@@ -71,8 +99,7 @@ jobs:
             echo "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594  PDFJS-LICENSE" | sha256sum --check
           )
           mkdir -p _site/books
-          release_version=$(tr -d '[:space:]' < VERSION)
-          release_base="https://github.com/Ghazi-Ai/command-line-series/releases/download/v$release_version"
+          release_base="${{ steps.book-source.outputs.base }}"
           for asset in \
             1-linux-ar.pdf \
             2-macos-ar.pdf \
