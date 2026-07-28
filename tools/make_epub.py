@@ -75,7 +75,7 @@ OPEN, CLOSE = "([{", ")]}"
 def _skip_string(text, j, q):
     j += 1; n = len(text)
     while j < n:
-        if text[j] == "\\":
+        if q == '"' and text[j] == "\\":
             j += 2; continue
         if text[j] == q:
             return j + 1
@@ -148,8 +148,9 @@ def arg_text(v):
     return v
 
 # ── التنسيق السطريّ ────────────────────────────────────────────────────────
-def render_inline(s):
-    holds = []
+def render_inline(s, _holds=None):
+    root = _holds is None
+    holds = [] if root else _holds
     def hold(h):
         holds.append(h); return "\x00%d\x01" % (len(holds) - 1)
     # كود مضمّن `...`
@@ -167,7 +168,7 @@ def render_inline(s):
             if not mm: out.append(s[k:]); break
             out.append(s[k:mm.start()])
             body, end = read_group(s, mm.end() - 1)
-            rendered = render_inline(body)
+            rendered = render_inline(body, holds)
             out.append(hold('<%s>%s</%s>' % (tag, rendered, tag)) if tag else hold(rendered))
             k = end
         s = ''.join(out)
@@ -179,7 +180,9 @@ def render_inline(s):
     s = re.sub(r'\*([^*\n]+)\*', r'<strong>\1</strong>', s)
     s = re.sub(r'(?<!\w)_([^_\n]+)_(?!\w)', r'<em>\1</em>', s)
     s = s.replace('~', '\u00a0')
-    s = re.sub(r'\x00(\d+)\x01', lambda m: holds[int(m.group(1))], s)
+    if root:
+        while re.search(r'\x00(\d+)\x01', s):
+            s = re.sub(r'\x00(\d+)\x01', lambda m: holds[int(m.group(1))], s)
     return s
 
 # ── عناصر متخصّصة ──────────────────────────────────────────────────────────
@@ -518,6 +521,7 @@ def main():
         ctx["fname"] = fname
         start = len(ctx["headings"])
         body = render_blocks(text, ctx, top=True)
+        body = FENCE_RE.sub(lambda m: ctx["fences"][int(m.group(1))], body)
         ph = ctx["headings"][start:]
         nav_title = ph[0][1] if ph else 'صفحة %d' % idx[0]
         pages.append(('p%d' % idx[0], fname, body))
