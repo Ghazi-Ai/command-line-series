@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="docs/readme-brand/series-identity.png" width="640" alt="هوية سلسلة سطر الأوامر">
+<picture>
+  <img src="docs/readme-brand/series-identity.png" width="640" alt="هوية سلسلة سطر الأوامر">
+</picture>
 
 # سلسلة سطر الأوامر · The Command Line Series
 
