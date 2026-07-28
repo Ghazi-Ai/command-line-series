@@ -114,6 +114,11 @@ jobs:
             GOVERNANCE.md
             SUCCESSION.md
             docs/COVER-RIGHTS-AUDIT.md
+            docs/PRINTING.md
+            docs/PDF-ACCESSIBILITY.md
+            tools/make_print_cover.sh
+            tools/print_cover_spread.typ
+            tools/release_check.sh
             VERSION
             TYPST_VERSION
             site/index.html
@@ -152,6 +157,16 @@ jobs:
               "site/index.html": (f"الإصدار {version}", "نصوصها الأساسية وُلّدت باستخدام أدوات الذكاء الاصطناعي"),
               "LICENSES/README.md": ("حدود العرض", "MIT"),
               "TRANSLATION-GUIDE.md": ("ترجمة مجتمعية غير رسمية",),
+              "tools/print_cover_spread.typ": (
+                  "غازي السيف — أبو هيثم",
+                  "مِن الصِّفر إلى الجَذر",
+                  "ماك من الطرفية",
+                  "مِن الصِّفر إلى المسؤول",
+                  "مِن الصِّفر إلى العِفريت",
+                  "الطرفيّةُ بالممارسة",
+                  "رُوحٌ في الآلة",
+              ),
+              "docs/PRINTING.md": ("لا يجوز تخمينه", "اسم الكتاب", "غازي السيف — أبو هيثم"),
           }
           for name, phrases in required_phrases.items():
               text = Path(name).read_text(encoding="utf-8")

@@ -68,5 +68,39 @@ done
 epub="build/6-unix-story-ar.epub"
 [[ -s "$epub" ]] || { echo "ملف EPUB مفقود: $epub" >&2; exit 1; }
 unzip -t "$epub" >/dev/null
+epub_dir=$(mktemp -d build/.epub-check.XXXXXX)
+trap 'rm -rf -- "$epub_dir"' EXIT
+unzip -q "$epub" -d "$epub_dir"
+python3 - "$epub_dir" <<'PY'
+from pathlib import Path
+import sys
+import xml.etree.ElementTree as ET
+
+root = Path(sys.argv[1])
+xml_files = [
+    path for path in root.rglob("*")
+    if path.suffix.lower() in {".xml", ".xhtml", ".opf", ".ncx"}
+]
+if not xml_files:
+    raise SystemExit("لا توجد ملفات XML داخل EPUB")
+for path in xml_files:
+    ET.parse(path)
+
+opf = (root / "OEBPS/content.opf").read_text(encoding="utf-8")
+nav = (root / "OEBPS/nav.xhtml").read_text(encoding="utf-8")
+pages = "\n".join(
+    path.read_text(encoding="utf-8")
+    for path in sorted((root / "OEBPS").glob("p*.xhtml"))
+)
+required = {
+    "اتجاه RTL": 'page-progression-direction="rtl"' in opf and 'dir="rtl"' in pages,
+    "الفهرس": 'epub:type="toc"' in nav,
+    "صفحة الحقوق": "الحقوق والرخصة" in pages,
+    "الإفصاح": "نصوصها الأساسية وُلّدت باستخدام أدوات الذكاء الاصطناعي" in pages,
+}
+missing = [name for name, present in required.items() if not present]
+if missing:
+    raise SystemExit("فشل فحص EPUB: " + "، ".join(missing))
+PY
 echo "  EPUB سليم ✔"
 echo "اكتملت فحوص مخرجات الإصدار."

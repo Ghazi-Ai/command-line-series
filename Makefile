@@ -42,7 +42,7 @@ book6:
 epub:
 	python3 tools/make_epub.py books/6-unix-story/ar build/6-unix-story-ar.epub
 
-release: pdf epub
+release: digital print-interiors epub
 
 release-check:
 	bash tools/release_check.sh
