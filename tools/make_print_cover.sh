@@ -107,6 +107,8 @@ pdftoppm -f "$page_count" -l "$page_count" -singlefile -png -r 300 \
   "$pdf" "$temp_dir/back-or-front-last" >/dev/null 2>&1
 
 # ملفات PDF الرقمية مرتبة: أمامي ثم متن ثم خلفي.
+# أغلفة السلسلة ذات اتجاه إنجليزي، لذا يوضع الأمامي يسار الملف الممتد
+# والخلفي يمينه؛ ينفذ القالب هذا الترتيب.
 front="/${temp_dir}/back-or-front-first.png"
 back="/${temp_dir}/back-or-front-last.png"
 mkdir -p "$(dirname "$output")"

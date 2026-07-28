@@ -166,7 +166,14 @@ jobs:
                   "الطرفيّةُ بالممارسة",
                   "رُوحٌ في الآلة",
               ),
-              "docs/PRINTING.md": ("لا يجوز تخمينه", "اسم الكتاب", "غازي السيف — أبو هيثم", "6.5 mm"),
+              "docs/PRINTING.md": (
+                  "لا يجوز تخمينه",
+                  "اسم الكتاب",
+                  "غازي السيف — أبو هيثم",
+                  "6.5 mm",
+                  "أمامي + كعب + خلفي",
+                  "عند أسفل الكعب",
+              ),
           }
           for name, phrases in required_phrases.items():
               text = Path(name).read_text(encoding="utf-8")
