@@ -8,7 +8,7 @@
 
 #show: book.with(
   lang: "ar",
-  title: "الطرفية بالممارسة",
+  title: "الطرفيّةُ بالممارسة",
   description: "دفتر تمارين عربي لتطبيق مهارات الطرفية على Linux وmacOS وWindows وBSD",
   keywords: ("تمارين", "Linux", "macOS", "Windows", "BSD", "سطر الأوامر"),
   prompt: "$",
