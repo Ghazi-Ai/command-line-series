@@ -1,4 +1,4 @@
-# خريطة التراخيص الدقيقة — الإصدار 1.3
+# خريطة التراخيص الدقيقة — الإصدار 1.4
 
 هذه الخريطة هي المرجع لتحديد نطاق كل رخصة. لا يعني وجود ملف داخل
 المستودع أنه مشمول تلقائيًا بأي رخصة.
@@ -26,6 +26,8 @@
   - `OFFICIAL-EDITIONS.md`
   - `BRAND-POLICY.md`
   - `TRADEMARKS.md`
+  - `GOVERNANCE.md`
+  - `SUCCESSION.md`
   - `PROJECT-STATUS.md`
   - `CHANGELOG.md`
   - `CODE_OF_CONDUCT.md`
@@ -36,6 +38,8 @@
   - `docs/ROADMAP.md`
   - `docs/STYLE-GUIDE.md`
   - `docs/COVER-RIGHTS-AUDIT.md`
+  - `docs/PRINTING.md`
+  - `docs/PDF-ACCESSIBILITY.md`
   - `fonts/README.md`
 - النصوص التحريرية الأصلية الظاهرة في `site/index.html`.
 
@@ -54,6 +58,8 @@
 [رخصة MIT](MIT.txt):
 
 - `tools/*.py`
+- `tools/*.sh`
+- `tools/*.typ`
 - `lib/*.typ`
 - `build.sh`
 - `Makefile`

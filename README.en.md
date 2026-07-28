@@ -12,6 +12,11 @@ The current edition of the Command Line Series is available in Arabic only.
 The six books, their PDF releases, and the EPUB edition of book six are not
 available in English yet.
 
+Version 1.4 sources are currently being prepared above the published 1.3
+release. The new source tree adds print interiors, a parameterized cover-spread
+tool, richer PDF metadata, accessibility notes, governance documents, and
+release-building CI checks.
+
 ## English translation
 
 English translation work is welcome. If you would like to help prepare an

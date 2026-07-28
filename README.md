@@ -78,8 +78,8 @@
 | 5 | 🟣 **الطرفيّةُ بالممارسة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf) | `X` |
 | 6 | 🔷 **رُوحٌ في الآلة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub) |
 
-> الإصدار المعتمد والمنشور حاليًا: **1.3**. تتوفر ملفاته من
-> [أحدث إصدار على GitHub](https://github.com/Ghazi-Ai/command-line-series/releases/latest).
+> مصادر الإصدار الجاري إعدادها: **1.4**. ويبقى الإصدار 1.3 هو المعتمد
+> والمنشور إلى أن تُستكمل فحوص 1.4 ويعتمده صاحب المشروع.
 
 ## 🎯 الفكرة
 
@@ -103,7 +103,7 @@ command-line-series/
 │   └── readme-covers/
 ├── fonts/            ← الخطوط الحرة المستخدمة في البناء
 ├── lib/              ← القالب والمكونات ونظام التصميم المشترك
-├── tools/            ← فحوص الترخيص ومولّد EPUB
+├── tools/            ← فحوص الإصدار ومولّد EPUB وأدوات الطباعة
 ├── site/             ← الموقع وقارئ الكتب
 ├── AUTHORS.md        ← المؤلفون والمساهمون
 ├── CHANGELOG.md      ← سجل التغييرات
@@ -126,7 +126,9 @@ JetBrains Mono) فيخرج البناءُ متسقًا في الخطوط وال�
 ```bash
 ./build.sh              # يبني الكتب الستّة (PDF) إلى build/
 ./build.sh 1-linux      # يبني كتابًا بعينه
-make release            # يبني PDF للكتب الستة وEPUB للكتاب السادس
+make release            # يبني PDF والمتون الستة وEPUB للكتاب السادس
+make print-interiors    # يبني المتون الستة بلا الغلافين
+make release-check      # يفحص مخرجات PDF والطباعة وEPUB
 make check              # يفحص السكربتات وفروق Git
 ```
 
@@ -135,6 +137,12 @@ make check              # يفحص السكربتات وفروق Git
 ```bash
 python3 tools/make_epub.py books/6-unix-story/ar build/6-unix-story-ar.epub
 ```
+
+إعدادات الطباعة والغلاف الممتد موثقة في
+[`docs/PRINTING.md`](docs/PRINTING.md)، وحدود الوصول في PDF موثقة في
+[`docs/PDF-ACCESSIBILITY.md`](docs/PDF-ACCESSIBILITY.md). لا يخمّن
+قالب الغلاف عرض الكعب؛ ويضع اسم الكتاب واسم «غازي السيف — أبو هيثم»
+بعد تزويده بقيم المطبعة صراحةً.
 
 ## 🎨 الهويّة البصريّة
 
