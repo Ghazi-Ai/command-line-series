@@ -34,6 +34,7 @@ const state = {
   document: null,
   source: "",
   page: 1,
+  totalPages: 1,
   zoom: 100,
   fit: true,
   openToken: 0,
@@ -51,10 +52,10 @@ function announce(message, error = false) {
 }
 
 function updateControls() {
-  const total = state.document?.numPages || 1;
+  const total = state.totalPages;
   ui.page.value = state.page;
   ui.page.max = total;
-  ui.total.textContent = state.document?.numPages || "—";
+  ui.total.textContent = total;
   ui.previous.disabled = state.page <= 1;
   ui.next.disabled = state.page >= total;
   ui.zoom.textContent = state.fit ? "عرض الصفحة" : `${state.zoom}%`;
@@ -68,17 +69,18 @@ function renderPage() {
   const page = String(state.page).padStart(3, "0");
   ui.imageWrap.classList.toggle("fit", state.fit);
   ui.image.style.width = state.fit ? "" : `${Math.round(ui.image.naturalWidth * state.zoom / 100)}px`;
-  ui.image.alt = `صفحة ${state.page} من ${state.document?.numPages || ""} — ${ui.title.textContent}`;
+  ui.image.alt = `صفحة ${state.page} من ${state.totalPages} — ${ui.title.textContent}`;
   ui.image.src = `reader-pages/${book}/page-${page}.jpg`;
   localStorage.setItem(progressKey(), String(state.page));
   updateControls();
 }
 
-async function openBook(source, title) {
+async function openBook(source, title, totalPages) {
   state.openToken += 1;
   const token = state.openToken;
   state.source = source;
   state.document = null;
+  state.totalPages = Math.max(Number(totalPages) || 1, 1);
   state.fit = true;
   state.zoom = 100;
   state.page = 1;
@@ -88,18 +90,21 @@ async function openBook(source, title) {
   ui.loading.innerHTML = "<span></span><strong>نفتح الكتاب…</strong><small>تُحمّل صفحاته عند الحاجة</small>";
   ui.loading.hidden = false;
   ui.image.removeAttribute("src");
-  ui.total.textContent = "—";
+  ui.total.textContent = state.totalPages;
   document.body.classList.add("reader-open");
   ui.dialog.showModal();
   const saved = Number(localStorage.getItem(progressKey()));
-  state.page = Number.isInteger(saved) && saved > 0 ? saved : 1;
+  state.page = Number.isInteger(saved) && saved > 0
+    ? clamp(saved, 1, state.totalPages)
+    : 1;
   renderPage();
 
   try {
     const pdfjsLib = await loadPdfJs();
     state.document = await pdfjsLib.getDocument({ url: source }).promise;
     if (token !== state.openToken) return;
-    const validPage = clamp(state.page, 1, state.document.numPages);
+    state.totalPages = state.document.numPages;
+    const validPage = clamp(state.page, 1, state.totalPages);
     if (validPage !== state.page) {
       state.page = validPage;
       renderPage();
@@ -108,8 +113,7 @@ async function openBook(source, title) {
     }
   } catch (error) {
     if (token !== state.openToken) return;
-    ui.loading.innerHTML = "<strong>تعذّر فتح الكتاب</strong><small>يمكنك تنزيله من الزر العلوي.</small>";
-    announce("تعذّر تحميل ملف PDF", true);
+    announce("تعذّر تفعيل البحث؛ تصفح الصفحات ما زال متاحًا", true);
     console.error(error);
   }
 }
@@ -125,8 +129,7 @@ function closeBook() {
 }
 
 function goToPage(pageNumber) {
-  if (!state.document) return;
-  state.page = clamp(Number(pageNumber) || 1, 1, state.document.numPages);
+  state.page = clamp(Number(pageNumber) || 1, 1, state.totalPages);
   renderPage();
 }
 
@@ -164,7 +167,7 @@ window.closeSeriesReader = closeBook;
 for (const queued of window.seriesReaderQueue) {
   queued.button.disabled = false;
   queued.button.textContent = queued.button.dataset.readyLabel;
-  openBook(queued.source, queued.title);
+  openBook(queued.source, queued.title, queued.pages);
 }
 window.seriesReaderQueue.length = 0;
 ui.image.addEventListener("load", () => {

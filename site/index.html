@@ -28,7 +28,7 @@
       const button = event.target.closest?.("[data-pdf]");
       if (!button) return;
       if (window.openSeriesReader) {
-        window.openSeriesReader(button.dataset.pdf, button.dataset.title);
+        window.openSeriesReader(button.dataset.pdf, button.dataset.title, button.dataset.pages);
         return;
       }
       if (button.disabled) return;
@@ -38,12 +38,13 @@
       window.seriesReaderQueue.push({
         source: button.dataset.pdf,
         title: button.dataset.title,
+        pages: button.dataset.pages,
         button,
       });
     });
   </script>
   <script src="script.js?v=20260726-4" defer></script>
-  <script src="reader.js?v=20260726-8" type="module"></script>
+  <script src="reader.js?v=20260728-9" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
@@ -136,7 +137,7 @@
             <p>الدليل الشامل إلى سطر الأوامر ولينكس؛ من أول نافذة طرفية حتى إدارة النظام بثقة.</p>
             <div class="book-meta"><span>48 فصلًا</span><span>628 صفحة</span></div>
             <div class="book-links">
-              <button class="read-button" type="button" data-pdf="books/1-linux-ar.pdf" data-title="مِن الصِّفر إلى الجَذر">اقرأ الآن</button>
+              <button class="read-button" type="button" data-pdf="books/1-linux-ar.pdf" data-title="مِن الصِّفر إلى الجَذر" data-pages="628">اقرأ الآن</button>
               <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf">تحميل PDF</a>
             </div>
           </div>
@@ -150,7 +151,7 @@
             <p>اكشف طبقة يونكس الكامنة تحت الواجهة الأنيقة، وحوّل ماك إلى بيئة عمل تفهمها وتتحكم بها.</p>
             <div class="book-meta"><span>47 فصلًا</span><span>682 صفحة</span></div>
             <div class="book-links">
-              <button class="read-button" type="button" data-pdf="books/2-macos-ar.pdf" data-title="ماك من الطرفية">اقرأ الآن</button>
+              <button class="read-button" type="button" data-pdf="books/2-macos-ar.pdf" data-title="ماك من الطرفية" data-pages="682">اقرأ الآن</button>
               <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf">تحميل PDF</a>
             </div>
           </div>
@@ -164,7 +165,7 @@
             <p>رحلة عملية عبر CMD وPowerShell وWSL، تنقلك من استعمال الأوامر إلى إدارة ويندوز بوعي.</p>
             <div class="book-meta"><span>42 فصلًا</span><span>671 صفحة</span></div>
             <div class="book-links">
-              <button class="read-button" type="button" data-pdf="books/3-windows-ar.pdf" data-title="مِن الصِّفر إلى المسؤول">اقرأ الآن</button>
+              <button class="read-button" type="button" data-pdf="books/3-windows-ar.pdf" data-title="مِن الصِّفر إلى المسؤول" data-pages="671">اقرأ الآن</button>
               <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf">تحميل PDF</a>
             </div>
           </div>
@@ -178,7 +179,7 @@
             <p>ادخل عالم FreeBSD وعائلة BSD؛ نظام متكامل، هندسة واضحة، وإدارة لا تفصل الأداة عن أصلها.</p>
             <div class="book-meta"><span>40 فصلًا</span><span>692 صفحة</span></div>
             <div class="book-links">
-              <button class="read-button" type="button" data-pdf="books/4-bsd-ar.pdf" data-title="مِن الصِّفر إلى العِفريت">اقرأ الآن</button>
+              <button class="read-button" type="button" data-pdf="books/4-bsd-ar.pdf" data-title="مِن الصِّفر إلى العِفريت" data-pages="692">اقرأ الآن</button>
               <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf">تحميل PDF</a>
             </div>
           </div>
@@ -192,7 +193,7 @@
             <p>المهمة نفسها على الأنظمة الأربعة، جنبًا إلى جنب. معرفة تتحول إلى عادة، وفروق تصبح واضحة.</p>
             <div class="book-meta"><span>9 أجزاء</span><span>140 صفحة</span></div>
             <div class="book-links">
-              <button class="read-button" type="button" data-pdf="books/5-workbook-ar.pdf" data-title="الطرفيّةُ بالممارسة">اقرأ الآن</button>
+              <button class="read-button" type="button" data-pdf="books/5-workbook-ar.pdf" data-title="الطرفيّةُ بالممارسة" data-pages="140">اقرأ الآن</button>
               <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf">تحميل PDF</a>
             </div>
           </div>
@@ -206,7 +207,7 @@
             <p>حكاية يونكس: البشر والأفكار والصدف التي صنعت الفكرة التي تحكم عالم الحوسبة من الظل.</p>
             <div class="book-meta"><span>13 فصلًا</span><span>114 صفحة</span></div>
             <div class="book-links">
-              <button class="read-button" type="button" data-pdf="books/6-unix-story-ar.pdf" data-title="رُوحٌ في الآلة">اقرأ الآن</button>
+              <button class="read-button" type="button" data-pdf="books/6-unix-story-ar.pdf" data-title="رُوحٌ في الآلة" data-pages="114">اقرأ الآن</button>
               <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf">PDF</a>
               <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub">EPUB</a>
             </div>
