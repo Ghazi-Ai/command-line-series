@@ -58,8 +58,8 @@ number_re='^[0-9]+([.][0-9]+)?$'
 [[ "$bleed" =~ $number_re ]] || {
   echo "النزف يجب أن يكون رقمًا غير سالب بوحدة mm." >&2; exit 2;
 }
-awk -v width="$spine_width" 'BEGIN { exit !(width >= 18) }' || {
-  echo "عرض الكعب $spine_width mm ضيق؛ الحد التصميمي 18 mm لحماية مقروئية العنوان والاسم." >&2
+awk -v width="$spine_width" 'BEGIN { exit !(width >= 6.5) }' || {
+  echo "عرض الكعب $spine_width mm ضيق؛ الحد التصميمي 6.5 mm لحماية مقروئية العنوان والاسم." >&2
   exit 2
 }
 case "$direction" in

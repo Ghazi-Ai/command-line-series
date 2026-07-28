@@ -24,7 +24,7 @@
 #let spine-mm = float(required("spine-width-mm"))
 #let bleed-mm = float(required("bleed-mm"))
 #let direction = required("spine-direction")
-#assert(spine-mm >= 18, message: "عرض الكعب أقل من 18 mm ولا يتسع للنص بهوامش الأمان الثابتة")
+#assert(spine-mm >= 6.5, message: "عرض الكعب أقل من 6.5 mm ولا يتسع لعنوان الكتاب واسم صاحب المشروع بصورة مقروءة")
 #assert(bleed-mm >= 0, message: "لا يمكن أن تكون قيمة النزف سالبة")
 #assert(
   direction == "top-to-bottom" or direction == "bottom-to-top",
@@ -37,7 +37,10 @@
 #let bleed = bleed-mm * 1mm
 #let trim-width = 148mm
 #let trim-height = 210mm
-#let safe = 3mm
+#let safe-along = 3mm
+#let safe-across = if spine-mm < 10 { 0.75mm } else { 1.5mm }
+#let title-size = if spine-mm < 8 { 7.5pt } else if spine-mm < 12 { 8.5pt } else { 10pt }
+#let owner-size = if spine-mm < 8 { 5.75pt } else if spine-mm < 12 { 6.75pt } else { 8pt }
 #let page-width = 2 * trim-width + spine + 2 * bleed
 #let page-height = trim-height + 2 * bleed
 #let rotation = if direction == "top-to-bottom" { 90deg } else { -90deg }
@@ -64,7 +67,8 @@
   image(front-image, width: trim-width + bleed, height: page-height, fit: "cover"),
 )
 
-// الكعب: نص ثابت الحجم، وهوامش أمان ثابتة؛ ترفض الأداة العرض الضيق بدل تصغيره.
+// الكعب: أحجام محددة لثلاث فئات عرض وهوامش أمان؛ لا يوجد تصغير حر
+// قد ينتج نصًا مجهريًا، وتُرفض القيم الأضيق من الحد التصميمي.
 #place(
   top + left,
   dx: bleed + trim-width,
@@ -72,7 +76,12 @@
     width: spine,
     height: page-height,
     fill: info.accent,
-    inset: (top: bleed + safe, bottom: bleed + safe, left: safe, right: safe),
+    inset: (
+      top: bleed + safe-along,
+      bottom: bleed + safe-along,
+      left: safe-across,
+      right: safe-across,
+    ),
     clip: true,
     align(
       center + horizon,
@@ -80,22 +89,22 @@
         rotation,
         reflow: true,
         block(
-          width: trim-height - 2 * safe,
-          height: spine - 2 * safe,
+          width: trim-height - 2 * safe-along,
+          height: spine - 2 * safe-across,
           grid(
             columns: (1fr, auto),
             column-gutter: 10mm,
             align: horizon,
             text(
               font: FONT.displayAr,
-              size: 10pt,
+              size: title-size,
               weight: 700,
               fill: white,
               info.title,
             ),
             text(
               font: FONT.bodyAr,
-              size: 8pt,
+              size: owner-size,
               weight: 600,
               fill: white,
               [غازي السيف — أبو هيثم],
