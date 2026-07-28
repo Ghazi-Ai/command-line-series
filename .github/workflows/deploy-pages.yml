@@ -43,27 +43,68 @@ jobs:
         run: |
           set -euo pipefail
           requested_version=$(tr -d '[:space:]' < VERSION)
-          requested_base="https://github.com/Ghazi-Ai/command-line-series/releases/download/v$requested_version"
-          probe_asset="1-linux-ar.pdf"
-          if curl --fail --silent --show-error --location --head \
-            "$requested_base/$probe_asset" >/dev/null
-          then
-            echo "version=$requested_version" >> "$GITHUB_OUTPUT"
-            echo "base=$requested_base" >> "$GITHUB_OUTPUT"
+          releases_json=$(mktemp)
+          curl --fail --silent --show-error --location \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${{ github.token }}" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/releases?per_page=30" \
+            --output "$releases_json"
+          published_version=$(
+            python3 - "$releases_json" "$requested_version" <<'PY'
+          import json
+          import re
+          import sys
+
+          source, requested = sys.argv[1:]
+          required = {
+              "1-linux-ar.pdf",
+              "2-macos-ar.pdf",
+              "3-windows-ar.pdf",
+              "4-bsd-ar.pdf",
+              "5-workbook-ar.pdf",
+              "6-unix-story-ar.pdf",
+          }
+          with open(source, encoding="utf-8") as stream:
+              releases = json.load(stream)
+          version_pattern = re.compile(r"^[0-9]+(?:\.[0-9]+){1,2}$")
+          def version_key(version):
+              parts = tuple(int(part) for part in version.split("."))
+              return parts + (0,) * (3 - len(parts))
+          requested_key = version_key(requested)
+          complete = {}
+          for release in releases:
+              tag = release.get("tag_name", "")
+              if release.get("draft") or release.get("prerelease"):
+                  continue
+              assets = {asset.get("name") for asset in release.get("assets", [])}
+              if required <= assets:
+                  version = tag.removeprefix("v")
+                  if version_pattern.fullmatch(version):
+                      complete[version] = version_key(version)
+          if requested in complete:
+              print(requested)
+          else:
+              earlier = [
+                  (key, version)
+                  for version, key in complete.items()
+                  if key < requested_key
+              ]
+              if earlier:
+                  print(max(earlier)[1])
+          PY
+          )
+          if [ -z "$published_version" ]; then
+            echo "::error::Release v$requested_version does not have the required PDFs, and no earlier published release with all six PDFs was found."
+            exit 1
+          fi
+          if [ "$published_version" = "$requested_version" ]; then
             echo "Using book assets from Release v$requested_version."
           else
-            fallback_version="1.2"
-            fallback_base="https://github.com/Ghazi-Ai/command-line-series/releases/download/v$fallback_version"
-            if ! curl --fail --silent --show-error --location --head \
-              "$fallback_base/$probe_asset" >/dev/null
-            then
-              echo "::error::Neither Release v$requested_version nor fallback Release v$fallback_version has the required PDF assets."
-              exit 1
-            fi
-            echo "::warning::Release v$requested_version does not exist or lacks PDF assets; Pages will use published Release v$fallback_version books while deploying the current site."
-            echo "version=$fallback_version" >> "$GITHUB_OUTPUT"
-            echo "base=$fallback_base" >> "$GITHUB_OUTPUT"
+            echo "::warning::Release v$requested_version does not exist or lacks all six PDF assets; Pages will use the latest earlier complete published Release v$published_version."
           fi
+          echo "version=$published_version" >> "$GITHUB_OUTPUT"
+          echo "base=https://github.com/Ghazi-Ai/command-line-series/releases/download/v$published_version" >> "$GITHUB_OUTPUT"
 
       - name: Restore rendered reader pages
         id: reader-cache
