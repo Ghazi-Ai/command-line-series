@@ -97,6 +97,7 @@
 CC BY-SA 4.0 المسارات الآتية:
 
 - `books/*/ar/assets/cover*.png`
+- `docs/readme-brand/*.png`
 - `docs/readme-covers/*.png`
 - `docs/site-preview.png`
 

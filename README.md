@@ -1,9 +1,13 @@
 <div align="center">
 
+<img src="docs/readme-brand/series-identity.png" width="900" alt="هوية سلسلة سطر الأوامر">
+
 # سلسلة سطر الأوامر · The Command Line Series
 
 <a href="README.md">العربية</a> · <a href="README.en.md">English</a> ·
 <a href="https://ghazi-ai.github.io/command-line-series/">الموقع</a>
+
+**من الصفر إلى فهم الآلة**
 
 **سلسلةٌ عربيّة تأخذك من الصِّفر المطلق إلى إتقان سطر الأوامر عبر الأنظمة كلّها.**
 
@@ -85,7 +89,8 @@ command-line-series/
 │   ├── 4-bsd/        ← «مِن الصِّفر إلى العِفريت»
 │   ├── 5-workbook/   ← «الطرفيّةُ بالممارسة»
 │   └── 6-unix-story/ ← «رُوحٌ في الآلة»
-├── docs/             ← الأدلة العامة ونسخ الأغلفة المصغرة لـREADME
+├── docs/             ← الأدلة العامة وأصول README
+│   ├── readme-brand/
 │   └── readme-covers/
 ├── fonts/            ← الخطوط الحرة المستخدمة في البناء
 ├── lib/              ← القالب والمكونات ونظام التصميم المشترك
