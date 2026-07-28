@@ -3,7 +3,6 @@
 **المهندس غازي السيف** (أبو هيثم)
 Eng. Ghazi Alsaif
 
-- البريد · Email: `https://github.com/Ghazi-Ai/command-line-series/issues`
 - المستودع · Repository: `github.com/Ghazi-Ai/command-line-series`
 
 صاحب الفكرة والمشروع، والإعداد والإشراف والمراجعة لسلسلة سطر الأوامر

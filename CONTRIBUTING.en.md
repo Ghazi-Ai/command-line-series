@@ -56,6 +56,5 @@ From the repository root, use `build.sh` for a local build:
 Do not commit local `build/` output. Public downloads are attached to the
 [GitHub release](https://github.com/Ghazi-Ai/command-line-series/releases).
 
-For permission requests or project contact:
-
-**Ghazi Alsaif** — `https://github.com/Ghazi-Ai/command-line-series/issues`
+For project contact or contribution coordination, open an
+[Issue](https://github.com/Ghazi-Ai/command-line-series/issues).

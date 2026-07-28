@@ -82,7 +82,7 @@ jobs:
               "README.md": ("CC BY-SA 4.0", "نصوصها الأساسية وُلّدت باستخدام أدوات الذكاء الاصطناعي"),
               "README.en.md": ("CC BY-SA 4.0", "All book drafts and core prose were generated"),
               "site/index.html": ("الإصدار 1.3", "نصوصها الأساسية وُلّدت باستخدام أدوات الذكاء الاصطناعي"),
-              "LICENSES/README.md": ("الملفات الداخلية", "MIT"),
+              "LICENSES/README.md": ("حدود العرض", "MIT"),
               "TRANSLATION-GUIDE.md": ("ترجمة مجتمعية غير رسمية",),
           }
           for name, phrases in required_phrases.items():

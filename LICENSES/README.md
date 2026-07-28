@@ -28,31 +28,25 @@
   - `TRADEMARKS.md`
   - `PROJECT-STATUS.md`
   - `CHANGELOG.md`
+  - `CODE_OF_CONDUCT.md`
+  - `SECURITY.md`
+  - `THIRD_PARTY_NOTICES.md`
+  - `LICENSES/README.md`
   - `docs/README.md`
   - `docs/ROADMAP.md`
   - `docs/STYLE-GUIDE.md`
+  - `docs/COVER-RIGHTS-AUDIT.md`
+  - `fonts/README.md`
 - النصوص التحريرية الأصلية الظاهرة في `site/index.html`.
 
 ### استثناءات داخل مسارات الكتب
 
 حتى داخل المسارات السابقة، لا يشمل عرض CC BY-SA 4.0:
 
-- `books/2-macos/OUTLINE.md`
-- `books/3-windows/OUTLINE.md`
-- `books/4-bsd/OUTLINE.md`
-- `books/4-bsd/ar/HANDOFF-BSD.md`
-- `books/4-bsd/ar/_chk-ch21.typ`
-- `books/4-bsd/ar/_chk-ch25-rev.typ`
-- `books/4-bsd/ar/_chk-ch30-rev.typ`
-- `books/4-bsd/ar/_chk-ch37-rev.typ`
-- `books/6-unix-story/ar/VOICE-GUIDE.md`
-- `books/1-linux/en/main.typ`
-- `books/1-linux/en/frontmatter/title-page.typ`
-- `books/1-linux/en/frontmatter/preface.typ`
 - كل ملف يطابق `books/*/ar/assets/cover*.png`.
 
-الملفات المذكورة أعلاه ملفات تخطيط أو تسليم أو فحص أو مسودة، أو أصول
-لم يكتمل توثيق مصدرها؛ لذلك تبقى خارج عرض الترخيص الجديد.
+صور الأغلفة مستثناة بقرار نطاق الترخيص، مع توثيق مصدرها في
+`docs/COVER-RIGHTS-AUDIT.md`.
 
 ## 2. الشيفرة الأصلية تحت MIT
 
@@ -64,49 +58,35 @@
 - `build.sh`
 - `Makefile`
 - `.github/workflows/*.yml`
+- `.github/ISSUE_TEMPLATE/*.yml`
+- `.github/pull_request_template.md`
+- `.gitignore`
 - `site/script.js`
 - `site/reader.js`
 - `site/styles.css`
 - بنية HTML والقالب البرمجي في `site/index.html`، مع بقاء النصوص
   التحريرية في الملف نفسه تحت CC BY-SA 4.0.
 
-لا يمتد MIT إلى ملف داخلي لمجرد أنه يحتوي شيفرة أو قالبًا.
+لا يمتد MIT إلى أي مادة غير مدرجة لمجرد احتوائها شيفرة أو قالبًا.
 
 ## 3. مواد الأطراف الثالثة
 
 لا تخضع المواد الآتية لـCC BY-SA أو MIT الخاصين بالمشروع:
 
-- `fonts/**`
+- `fonts/*.ttf`
+- نصوص رخص الخطوط المرفقة داخل `LICENSES/`.
 - PDF.js الذي تجلبه عملية بناء قارئ الموقع.
 - GitHub Actions وأي مكتبة أو أداة خارجية مستخدمة في البناء.
 
 تبقى هذه المواد تحت رخص أصحابها. راجع
 [`THIRD_PARTY_NOTICES.md`](../THIRD_PARTY_NOTICES.md).
 
-## 4. الملفات الداخلية المستثناة
+## 4. حدود العرض
 
-الملفات الداخلية وتقارير العمل والبرومبتات والمسودات غير المدرجة
-صراحةً في القسم الأول ليست ضمن عرض الترخيص الجديد للإصدار 1.3.
-ويشمل الاستثناء الحالي:
-
-- `docs/مهمة-تدقيق-ChatGPT.md`
-- `docs/برومبت-الماك-الفحص-العدائي.md`
-- `docs/تقرير-التدقيق-العدائي-للكتب-1-5.md`
-- `docs/تقرير-التدقيق-النهائي-للكتاب-السادس.md`
-- `docs/OUTLINE.md`
-- `docs/SERIES-SPINE.md`
-- `docs/WORKBOOK-SPINE.md`
-- `docs/دليل-الهوية-البصرية.md`
-- `docs/تقرير-جاهزية-النشر-v1.3.md`
-- `covers/README.md`
-- `covers/reference/**`
-- `reports/**`
-- ملفات التخطيط والتسليم والفحص والمسودات المذكورة في استثناءات
-  الكتب أعلاه.
-
-وجود هذه الملفات علنًا أو نشرها سابقًا في Git لا يعني إدراجها في عرض
-CC BY-SA 4.0 أو MIT للإصدار 1.3. وهي مرشحة للنقل أو التنظيف في مهمة
-لاحقة، من دون حذفها أو نقلها في هذا الإصدار.
+ينطبق عرض الترخيص على الملفات والمسارات العامة المسماة صراحة في هذه
+الخريطة فقط. لا يعني وجود مادة في تاريخ Git أنها تدخل تلقائيًا في
+عرض CC BY-SA 4.0 أو MIT الحالي، ولا يغيّر حذف ملف من الشجرة الحالية
+الحقوق التي مُنحت سابقًا.
 
 ## 5. أصول بصرية مستثناة من عرض الترخيص
 
@@ -116,9 +96,6 @@ CC BY-SA 4.0 أو MIT للإصدار 1.3. وهي مرشحة للنقل أو ال
 النهائي بأداة Typst. ومع توثيق المصدر والمدخلات، لا يشمل عرض
 CC BY-SA 4.0 المسارات الآتية:
 
-- `covers/front/*.png`
-- `covers/back/*.png`
-- `covers/reference/**`
 - `books/*/ar/assets/cover*.png`
 - `docs/readme-covers/*.png`
 - `docs/site-preview.png`

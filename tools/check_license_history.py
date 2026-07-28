@@ -43,9 +43,6 @@ ALLOWED_HISTORY_LINES = {
     "CHANGELOG.md": (
         re.compile(r"^- الفهرس التفاعليّ .*رخصة CC BY" + r"-ND 4\.0 التي$"),
     ),
-    "docs/تقرير-جاهزية-النشر-v1.3.md": (
-        re.compile(r"^نُشر الإصدار 1\.2 سابقًا تحت CC BY" + r"-ND 4\.0\."),
-    ),
 }
 
 

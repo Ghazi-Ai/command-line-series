@@ -24,8 +24,8 @@ Please read [`TRANSLATION-GUIDE.md`](TRANSLATION-GUIDE.md),
 [`license map`](LICENSES/README.md). Public content explicitly listed there is
 offered under CC BY-SA 4.0 beginning with version 1.3. It may be translated,
 adapted, printed, and sold with attribution, an indication of changes, and
-ShareAlike. Internal files, third-party materials, and excluded visual assets
-are not covered by that offer.
+ShareAlike. Unlisted material, third-party material, and excluded visual
+assets are not covered by that offer.
 
 For the complete current project overview, see the [Arabic README](README.md).
 
