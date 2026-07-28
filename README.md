@@ -136,6 +136,7 @@ JetBrains Mono) فيخرج البناءُ متسقًا في الخطوط وال�
 ./build.sh              # يبني الكتب الستّة (PDF) إلى build/
 ./build.sh 1-linux      # يبني كتابًا بعينه
 make release            # يبني PDF والمتون وEPUB للكتب الستة
+make print              # معالج تفاعلي لبناء حزمة الطباعة
 make print-interiors    # يبني المتون الستة بلا الغلافين
 make release-check      # يفحص مخرجات PDF والطباعة وEPUB
 make check              # يفحص السكربتات وفروق Git

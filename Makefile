@@ -1,7 +1,7 @@
 # Makefile — سلسلة سطر الأوامر
 # يتطلّب: typst, python3
 
-.PHONY: all pdf digital print-interiors print-cover book1 book2 book3 book4 book5 book6 epub release release-check check clean
+.PHONY: all pdf digital print print-interiors print-cover book1 book2 book3 book4 book5 book6 epub release release-check check clean
 
 EPUB_BOOKS := 1-linux 2-macos 3-windows 4-bsd 5-workbook 6-unix-story
 
@@ -11,6 +11,9 @@ pdf:
 	./build.sh
 
 digital: pdf
+
+print:
+	tools/print_wizard.sh
 
 print-interiors:
 	PRINT_INTERIOR=1 ./build.sh
