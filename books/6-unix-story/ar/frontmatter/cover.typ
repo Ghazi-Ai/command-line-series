@@ -11,7 +11,10 @@
   // العنوان أعلى الصفحة، فوق الهالة
   place(top + center, dy: 15mm, block(width: 100%, {
     set align(center)
-    text(font: FONT.displayAr, size: 30pt, weight: 800, fill: rgb("#363B5E"))[رُوحٌ في الآلة]
+    text(font: FONT.displayAr, size: 30pt, weight: 800, fill: rgb("#363B5E"))[
+      رُوحٌ \
+      في الآلة
+    ]
     v(5mm)
     text(font: FONT.bodyAr, size: 12pt, weight: 600, fill: rgb("#3D4270"))[حكايةُ يونِكس]
   }))

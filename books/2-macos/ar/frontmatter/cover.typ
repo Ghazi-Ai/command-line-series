@@ -11,7 +11,10 @@
   // العنوان أعلى الصفحة، فوق الهالة
   place(top + center, dy: 15mm, block(width: 100%, {
     set align(center)
-    text(font: FONT.displayAr, size: 30pt, weight: 800, fill: rgb("#234A5F"))[ماك من الطرفية]
+    text(font: FONT.displayAr, size: 30pt, weight: 800, fill: rgb("#234A5F"))[
+      ماك \
+      من الطرفية
+    ]
     v(5mm)
     text(font: FONT.bodyAr, size: 12pt, weight: 600, fill: rgb("#305A70"))[الدليل الشامل إلى سطر الأوامر على macOS]
   }))

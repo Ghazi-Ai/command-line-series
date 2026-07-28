@@ -7,7 +7,7 @@
   v(1.4fr)
   text(dir: ltr, font: FONT.mono, size: 11pt, fill: COLOR.primary, weight: 600)[1969 → ∞]
   v(2.4fr)
-  text(font: FONT.displayAr, size: 46pt, weight: 800, fill: COLOR.primaryDeep)[
+  text(font: FONT.displayAr, size: 44pt, weight: 800, fill: COLOR.primaryDeep)[
     رُوحٌ\
     في الآلة
   ]
