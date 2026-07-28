@@ -18,7 +18,7 @@ print-cover:
 		--book-id "$(BOOK_ID)" \
 		--spine-width-mm "$(SPINE_WIDTH_MM)" \
 		--bleed-mm "$(BLEED_MM)" \
-		--spine-direction "$(SPINE_DIRECTION)" \
+		--spine-direction "$(if $(SPINE_DIRECTION),$(SPINE_DIRECTION),bottom-to-top)" \
 		--output "$(OUTPUT)"
 
 book1:

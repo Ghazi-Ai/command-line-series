@@ -10,15 +10,17 @@ usage() {
     --book-id ID \
     --spine-width-mm NUMBER \
     --bleed-mm NUMBER \
-    --spine-direction top-to-bottom|bottom-to-top \
+    [--spine-direction top-to-bottom|bottom-to-top] \
     --output FILE.pdf
+
+اتجاه السلسلة الافتراضي: bottom-to-top
 EOF
 }
 
 book_id=
 spine_width=
 bleed=
-direction=
+direction=bottom-to-top
 output=
 
 while [ $# -gt 0 ]; do
@@ -33,7 +35,7 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-for required in book_id spine_width bleed direction output; do
+for required in book_id spine_width bleed output; do
   if [ -z "${!required}" ]; then
     echo "قيمة إلزامية مفقودة: $required" >&2
     usage

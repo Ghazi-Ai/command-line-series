@@ -23,7 +23,7 @@
 
 #let spine-mm = float(required("spine-width-mm"))
 #let bleed-mm = float(required("bleed-mm"))
-#let direction = required("spine-direction")
+#let direction = sys.inputs.at("spine-direction", default: "bottom-to-top")
 #assert(spine-mm >= 6.5, message: "عرض الكعب أقل من 6.5 mm ولا يتسع لعنوان الكتاب واسم صاحب المشروع بصورة مقروءة")
 #assert(bleed-mm >= 0, message: "لا يمكن أن تكون قيمة النزف سالبة")
 #assert(

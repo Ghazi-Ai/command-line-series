@@ -173,6 +173,7 @@ jobs:
                   "6.5 mm",
                   "أمامي + كعب + خلفي",
                   "عند أسفل الكعب",
+                  "bottom-to-top",
               ),
           }
           for name, phrases in required_phrases.items():
