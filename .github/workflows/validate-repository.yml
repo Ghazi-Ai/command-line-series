@@ -93,6 +93,21 @@ jobs:
           for title_page in Path("books").glob("*/ar/frontmatter/title-page.typ"):
               if "مسودة أولى" in title_page.read_text(encoding="utf-8"):
                   raise SystemExit(f"Draft marker remains in {title_page}")
+
+          private_contacts = (
+              re.compile(r"eng\.ghazi\\?@icloud\.com", re.IGNORECASE),
+              re.compile(r"al\.saif1990@gmail\.com", re.IGNORECASE),
+          )
+          text_suffixes = {".css", ".html", ".js", ".md", ".py", ".sh", ".txt", ".typ", ".yaml", ".yml"}
+          for path in Path(".").rglob("*"):
+              if not path.is_file() or ".git" in path.parts:
+                  continue
+              if path.suffix.lower() not in text_suffixes and path.name not in {"LICENSE", "Makefile"}:
+                  continue
+              text = path.read_text(encoding="utf-8", errors="ignore")
+              if any(pattern.search(text) for pattern in private_contacts):
+                  raise SystemExit(f"Private contact remains in public source: {path}")
+
           expected = [
               "1-linux-ar.pdf",
               "2-macos-ar.pdf",

@@ -70,7 +70,7 @@ jobs:
         uses: actions/cache@v6
         with:
           path: _reader-cache
-          key: reader-pages-v${{ steps.book-source.outputs.version }}-r130-q88
+          key: reader-pages-v${{ steps.book-source.outputs.version }}-r131-q88
 
       - name: Prepare static site
         shell: bash
