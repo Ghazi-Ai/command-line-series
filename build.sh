@@ -6,6 +6,7 @@
 #  الاستعمال:
 #     ./build.sh              يبني الكتب كلّها
 #     ./build.sh 1-linux      يبني كتابًا بعينه
+#     PRINT_INTERIOR=1 ./build.sh   يبني المتون المخصّصة للطباعة
 #     TYPST=~/.local/bin/typst ./build.sh      إن لم يكن typst في PATH
 # ═══════════════════════════════════════════════════════════════════════════
 set -euo pipefail
@@ -22,7 +23,21 @@ if [ "$actual_typst" != "$required_typst" ]; then
   exit 1
 fi
 
-mkdir -p build
+print_interior="${PRINT_INTERIOR:-0}"
+case "$print_interior" in
+  0|1) ;;
+  *)
+    echo "يجب أن تكون قيمة PRINT_INTERIOR إما 0 أو 1." >&2
+    exit 2
+    ;;
+esac
+
+if [ "$print_interior" = "1" ]; then
+  output_dir="build/print"
+else
+  output_dir="build"
+fi
+mkdir -p "$output_dir"
 
 # الصفحات المرجعيّة: أيّ اختلافٍ عنها يعني تغيّرًا في المحتوى — لا في البيئة،
 # لأنّ الخطوط مثبَّتةٌ والبناء معزول. (0 = كتابٌ لم يكتمل بعدُ فلا مرجع له)
@@ -50,10 +65,25 @@ if [ $# -eq 1 ]; then
   fi
 fi
 
-pages() { python3 -c "
+pages() {
+  local result
+  if command -v pdfinfo >/dev/null 2>&1; then
+    result=$(LC_ALL=C pdfinfo "$1" | awk '/^Pages:/ {print $2; exit}')
+  else
+    result=$(python3 -c "
 import re, sys
-d = open(sys.argv[1],'rb').read()
-print(max(int(m.group(1)) for m in re.finditer(rb'/Count\s+(\d+)', d)))" "$1"; }
+d = open(sys.argv[1], 'rb').read()
+counts = [int(m.group(1)) for m in re.finditer(rb'/Count\\s+(\\d+)', d)]
+if not counts:
+    raise SystemExit('تعذر العثور على عدد الصفحات')
+print(max(counts))" "$1")
+  fi
+  if [[ ! "$result" =~ ^[1-9][0-9]*$ ]]; then
+    echo "عدد صفحات غير صالح في $1: ${result:-فارغ}" >&2
+    return 1
+  fi
+  printf '%s\n' "$result"
+}
 
 fail=0
 for entry in "${BOOKS[@]}"; do
@@ -61,16 +91,30 @@ for entry in "${BOOKS[@]}"; do
   if [ $# -gt 0 ] && [ "$1" != "$dir" ]; then continue; fi
   [ -f "books/$dir/ar/main.typ" ] || continue
 
+  compile_args=(
+    --root .
+    --font-path fonts
+    --ignore-system-fonts
+    --pdf-standard 1.5
+  )
+  if [ "$print_interior" = "1" ]; then
+    target="$output_dir/$out-interior.pdf"
+    compile_args+=(--input print-interior=true)
+    if [ "$expect" != "0" ]; then
+      expect=$((expect - 2))
+    fi
+  else
+    target="$output_dir/$out.pdf"
+  fi
+
   printf '  %-11s ' "$dir"
-  "$TYPST" compile "books/$dir/ar/main.typ" "build/$out.pdf" \
-      --root . --font-path fonts --ignore-system-fonts \
-      --pdf-standard 1.5
-  p=$(pages "build/$out.pdf")
+  "$TYPST" compile "books/$dir/ar/main.typ" "$target" "${compile_args[@]}"
+  p=$(pages "$target")
 
   if [ "$expect" = "0" ]; then
-    echo "$p صفحة   → build/$out.pdf"
+    echo "$p صفحة   → $target"
   elif [ "$p" = "$expect" ]; then
-    echo "$p صفحة ✔ → build/$out.pdf"
+    echo "$p صفحة ✔ → $target"
   else
     echo "$p صفحة ⚠ المرجع $expect — إن لم تكن غيّرت المحتوى فتحقّق من مجلّد fonts/"
     fail=1

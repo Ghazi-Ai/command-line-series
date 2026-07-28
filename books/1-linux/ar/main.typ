@@ -13,8 +13,12 @@
   keywords: ("Linux", "سطر الأوامر", "الطرفية", "إدارة النظام"),
 )
 
+#let print-interior = sys.inputs.at("print-interior", default: "false") == "true"
+
 // ── الغلاف الأماميّ (الفنّ + العنوان) ──
-#include "frontmatter/cover.typ"
+#if not print-interior {
+  include "frontmatter/cover.typ"
+}
 
 // ── المقدّمات (بلا ترقيم صفحات) ──
 #include "frontmatter/title-page.typ"
@@ -33,4 +37,6 @@
 #include "_contents.typ"
 
 // ── الغلاف الخلفيّ (الفنّ + النبذة) ──
-#include "frontmatter/cover-back.typ"
+#if not print-interior {
+  include "frontmatter/cover-back.typ"
+}

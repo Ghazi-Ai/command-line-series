@@ -14,8 +14,12 @@
   others: "على أنظمةٍ أخرى",
 )
 
+#let print-interior = sys.inputs.at("print-interior", default: "false") == "true"
+
 // ── الغلاف الأماميّ (الفنّ + العنوان) ──
-#include "frontmatter/cover.typ"
+#if not print-interior {
+  include "frontmatter/cover.typ"
+}
 
 #include "frontmatter/title-page.typ"
 #include "frontmatter/colophon.typ"
@@ -30,4 +34,6 @@
 #include "_contents.typ"
 
 // ── الغلاف الخلفيّ (الفنّ + النبذة) ──
-#include "frontmatter/cover-back.typ"
+#if not print-interior {
+  include "frontmatter/cover-back.typ"
+}

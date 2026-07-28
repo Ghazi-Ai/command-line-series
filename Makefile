@@ -1,12 +1,25 @@
 # Makefile — سلسلة سطر الأوامر
 # يتطلّب: typst, python3
 
-.PHONY: all pdf book1 book2 book3 book4 book5 book6 epub release check clean
+.PHONY: all pdf digital print-interiors print-cover book1 book2 book3 book4 book5 book6 epub release release-check check clean
 
 all: pdf
 
 pdf:
 	./build.sh
+
+digital: pdf
+
+print-interiors:
+	PRINT_INTERIOR=1 ./build.sh
+
+print-cover:
+	tools/make_print_cover.sh \
+		--book-id "$(BOOK_ID)" \
+		--spine-width-mm "$(SPINE_WIDTH_MM)" \
+		--bleed-mm "$(BLEED_MM)" \
+		--spine-direction "$(SPINE_DIRECTION)" \
+		--output "$(OUTPUT)"
 
 book1:
 	./build.sh 1-linux
@@ -31,8 +44,11 @@ epub:
 
 release: pdf epub
 
+release-check:
+	bash tools/release_check.sh
+
 check:
-	bash -n build.sh
+	bash -n build.sh tools/*.sh
 	python3 -m py_compile tools/*.py
 	python3 tools/check_license_history.py
 	git diff --check

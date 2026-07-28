@@ -13,7 +13,11 @@
   keywords: ("Unix", "تاريخ الحوسبة", "أنظمة التشغيل", "سرد تقني"),
 )
 
-#include "frontmatter/cover.typ"
+#let print-interior = sys.inputs.at("print-interior", default: "false") == "true"
+
+#if not print-interior {
+  include "frontmatter/cover.typ"
+}
 #include "frontmatter/title-page.typ"
 #include "frontmatter/colophon.typ"
 
@@ -25,4 +29,6 @@
 
 #include "_contents.typ"
 
-#include "frontmatter/cover-back.typ"
+#if not print-interior {
+  include "frontmatter/cover-back.typ"
+}
