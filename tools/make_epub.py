@@ -4,7 +4,7 @@
 مولّد EPUB لسلسلة سطر الأوامر — بلا أدوات خارجية (Python خالص + zipfile).
 يحوّل ملفّات Typst (.typ) لكتابٍ إلى EPUB3 عربيٍّ RTL يُقرأ على الجوّال.
 
-    python3 tools/make_epub.py <book_dir> <out.epub> [title] [author]
+    python3 tools/make_epub.py <book_dir> <out.epub> [title] [author] [--cover <cover.png>]
 
 يعالج المحتوى التقنيّ كلَّه: العناوين، والأجزاء، والملاحق، وصناديق التنبيه
 (note/tip/warn/danger/distro/ethics/deep/try-it)، والتعريف، وأهداف الفصل،
@@ -12,7 +12,7 @@
 المفاتيح، وبطاقات دفتر التمارين (win/linux/mac/bsd, ex, goal, doit, diff,
 ex-challenge). العنوان/المؤلّف يُستنتجان من مجلّد الكتاب أو يُمرَّران وسيطين.
 """
-import sys, os, re, html, zipfile, datetime, hashlib, subprocess
+import argparse, os, re, html, zipfile, datetime, hashlib, subprocess
 
 AUTHOR = "غازي السيف — صاحب الفكرة والمشروع، والإعداد والإشراف والمراجعة"
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -160,6 +160,34 @@ def render_inline(s, _holds=None):
         raw = (m.group(1) or m.group(2) or "").strip().strip('`"[]').strip()
         return hold('<kbd>%s</kbd>' % esc(raw))
     s = re.sub(r'#kbd\(([^()]*)\)|#kbd\[([^\]]*)\]', kbd_sub, s)
+    # روابط Typst: #link("https://example.test")[النص]
+    link_pat = re.compile(r'#link\(')
+    out = []
+    k = 0
+    while True:
+        mm = link_pat.search(s, k)
+        if not mm:
+            out.append(s[k:])
+            break
+        out.append(s[k:mm.start()])
+        inner, end = read_group(s, mm.end() - 1)
+        pos, _named = parse_args(inner)
+        href = arg_text(pos[0]) if pos else ""
+        j = end
+        while j < len(s) and s[j].isspace():
+            j += 1
+        if j < len(s) and s[j] == '[':
+            label, final = read_group(s, j)
+        else:
+            label, final = href, end
+        rendered = render_inline(label, holds)
+        if re.match(r'^(?:https?://|mailto:|#)', href):
+            safe_href = html.escape(href, quote=True)
+            out.append(hold('<a href="%s">%s</a>' % (safe_href, rendered)))
+        else:
+            out.append(hold(rendered))
+        k = final
+    s = ''.join(out)
     # #strong[..] / #emph[..] / #box[..] / #footnote[..]
     for name, tag in [("strong","strong"), ("emph","em"), ("box",""), ("footnote","")]:
         pat = re.compile(r'#%s\[' % name); out = []; k = 0
@@ -503,12 +531,20 @@ def build_nav(headings):
     return '<ol>%s</ol>' % ''.join(lis)
 
 def main():
-    book_dir = sys.argv[1].rstrip('/')
-    out_path = sys.argv[2]
+    parser = argparse.ArgumentParser(description="بناء EPUB3 عربي من مصادر Typst")
+    parser.add_argument("book_dir")
+    parser.add_argument("out_path")
+    parser.add_argument("title", nargs="?")
+    parser.add_argument("author", nargs="?")
+    parser.add_argument("--cover", help="غلاف PNG معنون مولّد من مصدر Typst الحالي")
+    args = parser.parse_args()
+
+    book_dir = args.book_dir.rstrip('/')
+    out_path = args.out_path
     key = os.path.basename(os.path.dirname(book_dir))
     meta = BOOKMETA.get(key, ("سلسلة سطر الأوامر", "$", None))
-    title = sys.argv[3] if len(sys.argv) > 3 else meta[0]
-    author = sys.argv[4] if len(sys.argv) > 4 else AUTHOR
+    title = args.title or meta[0]
+    author = args.author or AUTHOR
     ctx = {"prompt": meta[1], "distro": meta[2], "fname": "", "headings": [], "hcount": 0, "fences": []}
 
     items = read_contents(book_dir)
@@ -575,13 +611,15 @@ def main():
         elif os.path.exists(val):
             add_page(open(val, encoding='utf-8').read())
 
-    # فضّلِ الغلافَ المعنون (النصوصُ مخبوزةٌ فيه) — يطابق غلافَ الـPDF.
-    # وإلّا فالفنُّ الخام. ولّدِ المعنونَ هكذا:
-    #   typst compile --root . books/<b>/ar/frontmatter/cover.typ \
-    #       books/<b>/ar/assets/cover-front-titled.png --font-path fonts --ppi 200
-    cover_img = os.path.join(book_dir, 'assets/cover-front-titled.png')
-    if not os.path.exists(cover_img):
-        cover_img = os.path.join(book_dir, 'assets/cover-front.png')
+    # يمرّر مسار الإصدار غلافًا مولّدًا مباشرة من cover.typ، فلا يعتمد EPUB
+    # على لقطة قديمة. يبقى الرجوع إلى الأصل المعنون للتشغيل اليدوي المتوافق.
+    cover_img = args.cover
+    if cover_img and not os.path.isfile(cover_img):
+        parser.error("ملف الغلاف غير موجود: %s" % cover_img)
+    if not cover_img:
+        cover_img = os.path.join(book_dir, 'assets/cover-front-titled.png')
+        if not os.path.exists(cover_img):
+            cover_img = os.path.join(book_dir, 'assets/cover-front.png')
     has_cover = os.path.exists(cover_img)
     uid = 'urn:uuid:' + hashlib.md5((title + author).encode()).hexdigest()
     build_dt = source_datetime()

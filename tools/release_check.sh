@@ -88,6 +88,8 @@ for path in xml_files:
 
 opf = (root / "OEBPS/content.opf").read_text(encoding="utf-8")
 nav = (root / "OEBPS/nav.xhtml").read_text(encoding="utf-8")
+embedded_cover = root / "OEBPS/images/cover.png"
+generated_cover = Path("build/6-unix-story-ar-cover.png")
 pages = "\n".join(
     path.read_text(encoding="utf-8")
     for path in sorted((root / "OEBPS").glob("p*.xhtml"))
@@ -97,6 +99,13 @@ required = {
     "الفهرس": 'epub:type="toc"' in nav,
     "صفحة الحقوق": "الحقوق والرخصة" in pages,
     "الإفصاح": "نصوصها الأساسية وُلّدت باستخدام أدوات الذكاء الاصطناعي" in pages,
+    "تحويل روابط Typst": "#link(" not in pages,
+    "روابط المصادر": 'href="https://doi.org/' in pages,
+    "الغلاف المولّد من المصدر الحالي": (
+        embedded_cover.is_file()
+        and generated_cover.is_file()
+        and embedded_cover.read_bytes() == generated_cover.read_bytes()
+    ),
 }
 missing = [name for name, present in required.items() if not present]
 if missing:

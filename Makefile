@@ -40,7 +40,12 @@ book6:
 	./build.sh 6-unix-story
 
 epub:
-	python3 tools/make_epub.py books/6-unix-story/ar build/6-unix-story-ar.epub
+	mkdir -p build
+	typst compile --root . --font-path fonts --ignore-system-fonts --ppi 200 \
+		books/6-unix-story/ar/frontmatter/cover.typ \
+		build/6-unix-story-ar-cover.png
+	python3 tools/make_epub.py books/6-unix-story/ar build/6-unix-story-ar.epub \
+		--cover build/6-unix-story-ar-cover.png
 
 release: digital print-interiors epub
 
