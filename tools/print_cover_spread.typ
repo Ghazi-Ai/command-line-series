@@ -92,9 +92,12 @@
           width: trim-height - 2 * safe-along,
           height: spine - 2 * safe-across,
           grid(
-            columns: (1fr, auto),
+            // عمودان مرنان متساويان حول العنوان يثبتانه في المركز
+            // الهندسي لطول الكعب، ويبقى الاسم عند أحد الطرفين.
+            columns: (1fr, auto, 1fr),
             column-gutter: 10mm,
             align: horizon,
+            [],
             text(
               font: FONT.displayAr,
               size: title-size,
@@ -102,12 +105,15 @@
               fill: white,
               info.title,
             ),
-            text(
-              font: FONT.bodyAr,
-              size: owner-size,
-              weight: 600,
-              fill: white,
-              [غازي السيف — أبو هيثم],
+            align(
+              right + horizon,
+              text(
+                font: FONT.bodyAr,
+                size: owner-size,
+                weight: 600,
+                fill: white,
+                [غازي السيف — أبو هيثم],
+              ),
             ),
           ),
         ),
