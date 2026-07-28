@@ -9,8 +9,8 @@
 ## Current language
 
 The current edition of the Command Line Series is available in Arabic only.
-The six books, their PDF releases, and the EPUB edition of book six are not
-available in English yet.
+The six books and their PDF and EPUB editions are not available in English
+yet.
 
 Version 1.4 sources are currently being prepared above the published 1.3
 release. The new source tree adds print interiors, a parameterized cover-spread

@@ -202,14 +202,19 @@ jobs:
           expected = [
               "1-linux-ar.pdf",
               "1-linux-ar-interior.pdf",
+              "1-linux-ar.epub",
               "2-macos-ar.pdf",
               "2-macos-ar-interior.pdf",
+              "2-macos-ar.epub",
               "3-windows-ar.pdf",
               "3-windows-ar-interior.pdf",
+              "3-windows-ar.epub",
               "4-bsd-ar.pdf",
               "4-bsd-ar-interior.pdf",
+              "4-bsd-ar.epub",
               "5-workbook-ar.pdf",
               "5-workbook-ar-interior.pdf",
+              "5-workbook-ar.epub",
               "6-unix-story-ar.pdf",
               "6-unix-story-ar-interior.pdf",
               "6-unix-story-ar.epub",
@@ -286,15 +291,23 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          epub="build/6-unix-story-ar.epub"
-          test -s "$epub"
-          unzip -t "$epub"
-          epub_dir=$(mktemp -d)
-          unzip -q "$epub" -d "$epub_dir"
-          mapfile -d '' xml_files < <(
-            find "$epub_dir" -type f \
-              \( -name '*.xml' -o -name '*.xhtml' -o -name '*.opf' -o -name '*.ncx' \) \
-              -print0
-          )
-          test "${#xml_files[@]}" -gt 0
-          xmllint --noout "${xml_files[@]}"
+          shopt -s nullglob
+          epubs=(build/*-ar.epub)
+          if [ "${#epubs[@]}" -ne 6 ]; then
+            echo "::error::Expected six EPUB files; found ${#epubs[@]}."
+            exit 1
+          fi
+          epub_root=$(mktemp -d)
+          for epub in "${epubs[@]}"; do
+            epub_dir="$epub_root/$(basename "$epub" .epub)"
+            mkdir -p "$epub_dir"
+            unzip -t "$epub"
+            unzip -q "$epub" -d "$epub_dir"
+            mapfile -d '' xml_files < <(
+              find "$epub_dir" -type f \
+                \( -name '*.xml' -o -name '*.xhtml' -o -name '*.opf' -o -name '*.ncx' \) \
+                -print0
+            )
+            test "${#xml_files[@]}" -gt 0
+            xmllint --noout "${xml_files[@]}"
+          done

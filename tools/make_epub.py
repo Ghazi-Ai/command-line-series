@@ -227,17 +227,26 @@ def render_prose(text):
             out.append('<p>%s</p>' % render_inline(' '.join(lines)))
     return '\n'.join(out)
 
+def render_terminal_lines(text, css_class):
+    """يعزل اتجاه كل سطر خرج كي لا تقلبه بيئة الطرفية ذات الاتجاه LTR."""
+    return '\n'.join(
+        '<span class="%s terminal-line" dir="auto">%s</span>' % (css_class, esc(line))
+        for line in text.split('\n')
+    )
+
 def render_session(prompt, cmd, output):
-    h = '<pre class="term"><span class="pr">%s </span>%s' % (esc(prompt), esc(cmd))
+    h = ('<pre class="term" dir="ltr"><span class="pr">%s </span>'
+         '<span class="cmd" dir="ltr">%s</span>') % (esc(prompt), esc(cmd))
     if output not in (None, ""):
-        h += '\n<span class="out">%s</span>' % esc(output)
+        h += '\n' + render_terminal_lines(output, "out")
     return h + '</pre>'
 
 def render_sol(kind, cmd, output):
     name, prompt, color = SYS[kind]
-    body = '<pre class="term"><span class="pr" style="color:%s">%s </span>%s' % (color, esc(prompt), esc(cmd))
+    body = ('<pre class="term" dir="ltr"><span class="pr" style="color:%s">%s </span>'
+            '<span class="cmd" dir="ltr">%s</span>') % (color, esc(prompt), esc(cmd))
     if output not in (None, ""):
-        body += '\n<span class="out">%s</span>' % esc(output)
+        body += '\n' + render_terminal_lines(output, "out")
     body += '</pre>'
     return ('<div class="sol" style="border-color:%s"><div class="solname" style="color:%s">%s</div>%s</div>'
             % (color, color, esc(name), body))
@@ -489,7 +498,10 @@ pre.term, pre.code { direction: ltr; text-align: left; unicode-bidi: isolate;
   font-family: monospace; font-size: 0.86em; background: #F5F3EC; border-radius: 4px;
   border-left: 2.5px solid #1F6F5C; padding: 0.6em 0.8em; margin: 0.9em 0;
   white-space: pre-wrap; word-wrap: break-word; overflow-wrap: anywhere; line-height: 1.5; }
-pre.term .pr { color: #1F6F5C; font-weight: 700; } pre.term .out, pre.code .out { color: #6E6B78; }
+pre.term .pr { color: #1F6F5C; font-weight: 700; }
+pre.term .cmd { direction: ltr; unicode-bidi: isolate; }
+pre.term .terminal-line { unicode-bidi: isolate; }
+pre.term .out, pre.code .out { color: #6E6B78; }
 .sol { border-right: 3px solid; border-radius: 5px; padding: 0.45em 0.7em; margin: 0.55em 0; background: #FAFAF8; }
 .sol .solname { font-weight: 700; font-size: 0.86em; margin-bottom: 0.2em; }
 .sol pre.term { margin: 0.25em 0 0; border-left: 0; background: #F5F3EC; }

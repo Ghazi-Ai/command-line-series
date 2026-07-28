@@ -71,11 +71,11 @@
 
 | # | الكتاب | PDF | EPUB |
 |---|--------|-----|-------|
-| 1 | 🟠 **مِن الصِّفر إلى الجَذر** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf) | `X` |
-| 2 | 🔵 **ماك من الطرفية** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf) | `X` |
-| 3 | 🟡 **مِن الصِّفر إلى المسؤول** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf) | `X` |
-| 4 | 🔴 **مِن الصِّفر إلى العِفريت** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf) | `X` |
-| 5 | 🟣 **الطرفيّةُ بالممارسة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf) | `X` |
+| 1 | 🟠 **مِن الصِّفر إلى الجَذر** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar.epub) |
+| 2 | 🔵 **ماك من الطرفية** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar.epub) |
+| 3 | 🟡 **مِن الصِّفر إلى المسؤول** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar.epub) |
+| 4 | 🔴 **مِن الصِّفر إلى العِفريت** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.epub) |
+| 5 | 🟣 **الطرفيّةُ بالممارسة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.epub) |
 | 6 | 🔷 **رُوحٌ في الآلة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub) |
 
 ملفات المتون للطباعة، بلا الغلافين:
@@ -135,16 +135,16 @@ JetBrains Mono) فيخرج البناءُ متسقًا في الخطوط وال�
 ```bash
 ./build.sh              # يبني الكتب الستّة (PDF) إلى build/
 ./build.sh 1-linux      # يبني كتابًا بعينه
-make release            # يبني PDF والمتون الستة وEPUB للكتاب السادس
+make release            # يبني PDF والمتون وEPUB للكتب الستة
 make print-interiors    # يبني المتون الستة بلا الغلافين
 make release-check      # يفحص مخرجات PDF والطباعة وEPUB
 make check              # يفحص السكربتات وفروق Git
 ```
 
-توليدُ EPUB (اختياريّ، للقراءة على الجوّال):
+توليدُ EPUB للكتب الستة (اختياريّ، للقراءة على الجوّال):
 
 ```bash
-python3 tools/make_epub.py books/6-unix-story/ar build/6-unix-story-ar.epub
+make epub
 ```
 
 إعدادات الطباعة والغلاف الممتد موثقة في

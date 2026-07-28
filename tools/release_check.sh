@@ -65,18 +65,25 @@ for entry in "${BOOKS[@]}"; do
   printf '  %-20s %s / %s صفحة ✔\n' "$name" "$digital_expected" "$interior_expected"
 done
 
-epub="build/6-unix-story-ar.epub"
-[[ -s "$epub" ]] || { echo "ملف EPUB مفقود: $epub" >&2; exit 1; }
-unzip -t "$epub" >/dev/null
-epub_dir=$(mktemp -d build/.epub-check.XXXXXX)
-trap 'rm -rf -- "$epub_dir"' EXIT
-unzip -q "$epub" -d "$epub_dir"
-python3 - "$epub_dir" <<'PY'
+epub_root=$(mktemp -d build/.epub-check.XXXXXX)
+trap 'rm -rf -- "$epub_root"' EXIT
+for entry in "${BOOKS[@]}"; do
+  name=${entry%%:*}
+  epub="build/$name.epub"
+  generated_cover="build/$name-cover.png"
+  epub_dir="$epub_root/$name"
+  [[ -s "$epub" ]] || { echo "ملف EPUB مفقود: $epub" >&2; exit 1; }
+  unzip -t "$epub" >/dev/null
+  mkdir -p "$epub_dir"
+  unzip -q "$epub" -d "$epub_dir"
+  python3 - "$epub_dir" "$generated_cover" "$name" <<'PY'
 from pathlib import Path
 import sys
 import xml.etree.ElementTree as ET
 
 root = Path(sys.argv[1])
+generated_cover = Path(sys.argv[2])
+book_name = sys.argv[3]
 xml_files = [
     path for path in root.rglob("*")
     if path.suffix.lower() in {".xml", ".xhtml", ".opf", ".ncx"}
@@ -89,7 +96,6 @@ for path in xml_files:
 opf = (root / "OEBPS/content.opf").read_text(encoding="utf-8")
 nav = (root / "OEBPS/nav.xhtml").read_text(encoding="utf-8")
 embedded_cover = root / "OEBPS/images/cover.png"
-generated_cover = Path("build/6-unix-story-ar-cover.png")
 pages = "\n".join(
     path.read_text(encoding="utf-8")
     for path in sorted((root / "OEBPS").glob("p*.xhtml"))
@@ -100,16 +106,22 @@ required = {
     "صفحة الحقوق": "الحقوق والرخصة" in pages,
     "الإفصاح": "نصوصها الأساسية وُلّدت باستخدام أدوات الذكاء الاصطناعي" in pages,
     "تحويل روابط Typst": "#link(" not in pages,
-    "روابط المصادر": 'href="https://doi.org/' in pages,
+    "اتجاه خرج الطرفية": (
+        'class="term"' not in pages
+        or ('class="out terminal-line" dir="auto"' in pages and 'class="cmd" dir="ltr"' in pages)
+    ),
     "الغلاف المولّد من المصدر الحالي": (
         embedded_cover.is_file()
         and generated_cover.is_file()
         and embedded_cover.read_bytes() == generated_cover.read_bytes()
     ),
 }
+if book_name == "6-unix-story-ar":
+    required["روابط المصادر"] = 'href="https://doi.org/' in pages
 missing = [name for name, present in required.items() if not present]
 if missing:
     raise SystemExit("فشل فحص EPUB: " + "، ".join(missing))
 PY
-echo "  EPUB سليم ✔"
+  printf '  %-20s EPUB سليم ✔\n' "$name"
+done
 echo "اكتملت فحوص مخرجات الإصدار."

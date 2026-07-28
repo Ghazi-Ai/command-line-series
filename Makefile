@@ -3,6 +3,8 @@
 
 .PHONY: all pdf digital print-interiors print-cover book1 book2 book3 book4 book5 book6 epub release release-check check clean
 
+EPUB_BOOKS := 1-linux 2-macos 3-windows 4-bsd 5-workbook 6-unix-story
+
 all: pdf
 
 pdf:
@@ -41,11 +43,13 @@ book6:
 
 epub:
 	mkdir -p build
-	typst compile --root . --font-path fonts --ignore-system-fonts --ppi 200 \
-		books/6-unix-story/ar/frontmatter/cover.typ \
-		build/6-unix-story-ar-cover.png
-	python3 tools/make_epub.py books/6-unix-story/ar build/6-unix-story-ar.epub \
-		--cover build/6-unix-story-ar-cover.png
+	@set -e; for book in $(EPUB_BOOKS); do \
+		typst compile --root . --font-path fonts --ignore-system-fonts --ppi 200 \
+			"books/$$book/ar/frontmatter/cover.typ" \
+			"build/$$book-ar-cover.png"; \
+		python3 tools/make_epub.py "books/$$book/ar" "build/$$book-ar.epub" \
+			--cover "build/$$book-ar-cover.png"; \
+	done
 
 release: digital print-interiors epub
 
