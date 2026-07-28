@@ -7,6 +7,13 @@
 <a href="README.md">العربية</a> · <a href="README.en.md">English</a> ·
 <a href="https://ghazi-ai.github.io/command-line-series/">الموقع</a>
 
+<p>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest"><img alt="release" src="https://img.shields.io/github/v/release/Ghazi-Ai/command-line-series?display_name=tag&amp;style=flat-square&amp;label=release&amp;color=164A3E"></a>
+  <a href="LICENSES/README.md"><img alt="رخصة المحتوى: CC BY-SA 4.0" src="https://img.shields.io/badge/content-CC_BY--SA_4.0-C0592B?style=flat-square&amp;logo=creativecommons&amp;logoColor=white"></a>
+  <a href="LICENSES/MIT.txt"><img alt="رخصة الشيفرة: MIT" src="https://img.shields.io/badge/code-MIT-164A3E?style=flat-square&amp;logo=opensourceinitiative&amp;logoColor=white"></a>
+  <a href="#كتب-السلسلة"><img alt="عدد الكتب: 6" src="https://img.shields.io/badge/books-6-6B4E9C?style=flat-square"></a>
+</p>
+
 **من الصفر إلى فهم الآلة**
 
 **سلسلةٌ عربيّة تأخذك من الصِّفر المطلق إلى إتقان سطر الأوامر عبر الأنظمة كلّها.**
