@@ -6,7 +6,12 @@
 
 #import "/lib/book.typ": book, book-outline
 
-#show: book.with(lang: "ar", title: "رُوحٌ في الآلة — حكايةُ يونِكس")
+#show: book.with(
+  lang: "ar",
+  title: "رُوحٌ في الآلة — حكايةُ يونِكس",
+  description: "حكاية عربية أدبية تاريخية عن Unix وأثره في الحوسبة الحديثة",
+  keywords: ("Unix", "تاريخ الحوسبة", "أنظمة التشغيل", "سرد تقني"),
+)
 
 #include "frontmatter/cover.typ"
 #include "frontmatter/title-page.typ"

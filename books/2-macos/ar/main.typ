@@ -5,7 +5,14 @@
 
 #import "/lib/book.typ": book, book-outline
 
-#show: book.with(lang: "ar", title: "ماك من الطرفية", prompt: "%", others: "على أنظمةٍ أخرى")
+#show: book.with(
+  lang: "ar",
+  title: "ماك من الطرفية",
+  description: "دليل عربي تعليمي لاستخدام طرفية macOS وأدواتها من الأساسيات إلى إدارة النظام",
+  keywords: ("macOS", "سطر الأوامر", "الطرفية", "إدارة النظام"),
+  prompt: "%",
+  others: "على أنظمةٍ أخرى",
+)
 
 // ── الغلاف الأماميّ (الفنّ + العنوان) ──
 #include "frontmatter/cover.typ"

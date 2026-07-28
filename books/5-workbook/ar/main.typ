@@ -6,7 +6,14 @@
 
 #import "/lib/book.typ": book, book-outline
 
-#show: book.with(lang: "ar", title: "الطرفية بالممارسة", prompt: "$", others: "على أربعة أنظمة")
+#show: book.with(
+  lang: "ar",
+  title: "الطرفية بالممارسة",
+  description: "دفتر تمارين عربي لتطبيق مهارات الطرفية على Linux وmacOS وWindows وBSD",
+  keywords: ("تمارين", "Linux", "macOS", "Windows", "BSD", "سطر الأوامر"),
+  prompt: "$",
+  others: "على أربعة أنظمة",
+)
 
 // ── الغلاف الأماميّ (الفنّ + العنوان) ──
 #include "frontmatter/cover.typ"

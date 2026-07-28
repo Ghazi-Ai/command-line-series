@@ -6,7 +6,12 @@
 
 #import "/lib/book.typ": book, book-outline
 
-#show: book.with(lang: "ar", title: "مِن الصِّفر إلى الجَذر")
+#show: book.with(
+  lang: "ar",
+  title: "مِن الصِّفر إلى الجَذر",
+  description: "دليل عربي تعليمي لإتقان سطر أوامر Linux من الأساسيات إلى إدارة النظام",
+  keywords: ("Linux", "سطر الأوامر", "الطرفية", "إدارة النظام"),
+)
 
 // ── الغلاف الأماميّ (الفنّ + العنوان) ──
 #include "frontmatter/cover.typ"

@@ -8,6 +8,10 @@
 #import "i18n.typ": STRINGS
 #import "components.typ": doc-lang, doc-prompt, doc-others
 
+// بيانات النشر المشتركة. يُقرأ الإصدار من المصدر الوحيد للحقيقة في المستودع.
+#let publication-version = read("/VERSION").trim()
+#let publication-credit = "غازي السيف — صاحب الفكرة والمشروع والإعداد والإشراف والمراجعة"
+
 // ── العدّادات والحالات ─────────────────────────────────────────────────────
 #let chapnum   = counter("z2r-chap")
 #let _partord  = state("z2r-partord", "")
@@ -60,6 +64,9 @@
 #let book(
   lang: "ar",
   title: "",
+  description: "",
+  keywords: (),
+  version: publication-version,
   prompt: "$",
   others: none,
   body,
@@ -69,7 +76,22 @@
   doc-lang.update(lang)
   doc-prompt.update(prompt)
   doc-others.update(others)
-  set document(title: title)
+  let metadata-description = if description == "" {
+    [كتاب من سلسلة سطر الأوامر · الإصدار #version]
+  } else {
+    [#description · الإصدار #version]
+  }
+  let metadata-keywords = keywords + (
+    "سلسلة سطر الأوامر",
+    "الإصدار " + version,
+    "اللغة العربية",
+  )
+  set document(
+    title: title,
+    author: publication-credit,
+    description: metadata-description,
+    keywords: metadata-keywords,
+  )
 
   // ── الصفحة ──
   set page(

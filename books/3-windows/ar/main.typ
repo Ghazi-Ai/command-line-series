@@ -5,7 +5,14 @@
 
 #import "/lib/book.typ": book, book-outline
 
-#show: book.with(lang: "ar", title: "مِن الصِّفر إلى المسؤول", prompt: "C:\\>", others: "على أنظمةٍ أخرى")
+#show: book.with(
+  lang: "ar",
+  title: "مِن الصِّفر إلى المسؤول",
+  description: "دليل عربي تعليمي لسطر الأوامر في Windows وإدارة النظام",
+  keywords: ("Windows", "PowerShell", "سطر الأوامر", "إدارة النظام"),
+  prompt: "C:\\>",
+  others: "على أنظمةٍ أخرى",
+)
 
 // ── الغلاف الأماميّ (الفنّ + العنوان) ──
 #include "frontmatter/cover.typ"

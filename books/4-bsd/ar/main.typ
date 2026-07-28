@@ -5,7 +5,14 @@
 
 #import "/lib/book.typ": book, book-outline
 
-#show: book.with(lang: "ar", title: "مِن الصِّفر إلى العِفريت", prompt: "$", others: "على أنظمةٍ أخرى")
+#show: book.with(
+  lang: "ar",
+  title: "مِن الصِّفر إلى العِفريت",
+  description: "دليل عربي تعليمي لأنظمة BSD وسطر الأوامر وإدارة النظام",
+  keywords: ("BSD", "FreeBSD", "سطر الأوامر", "إدارة النظام"),
+  prompt: "$",
+  others: "على أنظمةٍ أخرى",
+)
 
 // ── الغلاف الأماميّ (الفنّ + العنوان) ──
 #include "frontmatter/cover.typ"
