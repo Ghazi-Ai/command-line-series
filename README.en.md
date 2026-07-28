@@ -42,11 +42,11 @@ retained, approved the published edition, and assumes responsibility for the
 final editorial decisions and content. AI systems are not credited as authors
 or co-authors. Tool details are kept in [`AUTHORS.md`](AUTHORS.md).
 
-The project files show that image-generation tools were used for the base cover
-art and that Typst was used for textual and layout composition. Because the
-specific tool and applicable terms are not documented for every asset, the
-cover images are excluded from the version 1.3 license offer pending provenance
-verification.
+The project owner states that all cover images were generated entirely with
+OpenAI's ChatGPT Images from original text prompts, without external visual
+inputs. Titles, text, visual identity, and final layout were added in Typst.
+The cover images remain excluded from the CC BY-SA 4.0 offer, so the content
+license does not automatically grant permission to reuse them.
 
 Version 1.2 was previously published under CC BY-ND 4.0. Version 1.3 does not
 retroactively revoke rights already granted for earlier editions.
