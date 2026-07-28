@@ -78,6 +78,15 @@
 | 5 | 🟣 **الطرفيّةُ بالممارسة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf) | `X` |
 | 6 | 🔷 **رُوحٌ في الآلة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub) |
 
+ملفات المتون للطباعة، بلا الغلافين:
+[1](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar-interior.pdf) ·
+[2](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/2-macos-ar-interior.pdf) ·
+[3](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar-interior.pdf) ·
+[4](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar-interior.pdf) ·
+[5](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar-interior.pdf) ·
+[6](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar-interior.pdf).
+راجع [دليل الطباعة](docs/PRINTING.md) قبل إرسال أي ملف إلى المطبعة.
+
 > مصادر الإصدار الجاري إعدادها: **1.4**. ويبقى الإصدار 1.3 هو المعتمد
 > والمنشور إلى أن تُستكمل فحوص 1.4 ويعتمده صاحب المشروع.
 

@@ -193,11 +193,17 @@ jobs:
 
           expected = [
               "1-linux-ar.pdf",
+              "1-linux-ar-interior.pdf",
               "2-macos-ar.pdf",
+              "2-macos-ar-interior.pdf",
               "3-windows-ar.pdf",
+              "3-windows-ar-interior.pdf",
               "4-bsd-ar.pdf",
+              "4-bsd-ar-interior.pdf",
               "5-workbook-ar.pdf",
+              "5-workbook-ar-interior.pdf",
               "6-unix-story-ar.pdf",
+              "6-unix-story-ar-interior.pdf",
               "6-unix-story-ar.epub",
           ]
 
