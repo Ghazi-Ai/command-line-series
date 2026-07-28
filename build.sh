@@ -32,7 +32,7 @@ BOOKS=(
   "3-windows:3-windows-ar:671"
   "4-bsd:4-bsd-ar:692"
   "5-workbook:5-workbook-ar:140"
-  "6-unix-story:6-unix-story-ar:118"
+  "6-unix-story:6-unix-story-ar:114"
 )
 
 if [ $# -gt 1 ]; then

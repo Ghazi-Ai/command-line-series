@@ -619,7 +619,7 @@ def main():
         '<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">\n'
         '<dc:identifier id="bookid">%s</dc:identifier>\n<dc:title>%s</dc:title>\n'
         '<dc:creator>%s</dc:creator>\n'
-        '<dc:contributor>أدوات ذكاء اصطناعي: توليد المسودات والمساهمة في المتن؛ ليست مؤلفًا</dc:contributor>\n'
+        '<dc:contributor>أدوات ذكاء اصطناعي: توليد جميع مسودات الكتب ونصوصها الأساسية؛ ليست مؤلفًا أو مؤلفًا مشاركًا</dc:contributor>\n'
         '<dc:language>ar</dc:language>\n<dc:date>%s</dc:date>\n'
         '<dc:description>كتاب عربي من سلسلة سطر الأوامر؛ النسخة الرسمية من المستودع المعتمد.</dc:description>\n'
         '<dc:source>https://github.com/Ghazi-Ai/command-line-series</dc:source>\n'
