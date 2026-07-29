@@ -12,10 +12,10 @@ The current edition of the Command Line Series is available in Arabic only.
 The six books and their PDF and EPUB editions are not available in English
 yet.
 
-Version 1.4 is the current published release. It adds EPUB editions for all
-six books, print interiors, a parameterized cover-spread tool, richer PDF
-metadata, accessibility notes, governance documents, and release-building CI
-checks.
+Version 1.4.1 is the current published release. It includes a focused
+linguistic, narrative, and historical revision of the sixth book, with
+Arabic-first terminology and more precise distinctions between Unix lineage,
+Unix-like systems, and modern computing infrastructure.
 
 ## English translation
 
