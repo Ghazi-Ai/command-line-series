@@ -16,7 +16,7 @@
       في الآلة
     ]
     v(5mm)
-    text(font: FONT.bodyAr, size: 12pt, weight: 600, fill: rgb("#3D4270"))[حكايةُ يونِكس]
+    text(font: FONT.bodyAr, size: 12pt, weight: 600, fill: rgb("#3D4270"))[حكايةُ يونيكس]
   }))
 
   // المؤلّف أسفل الصفحة

@@ -9,7 +9,7 @@
 
   text(weight: 700, size: 11pt)[رُوحٌ في الآلة]
   linebreak()
-  text(fill: COLOR.muted)[حكايةُ يونِكس — الفكرةِ التي تحكم العالم من الظلّ]
+  text(fill: COLOR.muted)[حكايةُ يونيكس — الفكرةُ التي امتدّ أثرُها في الحوسبة الحديثة]
 
   v(1.4em)
   [© #text(font: FONT.mono)[2026] المهندس غازي السيف (أبو هيثم). جميع الحقوق محفوظة ضمن حدود الرخصة أدناه.]
@@ -38,8 +38,10 @@
 
   v(1.2em)
   text(size: 8.5pt, fill: COLOR.muted)[
-    صُفَّ هذا الكتاب بأداة #text(font: FONT.mono)[Typst]، بخطّ IBM Plex Sans Arabic للمتن،
-    وNoto Kufi Arabic للعناوين، وJetBrains Mono للأسماء اللاتينية.
+    صُفَّ هذا الكتاب بأداة تايبست #text(font: FONT.mono)[Typst]، بخطّ
+    #text(font: FONT.mono)[IBM Plex Sans Arabic] للمتن،
+    و#text(font: FONT.mono)[Noto Kufi Arabic] للعناوين،
+    و#text(font: FONT.mono)[JetBrains Mono] للأسماء اللاتينية.
   ]
   v(0.8fr)
 })

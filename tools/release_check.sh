@@ -9,7 +9,7 @@ BOOKS=(
   "3-windows-ar:671"
   "4-bsd-ar:692"
   "5-workbook-ar:140"
-  "6-unix-story-ar:114"
+  "6-unix-story-ar:105"
 )
 
 pages() {

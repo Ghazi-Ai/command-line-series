@@ -15,11 +15,11 @@
   line(length: 28%, stroke: 1.5pt + COLOR.accent)
   v(24pt, weak: true)
   text(font: FONT.bodyAr, size: 13.5pt, fill: COLOR.ink, weight: 600)[
-    حكايةُ يونِكس
+    حكايةُ يونيكس
   ]
   v(13pt, weak: true)
   text(font: FONT.bodyAr, size: 10.5pt, fill: COLOR.muted)[
-    الفكرةُ التي تحكم العالم من الظلّ
+    الفكرةُ التي امتدّ أثرُها في الحوسبة الحديثة
   ]
   v(2.6fr)
   text(font: FONT.bodyAr, size: 12.5pt, fill: COLOR.ink, weight: 700)[
