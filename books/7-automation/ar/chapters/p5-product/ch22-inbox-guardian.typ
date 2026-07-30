@@ -11,7 +11,7 @@
   [تسلّم الأداة بدليل تشغيل وعقد تفويض وخطة تطوير.],
 ))
 
-وصلنا إلى الورشة. كل قطعة صنعتها في الفصول الماضية ستدخل أداةً
+وصلنا إلى الورشة. كل قطعة صنعتها في الفصول الماضية ستجتمع في أداة
 واحدة: العقد، والمختبر، والمسار الحرفي، والخطة، والسجل، والقفل،
 وثبات النتيجة، والاختبار، والاستعادة. الشيفرة المرجعية موجودة في:
 
@@ -19,7 +19,14 @@
 examples/7-automation/guardian/
 ```
 
-لا تقرأها بوصفها جوابًا تحفظه؛ اقرأ كل جزء وسل: أي خطر منعه؟ وأي
+من جذر نسخة المصدر انتقل إلى هذا المجلد. وعند نشر الكتاب يستطيع
+القارئ الحصول على المصدر الرسمي من:
+
+```text
+https://github.com/Ghazi-Ai/command-line-series
+```
+
+لا تقرأ الشيفرة بوصفها جوابًا تحفظه؛ اقرأ كل جزء وسل: أي خطر منعه؟ وأي
 اختبار يثبت وعده؟
 
 #section[1. جهّز المختبر]
@@ -29,45 +36,62 @@ examples/7-automation/guardian/
 ```bash
 lab="$HOME/automation-lab"
 mkdir -p "$lab/inbox"
+: > "$lab/.guardian-lab"
 printf 'تقرير ألف\n' > "$lab/inbox/report-alpha.txt"
 printf 'تقرير باء\n' > "$lab/inbox/report beta.txt"
 printf 'ملاحظة\n' > "$lab/inbox/notes.txt"
 ```
 
-انسخ `config.example.json` إلى ملف محلي، وتأكد أن `root` يشير إلى
-المختبر. على ويندوز عدّل المسار إلى مجلد المختبر بصيغة يفهمها
-JSON، أو استخدم `/` الذي يتعامل معه `pathlib`.
+ثم من مجلد المثال:
+
+```bash
+cp config.example.json "$lab/config.local.json"
+```
+
+على ويندوز في باورشِل:
+
+```powershell
+$Lab = Join-Path $HOME "automation-lab"
+New-Item -ItemType Directory -Force -Path (Join-Path $Lab "inbox") | Out-Null
+New-Item -ItemType File -Force -Path (Join-Path $Lab ".guardian-lab") | Out-Null
+Copy-Item config.example.json (Join-Path $Lab "config.local.json")
+```
+
+عدّل `config.local.json` فقط، وتأكد أن `root` يشير إلى المختبر.
+على ويندوز استخدم `/` داخل قيمة المسار؛ تتعامل معه مكتبة المسارات
+(`pathlib`) بلا حاجة إلى مضاعفة الشرطة الخلفية.
 
 #section[2. اسأل الطبيب]
 
 ```bash
-python3 guardian.py --config config.example.json doctor
+python3 guardian.py --config "$HOME/automation-lab/config.local.json" doctor
 ```
 
 يعرض الجذر والصندوق والأرشيف والسجل والنمط وإصدار بايثون. لا ينشئ
 الأرشيف ولا ينقل شيئًا. إذا كان الصندوق غائبًا يفشل قبل الأثر.
 
-#session("python3 guardian.py --config config.example.json doctor", output: "root=/home/user/automation-lab\ninbox=/home/user/automation-lab/inbox\narchive=/home/user/automation-lab/archive\nlogs=/home/user/automation-lab/logs\npattern=report-*.txt\npython=3.x")
+#session("python3 guardian.py --config \"$HOME/automation-lab/config.local.json\" doctor", output: "root=/home/user/automation-lab\ninbox=/home/user/automation-lab/inbox\narchive=/home/user/automation-lab/archive\nlogs=/home/user/automation-lab/logs\npattern=report-*.txt\npython=3.x")
 
 #section[3. راجع الخطة]
 
 ```bash
-python3 guardian.py --config config.example.json plan
+python3 guardian.py --config "$HOME/automation-lab/config.local.json" plan
 ```
 
 سترى أفعالًا من ثلاثة أنواع:
 
-- `MOVE`: ملف مطابق ووجهته خالية.
-- `SKIP`: ملف غير مطابق أو ليس ملفًا عاديًا.
-- `CONFLICT`: الوجهة موجودة.
+- نقل (`MOVE`): ملف مطابق ووجهته خالية.
+- تخطٍّ (`SKIP`): ملف غير مطابق أو ليس ملفًا عاديًا.
+- تعارض (`CONFLICT`): الوجهة موجودة.
 
 وللأتمتة:
 
 ```bash
-python3 guardian.py --config config.example.json plan --json
+python3 guardian.py --config "$HOME/automation-lab/config.local.json" plan --json
 ```
 
-كل سطر JSON مستقل. قارن عدد `MOVE` بما تتوقع قبل التشغيل.
+كل سطر جيسون (`JSON`) مستقل. قارن عدد عمليات النقل (`MOVE`) بما
+تتوقع قبل التشغيل.
 
 #section[4. افهم حارس الجذر]
 
@@ -88,13 +112,17 @@ python3 guardian.py --config config.example.json plan --json
 python3 -m unittest -v test_guardian.py
 ```
 
-تثبت الاختبارات:
+تغطي الاختبارات، من بين ما تغطيه:
 
 1. المطابق يتحرك وغير المطابق يُتخطى.
 2. التشغيل الثاني بلا أثر جديد.
 3. التعارض يوقف الدفعة قبل أي نقل.
 4. دفتر التشغيل يعيد الملف.
 5. المسار الخارج من الجذر مرفوض.
+6. التعارض الذي يظهر بعد بناء الخطة لا يسمح بالكتابة فوق الوجهة.
+7. الفشل بعد حدوث نقل يُعلن فشلًا جزئيًا.
+8. الاستعادة تشارك قفل التشغيل وترفض الدفتر المصنوع بمسارات أخرى.
+9. ملفات جيسون والدفاتر ذات البنية غير الصحيحة تُرفض برسالة مضبوطة.
 
 لا تثبت هذه الاختبارات أن الأداة صحيحة في كل حالة؛ تثبت الوعود
 المسماة على بيئة مؤقتة جديدة.
@@ -102,7 +130,7 @@ python3 -m unittest -v test_guardian.py
 #section[6. نفّذ]
 
 ```bash
-python3 guardian.py --config config.example.json run
+python3 guardian.py --config "$HOME/automation-lab/config.local.json" run
 ```
 
 قبل النقل تبني الأداة الخطة كاملة. إذا وجدت تعارضًا، تلغي الدفعة.
@@ -123,14 +151,14 @@ moved=2 journal=/home/user/automation-lab/logs/journal-8f31....jsonl
 {"event":"move-done", ...}
 ```
 
-الاستعادة تعتمد `move-done` فقط. إذا ماتت العملية بين السطرين،
-يحتاج المشغل فحص المصدر والوجهة؛ لا تدعي الأداة أن سجل البدء يثبت
-النقل.
+تعتمد الاستعادة على سجلات `move-done` فقط. إذا توقفت العملية بين
+السطرين، يحتاج المشغل إلى فحص المصدر والوجهة؛ لا تدعي الأداة أن
+سجل البدء يثبت النقل.
 
 #section[7. شغّله مرة ثانية]
 
 ```bash
-python3 guardian.py --config config.example.json run
+python3 guardian.py --config "$HOME/automation-lab/config.local.json" run
 ```
 
 المتوقع `moved=0`. الملفات غادرت الصندوق، فلا يتكرر الأثر. ينشأ
@@ -157,7 +185,7 @@ python3 guardian.py --config config.example.json run
 بعد تشغيل ناجح:
 
 ```bash
-python3 guardian.py --config config.example.json restore \
+python3 guardian.py --config "$HOME/automation-lab/config.local.json" restore \
   --journal "$HOME/automation-lab/logs/journal-RUN-ID.jsonl"
 ```
 
@@ -174,7 +202,7 @@ python3 guardian.py --config config.example.json restore \
   المصدر والوجهة قبل إعادة المحاولة.
 ]
 
-#section[10. القفل والفشل القديم]
+#section[10. القفل المتروك بعد الفشل]
 
 أنشئ مجلدًا تجريبيًا:
 
@@ -199,13 +227,23 @@ mkdir "$HOME/automation-lab/.guardian.lock"
 - `config.example.json` بلا أسرار.
 - `test_guardian.py`.
 - `README.md`.
-- مصفوفة الأنظمة المختبرة.
 - حالات الخروج.
 - طريقة الجدولة والتعطيل.
 - طريقة الاستعادة.
 - المخاطر المعروفة.
 
 وسجل قرار يشرح لماذا توقف النسخة الأولى عند التعارض.
+
+مصفوفة هذه الجولة صريحة:
+
+| النظام | الحالة |
+|---|---|
+| لينكس مع بايثون 3.10 أو أحدث | الاختبارات الآلية ناجحة |
+| ماك | لم تُنفّذ الاختبارات عليه في هذه الجولة |
+| ويندوز | لم تُنفّذ الاختبارات عليه في هذه الجولة |
+
+لا تحوّل «يُتوقع أن يعمل» إلى «مدعوم» قبل تشغيل الاختبارات على
+النظام وتسجيل إصداره.
 
 #section[12. فوّض تغييرًا]
 
@@ -223,6 +261,13 @@ mkdir "$HOME/automation-lab/.guardian.lock"
   نفذ الرحلة كاملة على مختبر جديد: `doctor` ثم `plan` ثم الاختبارات
   ثم `run` مرتين ثم `restore`. احفظ الأوامر والحالات وأسماء
   الدفاتر في تقرير تسليم من صفحة واحدة.
+]
+
+#challenge[
+  اختر بابًا واحدًا بعد الكتاب: دعم نسخ الملفات بدل نقلها، أو
+  سياسة تخطي التعارض، أو تقرير بلغة ترميز النص الفائق (`HTML`)،
+  أو جدولة آمنة. اكتب مواصفاته واختباراته ومخاطره أولًا، ثم نفذه
+  في فرع مستقل. لا تجمع بابين في تغيير واحد.
 ]
 
 #section[ماذا تفتح بهذا المفتاح؟]
@@ -245,11 +290,7 @@ mkdir "$HOME/automation-lab/.guardian.lock"
 تصميم القاعدة ومراجعة الدليل.
 
 وهذا هو معنى الانتقال من الأمر إلى الأتمتة: الأمر يخبر الآلة ماذا
-تفعل الآن، أما الأداة فتعبر عن قرار تستطيع الوثوق به غدًا.
-
-#challenge[
-  اختر بابًا واحدًا بعد الكتاب: دعم نسخ الملفات بدل نقلها، أو
-  سياسة تخطي التعارض، أو تقرير HTML، أو جدولة آمنة. اكتب مواصفاته
-  واختباراته ومخاطره أولًا، ثم نفذه في فرع مستقل. لا تجمع بابين في
-  تغيير واحد.
-]
+تفعل الآن، أما الأداة فتعبر عن قرار تستطيع الوثوق به غدًا. وهذا هو
+الانتقال من الأمر إلى الأتمتة: لا تحفظ للآلة ما تفعله مرة، بل تصوغ
+لها قاعدة تعرف حدودها، وتحتفظ أنت بالمفتاح الذي تفتح به أبوابًا
+جديدة.

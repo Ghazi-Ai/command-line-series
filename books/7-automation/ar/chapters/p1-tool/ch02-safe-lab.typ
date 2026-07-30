@@ -28,6 +28,7 @@
 ```bash
 lab="$HOME/automation-lab"
 mkdir -p "$lab/inbox" "$lab/archive" "$lab/logs"
+: > "$lab/.guardian-lab"
 printf 'تقرير تجريبي\n' > "$lab/inbox/report-2026-01.txt"
 printf 'مسودة\n' > "$lab/inbox/notes.txt"
 printf 'صورة وهمية\n' > "$lab/inbox/photo.jpg"
@@ -40,6 +41,7 @@ $Lab = Join-Path $HOME "automation-lab"
 @("inbox", "archive", "logs") | ForEach-Object {
   New-Item -ItemType Directory -Force -Path (Join-Path $Lab $_) | Out-Null
 }
+New-Item -ItemType File -Force -Path (Join-Path $Lab ".guardian-lab") | Out-Null
 Set-Content (Join-Path $Lab "inbox/report-2026-01.txt") "تقرير تجريبي"
 Set-Content (Join-Path $Lab "inbox/notes.txt") "مسودة"
 Set-Content (Join-Path $Lab "inbox/photo.jpg") "صورة وهمية"
@@ -68,14 +70,21 @@ Set-Content (Join-Path $Lab "inbox/photo.jpg") "صورة وهمية"
 #!/usr/bin/env bash
 set -eu
 
+: "${HOME:?HOME غير مضبوط}"
 lab="${HOME}/automation-lab"
+marker="$lab/.guardian-lab"
 case "$lab" in
   "$HOME/automation-lab") ;;
   *) echo "رفضت إعادة الضبط: مسار غير متوقع" >&2; exit 2 ;;
 esac
+[ -f "$marker" ] || {
+  echo "رفضت إعادة الضبط: علامة المختبر مفقودة" >&2
+  exit 3
+}
 
 rm -rf -- "$lab"
 mkdir -p "$lab/inbox" "$lab/archive" "$lab/logs"
+: > "$lab/.guardian-lab"
 printf 'تقرير تجريبي\n' > "$lab/inbox/report-2026-01.txt"
 printf 'مسودة\n' > "$lab/inbox/notes.txt"
 printf 'صورة وهمية\n' > "$lab/inbox/photo.jpg"
@@ -83,8 +92,8 @@ printf 'صورة وهمية\n' > "$lab/inbox/photo.jpg"
 
 #danger[
   لا تنقل سطر `rm -rf` إلى سكربت آخر وحده. أمان المثال قائم على أن
-  المتغير يُضبط داخل السكربت، ثم يُقارن بمسار ثابت قبل الحذف. قيمة
-  فارغة أو مسار أوسع قد يجعل أمر الحذف كارثيًا.
+  المسار ثابت، و`HOME` غير فارغ، وعلامة `.guardian-lab` موجودة قبل
+  الحذف. قيمة فارغة أو مسار أوسع أو غياب العلامة يوقف السكربت.
 ]
 
 #subsection[لماذا نستخدم `--`؟]
@@ -109,7 +118,7 @@ find "$HOME/automation-lab/inbox" -type f -name 'report-*.txt' \
   -print
 ```
 
-هذا أمر قراءة. في نسخة السكربت سنجعل `--dry-run` يطبع:
+هذا أمر قراءة. في أداة المشروع سنجعل أمر الخطة (`plan`) يطبع:
 
 ```text
 WOULD_MOVE inbox/report-2026-01.txt -> archive/report-2026-01.txt
@@ -124,7 +133,7 @@ WOULD_MOVE inbox/report-2026-01.txt -> archive/report-2026-01.txt
   الأداة لكل حالة. لا تنقل الملفات بعد.
 ]
 
-#section[اختبر الحدود، لا الطريق السعيد فقط]
+#section[اختبر الحالات الحدّية، لا الحالة المثالية وحدها]
 
 مجموعة اختبار مفيدة تحتوي:
 
@@ -155,4 +164,3 @@ WOULD_MOVE inbox/report-2026-01.txt -> archive/report-2026-01.txt
   مجلد آخر داخل بيتك. يجب أن يرفض قبل الحذف. لا تختبر على بيانات
   مهمة، وسجّل رسالة الرفض وحالة الخروج.
 ]
-

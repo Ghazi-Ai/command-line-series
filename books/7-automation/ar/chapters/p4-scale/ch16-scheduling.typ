@@ -24,13 +24,19 @@
 
 #section[الاختبار قبل الساعة]
 
+#note[
+  قبل أن تربط الأداة بوقت، احفظ نسختها في مستودع وراجع فرقها
+  واختباراتها. سيشرح الفصل الثامن عشر خطوات غِت بالتفصيل؛ لا تجعل
+  المجدول أول مكان يحتفظ بالنسخة التي تعمل.
+]
+
 لا تبدأ بجدولة فعلية. اختبر:
 
 ```bash
-guardian doctor
-guardian run --dry-run
-guardian run
-guardian run
+python3 guardian.py --config "$HOME/automation-lab/config.local.json" doctor
+python3 guardian.py --config "$HOME/automation-lab/config.local.json" plan
+python3 guardian.py --config "$HOME/automation-lab/config.local.json" run
+python3 guardian.py --config "$HOME/automation-lab/config.local.json" run
 ```
 
 يجب أن ينجح التشغيل اليدوي من جلسة جديدة، وأن يكون الثاني بلا أثر
@@ -52,27 +58,44 @@ guardian run
 مثال تعليمي لكرون:
 
 ```cron
-15 2 * * * /home/user/bin/guardian run >>/home/user/.local/state/guardian/scheduler.log 2>&1
+15 2 * * * /usr/bin/python3 /home/user/command-line-series/examples/7-automation/guardian/guardian.py --config /home/user/automation-lab/config.local.json run >>/home/user/automation-lab/logs/scheduler.log 2>&1
 ```
 
 لكن مؤقتات systemd توفر ربطًا أوضح بالخدمة والسجل وحالات الفشل على
-الأنظمة التي تستخدمها. في ماك وWindows نستخدم أدوات النظام
+الأنظمة التي تستخدمها. في ماك وويندوز نستخدم أدوات النظام
 الأصلية، لا نثبت كرون لمجرد توحيد الشكل.
 
 #distro[
+  في باورشِل على ويندوز يمكن بناء مهمة يومية هكذا بعد استبدال
+  المسارات بقيم جهازك:
+
+  ```powershell
+  $Python = (Get-Command python).Source
+  $Guardian = "C:\Users\user\command-line-series\examples\7-automation\guardian\guardian.py"
+  $Config = "$HOME\automation-lab\config.local.json"
+  $Action = New-ScheduledTaskAction -Execute $Python `
+    -Argument "`"$Guardian`" --config `"$Config`" run"
+  $Trigger = New-ScheduledTaskTrigger -Daily -At "02:15"
+  Register-ScheduledTask -TaskName "GuardianLab" `
+    -Action $Action -Trigger $Trigger
+  ```
+
   اختر المجدول الطبيعي لنظامك. يختلف مكان الملفات وصيغة التعريف،
   لكن العقد واحد: برنامج، ووسائط، وهوية مستخدم، ومجلد عمل، وبيئة،
-  وسياسة إعادة، ومكان سجل.
+  وسياسة إعادة المحاولة، ومكان سجل. افحص المهمة بعد إنشائها، واحذف
+  التجريبية في ويندوز بـ
+  `Unregister-ScheduledTask -TaskName "GuardianLab" -Confirm:$false`.
 ]
 
 #section[من يملك المهمة؟]
 
-شغّلها بأقل مستخدم يملك الملفات المطلوبة. لا تجعل `root` أو
-Administrator اختيارًا افتراضيًا لأن الجدولة «خلفية». إذا احتاجت
-خطوة واحدة صلاحية أعلى، افصلها أو امنح قدرة محددة.
+شغّلها بأقل مستخدم يملك الملفات المطلوبة. لا تجعل المستخدم الجذري
+(`root`) أو حساب مسؤول النظام (`Administrator`) اختيارًا افتراضيًا
+لأن الجدولة «خلفية». إذا احتاجت خطوة واحدة صلاحية أعلى، افصلها أو
+امنح قدرة محددة.
 
 #danger[
-  لا تختبر تعريف جدولة جديدًا على مهمة مغيرة للحالة قبل أن تستبدل
+  لا تختبر تعريف جدولة جديدًا على مهمة تُحدث تغييرًا قبل أن تستبدل
   الأمر مؤقتًا بأمر يكتب وقتًا في ملف مختبر. الخطأ في تعبير الوقت
   قد يشغل المهمة كل دقيقة بدل مرة في اليوم.
 ]
@@ -91,7 +114,8 @@ fi
 trap 'rmdir "$lock_dir"' EXIT
 ```
 
-قفل المجلد تعليمي، لكنه يحتاج سياسة للقفل القديم إذا ماتت العملية.
+قفل المجلد تعليمي، لكنه يحتاج سياسة للقفل القديم إذا توقفت العملية
+فجأة.
 توفر الأنظمة أدوات قفل أفضل مثل `flock` في بيئات معينة. وثّق هل
 تتخطى المهمة الجديدة أم تنتظر.
 
@@ -110,9 +134,10 @@ trap 'rmdir "$lock_dir"' EXIT
 زائفة.
 
 #try-it[
-  أنشئ مهمة مجدولة مؤقتة لا تفعل إلا كتابة وقت UTC ومعرف تشغيل في
-  ملف داخل المختبر. اضبطها على فترة قصيرة، وشاهد تشغيلين، ثم عطّلها
-  واحذف تعريفها. لا تضع أداة النقل في المجدول بعد.
+  أنشئ مهمة مجدولة مؤقتة لا تفعل إلا كتابة التوقيت العالمي المنسق
+  (`UTC`) ومعرف تشغيل في ملف داخل المختبر. اضبطها على فترة قصيرة،
+  وشاهد تشغيلين، ثم عطّلها واحذف تعريفها. لا تضع أداة النقل في
+  المجدول بعد.
 ]
 
 #warn[
@@ -124,7 +149,7 @@ trap 'rmdir "$lock_dir"' EXIT
 #section[خلاصة الفصل]
 
 الجدولة تنقل الأداة إلى بيئة أصغر وأقل مراقبة. نثبت المسارات
-والهوية، ونمنع التداخل، ونراقب آخر نجاح، ونختبر بتأثير بريء قبل
+والهوية، ونمنع التداخل، ونراقب آخر نجاح، ونختبر بأثر تجريبي غير ضار قبل
 ربط المهمة الحقيقية. في الفصل التالي ننقل التنفيذ إلى آلة أخرى،
 فتضاف حدود الشبكة والهوية.
 
@@ -133,4 +158,3 @@ trap 'rmdir "$lock_dir"' EXIT
   والبيئة، والقفل، والسجل، وسياسة الفشل، وطريقة التعطيل. يجب أن
   يستطيع شخص آخر إيقافها من البطاقة وحدها.
 ]
-

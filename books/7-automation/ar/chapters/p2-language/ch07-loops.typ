@@ -51,10 +51,9 @@ Get-ChildItem -LiteralPath $Inbox -File | ForEach-Object {
 فاصل الصفر:
 
 ```bash
-find "$inbox" -maxdepth 1 -type f -print0 |
 while IFS= read -r -d '' file; do
   printf 'FILE=<%s>\n' "$file"
-done
+done < <(find "$inbox" -maxdepth 1 -type f -print0)
 ```
 
 #define("فاصل الصفر (Null delimiter)", [
@@ -64,8 +63,10 @@ done
 
 #distro[
   الخيار `read -d ''` يعمل في باش، وليس جزءًا من `sh` المحمول
-  الصرف. إذا أعلنت `#!/usr/bin/env bash` فأنت تستخدمه بوضوح.
-  في أدوات محمولة وفق POSIX نختار بنية أخرى ونوثق حدود الأسماء.
+  الصرف، وكذلك `< <(...)` صيغة إحلال العمليات في باش. تجنّبنا
+  الأنبوب لأن جسم حلقته قد يعمل في صدفة فرعية، فلا تبقى قيمة
+  العدادات بعد انتهائها. في أداة محمولة وفق POSIX نختار بنية أخرى
+  ونوثق حدود الأسماء.
 ]
 
 #section[عنصر واحد، نتيجة واحدة]
@@ -116,14 +117,21 @@ done
 ```bash
 attempt=1
 max_attempts=3
+succeeded=false
 
 while [ "$attempt" -le "$max_attempts" ]; do
   if do_work; then
+    succeeded=true
     break
   fi
   attempt=$((attempt + 1))
   sleep 2
 done
+
+if [ "$succeeded" != true ]; then
+  echo "فشل العمل بعد $max_attempts محاولات" >&2
+  exit 8
+fi
 ```
 
 يجب أن تملك حدًا وعدّادًا ورسالة نهائية. الحلقة غير المحدودة قد

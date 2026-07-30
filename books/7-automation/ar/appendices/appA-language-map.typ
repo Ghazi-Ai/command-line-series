@@ -17,7 +17,7 @@
 | دالة | `name() {}` | `function Name {}` | `def name():` |
 | حالة خروج | `exit N` | `exit N` | `return N` من `main` |
 | خطأ | `>&2` | `Write-Error` | `print(..., file=sys.stderr)` |
-| JSON | `jq` | `ConvertFrom-Json` | `json` |
+| جيسون (`JSON`) | `jq` | `ConvertFrom-Json` | `json` |
 | مسار | نص مقتبس | `Join-Path` و`-LiteralPath` | `pathlib.Path` |
 
 #section[فحص المسارات]
@@ -52,7 +52,7 @@ path.is_dir()
 
 #section[إخراج منظم]
 
-باش يربط أدوات صغيرة، ولذلك نستعمل `jq` لإنشاء JSON صحيح:
+باش يربط أدوات صغيرة، ولذلك نستعمل `jq` لإنشاء جيسون صحيح:
 
 ```bash
 jq -n --arg action "move" --arg source "$file" \

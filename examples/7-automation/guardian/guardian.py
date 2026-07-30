@@ -21,6 +21,7 @@ EXIT_CONFIG = 3
 EXIT_CONFLICT = 4
 EXIT_LOCKED = 5
 EXIT_PARTIAL = 6
+LAB_MARKER = ".guardian-lab"
 
 
 class GuardianError(Exception):
@@ -33,6 +34,10 @@ class ConflictError(GuardianError):
 
 class LockedError(GuardianError):
     """تشغيل آخر قائم أو قفل يحتاج مراجعة."""
+
+
+class PartialRunError(GuardianError):
+    """فشل بعد حدوث أثر واحد على الأقل."""
 
 
 @dataclass(frozen=True)
@@ -93,8 +98,11 @@ def load_settings(config_path: Path) -> Settings:
         else:
             location = ""
         raise GuardianError(
-            f"JSON غير صالح في {config_path}{location}"
+            f"جيسون (JSON) غير صالح في {config_path}{location}"
         ) from error
+
+    if not isinstance(raw, dict):
+        raise GuardianError("يجب أن يكون جذر ملف الإعداد كائن جيسون")
 
     allowed = {"root", "inbox", "archive", "logs", "pattern"}
     unknown = sorted(set(raw) - allowed)
@@ -110,14 +118,26 @@ def load_settings(config_path: Path) -> Settings:
         raise GuardianError("يجب أن تكون قيم الإعداد الخمس نصوصًا")
 
     root = Path(raw["root"]).expanduser().resolve()
+    if not (root / LAB_MARKER).is_file():
+        raise GuardianError(
+            f"جذر المختبر لا يحمل علامة {LAB_MARKER}: {root}"
+        )
     inbox = resolve_inside(root, raw["inbox"], "inbox")
     archive = resolve_inside(root, raw["archive"], "archive")
     logs = resolve_inside(root, raw["logs"], "logs")
     pattern = raw["pattern"]
     if not pattern or "/" in pattern or "\\" in pattern:
         raise GuardianError("pattern يجب أن يكون نمط اسم ملف لا مسارًا")
-    if len({inbox, archive, logs}) != 3:
+    paths = {"inbox": inbox, "archive": archive, "logs": logs}
+    if len(set(paths.values())) != len(paths):
         raise GuardianError("يجب أن تكون inbox وarchive وlogs مسارات مختلفة")
+    if any(
+        inside(first, second) or inside(second, first)
+        for first_name, first in paths.items()
+        for second_name, second in paths.items()
+        if first_name < second_name
+    ):
+        raise GuardianError("يجب ألا تتداخل مسارات inbox وarchive وlogs")
     return Settings(root, inbox, archive, logs, pattern)
 
 
@@ -265,6 +285,10 @@ def run(settings: Settings) -> tuple[Path, int]:
                     "moved": moved,
                 },
             )
+            if moved:
+                raise PartialRunError(
+                    f"فشل التشغيل بعد نقل {moved} ملف؛ راجع {journal}"
+                )
             raise
         append_json_line(
             journal,
@@ -280,13 +304,16 @@ def run(settings: Settings) -> tuple[Path, int]:
 
 def read_journal(journal: Path) -> list[dict[str, Any]]:
     try:
-        return [
+        records = [
             json.loads(line)
             for line in journal.read_text(encoding="utf-8").splitlines()
             if line.strip()
         ]
     except (FileNotFoundError, json.JSONDecodeError) as error:
         raise GuardianError(f"تعذر قراءة دفتر التشغيل: {journal}") from error
+    if not all(isinstance(record, dict) for record in records):
+        raise GuardianError("يجب أن يكون كل سطر في الدفتر كائن جيسون")
+    return records
 
 
 def restore(settings: Settings, journal: Path) -> int:
@@ -294,16 +321,64 @@ def restore(settings: Settings, journal: Path) -> int:
     if not inside(settings.logs, journal):
         raise GuardianError("يجب أن يكون دفتر التشغيل داخل مجلد logs")
 
-    completed = [
-        record for record in read_journal(journal)
-        if record.get("event") == "move-done"
+    records = read_journal(journal)
+    completed = [record for record in records if record.get("event") == "move-done"]
+    if not completed:
+        raise GuardianError("لا يحتوي الدفتر عمليات نقل مكتملة")
+
+    run_ids = {record.get("run_id") for record in completed}
+    if (
+        len(run_ids) != 1
+        or not all(isinstance(run_id, str) and run_id for run_id in run_ids)
+    ):
+        raise GuardianError("معرف التشغيل مفقود أو غير متسق في الدفتر")
+    run_id = next(iter(run_ids))
+    if journal.name != f"journal-{run_id}.jsonl":
+        raise GuardianError("اسم الدفتر لا يطابق معرف التشغيل")
+    starts = [
+        record
+        for record in records
+        if record.get("event") == "run-start" and record.get("run_id") == run_id
     ]
+    if len(starts) != 1:
+        raise GuardianError("بداية التشغيل مفقودة أو مكررة في الدفتر")
+    started_moves = {
+        (record.get("source"), record.get("destination"))
+        for record in records
+        if (
+            record.get("event") == "move-start"
+            and record.get("run_id") == run_id
+            and record.get("action") == "move"
+            and isinstance(record.get("source"), str)
+            and isinstance(record.get("destination"), str)
+        )
+    }
+
     pairs: list[tuple[Path, Path]] = []
+    seen_sources: set[Path] = set()
+    seen_destinations: set[Path] = set()
     for record in reversed(completed):
+        if (
+            record.get("run_id") != run_id
+            or record.get("action") != "move"
+            or not isinstance(record.get("source"), str)
+            or not isinstance(record.get("destination"), str)
+        ):
+            raise GuardianError("سجل نقل غير صالح في الدفتر")
+        if (record["source"], record["destination"]) not in started_moves:
+            raise GuardianError("سجل نقل مكتمل بلا سجل بدء مطابق")
         source = resolve_inside(settings.root, record["source"], "source")
         destination = resolve_inside(
             settings.root, record["destination"], "destination"
         )
+        if not inside(settings.inbox, source):
+            raise GuardianError("مصدر الاستعادة خارج inbox")
+        if not inside(settings.archive, destination):
+            raise GuardianError("وجهة الاستعادة خارج archive")
+        if source in seen_sources or destination in seen_destinations:
+            raise GuardianError("مسارات مكررة في دفتر الاستعادة")
+        seen_sources.add(source)
+        seen_destinations.add(destination)
         if source.exists():
             raise GuardianError(f"تعارض الاستعادة، المصدر موجود: {source}")
         if not destination.is_file():
@@ -311,17 +386,28 @@ def restore(settings: Settings, journal: Path) -> int:
         pairs.append((source, destination))
 
     restored = 0
-    for source, destination in pairs:
-        # كرر فحص التمهيد قبل كل خطوة لتقليل خطر الكتابة فوق تغيير طارئ.
-        if source.exists():
-            raise GuardianError(f"تعارض الاستعادة، المصدر ظهر لاحقًا: {source}")
-        if not destination.is_file():
-            raise GuardianError(
-                f"ملف الاستعادة اختفى بعد الفحص: {destination}"
-            )
-        source.parent.mkdir(parents=True, exist_ok=True)
-        shutil.move(str(destination), str(source))
-        restored += 1
+    lock_path = settings.root / ".guardian.lock"
+    with RunLock(lock_path):
+        try:
+            for source, destination in pairs:
+                # كرر فحص التمهيد قبل كل خطوة لتقليل خطر تغيير طارئ.
+                if source.exists():
+                    raise ConflictError(
+                        f"تعارض الاستعادة، المصدر ظهر لاحقًا: {source}"
+                    )
+                if not destination.is_file():
+                    raise GuardianError(
+                        f"ملف الاستعادة اختفى بعد الفحص: {destination}"
+                    )
+                source.parent.mkdir(parents=True, exist_ok=True)
+                shutil.move(str(destination), str(source))
+                restored += 1
+        except Exception:
+            if restored:
+                raise PartialRunError(
+                    f"توقفت الاستعادة بعد إعادة {restored} ملف"
+                )
+            raise
     return restored
 
 
@@ -363,6 +449,9 @@ def main(argv: list[str] | None = None) -> int:
     except LockedError as error:
         print(f"guardian: {error}", file=sys.stderr)
         return EXIT_LOCKED
+    except PartialRunError as error:
+        print(f"guardian: فشل جزئي: {error}", file=sys.stderr)
+        return EXIT_PARTIAL
     except GuardianError as error:
         print(f"guardian: {error}", file=sys.stderr)
         return EXIT_CONFIG

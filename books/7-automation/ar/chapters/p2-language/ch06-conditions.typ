@@ -41,7 +41,7 @@ if (Test-Path -LiteralPath $File -PathType Leaf) {
 }
 ```
 
-#define("المحمول المنطقي (Predicate)", [
+#define("الشرط المنطقي المسمّى (Predicate)", [
   سؤال تقني تكون إجابته نعم أو لا، مثل: هل المسار ملف؟ هل الامتداد
   مسموح؟ هل الوجهة خالية؟ نبني القرار الكبير من أسئلة صغيرة كهذه.
 ])
@@ -131,7 +131,7 @@ switch -Wildcard ($File) {
 
 ```bash
 if [ -f "$file" ] && is_report "$file" && [ ! -e "$dest" ]; then
-  # ...
+  :
 fi
 ```
 
@@ -164,4 +164,3 @@ is_report "$file" || return 0
   `MOVE` و`SKIP` و`CONFLICT` و`ERROR`. بعد الرسم فقط، حوّلها إلى
   شروط تطبع النتيجة ولا تنقل شيئًا.
 ]
-
