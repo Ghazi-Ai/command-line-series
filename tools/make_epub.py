@@ -560,6 +560,11 @@ def main():
         action="store_true",
         help="الإفصاح أن الغلاف مصمم داخل Typst بلا صورة خارجية",
     )
+    parser.add_argument(
+        "--development-cover",
+        action="store_true",
+        help="الإفصاح عن غلاف مسودة مولد في جلسة تطوير المشروع",
+    )
     args = parser.parse_args()
 
     book_dir = args.book_dir.rstrip('/')
@@ -579,11 +584,19 @@ def main():
         if args.draft
         else "كتاب عربي من سلسلة سطر الأوامر؛ النسخة الرسمية من المستودع المعتمد."
     )
+    if args.typst_only_cover and args.development_cover:
+        parser.error("لا يجتمع --typst-only-cover و--development-cover")
     cover_disclosure = (
         "غلاف هذه النسخة مصمم بالكامل داخل المشروع باستخدام Typst، "
         "ولا يعتمد على صورة مولدة أو أصل بصري خارجي. يخضع نصه وتصميمه "
         "البرمجي لخريطة التراخيص المحددة في LICENSES/README.md."
         if args.typst_only_cover
+        else
+        "أُنشئ فن غلاف هذه المسودة عبر ChatGPT Images من وصفين نصيين "
+        "أصليين أُعدّا للمشروع، دون مدخلات بصرية. أضيفت العناوين "
+        "والنصوص والتنسيق النهائي باستخدام Typst. الغلاف قيد الاعتماد "
+        "البصري، وصورته مستثناة من CC BY-SA 4.0."
+        if args.development_cover
         else
         "استُخدمت أدوات توليد الصور في إعداد الفن الأساسي للأغلفة، "
         "ثم نُسّقت العناصر النصية والتصميمية بأداة Typst. وثّق صاحب "

@@ -66,7 +66,7 @@ epub7:
 		"books/7-automation/ar" \
 		"build/7-automation-ar-draft.epub" \
 		--cover "build/7-automation-ar-draft-cover.png" \
-		--typst-only-cover \
+		--development-cover \
 		--draft
 
 release: digital print-interiors epub
