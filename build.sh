@@ -4,8 +4,9 @@
 #  النتيجة متسقة في الخطوط والتصفيف وعدد الصفحات ولا تعتمد على خطوط النظام.
 #
 #  الاستعمال:
-#     ./build.sh              يبني الكتب كلّها
+#     ./build.sh              يبني الكتب الستة المنشورة
 #     ./build.sh 1-linux      يبني كتابًا بعينه
+#     ./build.sh 7-automation يبني مسودة الكتاب السابع وحدها
 #     PRINT_INTERIOR=1 ./build.sh   يبني المتون المخصّصة للطباعة
 #     TYPST=~/.local/bin/typst ./build.sh      إن لم يكن typst في PATH
 # ═══════════════════════════════════════════════════════════════════════════
@@ -41,7 +42,7 @@ mkdir -p "$output_dir"
 
 # الصفحات المرجعيّة: أيّ اختلافٍ عنها يعني تغيّرًا في المحتوى — لا في البيئة،
 # لأنّ الخطوط مثبَّتةٌ والبناء معزول. (0 = كتابٌ لم يكتمل بعدُ فلا مرجع له)
-BOOKS=(
+PUBLISHED_BOOKS=(
   "1-linux:1-linux-ar:628"
   "2-macos:2-macos-ar:682"
   "3-windows:3-windows-ar:671"
@@ -50,19 +51,32 @@ BOOKS=(
   "6-unix-story:6-unix-story-ar:105"
 )
 
+DRAFT_BOOKS=(
+  "7-automation:7-automation-ar-draft:0"
+)
+
+ALL_BOOKS=("${PUBLISHED_BOOKS[@]}" "${DRAFT_BOOKS[@]}")
+
 if [ $# -gt 1 ]; then
   echo "الاستعمال: ./build.sh [اسم-الكتاب]" >&2
   exit 2
 fi
 if [ $# -eq 1 ]; then
   found=0
-  for entry in "${BOOKS[@]}"; do
+  for entry in "${ALL_BOOKS[@]}"; do
     [ "${entry%%:*}" = "$1" ] && found=1
   done
   if [ "$found" -ne 1 ]; then
     echo "كتاب غير معروف: $1" >&2
     exit 2
   fi
+fi
+
+if [ $# -eq 1 ]; then
+  BUILD_BOOKS=("${ALL_BOOKS[@]}")
+else
+  # لا تدخل المسودات في البناء الرقمي أو الإصدار العام دون اعتماد صريح.
+  BUILD_BOOKS=("${PUBLISHED_BOOKS[@]}")
 fi
 
 pages() {
@@ -86,7 +100,7 @@ print(max(counts))" "$1")
 }
 
 fail=0
-for entry in "${BOOKS[@]}"; do
+for entry in "${BUILD_BOOKS[@]}"; do
   dir="${entry%%:*}"; rest="${entry#*:}"; out="${rest%%:*}"; expect="${rest##*:}"
   if [ $# -gt 0 ] && [ "$1" != "$dir" ]; then continue; fi
   [ -f "books/$dir/ar/main.typ" ] || continue

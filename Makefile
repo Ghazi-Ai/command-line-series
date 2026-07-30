@@ -1,7 +1,7 @@
 # Makefile — سلسلة سطر الأوامر
 # يتطلّب: typst, python3
 
-.PHONY: all pdf digital print print-interiors print-cover book1 book2 book3 book4 book5 book6 epub release release-check check clean
+.PHONY: all pdf digital print print-interiors print-cover book1 book2 book3 book4 book5 book6 book7 epub epub7 release release-check check clean
 
 EPUB_BOOKS := 1-linux 2-macos 3-windows 4-bsd 5-workbook 6-unix-story
 
@@ -44,6 +44,9 @@ book5:
 book6:
 	./build.sh 6-unix-story
 
+book7:
+	./build.sh 7-automation
+
 epub:
 	mkdir -p build
 	@set -e; for book in $(EPUB_BOOKS); do \
@@ -54,6 +57,18 @@ epub:
 			--cover "build/$$book-ar-cover.png"; \
 	done
 
+epub7:
+	mkdir -p build
+	typst compile --root . --font-path fonts --ignore-system-fonts --ppi 200 \
+		"books/7-automation/ar/frontmatter/cover.typ" \
+		"build/7-automation-ar-draft-cover.png"
+	python3 tools/make_epub.py \
+		"books/7-automation/ar" \
+		"build/7-automation-ar-draft.epub" \
+		--cover "build/7-automation-ar-draft-cover.png" \
+		--typst-only-cover \
+		--draft
+
 release: digital print-interiors epub
 
 release-check:
@@ -62,6 +77,8 @@ release-check:
 check:
 	bash -n build.sh tools/*.sh
 	python3 -m py_compile tools/*.py
+	python3 -m py_compile examples/7-automation/guardian/*.py
+	cd examples/7-automation/guardian && python3 -m unittest -q test_guardian.py
 	python3 tools/check_license_history.py
 	git diff --check
 

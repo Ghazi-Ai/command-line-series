@@ -25,6 +25,7 @@ BOOKMETA = {
     "4-bsd":        ("مِن الصِّفر إلى العِفريت", "$", "على أنظمةٍ أخرى"),
     "5-workbook":   ("الطرفيّةُ بالممارسة", "$", "على أنظمةٍ أخرى"),
     "6-unix-story": ("رُوحٌ في الآلة — حكايةُ يونِكس", "$", None),
+    "7-automation": ("مِن الأمر إلى الأتمتة", "$", "على أنظمةٍ أخرى"),
 }
 LABELS = {
     "note":"ملاحظة", "tip":"حيلة", "warn":"تحذير", "warning":"تحذير", "danger":"انتبه",
@@ -549,6 +550,16 @@ def main():
     parser.add_argument("title", nargs="?")
     parser.add_argument("author", nargs="?")
     parser.add_argument("--cover", help="غلاف PNG معنون مولّد من مصدر Typst الحالي")
+    parser.add_argument(
+        "--draft",
+        action="store_true",
+        help="وسم EPUB بوضوح بوصفه مسودة تطويرية غير منشورة",
+    )
+    parser.add_argument(
+        "--typst-only-cover",
+        action="store_true",
+        help="الإفصاح أن الغلاف مصمم داخل Typst بلا صورة خارجية",
+    )
     args = parser.parse_args()
 
     book_dir = args.book_dir.rstrip('/')
@@ -557,6 +568,30 @@ def main():
     meta = BOOKMETA.get(key, ("سلسلة سطر الأوامر", "$", None))
     title = args.title or meta[0]
     author = args.author or AUTHOR
+    display_version = "مسودة تطويرية" if args.draft else PROJECT_VERSION
+    edition_note = (
+        "هذه مسودة تطويرية غير منشورة، وليست إصدارًا رسميًا من السلسلة."
+        if args.draft
+        else "هذه نسخة رسمية من المصدر المعتمد."
+    )
+    description = (
+        "مسودة تطويرية عربية غير منشورة من سلسلة سطر الأوامر."
+        if args.draft
+        else "كتاب عربي من سلسلة سطر الأوامر؛ النسخة الرسمية من المستودع المعتمد."
+    )
+    cover_disclosure = (
+        "غلاف هذه النسخة مصمم بالكامل داخل المشروع باستخدام Typst، "
+        "ولا يعتمد على صورة مولدة أو أصل بصري خارجي. يخضع نصه وتصميمه "
+        "البرمجي لخريطة التراخيص المحددة في LICENSES/README.md."
+        if args.typst_only_cover
+        else
+        "استُخدمت أدوات توليد الصور في إعداد الفن الأساسي للأغلفة، "
+        "ثم نُسّقت العناصر النصية والتصميمية بأداة Typst. وثّق صاحب "
+        "المشروع أن الصور وُلّدت بالكامل عبر ChatGPT Images من أوصاف "
+        "نصية أصلية دون مدخلات بصرية خارجية. صورة الغلاف مستثناة من "
+        "CC BY-SA 4.0، فلا تمنح رخصة المحتوى حق إعادة استخدامها "
+        "تلقائيًا."
+    )
     ctx = {"prompt": meta[1], "distro": meta[2], "fname": "", "headings": [], "hcount": 0, "fences": []}
 
     items = read_contents(book_dir)
@@ -577,7 +612,7 @@ def main():
     add_page('#front-title("صفحة العنوان", outlined: true)\n\n'
              '*%s*\n\nسلسلة سطر الأوامر · الإصدار %s\n\n'
              'صاحب الفكرة والمشروع، والإعداد والإشراف والمراجعة:\n'
-             'المهندس غازي السيف — أبو هيثم' % (title, PROJECT_VERSION))
+             'المهندس غازي السيف — أبو هيثم' % (title, display_version))
     add_page('#front-title("الحقوق والرخصة", outlined: true)\n\n'
              'المحتوى العام المحدد في خريطة تراخيص المستودع منشور، '
              'ابتداءً من الإصدار 1.3، بموجب المشاع الإبداعي — '
@@ -588,8 +623,8 @@ def main():
              'المستثناة في LICENSES/README.md.\n\n'
              'الرخصة: https://creativecommons.org/licenses/by-sa/4.0/\n\n'
              'المصدر الرسمي: https://github.com/Ghazi-Ai/command-line-series\n\n'
-             'هذه نسخة رسمية من المصدر المعتمد. لا يعني النسب اعتماد أي '
-             'نسخة معدلة أو مترجمة مستقلة.')
+             '%s لا يعني النسب اعتماد أي نسخة معدلة أو مترجمة مستقلة.'
+             % edition_note)
     add_page('#front-title("الإفصاح عن الذكاء الاصطناعي", outlined: true)\n\n'
              'هذا المشروع من فكرة غازي السيف وتصميمه وإشرافه. جميع مسودات '
              'الكتب ونصوصها الأساسية وُلّدت باستخدام أدوات الذكاء '
@@ -598,12 +633,7 @@ def main():
              'يُعتمد منها، واعتماد النسخة المنشورة، ويتحمّل مسؤولية '
              'القرارات التحريرية والمحتوى النهائي. لا تُنسب أدوات الذكاء '
              'الاصطناعي بوصفها مؤلفًا أو مؤلفًا مشاركًا.\n\n'
-             'استُخدمت أدوات توليد الصور في إعداد الفن الأساسي للأغلفة، '
-             'ثم نُسّقت العناصر النصية والتصميمية بأداة Typst. وثّق صاحب '
-             'المشروع أن الصور وُلّدت بالكامل عبر ChatGPT Images من أوصاف '
-             'نصية أصلية دون مدخلات بصرية خارجية. صورة الغلاف مستثناة من '
-             'CC BY-SA 4.0، فلا تمنح رخصة المحتوى حق إعادة استخدامها '
-             'تلقائيًا.')
+             '%s' % cover_disclosure)
     add_page('#front-title("طريقة النسب", outlined: true)\n\n'
              'العمل الأصلي: سلسلة سطر الأوامر\n\n'
              'صاحب الفكرة والمشروع، والإعداد والإشراف والمراجعة: '
@@ -677,13 +707,14 @@ def main():
         '<dc:creator>%s</dc:creator>\n'
         '<dc:contributor>أدوات ذكاء اصطناعي: توليد جميع مسودات الكتب ونصوصها الأساسية؛ ليست مؤلفًا أو مؤلفًا مشاركًا</dc:contributor>\n'
         '<dc:language>ar</dc:language>\n<dc:date>%s</dc:date>\n'
-        '<dc:description>كتاب عربي من سلسلة سطر الأوامر؛ النسخة الرسمية من المستودع المعتمد.</dc:description>\n'
+        '<dc:description>%s</dc:description>\n'
         '<dc:source>https://github.com/Ghazi-Ai/command-line-series</dc:source>\n'
         '<dc:rights>CC BY-SA 4.0 للمحتوى العام المحدد؛ راجع LICENSES/README.md للاستثناءات.</dc:rights>\n'
         '<meta property="schema:version">%s</meta>\n'
         '<meta property="dcterms:modified">%s</meta>\n%s\n</metadata>\n'
         '<manifest>%s</manifest>\n<spine page-progression-direction="rtl">%s</spine>\n</package>'
-        % (uid, esc(title), esc(author), source_date, esc(PROJECT_VERSION), modified,
+        % (uid, esc(title), esc(author), source_date, esc(description),
+           esc(display_version), modified,
            meta_cover, "".join(manifest), "".join(spine)))
     zip_write(z, 'OEBPS/content.opf', opf, build_dt)
     z.close()

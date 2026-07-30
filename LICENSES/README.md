@@ -1,4 +1,4 @@
-# خريطة التراخيص الدقيقة — الإصدار 1.4
+# خريطة التراخيص الدقيقة — الإصدار المنشور 1.4.1 والمسودات العامة
 
 هذه الخريطة هي المرجع لتحديد نطاق كل رخصة. لا يعني وجود ملف داخل
 المستودع أنه مشمول تلقائيًا بأي رخصة.
@@ -8,13 +8,15 @@
 تعرض مساهمات صاحب المشروع القابلة للترخيص في المسارات الآتية بموجب
 [CC BY-SA 4.0](CC-BY-SA-4.0.txt):
 
-- النص العربي للكتب الستة داخل:
+- النص العربي للكتب الستة المنشورة داخل:
   - `books/1-linux/ar/**`
   - `books/2-macos/ar/**`
   - `books/3-windows/ar/**`
   - `books/4-bsd/ar/**`
   - `books/5-workbook/ar/**`
   - `books/6-unix-story/ar/**`
+- مسودة الكتاب السابع العامة داخل:
+  - `books/7-automation/ar/**`
 - الوثائق التحريرية العامة التالية فقط:
   - `README.md`
   - `README.en.md`
@@ -40,6 +42,8 @@
   - `docs/COVER-RIGHTS-AUDIT.md`
   - `docs/PRINTING.md`
   - `docs/PDF-ACCESSIBILITY.md`
+  - `docs/future-books/README.md`
+  - `docs/future-books/07-automation.md`
   - `fonts/README.md`
 - النصوص التحريرية الأصلية الظاهرة في `site/index.html`.
 
@@ -70,6 +74,7 @@
 - `site/script.js`
 - `site/reader.js`
 - `site/styles.css`
+- `examples/7-automation/**`
 - بنية HTML والقالب البرمجي في `site/index.html`، مع بقاء النصوص
   التحريرية في الملف نفسه تحت CC BY-SA 4.0.
 
