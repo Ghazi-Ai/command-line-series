@@ -1,7 +1,7 @@
 # Makefile — سلسلة سطر الأوامر
 # يتطلّب: typst, python3
 
-.PHONY: all pdf digital print print-interiors print-cover book1 book2 book3 book4 book5 book6 book7 epub epub7 release release-check check clean
+.PHONY: all pdf digital print print-interiors print-cover book1 book2 book3 book4 book5 book6 book7 book8 epub epub7 epub8 release release-check check clean
 
 EPUB_BOOKS := 1-linux 2-macos 3-windows 4-bsd 5-workbook 6-unix-story
 
@@ -47,6 +47,9 @@ book6:
 book7:
 	./build.sh 7-automation
 
+book8:
+	./build.sh 8-server
+
 epub:
 	mkdir -p build
 	@set -e; for book in $(EPUB_BOOKS); do \
@@ -66,6 +69,18 @@ epub7:
 		"books/7-automation/ar" \
 		"build/7-automation-ar-draft.epub" \
 		--cover "build/7-automation-ar-draft-cover.png" \
+		--development-cover \
+		--draft
+
+epub8:
+	mkdir -p build
+	typst compile --root . --font-path fonts --ignore-system-fonts --ppi 200 \
+		"books/8-server/ar/frontmatter/cover.typ" \
+		"build/8-server-ar-draft-cover.png"
+	python3 tools/make_epub.py \
+		"books/8-server/ar" \
+		"build/8-server-ar-draft.epub" \
+		--cover "build/8-server-ar-draft-cover.png" \
 		--development-cover \
 		--draft
 

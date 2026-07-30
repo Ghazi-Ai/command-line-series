@@ -17,6 +17,8 @@
   - `books/6-unix-story/ar/**`
 - مسودة الكتاب السابع العامة داخل:
   - `books/7-automation/ar/**`
+- مسودة الكتاب الثامن العامة داخل:
+  - `books/8-server/ar/**`
 - الوثائق التحريرية العامة التالية فقط:
   - `README.md`
   - `README.en.md`
@@ -44,6 +46,7 @@
   - `docs/PDF-ACCESSIBILITY.md`
   - `docs/future-books/README.md`
   - `docs/future-books/07-automation.md`
+  - `docs/future-books/08-server.md`
   - `fonts/README.md`
 - النصوص التحريرية الأصلية الظاهرة في `site/index.html`.
 

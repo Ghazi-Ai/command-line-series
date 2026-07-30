@@ -7,6 +7,7 @@
 #     ./build.sh              يبني الكتب الستة المنشورة
 #     ./build.sh 1-linux      يبني كتابًا بعينه
 #     ./build.sh 7-automation يبني مسودة الكتاب السابع وحدها
+#     ./build.sh 8-server     يبني مسودة الكتاب الثامن وحدها
 #     PRINT_INTERIOR=1 ./build.sh   يبني المتون المخصّصة للطباعة
 #     TYPST=~/.local/bin/typst ./build.sh      إن لم يكن typst في PATH
 # ═══════════════════════════════════════════════════════════════════════════
@@ -53,6 +54,7 @@ PUBLISHED_BOOKS=(
 
 DRAFT_BOOKS=(
   "7-automation:7-automation-ar-draft:0"
+  "8-server:8-server-ar-draft:0"
 )
 
 ALL_BOOKS=("${PUBLISHED_BOOKS[@]}" "${DRAFT_BOOKS[@]}")
