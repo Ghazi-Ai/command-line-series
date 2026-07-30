@@ -1,0 +1,8 @@
+{
+  "root": "~/automation-lab",
+  "inbox": "inbox",
+  "archive": "archive",
+  "logs": "logs",
+  "pattern": "report-*.txt"
+}
+
