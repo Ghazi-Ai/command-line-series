@@ -164,12 +164,16 @@ button { font: inherit; }
   border-radius: 3px 12px 12px 3px; box-shadow: -18px 24px 50px rgb(0 0 0 / 25%);
   transform-origin: bottom center;
 }
-.stack-1 { transform: translate(-84px, 20px) rotate(-12deg); }
-.stack-2 { transform: translate(-50px, 8px) rotate(-8deg); }
-.stack-3 { transform: translate(-22px, 2px) rotate(-4deg); }
-.stack-4 { transform: translate(20px, 2px) rotate(4deg); }
-.stack-5 { transform: translate(53px, 10px) rotate(8deg); }
-.stack-6 { transform: translate(83px, 22px) rotate(12deg); }
+.stack-1 { transform: translate(-118px, 30px) rotate(-17deg); }
+.stack-2 { transform: translate(-92px, 20px) rotate(-13deg); }
+.stack-3 { transform: translate(-65px, 12px) rotate(-9deg); }
+.stack-4 { transform: translate(-38px, 6px) rotate(-5deg); }
+.stack-5 { transform: translate(-12px, 2px) rotate(-2deg); }
+.stack-6 { transform: translate(15px, 2px) rotate(2deg); }
+.stack-7 { transform: translate(42px, 6px) rotate(5deg); }
+.stack-8 { transform: translate(69px, 12px) rotate(9deg); }
+.stack-9 { transform: translate(96px, 20px) rotate(13deg); }
+.stack-10 { transform: translate(123px, 30px) rotate(17deg); }
 .orbit { position: absolute; border: 1px solid rgb(255 255 255 / 10%); border-radius: 50%; }
 .orbit-one { width: 570px; height: 570px; }
 .orbit-two { width: 440px; height: 440px; border-style: dashed; animation: spin 40s linear infinite; }
@@ -259,6 +263,8 @@ mark { color: #d9f1e9; background: transparent; animation: blink 1s steps(1) inf
 .read-button { color: var(--book); border-bottom-color: var(--book); }
 .mac { --book: #5b8fb0; }.windows { --book: #b07a1e; }.bsd { --book: #a5342b; }
 .workbook { --book: #6b4e9c; }.story { --book: #6e7bb8; }
+.automation { --book: #28756c; }.server { --book: #4d6264; }
+.network { --book: #3e7988; }.projects { --book: #8a653a; }
 
 .journey-section {
   width: var(--content); margin: auto; padding: 150px 0;
@@ -351,7 +357,7 @@ mark { color: #d9f1e9; background: transparent; animation: blink 1s steps(1) inf
 
 .author-section { padding: 0 24px 150px; }
 .policy-section { border-top: 1px solid var(--rule); }
-.policy-links { margin-top: 28px; }
+.policy-links { margin-top: 28px; grid-template-columns: repeat(4, 1fr); }
 .author-card {
   width: min(1000px, 100%); margin: auto; padding: 65px;
   display: grid; grid-template-columns: 180px 1fr; gap: 60px; align-items: start;

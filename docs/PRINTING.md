@@ -15,6 +15,10 @@
 | 4 — مِن الصفر إلى العفريت | `build/print/4-bsd-ar-interior.pdf` |
 | 5 — الطرفية بالممارسة | `build/print/5-workbook-ar-interior.pdf` |
 | 6 — روح في الآلة | `build/print/6-unix-story-ar-interior.pdf` |
+| 7 — مِن الأمر إلى الأتمتة | `build/print/7-automation-ar-interior.pdf` |
+| 8 — الخادم الذي لا ينام | `build/print/8-server-ar-interior.pdf` |
+| 9 — الشبكة من الطرفية | `build/print/9-network-ar-interior.pdf` |
+| 10 — 10+ مشاريع كبرى من الطرفية | `build/print/10-projects-ar-interior.pdf` |
 
 ## مواصفات المتن
 
@@ -91,6 +95,10 @@ make print
 4) مِن الصفر إلى العفريت — BSD
 5) الطرفية بالممارسة
 6) روح في الآلة — حكاية يونكس
+7) مِن الأمر إلى الأتمتة
+8) الخادم الذي لا ينام
+9) الشبكة من الطرفية
+10) 10+ مشاريع كبرى من الطرفية
 q) إلغاء
 ```
 
@@ -119,7 +127,7 @@ build/print-covers/<book-id>-ar-cover.pdf
 
 لا تعمل الأداة قبل تقديم القيم الآتية كلها:
 
-- `BOOK_ID`: أحد معرّفات الكتب الستة المعروفة.
+- `BOOK_ID`: أحد معرّفات الكتب العشرة المعروفة.
 - `SPINE_WIDTH_MM`: عرض الكعب الذي زودتك به المطبعة بالملليمتر.
 - `BLEED_MM`: مقدار النزف الذي طلبته المطبعة بالملليمتر.
 - `SPINE_DIRECTION`: اختياري؛ اتجاه السلسلة الافتراضي

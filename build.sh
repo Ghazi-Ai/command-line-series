@@ -4,10 +4,12 @@
 #  النتيجة متسقة في الخطوط والتصفيف وعدد الصفحات ولا تعتمد على خطوط النظام.
 #
 #  الاستعمال:
-#     ./build.sh              يبني الكتب الستة المنشورة
+#     ./build.sh              يبني الكتب العشرة المنشورة
 #     ./build.sh 1-linux      يبني كتابًا بعينه
-#     ./build.sh 7-automation يبني مسودة الكتاب السابع وحدها
-#     ./build.sh 8-server     يبني مسودة الكتاب الثامن وحدها
+#     ./build.sh 7-automation يبني الكتاب السابع وحده
+#     ./build.sh 8-server     يبني الكتاب الثامن وحده
+#     ./build.sh 9-network    يبني الكتاب التاسع وحده
+#     ./build.sh 10-projects  يبني الكتاب العاشر وحده
 #     PRINT_INTERIOR=1 ./build.sh   يبني المتون المخصّصة للطباعة
 #     TYPST=~/.local/bin/typst ./build.sh      إن لم يكن typst في PATH
 # ═══════════════════════════════════════════════════════════════════════════
@@ -50,14 +52,13 @@ PUBLISHED_BOOKS=(
   "4-bsd:4-bsd-ar:692"
   "5-workbook:5-workbook-ar:140"
   "6-unix-story:6-unix-story-ar:105"
+  "7-automation:7-automation-ar:132"
+  "8-server:8-server-ar:132"
+  "9-network:9-network-ar:129"
+  "10-projects:10-projects-ar:171"
 )
 
-DRAFT_BOOKS=(
-  "7-automation:7-automation-ar-draft:0"
-  "8-server:8-server-ar-draft:0"
-)
-
-ALL_BOOKS=("${PUBLISHED_BOOKS[@]}" "${DRAFT_BOOKS[@]}")
+ALL_BOOKS=("${PUBLISHED_BOOKS[@]}")
 
 if [ $# -gt 1 ]; then
   echo "الاستعمال: ./build.sh [اسم-الكتاب]" >&2
@@ -77,7 +78,6 @@ fi
 if [ $# -eq 1 ]; then
   BUILD_BOOKS=("${ALL_BOOKS[@]}")
 else
-  # لا تدخل المسودات في البناء الرقمي أو الإصدار العام دون اعتماد صريح.
   BUILD_BOOKS=("${PUBLISHED_BOOKS[@]}")
 fi
 

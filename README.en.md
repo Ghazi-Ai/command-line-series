@@ -9,13 +9,13 @@
 ## Current language
 
 The current edition of the Command Line Series is available in Arabic only.
-The six books and their PDF and EPUB editions are not available in English
+The ten books and their PDF and EPUB editions are not available in English
 yet.
 
-Version 1.4.1 is the current published release. It includes a focused
-linguistic, narrative, and historical revision of the sixth book, with
-Arabic-first terminology and more precise distinctions between Unix lineage,
-Unix-like systems, and modern computing infrastructure.
+Version 2.0.0 is the current published release. The series now spans ten
+Arabic books: command-line foundations across four operating-system families,
+practice, the Unix story, automation, Ubuntu server administration,
+networking, and guided projects including authorized cybersecurity labs.
 
 ## English translation
 
@@ -51,7 +51,10 @@ The project owner states that all cover images were generated entirely with
 OpenAI's ChatGPT Images from original text prompts, without external visual
 inputs. Titles, text, visual identity, and final layout were added in Typst.
 The cover images remain excluded from the CC BY-SA 4.0 offer, so the content
-license does not automatically grant permission to reuse them.
+license does not automatically grant permission to reuse them. The separate
+[`COVER-PERMISSION.md`](COVER-PERMISSION.md) permits printing and distributing
+an unmodified official edition as a complete book with its cover; it does not
+permit extracting the cover or applying it to a derivative edition.
 
 Version 1.2 was previously published under CC BY-ND 4.0. Version 1.3 does not
 retroactively revoke rights already granted for earlier editions.

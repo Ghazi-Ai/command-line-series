@@ -10,6 +10,10 @@ BOOK_IDS=(
   "4-bsd"
   "5-workbook"
   "6-unix-story"
+  "7-automation"
+  "8-server"
+  "9-network"
+  "10-projects"
 )
 BOOK_TITLES=(
   "مِن الصفر إلى الجذر — Linux"
@@ -18,6 +22,10 @@ BOOK_TITLES=(
   "مِن الصفر إلى العفريت — BSD"
   "الطرفية بالممارسة"
   "روح في الآلة — حكاية يونكس"
+  "مِن الأمر إلى الأتمتة"
+  "الخادم الذي لا ينام"
+  "الشبكة من الطرفية"
+  "10+ مشاريع كبرى من الطرفية"
 )
 
 SPINE_WIDTHS=()
@@ -68,10 +76,10 @@ choose_books() {
     choice=$ANSWER
     case "$choice" in
       0)
-        SELECTED_INDEXES=(0 1 2 3 4 5)
+        SELECTED_INDEXES=(0 1 2 3 4 5 6 7 8 9)
         return
         ;;
-      1|2|3|4|5|6)
+      1|2|3|4|5|6|7|8|9|10)
         SELECTED_INDEXES=("$((choice - 1))")
         return
         ;;
@@ -79,7 +87,7 @@ choose_books() {
         cancelled
         ;;
       *)
-        printf 'اختيار غير صحيح. اختر رقمًا من 0 إلى 6، أو q للإلغاء.\n'
+        printf 'اختيار غير صحيح. اختر رقمًا من 0 إلى 10، أو q للإلغاء.\n'
         ;;
     esac
   done
@@ -170,9 +178,9 @@ confirm_settings() {
 
 build_selected_books() {
   if [ "${#SELECTED_INDEXES[@]}" -eq "${#BOOK_IDS[@]}" ]; then
-    printf '\nبناء ملفات PDF الرقمية للكتب الستة...\n'
+    printf '\nبناء ملفات PDF الرقمية للكتب العشرة...\n'
     ./build.sh
-    printf '\nبناء ملفات المتون للكتب الستة...\n'
+    printf '\nبناء ملفات المتون للكتب العشرة...\n'
     PRINT_INTERIOR=1 ./build.sh
   else
     local index=${SELECTED_INDEXES[0]}

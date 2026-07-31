@@ -1,4 +1,4 @@
-# خريطة التراخيص الدقيقة — الإصدار المنشور 1.4.1 والمسودات العامة
+# خريطة التراخيص الدقيقة — الإصدار المنشور 2.0.0
 
 هذه الخريطة هي المرجع لتحديد نطاق كل رخصة. لا يعني وجود ملف داخل
 المستودع أنه مشمول تلقائيًا بأي رخصة.
@@ -8,17 +8,17 @@
 تعرض مساهمات صاحب المشروع القابلة للترخيص في المسارات الآتية بموجب
 [CC BY-SA 4.0](CC-BY-SA-4.0.txt):
 
-- النص العربي للكتب الستة المنشورة داخل:
+- النص العربي للكتب العشرة المنشورة داخل:
   - `books/1-linux/ar/**`
   - `books/2-macos/ar/**`
   - `books/3-windows/ar/**`
   - `books/4-bsd/ar/**`
   - `books/5-workbook/ar/**`
   - `books/6-unix-story/ar/**`
-- مسودة الكتاب السابع العامة داخل:
   - `books/7-automation/ar/**`
-- مسودة الكتاب الثامن العامة داخل:
   - `books/8-server/ar/**`
+  - `books/9-network/ar/**`
+  - `books/10-projects/ar/**`
 - الوثائق التحريرية العامة التالية فقط:
   - `README.md`
   - `README.en.md`
@@ -44,9 +44,17 @@
   - `docs/COVER-RIGHTS-AUDIT.md`
   - `docs/PRINTING.md`
   - `docs/PDF-ACCESSIBILITY.md`
+  - `docs/PUBLISHING-CHECKLIST.md`
+  - `docs/RELEASE-AUDIT-v2.0.0.md`
+  - `COVER-PERMISSION.md`
   - `docs/future-books/README.md`
   - `docs/future-books/07-automation.md`
   - `docs/future-books/08-server.md`
+  - `docs/future-books/09-network.md`
+  - `docs/future-books/10-projects.md`
+  - `docs/audits/book-8-adversarial-v2.0.0.md`
+  - `docs/audits/book-9-adversarial-v2.0.0.md`
+  - `docs/audits/book-10-adversarial-v2.0.0.md`
   - `fonts/README.md`
 - النصوص التحريرية الأصلية الظاهرة في `site/index.html`.
 
@@ -78,6 +86,10 @@
 - `site/reader.js`
 - `site/styles.css`
 - `examples/7-automation/**`
+- تعليمات Typst الأصلية ومقاطع الشيفرة البرمجية الأصلية داخل
+  `books/*/ar/**/*.typ`، من حيث كونها شيفرة فقط؛ ويبقى النثر والمحتوى
+  التعليمي المحيط بها تحت CC BY-SA 4.0، وتبقى أي مادة خارجية تحت
+  رخصتها الأصلية.
 - بنية HTML والقالب البرمجي في `site/index.html`، مع بقاء النصوص
   التحريرية في الملف نفسه تحت CC BY-SA 4.0.
 
@@ -115,10 +127,11 @@ CC BY-SA 4.0 المسارات الآتية:
 - `docs/readme-covers/*.png`
 - `docs/site-preview.png`
 
-قد تعرض ملفات PDF أو الموقع هذه الأصول ضمن النسخة الرسمية، لكن ذلك لا
-يمنح إذنًا مستقلًا بإعادة استخدامها. على صانع النسخة المشتقة استبدالها
-بأصول يملك حق استعمالها، أو الحصول على إذن مستقل عند الحاجة. راجع
-`docs/COVER-RIGHTS-AUDIT.md` لسجل المصدر وحدود الحكم.
+قد تعرض ملفات PDF أو الموقع هذه الأصول ضمن النسخة الرسمية. يسمح
+`COVER-PERMISSION.md` بطباعة النسخة الرسمية غير المعدلة وتوزيعها
+ككتاب كامل، لكنه لا يمنح إذنًا باقتطاع الغلاف أو تعديله أو استعماله
+لهوية نسخة مشتقة. على صانع النسخة المشتقة استبداله بأصل يملك حق
+استعماله أو الحصول على إذن مستقل. راجع `docs/COVER-RIGHTS-AUDIT.md`.
 
 ## 6. حدود عامة
 

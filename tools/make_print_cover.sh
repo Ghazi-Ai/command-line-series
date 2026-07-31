@@ -50,6 +50,10 @@ case "$book_id" in
   4-bsd) pdf=build/4-bsd-ar.pdf ;;
   5-workbook) pdf=build/5-workbook-ar.pdf ;;
   6-unix-story) pdf=build/6-unix-story-ar.pdf ;;
+  7-automation) pdf=build/7-automation-ar.pdf ;;
+  8-server) pdf=build/8-server-ar.pdf ;;
+  9-network) pdf=build/9-network-ar.pdf ;;
+  10-projects) pdf=build/10-projects-ar.pdf ;;
   *) echo "معرّف كتاب غير معروف: $book_id" >&2; exit 2 ;;
 esac
 

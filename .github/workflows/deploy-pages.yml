@@ -64,6 +64,10 @@ jobs:
               "4-bsd-ar.pdf",
               "5-workbook-ar.pdf",
               "6-unix-story-ar.pdf",
+              "7-automation-ar.pdf",
+              "8-server-ar.pdf",
+              "9-network-ar.pdf",
+              "10-projects-ar.pdf",
           }
           with open(source, encoding="utf-8") as stream:
               releases = json.load(stream)
@@ -95,13 +99,13 @@ jobs:
           PY
           )
           if [ -z "$published_version" ]; then
-            echo "::error::Release v$requested_version does not have the required PDFs, and no earlier published release with all six PDFs was found."
+            echo "::error::Release v$requested_version does not have the required PDFs, and no earlier published release with all ten PDFs was found."
             exit 1
           fi
           if [ "$published_version" = "$requested_version" ]; then
             echo "Using book assets from Release v$requested_version."
           else
-            echo "::warning::Release v$requested_version does not exist or lacks all six PDF assets; Pages will use the latest earlier complete published Release v$published_version."
+            echo "::warning::Release v$requested_version does not exist or lacks all ten PDF assets; Pages will use the latest earlier complete published Release v$published_version."
           fi
           echo "version=$published_version" >> "$GITHUB_OUTPUT"
           echo "base=https://github.com/Ghazi-Ai/command-line-series/releases/download/v$published_version" >> "$GITHUB_OUTPUT"
@@ -147,7 +151,11 @@ jobs:
             3-windows-ar.pdf \
             4-bsd-ar.pdf \
             5-workbook-ar.pdf \
-            6-unix-story-ar.pdf
+            6-unix-story-ar.pdf \
+            7-automation-ar.pdf \
+            8-server-ar.pdf \
+            9-network-ar.pdf \
+            10-projects-ar.pdf
           do
             curl --fail --location --retry 30 --retry-all-errors --retry-delay 10 \
               "$release_base/$asset" \

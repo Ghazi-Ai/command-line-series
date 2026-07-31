@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#164a3e">
-  <meta name="description" content="سلسلة عربية متكاملة لإتقان سطر الأوامر على لينكس وماك وويندوز وBSD، مع كتاب تمارين وحكاية يونكس.">
+  <meta name="description" content="عشرة كتب عربية تبدأ بأساسيات سطر الأوامر، ثم الأتمتة والخوادم والشبكات والمشروعات والأمن السيبراني الأخلاقي.">
   <meta property="og:title" content="سلسلة سطر الأوامر">
-  <meta property="og:description" content="ستة كتب عربية. حرفة واحدة، وكل الأنظمة.">
-  <meta property="og:image" content="assets/covers/6-unix-story.png">
+  <meta property="og:description" content="عشرة كتب عربية. من أول أمر إلى بناء الأدوات وإدارة الخوادم وتشخيص الشبكات.">
+  <meta property="og:image" content="assets/covers/10-projects.png">
   <meta property="og:type" content="website">
-  <title>سلسلة سطر الأوامر — ستة كتب، حرفة واحدة</title>
+  <title>سلسلة سطر الأوامر — عشرة كتب، حرفة واحدة</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23164a3e%22/><path d=%22M17 20l12 12-12 12M33 44h15%22 fill=%22none%22 stroke=%22%23fcfbf9%22 stroke-width=%226%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
-  <link rel="stylesheet" href="styles.css?v=20260726-8">
+  <link rel="stylesheet" href="styles.css?v=20260731-1">
   <script>
     window.seriesReaderQueue = [];
     document.addEventListener("click", (event) => {
@@ -43,8 +43,8 @@
       });
     });
   </script>
-  <script src="script.js?v=20260726-4" defer></script>
-  <script src="reader.js?v=20260728-9" type="module"></script>
+  <script src="script.js?v=20260731-1" defer></script>
+  <script src="reader.js?v=20260731-1" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
@@ -76,21 +76,21 @@
     <section class="hero" id="top">
       <div class="hero-grain" aria-hidden="true"></div>
       <div class="hero-copy reveal">
-        <p class="eyebrow"><span>الإصدار 1.4.1</span> · معرفة عربية مفتوحة بالنسب والمشاركة بالمثل</p>
+        <p class="eyebrow"><span>الإصدار 2.0.0</span> · معرفة عربية مفتوحة بالنسب والمشاركة بالمثل</p>
         <h1><span>حِرفةٌ واحدة</span><em>كلُّ الأنظمة</em></h1>
         <p class="hero-lead">
           من أول أمر تكتبه إلى فهم الروح التي تسكن الآلة.
-          ستة كتب عربية تأخذك عبر لينكس وماك وويندوز وBSD،
-          ثم تجمع المعرفة بالممارسة والحكاية.
+          عشرة كتب عربية تبدأ بأنظمة التشغيل، ثم تحوّل الأوامر إلى
+          أدوات، وتدير الخادم، وتفهم الشبكة، وتبني مشروعاتك الكبرى.
         </p>
         <div class="hero-actions">
           <a class="button button-primary" href="#books">اكتشف السلسلة <span aria-hidden="true">←</span></a>
           <a class="button button-quiet" href="https://github.com/Ghazi-Ai/command-line-series">تصفّح المصدر على GitHub</a>
         </div>
         <dl class="hero-stats" aria-label="إحصاءات السلسلة">
-          <div><dt>6</dt><dd>كتب مكتملة</dd></div>
-          <div><dt>2,918</dt><dd>صفحة عربية</dd></div>
-          <div><dt>1.4.1</dt><dd>الإصدار المنشور</dd></div>
+          <div><dt>10</dt><dd>كتب مكتملة</dd></div>
+          <div><dt>3,482</dt><dd>صفحة عربية</dd></div>
+          <div><dt>2.0.0</dt><dd>الإصدار المنشور</dd></div>
         </dl>
       </div>
 
@@ -104,6 +104,10 @@
           <img class="stack-book stack-4" src="assets/covers/4-bsd.png" alt="">
           <img class="stack-book stack-5" src="assets/covers/5-workbook.png" alt="">
           <img class="stack-book stack-6" src="assets/covers/6-unix-story.png" alt="غلاف كتاب روح في الآلة">
+          <img class="stack-book stack-7" src="assets/covers/7-automation.png" alt="">
+          <img class="stack-book stack-8" src="assets/covers/8-server.png" alt="">
+          <img class="stack-book stack-9" src="assets/covers/9-network.png" alt="">
+          <img class="stack-book stack-10" src="assets/covers/10-projects.png" alt="غلاف كتاب 10+ مشاريع كبرى من الطرفية">
         </div>
         <div class="terminal-note" aria-hidden="true">
           <div><i></i><i></i><i></i></div>
@@ -218,6 +222,66 @@
             </div>
           </div>
         </article>
+
+        <article class="book-card automation reveal" data-book="07">
+          <div class="book-cover"><img src="assets/covers/7-automation.png" alt="غلاف من الأمر إلى الأتمتة" loading="lazy"></div>
+          <div class="book-info">
+            <p class="book-number">الكتاب 07 · الأتمتة</p>
+            <h3>مِن الأمر إلى الأتمتة</h3>
+            <p>حوّل المهمة التي تكررها إلى أداة مفهومة، قابلة للاختبار والتراجع والتفويض بثقة.</p>
+            <div class="book-meta"><span>22 فصلًا</span><span>132 صفحة</span></div>
+            <div class="book-links">
+              <button class="read-button" type="button" data-pdf="books/7-automation-ar.pdf" data-title="مِن الأمر إلى الأتمتة" data-pages="132">اقرأ الآن</button>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/7-automation-ar.pdf">PDF</a>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/7-automation-ar.epub">EPUB</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card server reveal" data-book="08">
+          <div class="book-cover"><img src="assets/covers/8-server.png" alt="غلاف الخادم الذي لا ينام" loading="lazy"></div>
+          <div class="book-info">
+            <p class="book-number">الكتاب 08 · الخوادم</p>
+            <h3>الخادمُ الذي لا ينام</h3>
+            <p>أدر خادم أوبونتو من أول اتصال آمن حتى الخدمة والمراقبة والنسخ والاستجابة للحوادث.</p>
+            <div class="book-meta"><span>25 فصلًا</span><span>132 صفحة</span></div>
+            <div class="book-links">
+              <button class="read-button" type="button" data-pdf="books/8-server-ar.pdf" data-title="الخادمُ الذي لا ينام" data-pages="132">اقرأ الآن</button>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/8-server-ar.pdf">PDF</a>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/8-server-ar.epub">EPUB</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card network reveal" data-book="09">
+          <div class="book-cover"><img src="assets/covers/9-network.png" alt="غلاف الشبكة من الطرفية" loading="lazy"></div>
+          <div class="book-info">
+            <p class="book-number">الكتاب 09 · الشبكات</p>
+            <h3>الشبكةُ من الطرفية</h3>
+            <p>افهم الطريق بين جهازك والعالم، ثم شخّص الأسماء والعناوين والمنافذ والاتصالات خطوة خطوة.</p>
+            <div class="book-meta"><span>25 فصلًا</span><span>129 صفحة</span></div>
+            <div class="book-links">
+              <button class="read-button" type="button" data-pdf="books/9-network-ar.pdf" data-title="الشبكةُ من الطرفية" data-pages="129">اقرأ الآن</button>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/9-network-ar.pdf">PDF</a>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/9-network-ar.epub">EPUB</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card projects reveal" data-book="10">
+          <div class="book-cover"><img src="assets/covers/10-projects.png" alt="غلاف 10+ مشاريع كبرى من الطرفية" loading="lazy"></div>
+          <div class="book-info">
+            <p class="book-number">الكتاب 10 · المشروعات</p>
+            <h3><bdi>10+</bdi> مشاريع كبرى من الطرفية</h3>
+            <p>مشروعات متدرجة تجمع الملفات والأتمتة والخادم والشبكة والأمن السيبراني الأخلاقي في عمل قابل للتسليم.</p>
+            <div class="book-meta"><span>21 مشروعًا</span><span>171 صفحة</span></div>
+            <div class="book-links">
+              <button class="read-button" type="button" data-pdf="books/10-projects-ar.pdf" data-title="10+ مشاريع كبرى من الطرفية" data-pages="171">اقرأ الآن</button>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/10-projects-ar.pdf">PDF</a>
+              <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/10-projects-ar.epub">EPUB</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -254,9 +318,9 @@
             أدوات صغيرة تتعاون، وفكرة تتحول أمامك إلى أثر.
           </p>
           <p class="reveal">
-            ولهذا امتدت الرحلة عبر أربعة أنظمة، ثم جاء دفتر الممارسة ليضعها
-            جنبًا إلى جنب، وجاءت حكاية يونكس لتعيد للأوامر أسماء أصحابها
-            وظروف ولادتها. التقنية هنا ليست معدنًا باردًا؛ إنها أثر بشري.
+            ولهذا امتدت الرحلة عبر أربعة أنظمة، ثم الممارسة والحكاية،
+            وبعدها الأتمتة والخادم والشبكة والمشروعات. التقنية هنا ليست
+            أوامر مبعثرة؛ إنها أثر بشري وأداة تبني بها ما يلي الكتاب.
           </p>
         </div>
         <aside class="why-note reveal">
@@ -331,6 +395,7 @@ No manual entry for curiosity
           <a href="https://github.com/Ghazi-Ai/command-line-series/blob/main/TRANSLATION-GUIDE.md"><span>الدليل</span>دليل الترجمة</a>
           <a href="https://github.com/Ghazi-Ai/command-line-series/blob/main/ATTRIBUTION.md"><span>النسب</span>طريقة النسب</a>
           <a href="https://github.com/Ghazi-Ai/command-line-series/blob/main/LICENSES/README.md"><span>النطاق</span>خريطة التراخيص</a>
+          <a href="https://github.com/Ghazi-Ai/command-line-series/blob/main/docs/PUBLISHING-CHECKLIST.md"><span>الطباعة</span>قائمة تحقق النشر</a>
         </div>
       </div>
     </section>
@@ -357,7 +422,9 @@ No manual entry for curiosity
             المشروع أن الصور وُلّدت بالكامل عبر ChatGPT Images من أوصاف
             نصية أصلية دون مدخلات بصرية خارجية. وتبقى مستثناة من
             CC BY-SA 4.0، فلا تمنح رخصة المحتوى حق إعادة استخدامها
-            تلقائيًا.
+            تلقائيًا. يسمح إذن الغلاف بطباعة النسخة الرسمية غير
+            المعدلة وتوزيعها ككتاب كامل، لا باقتطاع الغلاف أو وضعه
+            على نسخة مشتقة.
           </p>
           <div class="contact-links">
             <a href="https://github.com/Ghazi-Ai/command-line-series/issues"><span>التواصل</span>GitHub Issues</a>
@@ -436,9 +503,11 @@ No manual entry for curiosity
       <a href="https://github.com/Ghazi-Ai/command-line-series">GitHub</a>
       <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest">التنزيلات</a>
       <a href="https://github.com/Ghazi-Ai/command-line-series/blob/main/docs/PRINTING.md">الطباعة</a>
+      <a href="https://github.com/Ghazi-Ai/command-line-series/blob/main/docs/PUBLISHING-CHECKLIST.md">قبل الطباعة والتداول</a>
       <a href="https://github.com/Ghazi-Ai/command-line-series/blob/main/LICENSE">الرخصة</a>
+      <a href="https://github.com/Ghazi-Ai/command-line-series/blob/main/COVER-PERMISSION.md">إذن الغلاف</a>
     </div>
-    <p>الإصدار 1.4.1 · النص العام المحدد CC BY-SA 4.0 · الشيفرة الأصلية المحددة MIT · 2026</p>
+    <p>الإصدار 2.0.0 · النص العام المحدد CC BY-SA 4.0 · الشيفرة الأصلية المحددة MIT · 2026</p>
   </footer>
 </body>
 </html>

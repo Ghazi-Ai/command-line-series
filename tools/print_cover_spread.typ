@@ -15,11 +15,20 @@
   "4-bsd": (title: "مِن الصِّفر إلى العِفريت", accent: rgb("#5E1A13"), optical: 0.78),
   "5-workbook": (title: "الطرفيّةُ بالممارسة", accent: rgb("#382863"), optical: 0.64),
   "6-unix-story": (title: "رُوحٌ في الآلة", accent: rgb("#363B5E"), optical: 1.20),
+  "7-automation": (title: "مِن الأمر إلى الأتمتة", accent: rgb("#225A55"), optical: 0.86),
+  "8-server": (title: "الخادمُ الذي لا ينام", accent: rgb("#34484B"), optical: 0.88),
+  "9-network": (title: "الشبكةُ من الطرفية", accent: rgb("#315D68"), optical: 0.82),
+  "10-projects": (title: "10+ مشاريع كبرى من الطرفية", accent: rgb("#5B4B31"), optical: 0.80),
 )
 
 #let book-id = required("book-id")
 #assert(book-id in books, message: "معرّف كتاب غير معروف: " + book-id)
 #let info = books.at(book-id)
+#let spine-title = if book-id == "10-projects" {
+  [#text(dir: ltr)[10+] #text(dir: rtl)[مشاريع كبرى من الطرفية]]
+} else {
+  info.title
+}
 
 #let spine-mm = float(required("spine-width-mm"))
 #let bleed-mm = float(required("bleed-mm"))
@@ -102,7 +111,7 @@
           size: title-size,
           weight: 700,
           fill: white,
-          info.title,
+          spine-title,
         ),
       ),
     )

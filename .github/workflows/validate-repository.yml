@@ -106,6 +106,7 @@ jobs:
             TRANSLATION-GUIDE.md
             OFFICIAL-EDITIONS.md
             BRAND-POLICY.md
+            COVER-PERMISSION.md
             TRADEMARKS.md
             CONTRIBUTING.md
             CONTRIBUTING.en.md
@@ -116,6 +117,11 @@ jobs:
             docs/COVER-RIGHTS-AUDIT.md
             docs/PRINTING.md
             docs/PDF-ACCESSIBILITY.md
+            docs/PUBLISHING-CHECKLIST.md
+            docs/RELEASE-AUDIT-v2.0.0.md
+            docs/audits/book-8-adversarial-v2.0.0.md
+            docs/audits/book-9-adversarial-v2.0.0.md
+            docs/audits/book-10-adversarial-v2.0.0.md
             tools/make_print_cover.sh
             tools/print_cover_spread.typ
             tools/release_check.sh
@@ -131,7 +137,7 @@ jobs:
             test -s "$file"
           done
 
-          for cover in 1-linux 2-macos 3-windows 4-bsd 5-workbook 6-unix-story; do
+          for cover in 1-linux 2-macos 3-windows 4-bsd 5-workbook 6-unix-story 7-automation 8-server 9-network 10-projects; do
             test -s "docs/readme-covers/$cover.png"
           done
 
@@ -155,7 +161,11 @@ jobs:
               "README.md": ("CC BY-SA 4.0", "نصوصها الأساسية وُلّدت باستخدام أدوات الذكاء الاصطناعي"),
               "README.en.md": ("CC BY-SA 4.0", "All book drafts and core prose were generated"),
               "site/index.html": (f"الإصدار {version}", "نصوصها الأساسية وُلّدت باستخدام أدوات الذكاء الاصطناعي"),
-              "LICENSES/README.md": ("حدود العرض", "MIT"),
+              "LICENSES/README.md": (
+                  "حدود العرض", "MIT", "books/9-network/ar/**",
+                  "books/10-projects/ar/**", "books/*/ar/assets/cover*.png",
+              ),
+              "COVER-PERMISSION.md": ("النسخة الرسمية غير المعدلة", "ككتاب كامل"),
               "TRANSLATION-GUIDE.md": ("ترجمة مجتمعية غير رسمية",),
               "tools/print_cover_spread.typ": (
                   "غازي السيف — أبو هيثم",
@@ -165,6 +175,10 @@ jobs:
                   "مِن الصِّفر إلى العِفريت",
                   "الطرفيّةُ بالممارسة",
                   "رُوحٌ في الآلة",
+                  "مِن الأمر إلى الأتمتة",
+                  "الخادمُ الذي لا ينام",
+                  "الشبكةُ من الطرفية",
+                  "10+ مشاريع كبرى من الطرفية",
               ),
               "docs/PRINTING.md": (
                   "لا يجوز تخمينه",
@@ -181,9 +195,16 @@ jobs:
               for phrase in phrases:
                   if phrase not in text:
                       raise SystemExit(f"Missing required phrase in {name}: {phrase}")
-          for title_page in Path("books").glob("*/ar/frontmatter/title-page.typ"):
-              if "مسودة أولى" in title_page.read_text(encoding="utf-8"):
-                  raise SystemExit(f"Draft marker remains in {title_page}")
+          current_books = sorted(Path("books").glob("*/ar"))
+          if len(current_books) != 10:
+              raise SystemExit(f"Expected ten book sources; found {len(current_books)}")
+          for book_dir in current_books:
+              for relative in ("main.typ", "frontmatter/title-page.typ", "frontmatter/colophon.typ"):
+                  path = book_dir / relative
+                  text = path.read_text(encoding="utf-8")
+                  for marker in ("مسودة أولى", "مسودة تطويرية", "غير منشورة"):
+                      if marker in text:
+                          raise SystemExit(f"Draft marker remains in {path}: {marker}")
 
           private_contacts = (
               re.compile(r"eng\.ghazi\\?@icloud\.com", re.IGNORECASE),
@@ -218,6 +239,18 @@ jobs:
               "6-unix-story-ar.pdf",
               "6-unix-story-ar-interior.pdf",
               "6-unix-story-ar.epub",
+              "7-automation-ar.pdf",
+              "7-automation-ar-interior.pdf",
+              "7-automation-ar.epub",
+              "8-server-ar.pdf",
+              "8-server-ar-interior.pdf",
+              "8-server-ar.epub",
+              "9-network-ar.pdf",
+              "9-network-ar-interior.pdf",
+              "9-network-ar.epub",
+              "10-projects-ar.pdf",
+              "10-projects-ar-interior.pdf",
+              "10-projects-ar.epub",
           ]
 
           for asset in expected:
@@ -254,12 +287,12 @@ jobs:
           shopt -s nullglob
           digital_pdfs=(build/*-ar.pdf)
           interior_pdfs=(build/print/*-interior.pdf)
-          if [ "${#digital_pdfs[@]}" -ne 6 ]; then
-            echo "::error::Expected six digital PDFs; found ${#digital_pdfs[@]}."
+          if [ "${#digital_pdfs[@]}" -ne 10 ]; then
+            echo "::error::Expected ten digital PDFs; found ${#digital_pdfs[@]}."
             exit 1
           fi
-          if [ "${#interior_pdfs[@]}" -ne 6 ]; then
-            echo "::error::Expected six print-interior PDFs; found ${#interior_pdfs[@]}."
+          if [ "${#interior_pdfs[@]}" -ne 10 ]; then
+            echo "::error::Expected ten print-interior PDFs; found ${#interior_pdfs[@]}."
             exit 1
           fi
           for pdf in "${digital_pdfs[@]}" "${interior_pdfs[@]}"; do
@@ -293,8 +326,8 @@ jobs:
           set -euo pipefail
           shopt -s nullglob
           epubs=(build/*-ar.epub)
-          if [ "${#epubs[@]}" -ne 6 ]; then
-            echo "::error::Expected six EPUB files; found ${#epubs[@]}."
+          if [ "${#epubs[@]}" -ne 10 ]; then
+            echo "::error::Expected ten EPUB files; found ${#epubs[@]}."
             exit 1
           fi
           epub_root=$(mktemp -d)

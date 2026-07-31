@@ -10,6 +10,10 @@ BOOKS=(
   "4-bsd-ar:692"
   "5-workbook-ar:140"
   "6-unix-story-ar:105"
+  "7-automation-ar:132"
+  "8-server-ar:132"
+  "9-network-ar:129"
+  "10-projects-ar:171"
 )
 
 pages() {

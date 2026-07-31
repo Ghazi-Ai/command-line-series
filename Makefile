@@ -1,9 +1,9 @@
 # Makefile — سلسلة سطر الأوامر
 # يتطلّب: typst, python3
 
-.PHONY: all pdf digital print print-interiors print-cover book1 book2 book3 book4 book5 book6 book7 book8 epub epub7 epub8 release release-check check clean
+.PHONY: all pdf digital print print-interiors print-cover book1 book2 book3 book4 book5 book6 book7 book8 book9 book10 epub epub7 epub8 epub9 epub10 release release-check check clean
 
-EPUB_BOOKS := 1-linux 2-macos 3-windows 4-bsd 5-workbook 6-unix-story
+EPUB_BOOKS := 1-linux 2-macos 3-windows 4-bsd 5-workbook 6-unix-story 7-automation 8-server 9-network 10-projects
 
 all: pdf
 
@@ -50,6 +50,12 @@ book7:
 book8:
 	./build.sh 8-server
 
+book9:
+	./build.sh 9-network
+
+book10:
+	./build.sh 10-projects
+
 epub:
 	mkdir -p build
 	@set -e; for book in $(EPUB_BOOKS); do \
@@ -61,28 +67,16 @@ epub:
 	done
 
 epub7:
-	mkdir -p build
-	typst compile --root . --font-path fonts --ignore-system-fonts --ppi 200 \
-		"books/7-automation/ar/frontmatter/cover.typ" \
-		"build/7-automation-ar-draft-cover.png"
-	python3 tools/make_epub.py \
-		"books/7-automation/ar" \
-		"build/7-automation-ar-draft.epub" \
-		--cover "build/7-automation-ar-draft-cover.png" \
-		--development-cover \
-		--draft
+	$(MAKE) EPUB_BOOKS="7-automation" epub
 
 epub8:
-	mkdir -p build
-	typst compile --root . --font-path fonts --ignore-system-fonts --ppi 200 \
-		"books/8-server/ar/frontmatter/cover.typ" \
-		"build/8-server-ar-draft-cover.png"
-	python3 tools/make_epub.py \
-		"books/8-server/ar" \
-		"build/8-server-ar-draft.epub" \
-		--cover "build/8-server-ar-draft-cover.png" \
-		--development-cover \
-		--draft
+	$(MAKE) EPUB_BOOKS="8-server" epub
+
+epub9:
+	$(MAKE) EPUB_BOOKS="9-network" epub
+
+epub10:
+	$(MAKE) EPUB_BOOKS="10-projects" epub
 
 release: digital print-interiors epub
 

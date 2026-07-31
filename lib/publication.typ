@@ -22,6 +22,11 @@
   #text(font: FONT.mono, size: 8pt)[LICENSES/README.md]. لا تشمل
   الرخصة الأصول المستثناة أو مواد الأطراف الثالثة.]
 
+  v(0.3em)
+  text(font: FONT.mono, size: 6.8pt)[https://creativecommons.org/licenses/by-sa/4.0/]
+  linebreak()
+  text(font: FONT.mono, size: 6.8pt)[github.com/Ghazi-Ai/command-line-series/blob/main/LICENSES/README.md]
+
   v(0.7em)
   text(weight: 700, fill: COLOR.primaryDeep)[الإعداد والإفصاح]
   linebreak()
@@ -35,6 +40,15 @@
   مادته، ومراجعتها وتدقيقها، واختيار ما يُعتمد منها، واعتماد النسخة
   المنشورة، ويتحمّل مسؤولية القرارات التحريرية والمحتوى النهائي. لا
   تُنسب أدوات الذكاء الاصطناعي بوصفها مؤلفًا أو مؤلفًا مشاركًا.]
+
+  v(0.7em)
+  text(weight: 700, fill: COLOR.primaryDeep)[إخلاء مسؤولية]
+  linebreak()
+  [يُقدَّم هذا المحتوى للتعلّم العام كما هو، بلا ضمان لملاءمته لغرض
+  بعينه. لا يُغني عن توثيق النظام الذي تستخدمه أو عن الاستعانة بمختص
+  عند القرارات التقنية أو الأمنية أو النظامية عالية الأثر. يتحمّل
+  القارئ مسؤولية التحقق والنسخ الاحتياطي والعمل ضمن الأنظمة
+  والصلاحيات المأذونة له.]
 
   if technical {
     v(0.7em)

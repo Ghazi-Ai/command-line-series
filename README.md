@@ -13,7 +13,7 @@
   <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest"><img alt="release" src="https://img.shields.io/github/v/release/Ghazi-Ai/command-line-series?display_name=tag&amp;style=flat-square&amp;label=release&amp;color=164A3E"></a>
   <a href="LICENSES/README.md"><img alt="رخصة المحتوى: CC BY-SA 4.0" src="https://img.shields.io/badge/content-CC_BY--SA_4.0-C0592B?style=flat-square&amp;logo=creativecommons&amp;logoColor=white"></a>
   <a href="LICENSES/MIT.txt"><img alt="رخصة الشيفرة: MIT" src="https://img.shields.io/badge/code-MIT-164A3E?style=flat-square&amp;logo=opensourceinitiative&amp;logoColor=white"></a>
-  <a href="#كتب-السلسلة"><img alt="عدد الكتب: 6" src="https://img.shields.io/badge/books-6-6B4E9C?style=flat-square"></a>
+  <a href="#كتب-السلسلة"><img alt="عدد الكتب: 10" src="https://img.shields.io/badge/books-10-6B4E9C?style=flat-square"></a>
 </p>
 
 **من الصفر إلى فهم الآلة**
@@ -24,7 +24,7 @@
 
 المتطلّب الوحيد: أن تعرف القراءة والكتابة.
 
-**ستّةُ كتبٍ — اكتملت كلُّها**
+**عشرةُ كتبٍ — اكتملت كلُّها**
 
 <br>
 
@@ -50,8 +50,12 @@
 | 4 | 🔴 **مِن الصِّفر إلى العِفريت** | FreeBSD وعالم BSD | ✅ مكتمل — 40 فصلًا + 5 ملاحق · 692 ص |
 | 5 | 🟣 **الطرفيّةُ بالممارسة** | تمارين على الأنظمة الأربعة جنبًا إلى جنب | ✅ مكتمل — 9 أجزاء + ملحقان · 140 ص |
 | 6 | 🔷 **رُوحٌ في الآلة** | حكاية يونيكس — كتابٌ أدبيّ للعامّة | ✅ مكتمل — 13 فصلًا · 105 ص |
+| 7 | 🟢 **مِن الأمر إلى الأتمتة** | تحويل الأوامر إلى أدوات موثوقة | ✅ مكتمل — 22 فصلًا + 4 ملاحق · 132 ص |
+| 8 | ⚙️ **الخادمُ الذي لا ينام** | إدارة خادم أوبونتو وتشغيله بأمان | ✅ مكتمل — 25 فصلًا + 4 ملاحق · 132 ص |
+| 9 | 🌐 **الشبكةُ من الطرفية** | فهم الشبكات وتشخيصها من الطرفية | ✅ مكتمل — 25 فصلًا + 4 ملاحق · 129 ص |
+| 10 | 🧭 **10+ مشاريع كبرى من الطرفية** | 21 مشروعًا متدرجًا من الجهاز إلى الخادم والأمن | ✅ مكتمل — 23 فصلًا/مشروعًا + 5 ملاحق · 171 ص |
 
-> كلُّ كتابٍ يُبنى PDF كاملًا بغلافيه الأمامي والخلفي مدموجَين. المجموع 2,918 صفحة في إصدار المصادر 1.4.1.
+> كلُّ كتابٍ يُبنى PDF كاملًا بغلافيه الأمامي والخلفي مدموجَين. المجموع 3,482 صفحة في الإصدار 2.0.0.
 
 ### أغلفة السلسلة
 
@@ -62,6 +66,10 @@
   <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf"><img src="docs/readme-covers/4-bsd.png" width="188" alt="تحميل PDF كتاب BSD"></a>
   <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf"><img src="docs/readme-covers/5-workbook.png" width="188" alt="تحميل PDF دفتر التمارين"></a>
   <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf"><img src="docs/readme-covers/6-unix-story.png" width="188" alt="تحميل PDF كتاب قصة يونكس"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/7-automation-ar.pdf"><img src="docs/readme-covers/7-automation.png" width="188" alt="تحميل PDF كتاب من الأمر إلى الأتمتة"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/8-server-ar.pdf"><img src="docs/readme-covers/8-server.png" width="188" alt="تحميل PDF كتاب الخادم الذي لا ينام"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/9-network-ar.pdf"><img src="docs/readme-covers/9-network.png" width="188" alt="تحميل PDF كتاب الشبكة من الطرفية"></a>
+  <a href="https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/10-projects-ar.pdf"><img src="docs/readme-covers/10-projects.png" width="188" alt="تحميل PDF كتاب 10+ مشاريع كبرى من الطرفية"></a>
 </div>
 
 ## ⬇️ التنزيلات · Downloads
@@ -77,6 +85,10 @@
 | 4 | 🔴 **مِن الصِّفر إلى العِفريت** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar.epub) |
 | 5 | 🟣 **الطرفيّةُ بالممارسة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar.epub) |
 | 6 | 🔷 **رُوحٌ في الآلة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar.epub) |
+| 7 | 🟢 **مِن الأمر إلى الأتمتة** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/7-automation-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/7-automation-ar.epub) |
+| 8 | ⚙️ **الخادمُ الذي لا ينام** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/8-server-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/8-server-ar.epub) |
+| 9 | 🌐 **الشبكةُ من الطرفية** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/9-network-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/9-network-ar.epub) |
+| 10 | 🧭 **10+ مشاريع كبرى من الطرفية** | [تحميل PDF](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/10-projects-ar.pdf) | [تحميل EPUB](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/10-projects-ar.epub) |
 
 ملفات المتون للطباعة، بلا الغلافين:
 [1](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/1-linux-ar-interior.pdf) ·
@@ -84,15 +96,19 @@
 [3](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/3-windows-ar-interior.pdf) ·
 [4](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/4-bsd-ar-interior.pdf) ·
 [5](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/5-workbook-ar-interior.pdf) ·
-[6](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar-interior.pdf).
+[6](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/6-unix-story-ar-interior.pdf) ·
+[7](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/7-automation-ar-interior.pdf) ·
+[8](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/8-server-ar-interior.pdf) ·
+[9](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/9-network-ar-interior.pdf) ·
+[10](https://github.com/Ghazi-Ai/command-line-series/releases/latest/download/10-projects-ar-interior.pdf).
 راجع [دليل الطباعة](docs/PRINTING.md) قبل إرسال أي ملف إلى المطبعة.
 
-> الإصدار المعتمد والمنشور: **1.4.1** — تتوفر الكتب الستة بصيغتي
+> الإصدار المعتمد والمنشور: **2.0.0** — تتوفر الكتب العشرة بصيغتي
 > PDF وEPUB، وتتوفر ملفات المتون المنفصلة للطباعة ضمن مرفقات الإصدار.
 
 ## 🎯 الفكرة
 
-موضوعٌ واحد، أربع نوافذ (لِينُكس · ماك · ويندوز · BSD)، وقصّةٌ تجمعها. كلّ كتابٍ يبدأ من الصفر المطلق، ويبني بأسلوب **مفهوم ← جرّب بنفسك ← تحدٍّ**، ويجسِّر إلى شقيقاته. «العين تقرأ قبل العقل» — فالجمال أولويّة لا ترف.
+تبدأ السلسلة بأربع نوافذ (لِينُكس · ماك · ويندوز · BSD)، ثم تجمعها بالممارسة والحكاية، وتمتد إلى الأتمتة والخوادم والشبكات والمشروعات. كل كتاب يبدأ من الصفر، ويبني بأسلوب **مفهوم ← جرّب بنفسك ← تحدٍّ**، ويعطي القارئ مفتاحًا يفتح به الباب التالي. «العين تقرأ قبل العقل» — فالجمال أولوية لا ترف.
 
 ## 🗂️ بنية المستودع
 
@@ -100,13 +116,17 @@
 
 ```
 command-line-series/
-├── books/            ← مصادر الكتب الستة وملفات Typst
+├── books/            ← مصادر الكتب العشرة وملفات Typst
 │   ├── 1-linux/      ← «مِن الصِّفر إلى الجَذر»
 │   ├── 2-macos/      ← «ماك من الطرفية»
 │   ├── 3-windows/    ← «مِن الصِّفر إلى المسؤول»
 │   ├── 4-bsd/        ← «مِن الصِّفر إلى العِفريت»
 │   ├── 5-workbook/   ← «الطرفيّةُ بالممارسة»
-│   └── 6-unix-story/ ← «رُوحٌ في الآلة»
+│   ├── 6-unix-story/ ← «رُوحٌ في الآلة»
+│   ├── 7-automation/ ← «مِن الأمر إلى الأتمتة»
+│   ├── 8-server/     ← «الخادم الذي لا ينام»
+│   ├── 9-network/    ← «الشبكة من الطرفية»
+│   └── 10-projects/  ← «10+ مشاريع كبرى من الطرفية»
 ├── docs/             ← الأدلة العامة وأصول README
 │   ├── readme-brand/
 │   └── readme-covers/
@@ -120,7 +140,7 @@ command-line-series/
 ├── LICENSE           ← الرخصة
 ├── Makefile          ← أوامر البناء المحلية
 ├── PROJECT-STATUS.md ← حالة المشروع
-├── build.sh          ← بناء الكتب الستة إلى مجلد build/
+├── build.sh          ← بناء الكتب العشرة إلى مجلد build/
 └── README.md         ← بوابة المشروع وروابط التنزيل
 ```
 
@@ -133,16 +153,16 @@ command-line-series/
 JetBrains Mono) فيخرج البناءُ متسقًا في الخطوط والتصفيف وعدد الصفحات.
 
 ```bash
-./build.sh              # يبني الكتب الستّة (PDF) إلى build/
+./build.sh              # يبني الكتب العشرة (PDF) إلى build/
 ./build.sh 1-linux      # يبني كتابًا بعينه
-make release            # يبني PDF والمتون وEPUB للكتب الستة
+make release            # يبني PDF والمتون وEPUB للكتب العشرة
 make print              # معالج تفاعلي لبناء حزمة الطباعة
-make print-interiors    # يبني المتون الستة بلا الغلافين
+make print-interiors    # يبني المتون العشرة بلا الغلافين
 make release-check      # يفحص مخرجات PDF والطباعة وEPUB
 make check              # يفحص السكربتات وفروق Git
 ```
 
-توليدُ EPUB للكتب الستة (اختياريّ، للقراءة على الجوّال):
+توليدُ EPUB للكتب العشرة (اختياريّ، للقراءة على الجوّال):
 
 ```bash
 make epub
@@ -154,6 +174,10 @@ make epub
 قالب الغلاف عرض الكعب؛ ويضع اسم الكتاب واسم «غازي السيف — أبو هيثم»
 بعد تزويده بقيم المطبعة صراحةً.
 
+قبل الطباعة أو التداول داخل المملكة، مجانًا أو بمقابل، راجع
+[`docs/PUBLISHING-CHECKLIST.md`](docs/PUBLISHING-CHECKLIST.md). لا
+يدعي المشروع اسم دار نشر أو ISBN أو رقم إيداع أو فسح لم يصدر فعليًا.
+
 ## 🎨 الهويّة البصريّة
 
 تصميمٌ داخليٌّ واحدٌ يجمع السلسلة (أخضرٌ صنوبريٌّ على ورقٍ دافئ)،
@@ -162,6 +186,9 @@ make epub
 وثّق صاحب المشروع أن الصور وُلّدت بالكامل عبر ChatGPT Images من
 أوصاف نصية أصلية، دون مدخلات بصرية خارجية. وتبقى صور الأغلفة مستثناة
 من عرض CC BY-SA 4.0، فلا تمنح رخصة المحتوى حق إعادة استخدامها تلقائيًا.
+يسمح [`COVER-PERMISSION.md`](COVER-PERMISSION.md) بطباعة النسخة
+الرسمية غير المعدلة وتوزيعها ككتاب كامل بغلافها، دون اقتطاع الغلاف
+أو استعماله لهوية نسخة مشتقة.
 
 ## 📜 الرخصة
 
