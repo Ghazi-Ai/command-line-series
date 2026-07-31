@@ -64,3 +64,23 @@
 #let cover-license-line = [
   CC BY-SA 4.0 للنص المحدد · راجع LICENSES/README.md
 ]
+
+// لوحة اسم موحّدة للأغلفة الأمامية. الخلفية الرقّية شبه المعتمة تحمي
+// الاسم من تفاصيل الفنّ المولّد، مع إبقاء موضعه السفلي وهوية السلسلة.
+#let cover-author-credit() = block(
+  width: 84mm,
+  fill: rgb("#F7E9C8").transparentize(50%),
+  stroke: 0.5pt + rgb("#9A7848").transparentize(24%),
+  radius: 3mm,
+  inset: (x: 5mm, y: 2.2mm),
+  {
+    set align(center)
+    text(font: FONT.bodyAr, size: 12pt, weight: 700, fill: rgb("#26242E"))[
+      المهندس غازي السيف
+    ]
+    v(1.2mm)
+    text(font: FONT.bodyAr, size: 9.5pt, weight: 600, fill: rgb("#4A4857"))[
+      أبو هيثم
+    ]
+  },
+)

@@ -7,14 +7,12 @@
   text(font: FONT.bodyAr, size: 11pt, fill: COLOR.primary, weight: 600)[
     افهم · صمّم · نفّذ · اختبر · استعد · وثّق · سلّم
   ]
-  v(1.8fr)
-  text(font: FONT.displayAr, size: 48pt, weight: 800, fill: COLOR.primaryDeep, dir: ltr)[10+]
-  v(8pt, weak: true)
-  text(font: FONT.displayAr, size: 37pt, weight: 800, fill: COLOR.primaryDeep)[
-    مشاريع كبرى\
+  v(2.2fr)
+  text(font: FONT.displayAr, size: 38pt, weight: 800, fill: COLOR.primaryDeep)[
+    #box(text(dir: ltr)[10+]) #h(0.18em) مشاريع كبرى\
     من الطرفية
   ]
-  v(24pt, weak: true)
+  v(26pt, weak: true)
   line(length: 28%, stroke: 1.5pt + COLOR.accent)
   v(20pt, weak: true)
   text(font: FONT.bodyAr, size: 12.8pt, fill: COLOR.ink, weight: 600)[
