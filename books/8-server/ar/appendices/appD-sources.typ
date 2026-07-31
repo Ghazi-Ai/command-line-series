@@ -5,7 +5,7 @@
 
 صيغ متن هذا الكتاب خصيصًا للسلسلة. واستُخدمت المراجع الرسمية
 الآتية للتحقق من المفاهيم والأوامر، لا لنقل نصوصها. تاريخ الاطلاع
-على المصادر الحية: 2026-07-30.
+على المصادر الحية: 2026-07-31.
 
 #section[أوبونتو وإدارة النظام]
 
@@ -45,6 +45,9 @@
   `freedesktop.org/software/systemd/man/latest/systemd.service.html`
 - المؤقتات:
   `freedesktop.org/software/systemd/man/latest/systemd.timer.html`
+- بيئة تنفيذ الوحدات وحدودها، ومنها `DynamicUser` و`StateDirectory`
+  وخيارات حماية نظام الملفات:
+  `freedesktop.org/software/systemd/man/latest/systemd.exec.html`
 - أداة الإدارة `systemctl`:
   `freedesktop.org/software/systemd/man/latest/systemctl.html`
 - سجل اليومية و`journalctl`:
@@ -74,6 +77,8 @@
   `docs.docker.com/engine/storage/volumes/`
 - توثيق الشبكات ونشر المنافذ:
   `docs.docker.com/engine/network/`
+- تكامل قواعد دوكر مع الجدران النارية والتنبيه الخاص بـUFW:
+  `docs.docker.com/engine/network/packet-filtering-firewalls/`
 - عند استعمال Podman أو أداة أخرى، يرجع إلى توثيق إصدارها الرسمي
   بدل نقل خيارات Docker تلقائيًا.
 
@@ -99,8 +104,8 @@ man flock
 ```
 
 #note[
-  المسودة تستهدف أوبونتو طويل الدعم، لكنها لا تثبت رقم إصدار واحدًا
-  لكل قارئ. قبل اعتماد الكتاب للنشر تُختبر الأوامر على مصفوفة
-  إصدارات محددة، وتُراجع روابط المصادر وتوصيات تثبيت Certbot
-  والحاويات مرة أخرى.
+  يستهدف الكتاب أوبونتو طويل الدعم، لكنه لا يثبت رقم إصدار واحدًا
+  لكل قارئ. تحققت هذه المراجعة من تركيب الأمثلة ومن التوثيق الرسمي
+  الحي، ويبقى على القارئ مطابقة الأمر مع إصدار خادمه وطريقة تثبيت
+  سِرتبوت ومحرك الحاويات الذي اختاره قبل أي تغيير مؤثر.
 ]

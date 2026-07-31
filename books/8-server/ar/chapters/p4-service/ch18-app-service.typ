@@ -21,8 +21,10 @@
 
 ```bash
 sudo adduser --system --group \
-  --home /srv/book-app --shell /usr/sbin/nologin book-app
-sudo install -d -m 755 -o book-app -g book-app \
+  --home /var/lib/book-app --no-create-home \
+  --shell /usr/sbin/nologin book-app
+sudo install -d -m 750 -o book-app -g book-app /var/lib/book-app
+sudo install -d -m 755 -o root -g root \
   /srv/book-app/public
 ```
 
@@ -31,8 +33,11 @@ sudo install -d -m 755 -o book-app -g book-app \
 ```bash
 printf '%s\n' '<h1>awake</h1>' \
   | sudo tee /srv/book-app/public/index.html >/dev/null
-sudo chown book-app:book-app /srv/book-app/public/index.html
 ```
+
+يبقى مجلد الإصدار والصفحة بملكية الجذر وقابلين للقراءة؛ يستطيع
+حساب الخدمة تقديمهما، ولا يستطيع تعديل شيفرته بنفسه. خصصنا
+`/var/lib/book-app` للبيانات التي تحتاج الخدمة كتابتها لاحقًا.
 
 سنستخدم خادم بايثون المدمج للتعليم داخل المختبر فقط؛ ليس خادم
 إنتاج.
@@ -65,6 +70,9 @@ Restart=on-failure
 RestartSec=3
 NoNewPrivileges=true
 PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/book-app
 
 [Install]
 WantedBy=multi-user.target

@@ -20,9 +20,13 @@
 في أوبونتو قد يتوزع الإعداد بين الملف الرئيس وملفات إسقاط:
 
 ```bash
-sudo sshd -T | sort
-sudo grep -RnsE '^[[:space:]]*(PasswordAuthentication|PermitRootLogin|PubkeyAuthentication|AllowUsers|AllowGroups)' \
-  /etc/ssh/sshd_config /etc/ssh/sshd_config.d 2>/dev/null
+sudo sshd -T | grep 'authentication'
+sudo sshd -T | grep 'permitrootlogin'
+sudo sshd -T | grep -E 'allowusers|allowgroups'
+sudo grep -Rns 'Authentication' \
+  /etc/ssh/sshd_config* 2>/dev/null
+sudo grep -RnsE 'PermitRootLogin|AllowUsers|AllowGroups' \
+  /etc/ssh/sshd_config* 2>/dev/null
 ```
 
 يعرض `sshd -T` الإعداد الفعلي العام بعد دمج الملفات. قد تتأثر
@@ -41,6 +45,7 @@ sudoedit /etc/ssh/sshd_config.d/00-local-hardening.conf
 ```text
 PubkeyAuthentication yes
 PasswordAuthentication no
+KbdInteractiveAuthentication no
 PermitRootLogin no
 ```
 
@@ -79,17 +84,19 @@ sudo systemctl status ssh --no-pager
 ssh book-server
 ```
 
-ثم اختبر أن كلمة المرور لم تعد طريقًا مقبولًا، مع منع استعمال
-مفاتيح تلقائية:
+ثم اختبر أن كلمة المرور والتحقق التفاعلي من لوحة المفاتيح لم يعودا
+طريقين مقبولين، مع منع استعمال مفاتيح تلقائية:
 
 ```bash
 ssh -o PubkeyAuthentication=no \
-  -o PreferredAuthentications=password \
+  -o PreferredAuthentications=password,keyboard-interactive \
   ghazi@203.0.113.10
 ```
 
-ينبغي أن يفشل هذا الاختبار إذا عطلت كلمات المرور. لا تكرر محاولات
-كثيرة على خادم حقيقي فتفعل نظام حظر.
+ينبغي أن يفشل هذا الاختبار إذا عطلت الطريقتين. لا تكرر محاولات
+كثيرة على خادم حقيقي فتفعل نظام حظر. وإذا كنت تستعمل تحققًا متعدد
+العوامل مبنيًا على `keyboard-interactive`، فلا تعطله؛ صمّم إعداد
+`AuthenticationMethods` واختبره وفق طريقة التحقق التي اعتمدتها.
 
 #danger[
   لا تغلق الجلسة القديمة حتى ينجح الاتصال الجديد بالمفتاح ويعمل
@@ -120,7 +127,7 @@ AllowGroups ssh-login
 `AllowGroups` بلا فهم لتقاطع الشروط.
 
 #try-it[
-  في المختبر: احفظ مخرج الخيارات الثلاثة من `sshd -T`، أضف ملف
+  في المختبر: احفظ مخرج الخيارات الأربعة من `sshd -T`، أضف ملف
   الإسقاط، نفّذ فحص التركيب، أعد التحميل، واختبر نجاح المفتاح وفشل
   كلمة المرور من نافذتين. أرفق الأوامر والنتائج المختصرة في الدفتر.
 ]

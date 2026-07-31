@@ -36,6 +36,7 @@ free -h
 df -h /
 systemctl --failed
 curl --fail --silent --show-error \
+  --connect-timeout 5 --max-time 15 \
   https://app.example.com/health
 ```
 

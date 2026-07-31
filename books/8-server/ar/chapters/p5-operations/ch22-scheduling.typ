@@ -57,7 +57,14 @@ Description=Book laboratory disk report
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/sbin/book-disk-report
+DynamicUser=true
+StateDirectory=book-report
+ExecStart=/usr/bin/flock --nonblock \
+  /var/lib/book-report/task.lock /usr/local/sbin/book-disk-report
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
 ```
 
 احفظها في `/etc/systemd/system/book-disk-report.service`، ثم:
@@ -95,22 +102,24 @@ sudo systemctl enable --now book-disk-report.timer
 systemctl list-timers book-disk-report.timer
 ```
 
-`Persistent=true` يجعل المهمة الفائتة أثناء توقف الخادم تُشغل بعد
-عودته. هذا مناسب لتقرير، وقد يكون خطرًا لمهمة لا تريدها عند
-الإقلاع. القرار جزء من العقد.
+`Persistent=true` يجعل المهمة الفائتة أثناء توقف الخادم تُشغل مرة
+واحدة بعد عودته، مع مراعاة التأخير العشوائي. هذا مناسب لتقرير، وقد
+يكون خطرًا لمهمة لا تريدها عند الإقلاع. القرار جزء من العقد.
 
 #section[لا تتداخل]
 
-إذا استغرقت المهمة أكثر من الفاصل، قد تعمل نسختان. تستطيع تصميم
-الأداة لتمنع التداخل أو استعمال قفل:
+إذا كانت الوحدة التي يستهدفها المؤقت نشطة عند حلول الموعد، فلا
+يشغّل `systemd` نسخة ثانية منها. لكن المهمة قد تُستدعى من وحدة
+أخرى أو من أداة خارجية؛ لذلك أضفنا قفل `flock` إلى عقد الخدمة:
 
 ```bash
-flock --nonblock /run/book-report.lock \
+flock --nonblock /var/lib/book-report/task.lock \
   /usr/local/sbin/book-disk-report
 ```
 
-حدد هل الخروج بسبب القفل نجاح متوقع أم فشل يستحق تنبيهًا. القفل
-العالق يختلف حسب نوعه؛ قفل `flock` يرتبط بالعملية ويزول بانتهائها.
+المجلد في المثال ينشئه `StateDirectory` ويمنح حساب الخدمة المؤقت
+حق الكتابة فيه. حدد هل الخروج بسبب القفل نجاح متوقع أم فشل يستحق
+تنبيهًا. قفل `flock` يرتبط بالعملية ويزول بانتهائها.
 
 #warn[
   لا تضف `2>/dev/null` إلى مهمة مجدولة لإسكات البريد أو السجل؛ قد

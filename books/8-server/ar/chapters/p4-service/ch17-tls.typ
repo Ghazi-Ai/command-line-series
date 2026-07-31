@@ -93,7 +93,7 @@ server {
     listen 80;
     listen [::]:80;
     server_name app.example.com;
-    return 301 https://$host$request_uri;
+    return 301 https://app.example.com$request_uri;
 }
 ```
 

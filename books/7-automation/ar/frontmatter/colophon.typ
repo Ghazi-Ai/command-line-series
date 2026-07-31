@@ -1,5 +1,5 @@
 #import "/lib/theme.typ": COLOR, FONT
-#import "/lib/publication.typ": rights-block
+#import "/lib/publication.typ": project-version, rights-block
 
 #page(header: none, footer: none, numbering: none, {
   set text(font: FONT.bodyAr, size: 8.2pt, fill: COLOR.ink)
@@ -11,10 +11,9 @@
   text(fill: COLOR.muted)[كيف تحوّل أوامر الطرفية إلى أدوات تعمل من أجلك]
 
   v(0.8em)
-  text(weight: 700, fill: COLOR.warn)[مسودة تطويرية غير منشورة]
+  text(weight: 700, fill: COLOR.primaryDeep)[النسخة الرسمية]
   linebreak()
-  [هذه النسخة قيد الكتابة والاختبار، وليست إصدارًا رسميًا أو ملفًا
-  معتمدًا للطباعة أو التوزيع.]
+  [هذه النسخة جزء من الإصدار #project-version الرسمي لسلسلة سطر الأوامر.]
 
   v(0.8em)
   [© #text(font: FONT.mono)[2026] المهندس غازي السيف (أبو هيثم).
@@ -22,6 +21,14 @@
 
   v(0.7em)
   rights-block(technical: true)
+
+  v(0.7em)
+  text(weight: 700, fill: COLOR.primaryDeep)[الفن الأساسي للغلاف]
+  linebreak()
+  [وُلّد عبر ChatGPT Images من وصف نصي أصلي ولوحة أساس فارغة مولدة
+  داخل المشروع، دون مدخلات بصرية خارجية. ثم أضيفت العناوين والهوية
+  والتنسيق بأداة Typst. فن الغلاف مستثنى من CC BY-SA 4.0 وفق خريطة
+  التراخيص.]
 
   v(0.9em)
   text(weight: 700, fill: COLOR.primaryDeep)[المصدر والتواصل]
@@ -34,4 +41,3 @@
 
   v(0.8fr)
 })
-
