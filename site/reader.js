@@ -70,7 +70,7 @@ function renderPage() {
   ui.imageWrap.classList.toggle("fit", state.fit);
   ui.image.style.width = state.fit ? "" : `${Math.round(ui.image.naturalWidth * state.zoom / 100)}px`;
   ui.image.alt = `صفحة ${state.page} من ${state.totalPages} — ${ui.title.textContent}`;
-  ui.image.src = `reader-pages/${book}/page-${page}.jpg`;
+  ui.image.src = `reader-pages/${book}/page-${page}.jpg?v=20260731-2`;
   localStorage.setItem(progressKey(), String(state.page));
   updateControls();
 }
