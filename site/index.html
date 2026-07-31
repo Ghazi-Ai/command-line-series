@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <title>سلسلة سطر الأوامر — عشرة كتب، حرفة واحدة</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23164a3e%22/><path d=%22M17 20l12 12-12 12M33 44h15%22 fill=%22none%22 stroke=%22%23fcfbf9%22 stroke-width=%226%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
-  <link rel="stylesheet" href="styles.css?v=20260731-1">
+  <link rel="stylesheet" href="styles.css?v=20260731-2">
   <script>
     window.seriesReaderQueue = [];
     document.addEventListener("click", (event) => {
@@ -43,7 +43,7 @@
       });
     });
   </script>
-  <script src="script.js?v=20260731-1" defer></script>
+  <script src="script.js?v=20260731-2" defer></script>
   <script src="reader.js?v=20260731-1" type="module"></script>
 </head>
 <body>
@@ -97,17 +97,28 @@
       <div class="hero-visual reveal" aria-label="مجموعة أغلفة السلسلة">
         <div class="orbit orbit-one" aria-hidden="true"></div>
         <div class="orbit orbit-two" aria-hidden="true"></div>
-        <div class="book-stack">
-          <img class="stack-book stack-1" src="assets/covers/1-linux.png" alt="">
-          <img class="stack-book stack-2" src="assets/covers/2-macos.png" alt="">
-          <img class="stack-book stack-3" src="assets/covers/3-windows.png" alt="">
-          <img class="stack-book stack-4" src="assets/covers/4-bsd.png" alt="">
-          <img class="stack-book stack-5" src="assets/covers/5-workbook.png" alt="">
-          <img class="stack-book stack-6" src="assets/covers/6-unix-story.png" alt="غلاف كتاب روح في الآلة">
-          <img class="stack-book stack-7" src="assets/covers/7-automation.png" alt="">
-          <img class="stack-book stack-8" src="assets/covers/8-server.png" alt="">
-          <img class="stack-book stack-9" src="assets/covers/9-network.png" alt="">
-          <img class="stack-book stack-10" src="assets/covers/10-projects.png" alt="غلاف كتاب 10+ مشاريع كبرى من الطرفية">
+        <button class="book-stack" type="button" data-book-stack
+                aria-label="فتح الكتاب 10 من 10: 10+ مشاريع كبرى من الطرفية">
+          <span class="stack-book stack-1" data-title="مِن الصِّفر إلى الجَذر" data-pdf="books/1-linux-ar.pdf" data-pages="628"><img src="assets/covers/1-linux.png" alt=""></span>
+          <span class="stack-book stack-2" data-title="ماك من الطرفية" data-pdf="books/2-macos-ar.pdf" data-pages="682"><img src="assets/covers/2-macos.png" alt=""></span>
+          <span class="stack-book stack-3" data-title="مِن الصِّفر إلى المسؤول" data-pdf="books/3-windows-ar.pdf" data-pages="671"><img src="assets/covers/3-windows.png" alt=""></span>
+          <span class="stack-book stack-4" data-title="مِن الصِّفر إلى العِفريت" data-pdf="books/4-bsd-ar.pdf" data-pages="692"><img src="assets/covers/4-bsd.png" alt=""></span>
+          <span class="stack-book stack-5" data-title="الطرفيّةُ بالممارسة" data-pdf="books/5-workbook-ar.pdf" data-pages="140"><img src="assets/covers/5-workbook.png" alt=""></span>
+          <span class="stack-book stack-6" data-title="رُوحٌ في الآلة" data-pdf="books/6-unix-story-ar.pdf" data-pages="105"><img src="assets/covers/6-unix-story.png" alt=""></span>
+          <span class="stack-book stack-7" data-title="مِن الأمر إلى الأتمتة" data-pdf="books/7-automation-ar.pdf" data-pages="132"><img src="assets/covers/7-automation.png" alt=""></span>
+          <span class="stack-book stack-8" data-title="الخادمُ الذي لا ينام" data-pdf="books/8-server-ar.pdf" data-pages="132"><img src="assets/covers/8-server.png" alt=""></span>
+          <span class="stack-book stack-9" data-title="الشبكةُ من الطرفية" data-pdf="books/9-network-ar.pdf" data-pages="129"><img src="assets/covers/9-network.png" alt=""></span>
+          <span class="stack-book stack-10 is-active" data-title="10+ مشاريع كبرى من الطرفية" data-pdf="books/10-projects-ar.pdf" data-pages="171"><img src="assets/covers/10-projects.png" alt=""></span>
+        </button>
+        <div class="stack-guide" aria-live="polite">
+          <button type="button" data-stack-prev aria-label="الكتاب السابق">←</button>
+          <div>
+            <span data-stack-position>الكتاب 10 من 10</span>
+            <strong data-stack-title><bdi dir="ltr">10+</bdi> مشاريع كبرى من الطرفية</strong>
+            <small class="guide-desktop">حرّك المؤشر، ثم اضغط للقراءة</small>
+            <small class="guide-touch">اسحب لاكتشاف الكتب، واضغط للقراءة</small>
+          </div>
+          <button type="button" data-stack-next aria-label="الكتاب التالي">→</button>
         </div>
         <div class="terminal-note" aria-hidden="true">
           <div><i></i><i></i><i></i></div>

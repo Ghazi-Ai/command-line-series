@@ -158,22 +158,58 @@ button { font: inherit; }
 .hero-stats dd { margin: 5px 0 0; color: #aac9c0; font-size: 12px; }
 
 .hero-visual { height: 610px; display: grid; place-items: center; perspective: 1200px; }
-.book-stack { position: relative; width: 290px; height: 410px; transform: rotateY(-8deg) rotateX(3deg); }
-.stack-book {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  border-radius: 3px 12px 12px 3px; box-shadow: -18px 24px 50px rgb(0 0 0 / 25%);
-  transform-origin: bottom center;
+.book-stack {
+  --tilt-x: 0deg; --tilt-y: 0deg;
+  position: relative; width: 540px; height: 410px; padding: 0;
+  border: 0; color: inherit; background: transparent; cursor: pointer;
+  touch-action: pan-y; transform-style: preserve-3d;
+  transform: rotateY(calc(-8deg + var(--tilt-y))) rotateX(calc(3deg + var(--tilt-x)));
+  transition: transform .22s ease; -webkit-tap-highlight-color: transparent;
 }
-.stack-1 { transform: translate(-118px, 30px) rotate(-17deg); }
-.stack-2 { transform: translate(-92px, 20px) rotate(-13deg); }
-.stack-3 { transform: translate(-65px, 12px) rotate(-9deg); }
-.stack-4 { transform: translate(-38px, 6px) rotate(-5deg); }
-.stack-5 { transform: translate(-12px, 2px) rotate(-2deg); }
-.stack-6 { transform: translate(15px, 2px) rotate(2deg); }
-.stack-7 { transform: translate(42px, 6px) rotate(5deg); }
-.stack-8 { transform: translate(69px, 12px) rotate(9deg); }
-.stack-9 { transform: translate(96px, 20px) rotate(13deg); }
-.stack-10 { transform: translate(123px, 30px) rotate(17deg); }
+.book-stack:focus-visible { outline: 3px solid #f09b72; outline-offset: 14px; border-radius: 16px; }
+.stack-book {
+  position: absolute; top: 0; left: 50%; width: 290px; height: 410px;
+  border-radius: 3px 12px 12px 3px; box-shadow: -18px 24px 50px rgb(0 0 0 / 25%);
+  transform-origin: bottom center; pointer-events: none; opacity: .78;
+  filter: saturate(.82) brightness(.88);
+  transition: transform .34s cubic-bezier(.2,.78,.2,1), opacity .25s, filter .25s, box-shadow .25s;
+}
+.stack-book img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+.stack-1 { z-index: 1; transform: translate(calc(-50% - 118px), 30px) rotate(-17deg); }
+.stack-2 { z-index: 2; transform: translate(calc(-50% - 92px), 20px) rotate(-13deg); }
+.stack-3 { z-index: 3; transform: translate(calc(-50% - 65px), 12px) rotate(-9deg); }
+.stack-4 { z-index: 4; transform: translate(calc(-50% - 38px), 6px) rotate(-5deg); }
+.stack-5 { z-index: 5; transform: translate(calc(-50% - 12px), 2px) rotate(-2deg); }
+.stack-6 { z-index: 6; transform: translate(calc(-50% + 15px), 2px) rotate(2deg); }
+.stack-7 { z-index: 7; transform: translate(calc(-50% + 42px), 6px) rotate(5deg); }
+.stack-8 { z-index: 8; transform: translate(calc(-50% + 69px), 12px) rotate(9deg); }
+.stack-9 { z-index: 9; transform: translate(calc(-50% + 96px), 20px) rotate(13deg); }
+.stack-10 { z-index: 10; transform: translate(calc(-50% + 123px), 30px) rotate(17deg); }
+.stack-book.is-active {
+  z-index: 20; opacity: 1; filter: none;
+  transform: translate(-50%, -24px) translateZ(42px) rotate(0deg) scale(1.075);
+  box-shadow: -22px 34px 65px rgb(0 0 0 / 38%);
+}
+.stack-guide {
+  position: absolute; z-index: 24; top: -58px; left: 50%; min-width: 330px;
+  display: grid; grid-template-columns: 38px minmax(220px, 1fr) 38px;
+  align-items: center; gap: 10px; padding: 8px 10px;
+  border: 1px solid rgb(255 255 255 / 18%); border-radius: 999px;
+  color: white; background: rgb(8 28 24 / 72%); backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 16%); transform: translateX(-50%);
+}
+.stack-guide > div { min-width: 0; text-align: center; }
+.stack-guide span, .stack-guide strong, .stack-guide small { display: block; }
+.stack-guide span { color: #aac9c0; font: 10px/1.2 "JetBrains", monospace; }
+.stack-guide strong { margin: 2px 0; overflow: hidden; font-size: 13px; white-space: nowrap; text-overflow: ellipsis; }
+.stack-guide small { color: #c3ddd5; font-size: 10px; }
+.stack-guide button {
+  width: 34px; height: 34px; padding: 0; border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 50%; color: white; background: rgb(255 255 255 / 8%); cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.stack-guide button:hover, .stack-guide button:focus-visible { background: rgb(255 255 255 / 18%); transform: scale(1.06); }
+.guide-touch { display: none !important; }
 .orbit { position: absolute; border: 1px solid rgb(255 255 255 / 10%); border-radius: 50%; }
 .orbit-one { width: 570px; height: 570px; }
 .orbit-two { width: 440px; height: 440px; border-style: dashed; animation: spin 40s linear infinite; }
@@ -526,11 +562,26 @@ mark { color: #d9f1e9; background: transparent; animation: blink 1s steps(1) inf
   .hero-stats { gap: 0; width: 100%; justify-content: center; }
   .hero-stats div { flex: 1; padding: 0 10px; }
   .hero-stats dt { font-size: 19px; }
-  .hero-visual { height: 420px; transform: scale(.82); margin: -20px 0; }
-  .book-stack { width: 235px; height: 334px; }
+  .hero-visual { height: 440px; transform: scale(.82); margin: -20px 0; }
+  .book-stack { width: 430px; height: 334px; }
+  .stack-book { width: 235px; height: 334px; }
+  .stack-1 { transform: translate(calc(-50% - 90px), 24px) rotate(-17deg); }
+  .stack-2 { transform: translate(calc(-50% - 70px), 16px) rotate(-13deg); }
+  .stack-3 { transform: translate(calc(-50% - 50px), 10px) rotate(-9deg); }
+  .stack-4 { transform: translate(calc(-50% - 30px), 5px) rotate(-5deg); }
+  .stack-5 { transform: translate(calc(-50% - 10px), 2px) rotate(-2deg); }
+  .stack-6 { transform: translate(calc(-50% + 10px), 2px) rotate(2deg); }
+  .stack-7 { transform: translate(calc(-50% + 30px), 5px) rotate(5deg); }
+  .stack-8 { transform: translate(calc(-50% + 50px), 10px) rotate(9deg); }
+  .stack-9 { transform: translate(calc(-50% + 70px), 16px) rotate(13deg); }
+  .stack-10 { transform: translate(calc(-50% + 90px), 24px) rotate(17deg); }
+  .stack-book.is-active { transform: translate(-50%, -17px) translateZ(32px) rotate(0deg) scale(1.055); }
+  .stack-guide { top: auto; bottom: -3px; min-width: 355px; }
+  .guide-desktop { display: none !important; }
+  .guide-touch { display: block !important; }
   .orbit-one { width: 470px; height: 470px; }
   .orbit-two { width: 360px; height: 360px; }
-  .terminal-note { bottom: 0; }
+  .terminal-note { display: none; }
   .manifesto { padding-block: 100px 125px; }
   .books-section { padding-block: 80px 100px; }
   .section-heading { display: block; }
